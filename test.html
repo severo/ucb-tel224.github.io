@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Curso UCB - TEL 224 - Procesamiento digital de señales</title>
+	<title>Curso UCB - TEL 224 - Procesamiento digital de señales - Señales y sistemas en tiempo discreto</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<link media="screen, handheld, projection, tv" href="css/estilo.css" rel="stylesheet">
 </head>
@@ -11,34 +11,68 @@
 class: center, middle
 
 # Procesamiento digital de señales
+# 1. Señales y sistemas en tiempo discreto
 
-  <p>
-    Square root of two:
-    <math>
-      <msqrt>
-        <mn>2</mn>
-      </msqrt>
-    </math>
-  </p>
 ---
 
 # Agenda
 
-1. Introduction
-2. Deep-dive
-3. ...
+Semana 1:
+ * 1 - Señales en tiempo discreto
+ * 2 - Sistemas en tiempo discreto
+ * 3 - Sistemas lineales e invariantes con el tiempo
+ * 4 - Propiedades de los sistemas lineales e invariantes con el tiempo
+ * 5 - Ecuaciones en diferencias lineales con coeficientes constantes
 
+Semana 2:
+ * 6 - Representación en el dominio de la frecuencia de señales y sistemas en tiempo discreto
+ * 7 - Representación de secuencias mediante transformadas de Fourier
+ * 8 - Propiedades de simetría de la transformada de Fourier
+ * 9 - Propiedades de la transformada de Fourier
+ * 10 - Señales aleatorias en tiempo discreto
+ * 11 - Resumen
+
+???
+
+Presentar los tiempos
 ---
+name: señales-en-tiempo-discreto
 
-# Introduction
+# Señales en tiempo discreto
+# `\(\LaTeX{}\)` in remark
+Las señales en tiempo discreto se representan matemáticamente como secuencias de números.
+
+Square root of two:
+  <p>
+    <math>
+      x = {}<msqrt>
+        <mn>2</mn>
+      </msqrt>
+    </math>
+  </p>
+  
+`$$e^{i\pi} + 1 = 0$$`
 
 	</textarea>
-	<!-- Descargado de http://fred-wang.github.io/mathjax.js/mpadded-min.js y adaptado para utilizar MathJax.js local-->
-	<script src="js/mpadded-min.js"></script>
 	<!-- Descargado de https://gnab.github.io/remark/downloads/remark-latest.min.js -->
 	<script src="js/remark-latest.min.js"></script>
-	<script>
-var slideshow = remark.create();
-	</script>
+	<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured" type="text/javascript"></script>
+    <script type="text/javascript">
+      var slideshow = remark.create();
+
+      // Setup MathJax
+      MathJax.Hub.Config({
+          tex2jax: {
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+          }
+      });
+      MathJax.Hub.Queue(function() {
+          $(MathJax.Hub.getAllJax()).map(function(index, elem) {
+              return(elem.SourceElement());
+          }).parent().addClass('has-jax');
+      });
+
+      MathJax.Hub.Configured();
+    </script>
 </body>
 </html>
