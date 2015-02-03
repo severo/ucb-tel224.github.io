@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Curso UCB - TEL 224 - Procesamiento digital de señales - Señales y sistemas en tiempo discreto</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<link media="screen, handheld, projection, tv" href="css/estilo.css" rel="stylesheet">
+</head>
+<body>
+	<textarea id="source">
+
+class: center, middle
+
+# Procesamiento digital de señales
+# 1. Señales y sistemas en tiempo discreto
+# 1.4 Propiedades de los sistemas lineales invariantes en el tiempo
+
+---
+
+# Propiedades de los SLIT
+
+---
+
+	</textarea>
+    <script src="js/remark.min.js"></script>
+    <script src="js/MathJax/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured" type="text/javascript"></script>
+    <script type="text/javascript">
+      var slideshow = remark.create();
+      // Setup MathJax
+      MathJax.Hub.Config({
+          tex2jax: {
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+          }
+      });
+      MathJax.Hub.Queue(function() {
+          $(MathJax.Hub.getAllJax()).map(function(index, elem) {
+              return(elem.SourceElement());
+          }).parent().addClass('has-jax');
+      });
+      MathJax.Hub.Configured();
+    </script>
+</body>
+</html>
