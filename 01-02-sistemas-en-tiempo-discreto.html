@@ -166,15 +166,23 @@ Consideremos la respuesta `\(y_1[n]\)` a la entrada `\(x_1[n]=x[n-n_0]\)`. Para 
 ---
 
 # Causalidad
-Se dice que un sistema es causal si para cualquier valor de n_0, la secuencia de salida en el índice n=n_0 depende sólo de los valores de la secuencia de entrada para n<=n_0. Esto implica que si x_1[n]=x_2[n] para n<=n_0, entonces y_1[n]=y_2[n] para n<=n_0. Es decir, el sistema es no anticipativo.
-Ejemplo Los sistemas de diferencia progresiva y regresiva
-y[n] = x[n+1]-x[n]
-Es no causal, ya qye el valor actual de la salida depende de un valor futuro de la entrada (x[n+1]).
-La violación de la causalidad se puede demostrar considearndo las entradas x_1[n]=\delta[n-1] y x_2[n]=0 y sus correspondientes salidas y_1[n]=\delta[n]-\delta[n-1], y_2[n]=0 para todo n. x_1[n]=x_2[n] para n<=0, por lo que la definción de causalidad exige que y_1[n]=y_2[n] para n<=0 lo que claramente no es cierto para n=0.
-Ejemplo sistema de diferencia regresiva
-y[n]=x[n]-x[n-1]
-tiene una salida que depende sólo de los valores presente e inmediatamente anterior a la entrada. y[n_0] depende sólo de x[n_0] y x[n_0-1], el sistema es causal.
-2.2.5. Estabilidad
+
+Se dice que un sistema es causal si para cualquier valor de `\(n_0\)`, la secuencia de salida en el índice `\(n=n_0\)` depende sólo de los valores de la secuencia de entrada para `\(n \leq n_0\)`. Esto implica que si `\(x_1[n]=x_2[n]\)` para `\(n \leq n_0\)`, entonces `\(y_1[n]=y_2[n]\)` para `\(n \leq n_0\)`. Es decir, el sistema es no anticipativo.
+
+# Ejemplo (2.9) Sistemas de diferencia progresiva y regresiva
+
+`$$y[n] = x[n+1]-x[n]$$`
+
+Es no causal, ya que el valor actual de la salida depende de un valor futuro de la entrada (`\(x[n+1]\)`).
+
+La violación de la causalidad se puede demostrar considearndo las entradas `\(x_1[n]=\delta[n-1]\)` y `\(x_2[n]=0\)` y sus correspondientes salidas `\(y_1[n]=\delta[n]-\delta[n-1]\)`, `\(y_2[n]=0\)` para todo `\(n\)`. `\(x_1[n]=x_2[n]\)` para `\(n \leq 0\)`, por lo que la definción de causalidad exige que `\(y_1[n]=y_2[n]\)` para `\(n \leq 0\)` lo que claramente no es cierto para `\(n=0\)`.
+
+El sistema de diferencia regresiva, `\(y[n]=x[n]-x[n-1]\)` tiene una salida que depende sólo de los valores presente e inmediatamente anterior a la entrada. `\(y[n_0]\)` depende sólo de `\(x[n_0]\)` y `\(x[n_0-1]\)`, el sistema es causal.
+
+---
+
+# Estabilidad
+
 Existen varias definiciones. Consideraremos específicamente la estabilidad en sentido de entrada acotada, salidad acotada (BIBO).
 Un sistema es estable en el sentido de entrada acotada, salidad acotada (BIBO, Bounded-Input, Bounded-Output) si y sólo si cualquier secuencia acotada a su entrada produce una secuencia de salidad acotada.
 Se dice que la entrada x[n] está acotada si existe un valor finito positivo fijo B_x tal que:
