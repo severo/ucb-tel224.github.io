@@ -39,7 +39,7 @@ En este ejemplo para determinar una muestra de la señal de salida, sólo se nec
 
 # Ejemplo (2.3) Promediado móvil
 
-`$$y[n]=\frac{1}{M_1+M_2+1} \sum_{k=-M_1}^M_2 x[n-k]$$`
+`$$y[n]=\frac{1}{M_1+M_2+1} \sum_{k=-M_1}^{M_2}x[n-k]$$`
 
 `$$y[n]=\frac{1}{M_1+M_2+1} \{x[n+M_1]+x[n+M_1-1]+...$$`
 `$$+x[n]+x[n-1]+x[n-M_2]$$`
@@ -88,19 +88,32 @@ Los ejemplos (2.2) y (2.3) son lineales el ejemplo (2.4) es no lineal.
 
 # Ejemplo (2.5) Sistema acumulador
 
-y[n] = \sum_{k=-\infty}^{n}{x[k]}
-La salida en el instante n es la suma o acumulación de la muestra actual y todas las muestras anteriores de la entrada.
-Demostrar que es lineal.
-Ejemplo un sistema no lineal
-w[n]=log_10(|x[n]|)
+`$$y[n] = \sum_{k=-\infty}^{n}x[k]$$`
+
+La salida en el instante `\(n\)` es la suma o acumulación de la muestra actual y todas las muestras anteriores de la entrada.
+
+Ejercicio: demuestre que es lineal.
+
+# Ejemplo (2.6) Un sistema no lineal
+
+`$$w[n]=\log_10(|x[n]|)$$`
+
 Es no lineal, para demostrarlo, sólo necesitamos encontrar un contrajemplo, un conjunto de entradas y salidas que demuestren que el sistema viola el principio de superposición.
-x_1[n]=1, x_2[n]=-10
-x_1[n]+x_2[n] = -9 (A=B=1)
-log_10(|x_1[n]+x_2[n]|)=log_10(|-9|)=log_10(9)aprox0.95
-log_10(|x_1[n]|)+log_10(|x_2[n]|)=log_10(1)+log_10(10)=1
-log_10(|x_1[n]+x_2[n]|)=log_10(|x_1[n]|)+log_10(|x_2[n]|)
-0.95!=1 por lo tanto el sistema no es lineal
-2.2.3. Sistemas invariantes con el tiempo
+
+`$$x_1[n]=1, x_2[n]=-10$$`
+
+`$$x_1[n]+x_2[n] = -9 (A=B=1)$$`
+
+`$$\log_10(|x_1[n]+x_2[n]|)=\log_10(|-9|)=\log_10(9) \approx 0.95$$`
+
+`$$\log_10(|x_1[n]|)+\log_10(|x_2[n]|)=\log_10(1)+\log_10(10)=1$$`
+
+`$$\log_10(|x_1[n]+x_2[n]|)=\log_10(|x_1[n]|)+\log_10(|x_2[n]|)$$`
+
+`\(0.95!=1\)` por lo tanto el sistema no es lineal.
+
+# Sistemas invariantes con el tiempo
+
 También llamado invariante al desplazamiento, es un sistema para el que un desplazamiento temporal o retardo de la secuencia de entrada provoca el mismo desplazamiento o retardo en la secuencia de salida.
 Un sistema que transforma x[n] en y[n], diremos que es invariante con el tiempo sí, para todo n_0, la secuencia de entrada con valores:
 x_1[n]=x[n-n_0] produces una secuencia de salida de valores y_1=y[n-n_0]
