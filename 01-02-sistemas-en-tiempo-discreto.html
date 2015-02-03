@@ -197,6 +197,27 @@ Las propiedades anteriores son propiedades de sistemas, y no de las entradas a d
 
 ---
 
+# Ejemplo (2.10) Comprobación de la estabilidad e inestabilidad
+
+El sistema del Ejemplo 2.4 es estable.Para demostrarlo supongamos que la entrada `\(x[n]\)` está acotada de forma que `\(|x[n]| \leq B_x \)` para todo `\(n\)`. Entonces `\(|y[n]|=|x[n]|^2 \leq B_x^2\)`. Podemos escoger por tanto `\(B_y=B_x^2\)` para demostrar que `\(y[n]\)` está acotada.
+
+Se puede ver que el sistema definido en el Ejemplo 2.6 es inestable, ya que `\(y[n]=\log_10(|x[n]|)=-\infty\)` para todos los valores de índice temporal en los que `\(x[n] = 0\)`.
+
+El acumulador, definido en el Ejemplo 2.5 tampoco es estable. Por ejemplo, consideremos el caso de `\(x[n]=u[n]\)`, entrada claramente acotada por `\(B_x=1\)`. Para esta entrada, la salida del acumulador es:
+
+`$$y[n] = \sum_{k=-\infty}^{n} u[k]$$`
+
+`$$=  \left\{
+\begin{array}{l l}
+0, & \quad n \neq 0\\
+(n+1), & \quad n \req 0
+\end{array} \right.
+$$`
+
+No existe ningún valor finito `\(B_y\)` tal que `\((n+1) \leq B_y < \infty\)` para todo `\(n\)`; por lo tanto el sistema es inestable.
+
+---
+
 	</textarea>
     <script src="js/remark.min.js"></script>
     <script src="js/MathJax/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured" type="text/javascript"></script>
