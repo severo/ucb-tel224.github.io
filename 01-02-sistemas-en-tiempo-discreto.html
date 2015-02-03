@@ -22,26 +22,26 @@ Se define como una transformación u operador, que transforma una secuencia de e
 
 $$y[n]=T\{x[n]\}$$
 
-\(y[k]\) donde \(k\) es cualquier valor especifico de la salida puede depender de todo o de parte de la secuencia \(x[n]\).
+`\(y[k]\)` donde `\(k\)` es cualquier valor especifico de la salida puede depender de todo o de parte de la secuencia `\(x[n]\)`.
 
 ---
 
 Ejemplo (2.2) Sistema de retardo ideal
-`$$y[n] = x[n-n_d],\quad -\infty \lt n \lt \infty$$`
+$$y[n] = x[n-n_d],\quad -\infty \lt n \lt \infty$$
 
-Siendo `n_d` un entero fijo positivo denominado retardo del sistema.
+Siendo `\(n_d\)` un entero fijo positivo denominado retardo del sistema.
 
-El sistema de retardo ideal forma la salida desplazando la secuencia de entrada `n_d` muestras a la derecha. Sí `n_d \lt 0` el sistema desplazaría la entrada `n_d` muestras a la izquierda, lo que corresponde a un avance temporal.
+El sistema de retardo ideal forma la salida desplazando la secuencia de entrada `\(n_d\)` muestras a la derecha. Sí `\(n_d \lt 0\)` el sistema desplazaría la entrada `\(n_d\)` muestras a la izquierda, lo que corresponde a un avance temporal.
 
 En este ejemplo para determinar una muestra de la señal de salida, sólo se necesita una muestra de la señal de entrada.
 
 Ejemplo (2.3) Promediado móvil
-`$$y[n]=\frac{1}{M_1+M_2+1} \sum_{k=-M_1}^_M_2 x[n-k]$$`
-`$$y[n]=\frac{1}{M_1+M_2+1} x[n+M_1]+x[n+M_1-1]+...+x[n]+x[n-1]+x[n-M_2]$$`
+$$y[n]=\frac{1}{M_1+M_2+1} \sum_{k=-M_1}^_M_2 x[n-k]$$`
+$$y[n]=\frac{1}{M_1+M_2+1} x[n+M_1]+x[n+M_1-1]+...+x[n]+x[n-1]+x[n-M_2]$$
 
-Este sistema calcula la n-ésima muestra de la secuencia de salida como el promedio de `M_1+M_2+1` muestra de la secuencia de entrada alrededor de la muestra n-ésima.
+Este sistema calcula la n-ésima muestra de la secuencia de salida como el promedio de `\(M_1+M_2+1\)` muestra de la secuencia de entrada alrededor de la muestra n-ésima.
 
-Estableciendo restricciones en la transformación `T\{\}` surgen diversas clases de sistemas.
+Estableciendo restricciones en la transformación `\(T\{ \}\)` surgen diversas clases de sistemas.
 
 ---
 
