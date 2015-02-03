@@ -43,7 +43,7 @@ En este ejemplo para determinar una muestra de la señal de salida, sólo se nec
 `$$y[n]=\frac{1}{M_1+M_2+1} \sum_{k=-M_1}^{M_2}x[n-k]$$`
 
 `$$y[n]=\frac{1}{M_1+M_2+1} \{x[n+M_1]+x[n+M_1-1]+...$$`
-`$$+x[n]+x[n-1]+x[n-M_2]$$`
+`$$+x[n]+x[n-1]+x[n-M_2]\}$$`
 
 Este sistema calcula la n-ésima muestra de la secuencia de salida como el promedio de `\(M_1+M_2+1\)` muestra de la secuencia de entrada alrededor de la muestra n-ésima.
 
@@ -95,6 +95,8 @@ La salida en el instante `\(n\)` es la suma o acumulación de la muestra actual 
 
 Ejercicio: demuestre que es lineal.
 
+---
+
 # Ejemplo (2.6) Un sistema no lineal
 
 `$$w[n]=\log_10(|x[n]|)$$`
@@ -123,9 +125,9 @@ Un sistema que transforma `\(x[n]\)` en `\(y[n]\)`, diremos que es invariante co
 
 `\(x_1[n]=x[n-n_0]\)` produces una secuencia de salida de valores `\(y_1=y[n-n_0]\)`.
 
-Todos los ejemplos anteriores son invariantes en el timpo.
+Todos los ejemplos anteriores son invariantes en el tiempo.
 
-----
+---
 
 # Ejemplo el acumulador como sistema invariante con el tiempo
 
@@ -155,7 +157,7 @@ donde `\(y_1[n]\)` es la respuesta frente a `\(x[n-n_0]\)`. Por lo tanto es un s
 
 `$$y[n]=x[M n], -\infty \lt n \lt \infty$$`
 
-Siendo `\(M \Z^+\)`, que se denomina compresor. Este sistema descarta `\(M-1\)` muestras cada `\(M\)`. Este sistema no es invariante con el tiempo.
+Siendo `\(M \in \mathbb{Z}^+\)`, que se denomina compresor. Este sistema descarta `\(M-1\)` muestras cada `\(M\)`. Este sistema no es invariante con el tiempo.
 
 Consideremos la respuesta `\(y_1[n]\)` a la entrada `\(x_1[n]=x[n-n_0]\)`. Para que el sistema sea invariante con el tiempo, la salida del sistema cuando la entrada es `\(x_1[n]\)` debe ser igual a `\(y[n-n_0]\)`.
 `$$y_1[n] = x_1[Mn] = x[Mn-n_0]$$` (estudiar esta ecuacion)
