@@ -184,12 +184,16 @@ El sistema de diferencia regresiva, `\(y[n]=x[n]-x[n-1]\)` tiene una salida que 
 # Estabilidad
 
 Existen varias definiciones. Consideraremos específicamente la estabilidad en sentido de entrada acotada, salidad acotada (BIBO).
-Un sistema es estable en el sentido de entrada acotada, salidad acotada (BIBO, Bounded-Input, Bounded-Output) si y sólo si cualquier secuencia acotada a su entrada produce una secuencia de salidad acotada.
-Se dice que la entrada x[n] está acotada si existe un valor finito positivo fijo B_x tal que:
-|x[n]|<=B_x<\infty, para todo n.
-La estabilidad requiere que, para cualquier entrada acotada, exista un valor finito positivo fijo B_y tal que |y[n]|<=B_y<\infty, para todo n.
 
-Las propiedades anteriores son propiedades de sistemas, y no de las entradas a dichos sistemas. Se puede encontrar entrada para las que las propiedades se mantengan, pero la existencia de una propiedad para algunas entradas no significa que el sistema tenga esa propiedad. Un sistema tiene un determinada propiedad si esta se cumple para TODAS las entradas.
+Un sistema es estable en el sentido de entrada acotada, salidad acotada (BIBO, Bounded-Input, Bounded-Output) si y sólo si cualquier secuencia acotada a su entrada produce una secuencia de salidad acotada.
+
+Se dice que la entrada `\(x[n]\)` está acotada si existe un valor finito positivo fijo `\(B_x\)` tal que:
+
+`\(|x[n]| \leq B_x < \infty\)`, para todo `\(n\)`.
+
+La estabilidad requiere que, para cualquier entrada acotada, exista un valor finito positivo fijo `\(B_y\)` tal que `\(|y[n]| \leq B_y < \infty\)`, para todo `\(n\)`.
+
+Las propiedades anteriores son propiedades de sistemas, y no de las entradas a dichos sistemas. Se puede encontrar entradas para las que las propiedades se mantengan, pero la existencia de una propiedad para algunas entradas no significa que el sistema tenga esa propiedad. Un sistema tiene un determinada propiedad si esta se cumple para TODAS las entradas.
 
 ---
 
