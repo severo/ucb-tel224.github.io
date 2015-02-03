@@ -85,7 +85,7 @@ siendo `\(y_k[n]\)` la respuesta del sistema a la entrada `\(x_k[n]\)`.
 
 Los ejemplos (2.2) y (2.3) son lineales el ejemplo (2.4) es no lineal.
 
---
+---
 
 # Ejemplo (2.5) Sistema acumulador
 
@@ -151,13 +151,19 @@ donde `\(y_1[n]\)` es la respuesta frente a `\(x[n-n_0]\)`. Por lo tanto es un s
 
 ---
 
-# Ejemplo El sistema compresor
-y[n]=x[Mn], -\infty<n<\infty
-Siendo M \Z^+, que se denomina compresor. Este sistema descarta M-1 muestras cada M. Este sistema no es invariante con el tiempo.
-Consideremos la respuesta y_1[n] a la entrada x_1[n]=x[n_n0]. Para que el sistema sea invariante con el tiempo, la salida del sistema cuando la entrada es x_1[n] debe ser igual a y[n-n_0].
-y_1[n] = x_1[Mn] = x[Mn-n_0] % estudiar esta ecuacion
-y[n-n_0]=x[M(n-n_0)]=x[Mn-Mn_0] 
-2.2.4. Causalidad
+# Ejemplo (2.8) El sistema compresor
+
+`$$y[n]=x[M n], -\infty \lt n \lt \infty$$`
+
+Siendo `\(M \Z^+\)`, que se denomina compresor. Este sistema descarta `\(M-1\)` muestras cada `\(M\)`. Este sistema no es invariante con el tiempo.
+
+Consideremos la respuesta `\(y_1[n]\)` a la entrada `\(x_1[n]=x[n-n_0]\)`. Para que el sistema sea invariante con el tiempo, la salida del sistema cuando la entrada es `\(x_1[n]\)` debe ser igual a `\(y[n-n_0]\)`.
+`$$y_1[n] = x_1[Mn] = x[Mn-n_0]$$` (estudiar esta ecuacion)
+`$$y[n-n_0]=x[M(n-n_0)]=x[Mn-Mn_0]$$`
+
+---
+
+# Causalidad
 Se dice que un sistema es causal si para cualquier valor de n_0, la secuencia de salida en el índice n=n_0 depende sólo de los valores de la secuencia de entrada para n<=n_0. Esto implica que si x_1[n]=x_2[n] para n<=n_0, entonces y_1[n]=y_2[n] para n<=n_0. Es decir, el sistema es no anticipativo.
 Ejemplo Los sistemas de diferencia progresiva y regresiva
 y[n] = x[n+1]-x[n]
