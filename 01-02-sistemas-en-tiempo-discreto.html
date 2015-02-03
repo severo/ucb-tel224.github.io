@@ -27,6 +27,7 @@ Se define como una transformación u operador, que transforma una secuencia de e
 ---
 
 # Ejemplo (2.2) Sistema de retardo ideal
+
 `$$y[n] = x[n-n_d],\quad -\infty \lt n \lt \infty$$`
 
 Siendo `\(n_d\)` un entero fijo positivo denominado retardo del sistema.
@@ -112,26 +113,45 @@ Es no lineal, para demostrarlo, sólo necesitamos encontrar un contrajemplo, un 
 
 `\(0.95!=1\)` por lo tanto el sistema no es lineal.
 
+---
+
 # Sistemas invariantes con el tiempo
 
 También llamado invariante al desplazamiento, es un sistema para el que un desplazamiento temporal o retardo de la secuencia de entrada provoca el mismo desplazamiento o retardo en la secuencia de salida.
-Un sistema que transforma x[n] en y[n], diremos que es invariante con el tiempo sí, para todo n_0, la secuencia de entrada con valores:
-x_1[n]=x[n-n_0] produces una secuencia de salida de valores y_1=y[n-n_0]
+
+Un sistema que transforma `\(x[n]\)` en `\(y[n]\)`, diremos que es invariante con el tiempo sí, para todo `\(n_0\)`, la secuencia de entrada con valores:
+
+`\(x_1[n]=x[n-n_0]\)` produces una secuencia de salida de valores `\(y_1=y[n-n_0]\)`.
+
 Todos los ejemplos anteriores son invariantes en el timpo.
-Ejemplo el acumulador como sistema invariante con el tiempo
-Dado el ejemplo del acumulador, definimos x_1[n] = x[n-n_0] (obtendremos y[n-n_0] e y_1[n] y los compararemos para ver si son iguales)
-y[n-n_0]=\sum_{k=-\infty}^{n-n_0}{x[k]}
-y_1[n]=\sum_{k=-\infty}^{n}{x_1[k]}
-=\sum_{k=-\infty}^{n}{x[k-n_0]}
-Realizando el cambio de variable k_1=k-n_0 (k_1=-\infty-n_0=-\infty;k_1=n-n_0)se obtendrá:
-y_1[n]=\sum_{k_1=-\infty}^{n-n_0}{x[k_1]}
-Como el índice k_1 en la última ecuación corresponde a un índice de sumatorias, puede denominarse como se desee (ejemplo, k_1=k). Las ecuaciones anteriores se pueden escribir como:
 
-y[n-n_0]=\sum_{k=-\infty}^{n-n_0}{x[k]}=y_1[n]=\sum_{k=-\infty}^{n-n_0}{x[k]}
-y[n-n_0] = y_1[n]
-donde y_1[n] es la respuesta frente a x[n-n_0]. Por lo tanto es un sistema invariante en el tiempo.
+----
 
-Ejemplo El sistema compresor
+# Ejemplo el acumulador como sistema invariante con el tiempo
+
+Dado el ejemplo del acumulador, definimos `\(x_1[n] = x[n-n_0]\)` (obtendremos `\(y[n-n_0]\)` e `\(y_1[n]\)` y los compararemos para ver si son iguales)
+
+`$$y[n-n_0]=\sum_{k=-\infty}^{n-n_0} x[k]$$`
+
+`$$y_1[n]=\sum_{k=-\infty}^{n} x_1[k]$$`
+
+`$$=\sum_{k=-\infty}^{n} x[k-n_0]$$`
+
+Realizando el cambio de variable `\(k_1=k-n_0 (k_1=-\infty-n_0=-\infty;k_1=n-n_0)\)`se obtendrá:
+
+`$$y_1[n]=\sum_{k_1=-\infty}^{n-n_0} x[k_1]$$`
+
+Como el índice `\(k_1\)` en la última ecuación corresponde a un índice de sumatorias, puede denominarse como se desee (ejemplo, `\(k_1=k\)`). Las ecuaciones anteriores se pueden escribir como:
+
+`$$y[n-n_0]=\sum_{k=-\infty}^{n-n_0} x[k] = y_1[n]=\sum_{k=-\infty}^{n-n_0} x[k]$$`
+
+`$$y[n-n_0] = y_1[n]$$`
+
+donde `\(y_1[n]\)` es la respuesta frente a `\(x[n-n_0]\)`. Por lo tanto es un sistema invariante en el tiempo.
+
+---
+
+# Ejemplo El sistema compresor
 y[n]=x[Mn], -\infty<n<\infty
 Siendo M \Z^+, que se denomina compresor. Este sistema descarta M-1 muestras cada M. Este sistema no es invariante con el tiempo.
 Consideremos la respuesta y_1[n] a la entrada x_1[n]=x[n_n0]. Para que el sistema sea invariante con el tiempo, la salida del sistema cuando la entrada es x_1[n] debe ser igual a y[n-n_0].
