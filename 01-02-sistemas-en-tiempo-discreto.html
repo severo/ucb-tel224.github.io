@@ -62,19 +62,32 @@ Los ejemplos (2.2) y (2.3) son con memoria. Serían sin memoria si sus variables
 
 ---
 
-2.2.2. Sistemas lineales
+# Sistemas lineales
 
 Esta clase de sistemas está definida por el principio de superposición.
-Sí y_1[n] e y_2[n] son las respuestas de un sistema cuando x_1[n] y x_2[n] son las respectivas entradas, el sistema es lineal sí y sólo sí
-T{Ax_1[n]+Bx_2[n]}=AT{x_1[n]}+BT{x_2[n]}=Ay_1[n]+By_2[n]
-Propiedad de aditividad y homogeneidad o escalado.
-Esta ecuación se puede generalizar en el principio de superposición para muchas entrada.
-x[n]=\sum_{k}{a_kx_k[n]}
+
+Sí `\(y_1[n]\)` e `\(y_2[n]\)` son las respuestas de un sistema cuando `\(x_1[n]\)` y `\(x_2[n]\)` son las respectivas entradas, el sistema es lineal sí y sólo sí:
+
+`$$T\{A x_1[n]+B x_2[n]\}=AT\{x_1[n]\}+BT\{x_2[n]\}=A y_1[n]+B y_2[n]$$`
+
+Que son la combinación de la propiedad de aditividad y homogeneidad o escalado.
+
+Esta ecuación se puede generalizar en el principio de superposición para muchas entradas.
+
+`$$x[n]=\sum_{k}{a_k x_k[n]}$$`
+
 Entonces la salida de un sistema lineal será:
-y[n]=\sum_{k}{a_ky_k[n]}
-siendo y_k[n] la respuesta del sistema a la entrada x_k[n].
-Los dos primeros ejemplos son lineales el anterior ejemplo es no lineal.
-Ejemplo El sistema acumulador
+
+`$$y[n]=\sum_{k}{a_ky_k[n]}$$`
+
+siendo `\(y_k[n]\)` la respuesta del sistema a la entrada `\(x_k[n]\)`.
+
+Los ejemplos (2.2) y (2.3) son lineales el ejemplo (2.4) es no lineal.
+
+--
+
+# Ejemplo (2.5) Sistema acumulador
+
 y[n] = \sum_{k=-\infty}^{n}{x[k]}
 La salida en el instante n es la suma o acumulación de la muestra actual y todas las muestras anteriores de la entrada.
 Demostrar que es lineal.
