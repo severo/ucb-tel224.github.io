@@ -20,14 +20,14 @@ class: center, middle
 
 Se define como una transformación u operador, que transforma una secuencia de entrada `\(x[n]\)` en una secuencia de salida `\(y[n]\)`.
 
-$$y[n]=T\{x[n]\}$$
+`$$y[n]=T\{x[n]\}$$`
 
 `\(y[k]\)` donde `\(k\)` es cualquier valor especifico de la salida puede depender de todo o de parte de la secuencia `\(x[n]\)`.
 
 ---
 
 # Ejemplo (2.2) Sistema de retardo ideal
-$$y[n] = x[n-n_d],\quad -\infty \lt n \lt \infty$$
+`$$y[n] = x[n-n_d],\quad -\infty \lt n \lt \infty$$`
 
 Siendo `\(n_d\)` un entero fijo positivo denominado retardo del sistema.
 
@@ -39,9 +39,10 @@ En este ejemplo para determinar una muestra de la señal de salida, sólo se nec
 
 # Ejemplo (2.3) Promediado móvil
 
-$$y[n]=\frac{1}{M_1+M_2+1} \sum_{k=-M_1}^_M_2 x[n-k]$$
+`$$y[n]=\frac{1}{M_1+M_2+1} \sum_{k=-M_1}^M_2 x[n-k]$$`
 
-$$y[n]=\frac{1}{M_1+M_2+1} x[n+M_1]+x[n+M_1-1]+...+x[n]+x[n-1]+x[n-M_2]$$
+`$$y[n]=\frac{1}{M_1+M_2+1} \{x[n+M_1]+x[n+M_1-1]+...$$`
+`$$+x[n]+x[n-1]+x[n-M_2]$$`
 
 Este sistema calcula la n-ésima muestra de la secuencia de salida como el promedio de `\(M_1+M_2+1\)` muestra de la secuencia de entrada alrededor de la muestra n-ésima.
 
@@ -51,13 +52,13 @@ Estableciendo restricciones en la transformación `\(T\{ \}\)` surgen diversas c
 
 # Sistemas sin memoria
 
-Se dice que un sistema es sin memoria si la salida `\(y[n]\)` para cualquier valor de n depende sólo de la entrada `\(x[n]\)` en el mismo valor de `\(n\)`.
+Se dice que un sistema es sin memoria si la salida `\(y[n]\)` para cualquier valor de `\(n\)` depende sólo de la entrada `\(x[n]\)` en el mismo valor de `\(n\)`.
 
 # Ejemplo (2.4)
 
-$$y[n] = (x[n])^2$$, para cada valor de `\(y[n]\)`.
+`\(y[n] = (x[n])^2\)`, para cada valor de `\(y[n]\)`.
 
-Los ejemplos (2.2) y (2.3) son con memoria. Serían sin memoria si sus variables `(\(n_d, M_1, M_2 serían 0)\)`
+Los ejemplos (2.2) y (2.3) son con memoria. Serían sin memoria si sus variables `\(n_d, M_1, M_2\)` serían `\(0\)`.
 
 ---
 
