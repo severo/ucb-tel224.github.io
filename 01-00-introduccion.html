@@ -18,6 +18,8 @@ class: center, middle
 
 # Las señales
 
+Se puede definir señal como "algo que lleva información".
+
 Las señales son un soporte para la información. Generalmente son el resultado de:
 
 * una medición: onda sísmica, temperatura, electrocardiograma, música, fotografía, vídeo, etc.
@@ -37,15 +39,15 @@ En todo caso, para análisis y síntesis, es indispensable **representar** a la 
 
 **Variable independiente**: la señal es una función del **tiempo**, en la mayoría de los casos.
 
-**Dimensiones**: la mayoría de las señales que manejamos son de **una dimensión**, por ejemplo una amplitud que varia con el tiempo. Es el caso que manejaremos en este curso.
+**Dimensiones**: la mayoría de las señales que manejamos son de **una dimensión**, por ejemplo la amplitud de la voz que varia con el tiempo. Es el caso que manejaremos en este curso.
 
-También pueden ser multidimensionales, por ejemplo las imágenes, vídeos, señales radar. Las señales 1D son un caso particular de las señales multidimensionales, y los métodos de procesamiento de señales multidimensionales son generalizaciones de los métodos 1D.
+También pueden ser multidimensionales, por ejemplo las imágenes (función del brillo respecto oa dos variables espaciales), vídeos, señales radar. Las señales 1D son un caso particular de las señales multidimensionales, y los métodos de procesamiento de señales multidimensionales son generalizaciones de los métodos 1D.
 
 ---
 
 # Tiempo continuo o discreto
 
-Las señales con tiempo continuo se dicen señales **analógicas**. Cuando son el resultado de un muestreo, se dicen señales en tiempo discreto. Generalmente el muestro se hace con una **frecuencia** constante, y el tiempo entre muestreos es el **periodo**.
+Las señales de tiempo continuo (definidas en un continuo temporal, existen para cada punto) se dicen señales **analógicas** y se representan con una variable independiente continua. Cuando son el resultado de un muestreo (aunque no siempre), se dicen señales en tiempo discreto (definidas en instantes discretos del tiempo, existen para puntos discretos) y se representan con una variable independiente discreta. Generalmente el muestro se hace con una **frecuencia** constante, y el tiempo entre muestreos es el **periodo**.
 
 !["<a href="https://commons.wikimedia.org/wiki/File:Sampled.signal.svg#mediaviewer/File:Sampled.signal.svg">Sampled.signal</a>". Licensed under Public Domain via <a href="//commons.wikimedia.org/wiki/">Wikimedia Commons</a>.](imagenes/01-00-Sampled.signal.svg)
 
@@ -53,7 +55,7 @@ Las señales con tiempo continuo se dicen señales **analógicas**. Cuando son e
 
 # Amplitud continua o discreta
 
-En un muestreo, además de manejar un tiempo discreto, la amplitud de la señal también es discreta, tomando un valor dentro de un conjunto predefinido. Se dice que una señal es **digital** si el tiempo y la amplitud son discretos. Bajo estas condiciones, la manipulación de las señales se vuelve mucho más fácil.
+En un muestreo, además de manejar un tiempo discreto, la amplitud de la señal también es discreta, tomando un valor dentro de un conjunto predefinido. Se dice que una señal es **digital** si el tiempo y la amplitud son discretos. Bajo estas condiciones, la manipulación de las señales se vuelve mucho más fácil. Una señal discreta se conviernte en señal digital **cuantificándola** adecuadamente (se verá mas adelante).
 
 !["<a href="https://commons.wikimedia.org/wiki/File:Digital.signal.svg#mediaviewer/File:Digital.signal.svg">Digital.signal</a>". Licensed under Public Domain via <a href="//commons.wikimedia.org/wiki/">Wikimedia Commons</a>.](imagenes/01-00-Digital.signal.svg)
 
