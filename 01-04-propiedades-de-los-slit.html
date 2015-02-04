@@ -125,15 +125,37 @@ Para los Ejemplos 2.2, 2.3, 2.5 y 2.9 se consideró como entrada `\(x[n] = \delt
 
 Retardo ideal (Ejemplo 2.2)
 
+`$$h[n] = \delta[n-n_0], \quad n_d \text{entero positivo fijo}$$`
+
 Promediado móvil (Ejemplo 2.3)
+
+`$$h[n]=\frac{1}{M_1+M_2+1} \sum_{k=-M_1}^{M_2} \delta[n-k]$$`
+
+`$$= \left\{
+\begin{array}{l l}
+\frac{1}{M_1+M_2+1}, & \quad -M_1 \leq n \leq M_2,\\
+0, & \quad \text{en el resto}
+\end{array} \right.
+$$`
 
 ---
 
 Acumulador
 
+`$$h[n] = \sum_{k=-\infty}^{\infty} \delta[k] = \left\{
+\begin{array}{l l}
+1, & \quad n \geq 0,\\
+0, & \quad n<0
+\end{array} \right.
+$$`
+
 Diferencia progresiva (Ejemplo 2.9)
 
+`$$h[n] = \delta[n+1] - \delta[n]$$`
+
 Diferencia prograsiva (Ejemplo 2.9)
+
+`$$h[n] = \delta[n] - \delta[n-1]$$`
 
 ---
 
