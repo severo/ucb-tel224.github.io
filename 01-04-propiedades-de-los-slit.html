@@ -245,6 +245,36 @@ Y todavía más, sabe que la respuesta total de una cascada de sistemas es la co
 
 ---
 
+# Convolución y sistema inverso
+
+El arreglo en cascada permite desarrollar el concepto de sistema inverso. (Subir Figura 2.14). La respuesta al impulso de la cascada de sistemas es:
+
+`$$h[n] = u[n] * (\delta[n] - \delta[n-1])$$`
+
+`$$= u[n] - u[n-1]$$`
+
+`$$= \delta[n]$$`
+
+La combinación en cascada de un acumulador seguido por un sistema de diferencia regresiva (o viceversa) produce un sistema global cuya respuesta al impulso es el propio impulso. La salida de la combinación en cascada será siempre igual a la entrada, puesto que `\(x[n] * \delta[n] = x[n]\)`. En este caso, el sistema de diferencia regresiva compensa exactamente (o invierte) el efecto del acumulador. El sistema de diferencia regresiva es el sistema inverso del acumulador (y viceversa por la propiedad conmutativa de la convolución).
+
+---
+
+# Definición de sistema inverso
+
+Si un SLIT tiene una respuesta al impulso `\(h[n]\)`, su sistema inverso tendrá una respuesta al impulso `\(h_i[n]\)` definida por la relación:
+
+`$$h[n] * h_i[n] = h_i[n] * h[n] = \delta[n]$$`
+
+Los sistemas inversos son extremadamente útiles porque muchas veces se necesita **compensar los efectos de un sistema**. En el dominio del tiempo es dificil resolver la ecuación anterior para encontrar `\(h_i[n]\)` conociendo `\(h[n]\)`. Cuando veamos la transformada Z veremos un método directo para obtener el sistemas inversos.
+
+---
+
+# Navegación
+
+Seguir con [1.5 Ecuaciones en diferencias lineales con coeficientes constantes](./01-05-ecuaciones-en-diferencias-lineales-con-coeficientes-constantes.html)
+
+Volver al capitulo [Señales y sistemas en tiempo discreto](./01-senales-y-sistemas-en-tiempo-discreto.html)
+
 	</textarea>
     <script src="js/remark.min.js"></script>
     <script src="js/MathJax/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured" type="text/javascript"></script>
