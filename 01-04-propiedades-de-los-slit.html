@@ -4,7 +4,6 @@
 	<title>Curso UCB - TEL 224 - Procesamiento digital de señales - Señales y sistemas en tiempo discreto</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<link media="screen, handheld, projection, tv" href="css/estilo.css" rel="stylesheet">
-	<link media="screen, handheld, projection, tv" href="css/colors.min.css" rel="stylesheet">
 </head>
 <body>
 	<textarea id="source">
@@ -19,57 +18,57 @@ class: center, middle
 
 # Propiedades de los SLIT
 
-Como los SLIT se pueden describir mediante la convolución, las propieades de esta clase de sistemas estarán determinadas por las propiedades de esta clase de sistemas estarán determinadas por las propiedades de la convolución en tiempo discreto. La respuesta al impulso es una caracterización completa de las propiedades de un determinado SLIT.
+Como los SLIT se pueden describir mediante la convolución, las propiedades de esta clase de sistemas estarán determinadas por las propiedades de la convolución en tiempo discreto siempre que `\(h[n]\)` (la respuesta al impulso) sea una caracterización completa de las propiedades de un determinado SLIT.
 
 ---
 
 # Propiedad de conmutatividad:
 
-`$$x[n] \conv h[n] = h[n] \conv x[n]$$`
+`$$x[n] * h[n] = h[n] * x[n]$$`
 
 El orden de las secuencias en la convolución no es relevante y por lo tanto, la salida del sistema es la misma si se intercambian los papeles de la entrada y de la respuesta al impulso. Un SLIT con entrada `\(x[n]\)` y respuesta al impulso `\(h[n]\)` producirá la misma salida que otro SLIT con entrada `\(h[n}\)` y respuesta al impulso `\(x[n]\)`.
 
 ---
 
-# Propiedad de distribución respecto a la suma:
+# Propiedad de distributibidad respecto a la suma:
 
-`$$x[n] \conv (h_1[n]+h_2[n])=x[n] \conv h_1[n] + x[n] \conv h_2[n]$$`
+`$$x[n] * (h_1[n]+h_2[n])=x[n] * h_1[n] + x[n] * h_2[n]$$`
 
 Grafica 2.11
 
 En una conexión en paralelo, los sistemsa tienen la misma entrada, y sus salidas se suman para producir la salida total. Así la conexión en paralelo de dos SLIT es equivalente a un único sistema cuya respuesta al impulso es la suma de las respuestas al impulso de cada uno de los sistemas.
 
-`$$h[n] = h_1[n]+h_2[n]$$`
+`$$h[n] = h_1[n] + h_2[n]$$`
 
 ---
 
 # Propiedad de asociatividad:
 
-`$$y[n]=(x[n] \conv h_1[n]) \conv h_2 = x[n] \conv (h_1[n] \conv h_2[n])$$`
+`$$y[n]=(x[n] * h_1[n]) * h_2 = x[n] * (h_1[n] * h_2[n])$$`
 
 Además, como la operación es conmutativa:
 
-`$$y[n] = x[n] \conv (h_2[n] \conv h_1[n]) = (x[n] \conv h_2[n]) \conv h_1$$`
+`$$y[n] = x[n] * (h_2[n] * h_1[n]) = (x[n] * h_2[n]) * h_1[n]$$`
 
 Grafica 2.12
 
 Esto implica que si dos SLIT con respuestas al impulso `\(h_1[n]\)` y `\(h_2[n]\)` se conectan en cascada, la respuesta al impulso global equivalente es:
 
-`$$h[n] = h_1[n] \conv h_2[n] = h_2[n] \conv h_1[n]$$`
+`$$h[n] = h_1[n] * h_2[n] = h_2[n] * h_1[n]$$`
 
 ---
 
 # Estabilidad:
 
-Es importante saber si un SLIT es estable y si es causal. En el sentido BIBIO un sistema es estable si cualquier entrada acotada produce una salida acotada.
+Es importante saber si un SLIT es estable y si es causal. En el sentido BIBO un sistema es estable si cualquier entrada acotada produce una salida acotada.
 
-Un SLIT es estable y y sólo si su respuesta al impulso es absolutamente sumable.
+Un SLIT es estable si y sólo si su respuesta al impulso es absolutamente sumable.
 
 `$$B_h = \sum_{k=-\infty}^{\infty} |h[k]| < \infty$$`
 
-`$$|y[n]| = \abs{\sum_{}^{} h[k] x[n-k]} \leq \sum_{k=-\infty}^{\infty} |h[k]| |x[n-k]|$$`
+`$$|y[n]| = |\sum_{k=-\infty}^{\infty} h[k] x[n-k]}| \leq \sum_{k=-\infty}^{\infty} |h[k]| |x[n-k]|$$`
 
-Si `\(x[n]\)` está acotada, se cumple: `\(x[n] \leq B_x  \)`.
+Si `\(x[n]\)` está acotada, se cumple: `\(x[n] \leq B_x\)`.
 
 podemos sustituir `\(|x[n-k]|\)` por `\(B_x\)` sin que se deje de cumplir la desigualdad. Así:
 
@@ -77,14 +76,64 @@ podemos sustituir `\(|x[n-k]|\)` por `\(B_x\)` sin que se deje de cumplir la des
 
 ---
 
+# Condición necesaria de estabilidad
+
+Lo anterior es una condición **suficiente** para la estabilidad. Para demostrar que también es una condición necesaria, debemos demostrar que si `\(B_h = \infty\)`, se puede encontrar una entrada acotada que produzca una salida no acotada.
+
+Hagamos que la entrada se:
+
+`$$x[n] = \left\{
+\begin{array}{l l}
+\frac{h^*[-n]}{|h[-n]|}, & \quad h[n] \neq 0\\
+0, & \quad h[n] = 0
+\end{array} \right.
+$$`
+
+Siendo `\(h^*[n]\)` el complejo conjugado de `\(h[n]\)`. Claramente, la secuencia `\(x[n]\)` está acotada por la unidad. Analizando la salida de un sistema (donde `\(B_h = \infty\)`) frente a `\(x[n]\)` para el valor específico de `\(n = 0\)` es:
+
+`$$y[n]=\sum_{k=-\infty}^{\infty} x[n-k] h[k]$$`
+
+`$$y[0]=\sum_{k=-\infty}^{\infty} x[-k] h[k] = \sum_{k=\infty}^{\infty} \frac{|h[k]|^2}{|h[k]|} = B_h$$`
+
+Como `\(B_h = \infty\)` acabamos de demostrar que una secuencia de entrada acotada producirá una secuencia de salida no acotada.
+
+---
+
 # Causalidad:
 
-Aquellos sistemas para los que la salida `\(y[n_0]\)` depende sólo de las muestras de entrada `\(x[n]\)`, para `\(n \leq n_0\)`. Esto implica que:
+Para aquellos sistemas para los que la salida `\(y[n_0]\)` depende sólo de las muestras de entrada `\(x[n]\)`, para `\(n \leq n_0\)` implican que:
 
 `$$h[n] = 0, \quad n<0,$$`
 
-Esta es la condición de causalidad para SLIT
+Esta es la condición de causalidad para SLIT. Cualquier secuencia que cumpla esta condición se denomina secuencia causal y puede ser considerada la respuesta al impulso de un sistema causal.
 
+---
+
+# Causalidad:
+
+Para ilustrar cómo se reflejan las propiedades de los sistemsa lineales e invariantes en el tiempo en la respuesta al impulso, consideremos algunos de los sistemas definidos anteriormente. ¿Pero qué pasa con sistemas no lineales o no invariantes en el tiempo? Su respuesta al impulso se consigue reemplazando el impulso en su entrada, pero la convolución, la estabilidad y casusalidad no sirven para estos sistemas.
+
+Para los Ejemplos 2.2, 2.3, 2.5 y 2.9 se consideró como entrada `\(x[n] = \delta[n]\)` en la convolución `\(y[n]=\sum_{k=-\infty}^{\infty} x[n-k] h[k]\)`
+
+---
+
+Retardo ideal (Ejemplo 2.2)
+
+Promediado móvil (Ejemplo 2.3)
+
+---
+
+Acumulador
+
+Diferencia progresiva (Ejemplo 2.9)
+
+Diferencia prograsiva (Ejemplo 2.9)
+
+---
+
+Dadas las respuestas al impulso de estos sistemas básicas, podemos comprobar la estabilidad de cada uno de ellos calculando la suma:
+
+`$$B_h = $$` (pag 32)
 
 ---
 
