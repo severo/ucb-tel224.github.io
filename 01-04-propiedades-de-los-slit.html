@@ -163,7 +163,7 @@ Diferencia regresiva (Ejemplo 2.9)
 
 Dadas las respuestas al impulso de estos sistemas básicos, podemos comprobar la estabilidad de cada uno de ellos calculando la suma:
 
-`$$B_h = \suma_{n=-\infty}^{\infty} |h[n]|$$^
+`$$B_h = \suma_{n=-\infty}^{\infty} |h[n]|$$`
 
 ---
 
@@ -179,7 +179,7 @@ Un sistema con espuesta al impulso de duración finita (FIR, Finite-duration-Imp
 
 Sin embargo el acumulador es un sistema inestable porque:
 
-``$B_h = \sum_{n=0}^{\infty} u[n] = \infty$$`
+`$$B_h = \sum_{n=0}^{\infty} u[n] = \infty$$`
 
 Anteriormente también habíamos demostrado la inestabilidad del acumulador proporcionando un ejemplo de entrada acotada (el escalón unidad) que producía una salida no acotada.
 
@@ -195,9 +195,9 @@ Otro ejemplo de sistema IIR estable sería un sistema cuya respuesta al impulso 
 
 Si `\(|a| < 1\), la fórmula de la suma de términos de una serie geométrica infinita proporciona el siguiente resultado:
 
-`$$B_h = \frac{1}{1-|a|} < \infty$$``
+`$$B_h = \frac{1}{1-|a|} < \infty$$`
 
-Por otra parte, si `\(|a| > 1</0>\)`m ka suma es infinita y el sistema es inestable.
+Por otra parte, si `\(|a| > 1\)` la suma es infinita y el sistema es inestable.
 
 ---
 
