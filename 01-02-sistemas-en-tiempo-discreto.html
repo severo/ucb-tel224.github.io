@@ -12,11 +12,11 @@ class: center, middle
 
 # Procesamiento digital de señales
 # 1. Señales y sistemas en tiempo discreto
-# 1.0 Introducción
+# 1.2 Sistemas en tiempo discreto
 
 ---
 
-# Señales en tiempo discreto
+# Sistemas en tiempo discreto
 
 Se define como una transformación u operador, que transforma una secuencia de entrada `\(x[n]\)` en una secuencia de salida `\(y[n]\)`.
 
@@ -26,24 +26,24 @@ Se define como una transformación u operador, que transforma una secuencia de e
 
 ---
 
-# Ejemplo (2.2) Sistema de retardo ideal
+# Ejemplo 2.2 Sistema de retardo ideal
 
 `$$y[n] = x[n-n_d],\quad -\infty \lt n \lt \infty$$`
 
 Siendo `\(n_d\)` un entero fijo positivo denominado retardo del sistema.
 
-El sistema de retardo ideal forma la salida desplazando la secuencia de entrada `\(n_d\)` muestras a la derecha. Sí `\(n_d \lt 0\)` el sistema desplazaría la entrada `\(n_d\)` muestras a la izquierda, lo que corresponde a un avance temporal.
+El sistema de retardo ideal forma la salida desplazando la secuencia de entrada `\(n_d\)` muestras a la derecha. Sí `\(n_d \lt 0\)` el sistema desplazaría la entrada `\(|n_d|\)` muestras a la izquierda, lo que corresponde a un avance temporal.
 
 En este ejemplo para determinar una muestra de la señal de salida, sólo se necesita una muestra de la señal de entrada.
 
 ---
 
-# Ejemplo (2.3) Promediado móvil
+# Ejemplo 2.3 Promediado móvil
 
 `$$y[n]=\frac{1}{M_1+M_2+1} \sum_{k=-M_1}^{M_2}x[n-k]$$`
 
 `$$y[n]=\frac{1}{M_1+M_2+1} \{x[n+M_1]+x[n+M_1-1]+...$$`
-`$$+x[n]+x[n-1]+x[n-M_2]\}$$`
+`$$+x[n]+x[n-1]+...+x[n-M_2]\}$$`
 
 Este sistema calcula la n-ésima muestra de la secuencia de salida como el promedio de `\(M_1+M_2+1\)` muestra de la secuencia de entrada alrededor de la muestra n-ésima.
 
@@ -55,11 +55,11 @@ Estableciendo restricciones en la transformación `\(T\{ \}\)` surgen diversas c
 
 Se dice que un sistema es sin memoria si la salida `\(y[n]\)` para cualquier valor de `\(n\)` depende sólo de la entrada `\(x[n]\)` en el mismo valor de `\(n\)`.
 
-# Ejemplo (2.4)
+# Ejemplo 2.4
 
-`\(y[n] = (x[n])^2\)`, para cada valor de `\(y[n]\)`.
+`\(y[n] = (x[n])^2\)`, para cada valor de `\(n\)`.
 
-Los ejemplos (2.2) y (2.3) son con memoria. Serían sin memoria si sus variables `\(n_d, M_1, M_2\)` serían `\(0\)`.
+Los Ejemplos 2.2 y 2.3 son con memoria. Serían sin memoria si sus variables `\(n_d, M_1, M_2\)` serían `\(0\)`.
 
 ---
 
@@ -73,21 +73,25 @@ Sí `\(y_1[n]\)` e `\(y_2[n]\)` son las respuestas de un sistema cuando `\(x_1[n
 
 Que son la combinación de la propiedad de aditividad y homogeneidad o escalado.
 
+---
+
+# Sistemas lineales
+
 Esta ecuación se puede generalizar en el principio de superposición para muchas entradas.
 
 `$$x[n]=\sum_{k}{a_k x_k[n]}$$`
 
 Entonces la salida de un sistema lineal será:
 
-`$$y[n]=\sum_{k}{a_ky_k[n]}$$`
+`$$y[n]=\sum_{k}{a_k y_k[n]}$$`
 
 siendo `\(y_k[n]\)` la respuesta del sistema a la entrada `\(x_k[n]\)`.
 
-Los ejemplos (2.2) y (2.3) son lineales el ejemplo (2.4) es no lineal.
+Los Ejemplos 2.2 y 2.3 son lineales el Ejemplo 2.4 es no lineal.
 
 ---
 
-# Ejemplo (2.5) Sistema acumulador
+# Ejemplo 2.5 Sistema acumulador
 
 `$$y[n] = \sum_{k=-\infty}^{n}x[k]$$`
 
@@ -97,23 +101,23 @@ Ejercicio: demuestre que es lineal.
 
 ---
 
-# Ejemplo (2.6) Un sistema no lineal
+# Ejemplo 2.6 Un sistema no lineal
 
-`$$w[n]=\log_10(|x[n]|)$$`
+`$$w[n]=\log_{10}(|x[n]|)$$`
 
 Es no lineal, para demostrarlo, sólo necesitamos encontrar un contrajemplo, un conjunto de entradas y salidas que demuestren que el sistema viola el principio de superposición.
 
-`$$x_1[n]=1, x_2[n]=-10$$`
+`$$x_1[n]=1, \quad x_2[n]=-10$$`
 
-`$$x_1[n]+x_2[n] = -9 (A=B=1)$$`
+`$$x_1[n]+x_2[n] = -9 \quad (A=B=1)$$`
 
-`$$\log_10(|x_1[n]+x_2[n]|)=\log_10(|-9|)=\log_10(9) \approx 0.95$$`
+`$$\log_{10}(|x_1[n]+x_2[n]|)=\log_{10}(|-9|)=\log_{10}(9) \approx 0.95$$`
 
-`$$\log_10(|x_1[n]|)+\log_10(|x_2[n]|)=\log_10(1)+\log_10(10)=1$$`
+`$$\log_{10}(|x_1[n]|)+\log_{10}(|x_2[n]|)=\log_{10}(1)+\log_{10}(10)=1$$`
 
-`$$\log_10(|x_1[n]+x_2[n]|)=\log_10(|x_1[n]|)+\log_10(|x_2[n]|)$$`
+`$$\log_{10}(|x_1[n]+x_2[n]|)=\log_{10}(|x_1[n]|)+\log_{10}(|x_2[n]|)$$`
 
-`\(0.95!=1\)` por lo tanto el sistema no es lineal.
+`\(0.95 \neq 1\)` por lo tanto el sistema no es lineal.
 
 ---
 
@@ -121,15 +125,13 @@ Es no lineal, para demostrarlo, sólo necesitamos encontrar un contrajemplo, un 
 
 También llamado invariante al desplazamiento, es un sistema para el que un desplazamiento temporal o retardo de la secuencia de entrada provoca el mismo desplazamiento o retardo en la secuencia de salida.
 
-Un sistema que transforma `\(x[n]\)` en `\(y[n]\)`, diremos que es invariante con el tiempo sí, para todo `\(n_0\)`, la secuencia de entrada con valores:
-
-`\(x_1[n]=x[n-n_0]\)` produces una secuencia de salida de valores `\(y_1=y[n-n_0]\)`.
+Un sistema que transforma `\(x[n]\)` en `\(y[n]\)`, diremos que es invariante con el tiempo sí, para todo `\(n_0\)`, la secuencia de entrada con valores `\(x_1[n]=x[n-n_0]\)` produce una secuencia de salida de valores `\(y_1=y[n-n_0]\)`.
 
 Todos los ejemplos anteriores son invariantes en el tiempo.
 
 ---
 
-# Ejemplo el acumulador como sistema invariante con el tiempo
+# Ejemplo 2.7 El acumulador como sistema invariante con el tiempo
 
 Dado el ejemplo del acumulador, definimos `\(x_1[n] = x[n-n_0]\)` (obtendremos `\(y[n-n_0]\)` e `\(y_1[n]\)` y los compararemos para ver si son iguales)
 
@@ -138,6 +140,10 @@ Dado el ejemplo del acumulador, definimos `\(x_1[n] = x[n-n_0]\)` (obtendremos `
 `$$y_1[n]=\sum_{k=-\infty}^{n} x_1[k]$$`
 
 `$$=\sum_{k=-\infty}^{n} x[k-n_0]$$`
+
+---
+
+# Ejemplo 2.7 El acumulador como sistema invariante con el tiempo
 
 Realizando el cambio de variable `\(k_1=k-n_0 (k_1=-\infty-n_0=-\infty;k_1=n-n_0)\)`se obtendrá:
 
@@ -153,15 +159,17 @@ donde `\(y_1[n]\)` es la respuesta frente a `\(x[n-n_0]\)`. Por lo tanto es un s
 
 ---
 
-# Ejemplo (2.8) El sistema compresor
+# Ejemplo 2.8 El sistema compresor
 
-`$$y[n]=x[M n], -\infty \lt n \lt \infty$$`
+`$$y[n]=x[M n], \quad-\infty < n < \infty$$`
 
 Siendo `\(M \in \mathbb{Z}^+\)`, que se denomina compresor. Este sistema descarta `\(M-1\)` muestras cada `\(M\)`. Este sistema no es invariante con el tiempo.
 
 Consideremos la respuesta `\(y_1[n]\)` a la entrada `\(x_1[n]=x[n-n_0]\)`. Para que el sistema sea invariante con el tiempo, la salida del sistema cuando la entrada es `\(x_1[n]\)` debe ser igual a `\(y[n-n_0]\)`.
-`$$y_1[n] = x_1[Mn] = x[Mn-n_0]$$` (estudiar esta ecuacion)
+`$$y_1[n] = x_1[Mn] = x[Mn-n_0]$$`
 `$$y[n-n_0]=x[M(n-n_0)]=x[Mn-Mn_0]$$`
+
+Comparando estas dos salidas, vemos que `\(y[n-n_0]\)` no es igual a `\(y_1[n]\)` para todo `\(M\)` y `\(n_0\)`, por lo tanto el sistema no es invariante.
 
 ---
 
@@ -169,13 +177,18 @@ Consideremos la respuesta `\(y_1[n]\)` a la entrada `\(x_1[n]=x[n-n_0]\)`. Para 
 
 Se dice que un sistema es causal si para cualquier valor de `\(n_0\)`, la secuencia de salida en el índice `\(n=n_0\)` depende sólo de los valores de la secuencia de entrada para `\(n \leq n_0\)`. Esto implica que si `\(x_1[n]=x_2[n]\)` para `\(n \leq n_0\)`, entonces `\(y_1[n]=y_2[n]\)` para `\(n \leq n_0\)`. Es decir, el sistema es no anticipativo.
 
-# Ejemplo (2.9) Sistemas de diferencia progresiva y regresiva
+El Ejemplo 2.2 es causal para `\(n_d \geq 0\)` y es no causal para `\(n_d < 0\)`. El sistema del Ejemplo 2.3 es causal sí `\(-M_1 \geq 0\)` y `\(M_2 \geq 0 \)`; en otros casos es no causal. El sistema del Ejemplo 2.4, 2.5 y el sistema no lineal de 2.6 son causales El sistema del Ejemplo 2.8 es no causal si `\(M > 1\)`.
+
+---
+
+# Ejemplo 2.9 Sistemas de diferencia progresiva y regresiva
 
 `$$y[n] = x[n+1]-x[n]$$`
 
 Es no causal, ya que el valor actual de la salida depende de un valor futuro de la entrada (`\(x[n+1]\)`).
 
 La violación de la causalidad se puede demostrar considearndo las entradas `\(x_1[n]=\delta[n-1]\)` y `\(x_2[n]=0\)` y sus correspondientes salidas `\(y_1[n]=\delta[n]-\delta[n-1]\)`, `\(y_2[n]=0\)` para todo `\(n\)`. `\(x_1[n]=x_2[n]\)` para `\(n \leq 0\)`, por lo que la definción de causalidad exige que `\(y_1[n]=y_2[n]\)` para `\(n \leq 0\)` lo que claramente no es cierto para `\(n=0\)`.
+
 
 El sistema de diferencia regresiva, `\(y[n]=x[n]-x[n-1]\)` tiene una salida que depende sólo de los valores presente e inmediatamente anterior a la entrada. `\(y[n_0]\)` depende sólo de `\(x[n_0]\)` y `\(x[n_0-1]\)`, el sistema es causal.
 
@@ -185,38 +198,46 @@ El sistema de diferencia regresiva, `\(y[n]=x[n]-x[n-1]\)` tiene una salida que 
 
 Existen varias definiciones. Consideraremos específicamente la estabilidad en sentido de entrada acotada, salidad acotada (BIBO).
 
-Un sistema es estable en el sentido de entrada acotada, salidad acotada (BIBO, Bounded-Input, Bounded-Output) si y sólo si cualquier secuencia acotada a su entrada produce una secuencia de salidad acotada.
+Un sistema es estable en el sentido de entrada acotada, salida acotada (BIBO, Bounded-Input, Bounded-Output) si y sólo si cualquier secuencia acotada a su entrada produce una secuencia de salida acotada.
 
 Se dice que la entrada `\(x[n]\)` está acotada si existe un valor finito positivo fijo `\(B_x\)` tal que:
 
-`\(|x[n]| \leq B_x < \infty\)`, para todo `\(n\)`.
+`$$|x[n]| \leq B_x < \infty, \text{para todo} n.$$`
 
-La estabilidad requiere que, para cualquier entrada acotada, exista un valor finito positivo fijo `\(B_y\)` tal que `\(|y[n]| \leq B_y < \infty\)`, para todo `\(n\)`.
+La estabilidad requiere que, para cualquier entrada acotada, exista un valor finito positivo fijo `\(B_y\)` tal que:
 
-Las propiedades anteriores son propiedades de sistemas, y no de las entradas a dichos sistemas. Se puede encontrar entradas para las que las propiedades se mantengan, pero la existencia de una propiedad para algunas entradas no significa que el sistema tenga esa propiedad. Un sistema tiene un determinada propiedad si esta se cumple para TODAS las entradas.
+`$$|y[n]| \leq B_y < \infty \text{para todo} n$$`
 
 ---
 
-# Ejemplo (2.10) Comprobación de la estabilidad e inestabilidad
+# Ejemplo 2.10 Comprobación de la estabilidad e inestabilidad
 
-El sistema del Ejemplo 2.4 es estable.Para demostrarlo supongamos que la entrada `\(x[n]\)` está acotada de forma que `\(|x[n]| \leq B_x \)` para todo `\(n\)`. Entonces `\(|y[n]|=|x[n]|^2 \leq B_x^2\)`. Podemos escoger por tanto `\(B_y=B_x^2\)` para demostrar que `\(y[n]\)` está acotada.
+El sistema del Ejemplo 2.4 es estable. Para demostrarlo supongamos que la entrada `\(x[n]\)` está acotada de forma que `\(|x[n]| \leq B_x \)` para todo `\(n\)`. Entonces `\(|y[n]|=|x[n]|^2 \leq B_x^2\)`. Podemos escoger por tanto `\(B_y=B_x^2\)` para demostrar que `\(y[n]\)` está acotada.
 
-Se puede ver que el sistema definido en el Ejemplo 2.6 es inestable, ya que `\(y[n]=\log_10(|x[n]|)=-\infty\)` para todos los valores de índice temporal en los que `\(x[n] = 0\)`.
+Se puede ver que el sistema definido en el Ejemplo 2.6 es inestable, ya que `\(y[n]=\log_{10}(|x[n]|)=-\infty\)` para todos los valores de índice temporal en los que `\(x[n] = 0\)`.
 
 El acumulador, definido en el Ejemplo 2.5 tampoco es estable. Por ejemplo, consideremos el caso de `\(x[n]=u[n]\)`, entrada claramente acotada por `\(B_x=1\)`. Para esta entrada, la salida del acumulador es:
 
-`$$y[n] = \sum_{k=-\infty}^{n} u[k]$$`
-
-`$$=  \left\{
+`$$y[n] = \sum_{k=-\infty}^{n} u[k] = \left\{
 \begin{array}{l l}
-0, & \quad n \neq 0\\
-(n+1), & \quad n \req 0
+0, & \quad n < 0\\
+(n+1), & \quad n \geq 0
 \end{array} \right.
 $$`
 
 No existe ningún valor finito `\(B_y\)` tal que `\((n+1) \leq B_y < \infty\)` para todo `\(n\)`; por lo tanto el sistema es inestable.
 
 ---
+
+Las propiedades anteriores son propiedades de sistemas, y no de las entradas a dichos sistemas. Se puede encontrar entradas para las que las propiedades se mantengan, pero la existencia de una propiedad para algunas entradas no significa que el sistema tenga esa propiedad. Un sistema tiene un determinada propiedad si esta se cumple para TODAS las entradas.
+
+---
+
+# Navegación
+
+Seguir con [1.3 Sistemas lineales e invariantes con el tiempo](./01-03-sistemas-lineales-e-invariantes-con-el-tiempo)
+
+Volver al capitulo [Señales y sistemas en tiempo discreto](./01-senales-y-sistemas-en-tiempo-discreto.html)
 
 	</textarea>
     <script src="js/remark.min.js"></script>

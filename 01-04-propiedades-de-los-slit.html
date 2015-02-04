@@ -58,7 +58,7 @@ Esto implica que si dos SLIT con respuestas al impulso `\(h_1[n]\)` y `\(h_2[n]\
 
 ---
 
-# Estabilidad y causalidad:
+# Estabilidad:
 
 Es importante saber si un SLIT es estable y si es causal. En el sentido BIBIO un sistema es estable si cualquier entrada acotada produce una salida acotada.
 
@@ -70,9 +70,20 @@ Un SLIT es estable y y sólo si su respuesta al impulso es absolutamente sumable
 
 Si `\(x[n]\)` está acotada, se cumple: `\(x[n] \leq B_x  \)`.
 
-podemoso sustituir `\(|x[n-k]|\)` por `\(B_x\)` sin que se deje de cumplir la desigualdad. Así:
+podemos sustituir `\(|x[n-k]|\)` por `\(B_x\)` sin que se deje de cumplir la desigualdad. Así:
 
 `$$|y[n]| \leq B_x B_h$$`
+
+---
+
+# Causalidad:
+
+Aquellos sistemas para los que la salida `\(y[n_0]\)` depende sólo de las muestras de entrada `\(x[n]\)`, para `\(n \leq n_0\)`. Esto implica que:
+
+`$$h[n] = 0, \quad n<0,$$`
+
+Esta es la condición de causalidad para SLIT
+
 
 ---
 
