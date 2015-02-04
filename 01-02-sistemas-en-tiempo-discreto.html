@@ -38,7 +38,7 @@ En este ejemplo para determinar una muestra de la señal de salida, sólo se nec
 
 ---
 
-# Ejemplo (2.3) Promediado móvil
+# Ejemplo 2.3 Promediado móvil
 
 `$$y[n]=\frac{1}{M_1+M_2+1} \sum_{k=-M_1}^{M_2}x[n-k]$$`
 
@@ -218,9 +218,7 @@ Se puede ver que el sistema definido en el Ejemplo 2.6 es inestable, ya que `\(y
 
 El acumulador, definido en el Ejemplo 2.5 tampoco es estable. Por ejemplo, consideremos el caso de `\(x[n]=u[n]\)`, entrada claramente acotada por `\(B_x=1\)`. Para esta entrada, la salida del acumulador es:
 
-`$$y[n] = \sum_{k=-\infty}^{n} u[k]$$`
-
-`$$=  \left\{
+`$$y[n] = \sum_{k=-\infty}^{n} u[k] = \left\{
 \begin{array}{l l}
 0, & \quad n < 0\\
 (n+1), & \quad n \geq 0
@@ -234,6 +232,11 @@ No existe ningún valor finito `\(B_y\)` tal que `\((n+1) \leq B_y < \infty\)` p
 Las propiedades anteriores son propiedades de sistemas, y no de las entradas a dichos sistemas. Se puede encontrar entradas para las que las propiedades se mantengan, pero la existencia de una propiedad para algunas entradas no significa que el sistema tenga esa propiedad. Un sistema tiene un determinada propiedad si esta se cumple para TODAS las entradas.
 
 ---
+
+# Mavegación
+
+Seguir con
+Volver al capítulo
 
 	</textarea>
     <script src="js/remark.min.js"></script>
