@@ -4,6 +4,7 @@
 	<title>Curso UCB - TEL 224 - Procesamiento digital de señales - Señales y sistemas en tiempo discreto</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<link media="screen, handheld, projection, tv" href="css/estilo.css" rel="stylesheet">
+	<link media="screen, handheld, projection, tv" href="css/colors.min.css" rel="stylesheet">
 </head>
 <body>
 	<textarea id="source">
@@ -53,12 +54,38 @@ Es el equivalente en tiempo discreto del impulso de Dirac en tiempo continuo. Cu
 
 # El escalón unidad
 
+El escalón unidad es otra señal de base relacionada con la muestra unidad.
+
+![Escalón unidad](imagenes/01-01-escalon-unidad.svg)
+
+La secuencia escalón unidad se define como
+
+`$$u[n] =  \left\{
+\begin{array}{l l}
+1, & \quad n \geq 0\\
+0, & \quad n \lt 0
+\end{array} \right.
+$$`
+
+.red[Ejercicio:] mostrar como se puede expresar `\(u[n]\)` en función a `\(\delta[n]\)` utilizando la formula `\(x[n] = \sum_{k \in \mathbb Z} x[k] \delta[n-k]\)`
+
+.red[Ejercicio:] mostrar como se puede expresar `\(\delta[n]\)` en función a `\(u[n]\)`
+
+
 ---
 
 # Las señales complejas sinusoidales
 
-1. Una señal en tiempo discreto **periódica** es definida por `$$x[n] = x[n + N], \forall n \in \mathbb Z$$`.
-1. El muestro de una señal continua sinusoidal no necesariamente es una señal discreta periódica
+1. Una señal en tiempo discreto **periódica** es definida por `$$x[n] = x[n + N], \forall n \in \mathbb Z$$`
+1. ¡El muestro de una señal continua sinusoidal no necesariamente es una señal discreta periódica!
+
+.red[Ejercicio:] Calcular la condición sobre `\(f_M\)` para que la señal `\(x_{f_M}[n]\)` resultante del muestreo de la sinusoide continua `\(x(t) = cos(2\pi f t)\)` sea periódica. Ayuda: para obtener `\(x_{f_M}[n]\)`, remplazar `\(t\)` por `\(\frac{n}{f_M}\)`. Podemos anotar `\(\omega_0=\frac{2\pi f}{f_M}\)`.
+
+.red[Ejercicio:] Calcular y dibujar la señal `\(x_{f_M}[n]\)` resultante del muestreo de la sinusoide continua `\(x(t) = cos(2\pi f t)\)`, para los valores siguientes de la frecuencia de muestreo `\(f_M\)`: 
+1. `\(f_M = 8f\)`
+4. `\(f_M = 2f\)`
+5. `\(f_M = f\)`
+5. `\(f_M = \frac{8f}{3}\)`
 
 	</textarea>
     <script src="js/remark.min.js"></script>
