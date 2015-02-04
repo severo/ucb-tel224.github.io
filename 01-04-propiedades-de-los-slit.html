@@ -18,6 +18,44 @@ class: center, middle
 
 # Propiedades de los SLIT
 
+Como los SLIT se pueden describir mediante la convolución, las propieades de esta clase de sistemas estarán determinadas por las propiedades de esta clase de sistemas estarán determinadas por las propiedades de la convolución en tiempo discreto. La respuesta al impulso es una caracterización completa de las propiedades de un determinado SLIT.
+
+---
+
+# Propiedad de conmutatividad:
+
+`$$x[n] \conv h[n] = h[n] \conv x[n]$$`
+
+El orden de las secuencias en la convolución no es relevante y por lo tanto, la salida del sistema es la misma si se intercambian los papeles de la entrada y de la respuesta al impulso. Un SLIT con entrada `\(x[n]\)` y respuesta al impulso `\(h[n]\)` producirá la misma salida que otro SLIT con entrada `\(h[n}\)` y respuesta al impulso `\(x[n]\)`.
+
+---
+
+# Propiedad de distribución respecto a la suma:
+
+`$$x[n] \conv (h_1[n]+h_2[n])=x[n] \conv h_1[n] + x[n] \conv h_2[n]$$`
+
+Grafica 2.11
+
+En una conexión en paralelo, los sistemsa tienen la misma entrada, y sus salidas se suman para producir la salida total. Así la conexión en paralelo de dos SLIT es equivalente a un único sistema cuya respuesta al impulso es la suma de las respuestas al impulso de cada uno de los sistemas.
+
+`$$h[n] = h_1[n]+h_2[n]$$`
+
+---
+
+# Propiedad de asociatividad:
+
+`$$y[n]=(x[n] \conv h_1[n]) \conv h_2 = x[n] \conv (h_1[n] \conv h_2[n])$$`
+
+Además, como la operación es conmutativa:
+
+`$$y[n] = x[n] \conv (h_2[n] \conv h_1[n]) = (x[n] \conv h_2[n]) \conv h_1$$`
+
+Grafica 2.12
+
+Esto implica que si dos SLIT con respuestas al impulso `\(h_1[n]\)` y `\(h_2[n]\)` se conectan en cascada, la respuesta al impulso global equivalente es:
+
+`$$h[n] = h_1[n] \conv h_2[n] = h_2[n] \conv h_1[n]$$`
+
 ---
 
 	</textarea>
