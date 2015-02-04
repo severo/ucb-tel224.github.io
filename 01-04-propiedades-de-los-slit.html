@@ -66,7 +66,7 @@ Un SLIT es estable si y sólo si su respuesta al impulso es absolutamente sumabl
 
 `$$B_h = \sum_{k=-\infty}^{\infty} |h[k]| < \infty$$`
 
-`$$|y[n]| = \lvert \sum_{k=-\infty}^{\infty} h[k] x[n-k]} \lvert \leq \sum_{k=-\infty}^{\infty} |h[k]| |x[n-k]|$$`
+`$$|y[n]| = \left| \sum_{k=-\infty}^{\infty} h[k] x[n-k]} \rigth| \leq \sum_{k=-\infty}^{\infty} |h[k]| |x[n-k]|$$`
 
 Si `\(x[n]\)` está acotada, se cumple: `\(x[n] \leq B_x\)`.
 
@@ -78,7 +78,9 @@ podemos sustituir `\(|x[n-k]|\)` por `\(B_x\)` sin que se deje de cumplir la des
 
 # Condición necesaria de estabilidad
 
-Lo anterior es una condición **suficiente** para la estabilidad. Para demostrar que también es una condición necesaria, debemos demostrar que si `\(B_h = \infty\)`, se puede encontrar una entrada acotada que produzca una salida no acotada. Hagamos que la entrada sea:
+Lo anterior es una condición **suficiente** para la estabilidad. Para demostrar que también es una condición necesaria, debemos demostrar que si `\(B_h = \infty\)`, se puede encontrar una entrada acotada que produzca una salida no acotada.
+
+Hagamos que la entrada sea:
 
 `$$x[n] = \left\{
 \begin{array}{l l}
@@ -87,7 +89,13 @@ Lo anterior es una condición **suficiente** para la estabilidad. Para demostrar
 \end{array} \right.
 $$`
 
-Siendo `\(h^*[n]\)` el complejo conjugado de `\(h[n]\)`. Claramente, la secuencia `\(x[n]\)` está acotada por la unidad. Analizando la salida de un sistema (donde `\(B_h = \infty\)`) frente a `\(x[n]\)` para el valor específico de `\(n = 0\)` es:
+Siendo `\(h^*[n]\)` el complejo conjugado de `\(h[n]\)`. Claramente, la secuencia `\(x[n]\)` está acotada por la unidad.
+
+---
+
+# Condición necesaria de estabilidad
+
+Analizando la salida de un sistema (donde `\(B_h = \infty\)`) frente a `\(x[n]\)` para el valor específico de `\(n = 0\)` es:
 
 `$$y[n]=\sum_{k=-\infty}^{\infty} x[n-k] h[k]$$`
 
