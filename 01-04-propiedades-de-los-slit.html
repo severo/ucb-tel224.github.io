@@ -58,6 +58,24 @@ Esto implica que si dos SLIT con respuestas al impulso `\(h_1[n]\)` y `\(h_2[n]\
 
 ---
 
+# Estabilidad y causalidad:
+
+Es importante saber si un SLIT es estable y si es causal. En el sentido BIBIO un sistema es estable si cualquier entrada acotada produce una salida acotada.
+
+Un SLIT es estable y y sólo si su respuesta al impulso es absolutamente sumable.
+
+`$$B_h = \sum_{k=-\infty}^{\infty} |h[k]| < \infty$$`
+
+`$$|y[n]| = \abs{\sum_{}^{} h[k] x[n-k]} \leq \sum_{k=-\infty}^{\infty} |h[k]| |x[n-k]|$$`
+
+Si `\(x[n]\)` está acotada, se cumple: `\(x[n] \leq B_x  \)`.
+
+podemoso sustituir `\(|x[n-k]|\)` por `\(B_x\)` sin que se deje de cumplir la desigualdad. Así:
+
+`$$|y[n]| \leq B_x B_h$$`
+
+---
+
 	</textarea>
     <script src="js/remark.min.js"></script>
     <script src="js/MathJax/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured" type="text/javascript"></script>
