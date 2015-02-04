@@ -66,7 +66,7 @@ Un SLIT es estable si y sólo si su respuesta al impulso es absolutamente sumabl
 
 `$$B_h = \sum_{k=-\infty}^{\infty} |h[k]| < \infty$$`
 
-`$$|y[n]| = \left| \sum_{k=-\infty}^{\infty} h[k] x[n-k]} \rigth| \leq \sum_{k=-\infty}^{\infty} |h[k]| |x[n-k]|$$`
+`$$|y[n]| = \left| \sum_{k=-\infty}^{\infty} h[k] x[n-k] \rigth| \leq \sum_{k=-\infty}^{\infty} |h[k]| |x[n-k]|$$`
 
 Si `\(x[n]\)` está acotada, se cumple: `\(x[n] \leq B_x\)`.
 
@@ -127,6 +127,7 @@ Retardo ideal (Ejemplo 2.2)
 
 `$$h[n] = \delta[n-n_0], \quad n_d \text{entero positivo fijo}$$`
 
+
 Promediado móvil (Ejemplo 2.3)
 
 `$$h[n]=\frac{1}{M_1+M_2+1} \sum_{k=-M_1}^{M_2} \delta[n-k]$$`
@@ -149,9 +150,11 @@ Acumulador
 \end{array} \right.
 $$`
 
+
 Diferencia progresiva (Ejemplo 2.9)
 
 `$$h[n] = \delta[n+1] - \delta[n]$$`
+
 
 Diferencia regresiva (Ejemplo 2.9)
 
@@ -189,11 +192,11 @@ La respuesta al impulso del acumulador es de duración infinita. Este sistema es
 
 # Un ejemplo de sistema IIR
 
-Otro ejemplo de sistema IIR estable sería un sistema cuya respuesta al impulso es `\(h[n] = a^n u[n]}\)` con `\(|a| < 1\)`. En este caso,
+Otro ejemplo de sistema IIR estable sería un sistema cuya respuesta al impulso es `\(h[n] = a^n u[n]\)` con `\(|a| < 1\)`. En este caso,
 
 `$$B_h = \sum_{n=0}^{\infty} |a|^n$$`
 
-Si `\(|a| < 1\), la fórmula de la suma de términos de una serie geométrica infinita proporciona el siguiente resultado:
+Si `\(|a| < 1\)`, la fórmula de la suma de términos de una serie geométrica infinita proporciona el siguiente resultado:
 
 `$$B_h = \frac{1}{1-|a|} < \infty$$`
 
