@@ -197,13 +197,51 @@ Si `\(|a| < 1\), la fórmula de la suma de términos de una serie geométrica in
 
 `$$B_h = \frac{1}{1-|a|} < \infty$$`
 
-Por otra parte, si `\(|a| > 1\)` la suma es infinita y el sistema es inestable.
+Por otra parte, si `\(|a| \geq 1\)` la suma es infinita y el sistema es inestable.
 
 ---
 
 # Comprobando la causalidad de sistemas
 
+La respuesta al impulso de un sistema causal cumple `\(h[n] = 0\)` para cualquier `\(n < 0\)`.
 
+El sistema de retardo ideal [`\(n_d \geq 0\)`] es causal. Si `\(n_d < 0\)`, es sistema es no causal. Para el sistema promediado móvil, la condición de causalidad exige que `\(-M_1 \geq 0\)` y `\(M_2 \geq 0\)`. Los sistemas acumulador y de diferencia regresiva son causales, el de diferencia progresiva es no causal.
+
+---
+
+# Convolución y retardo
+
+El concepto de convolución como una operación entre dos secuencias puede simplificar muchos problemas en los que intervienen sistemas. Analisemos el sistema de retardo ideal.
+
+La salida del sistema es: `\(y[n]=x[n-n_d]\)`, y dado que su respuesta al impulso es `\(h[n] = \delta[n-n_d]\)`, se deduce que:
+
+`$$x[n] * \delta[n-n_d] = \delta[n-n_d] * x[n] = x[n-n_d]$$`
+
+Es decir, que la convolución de cualquier señal x[n] con un impulso desplazado se puede obtener fácilmente desplazando `\(x[n]\)` una cantidad igual al desplazamiento del impulso.
+
+---
+
+# Convolución y retardo
+
+El retardo es una operación fundamental en la implementación de sistemas lineales, el resultado anterior es de utilidad en el análisis y simplificación de interconexiones de SLIT.
+
+Considere el sistema de la siguiente Fig. (Figura 2.13).
+
+Que consiste en un sistema de diferencia progresiva seguido por un retardo ideal de una muestra. De acuerdo con la propiedad conmutativa de la convolución, el orden en el que se conectan los sistemas en cascada no es relevante, mientras se trate de SLIT. Por tanto, obtedremos el mismo resultado si calculamos primero la diferencia progresiva y seguidamente retardamos el resultado que si retardamos primero la secuencia y después calculamos la diferencia progresiva. 
+
+---
+
+# Convolución y retardo
+
+Y todavía más, sabe que la respuesta total de una cascada de sistemas es la convolución de las respuestas al impulso da cada sistema. Por tanto,
+
+`$$h[n] = (\delta[n+1] - \delta[n]) * \delta[n-1]$$`
+
+`$$=\delta[n-1] * (\delta[n+1] - \delta[n])$$`
+
+`$$=\delta[n] - \delta[n-1]$$`
+
+`\(h[n}\)` es idéntica a la respuesta al impulso del sistema de diferencia regresiva. Nótese que los sistemas no causales de diferencia progresiva se transforman en sistems causales al colocarlos en cascada con un retardo. En general, cualquier sistema FIR no causal se puede convertir en causal colocándolo en cascada con un retardo suficientemente grande.
 
 ---
 
