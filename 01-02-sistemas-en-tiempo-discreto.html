@@ -177,7 +177,7 @@ Comparando estas dos salidas, vemos que `\(y[n-n_0]\)` no es igual a `\(y_1[n]\)
 
 Se dice que un sistema es causal si para cualquier valor de `\(n_0\)`, la secuencia de salida en el índice `\(n=n_0\)` depende sólo de los valores de la secuencia de entrada para `\(n \leq n_0\)`. Esto implica que si `\(x_1[n]=x_2[n]\)` para `\(n \leq n_0\)`, entonces `\(y_1[n]=y_2[n]\)` para `\(n \leq n_0\)`. Es decir, el sistema es no anticipativo.
 
-El Ejemplo 2.2 es causal para `\(n_d \req 0\)` y es no causal para `\(n_d < 0\)`. El sistema del Ejemplo 2.3 es causal sí `\(-M_1 \req 0\)` y `\(M_2 \req 0 \)`; en otros casos es no causal. El sistema del Ejemplo 2.4, 2.5 y el sistema no lineal de 2.6 son causales El sistema del Ejemplo 2.8 es no causal si `\(M > 1\)`.
+El Ejemplo 2.2 es causal para `\(n_d \geq 0\)` y es no causal para `\(n_d < 0\)`. El sistema del Ejemplo 2.3 es causal sí `\(-M_1 \geq 0\)` y `\(M_2 \geq 0 \)`; en otros casos es no causal. El sistema del Ejemplo 2.4, 2.5 y el sistema no lineal de 2.6 son causales El sistema del Ejemplo 2.8 es no causal si `\(M > 1\)`.
 
 ---
 
@@ -223,7 +223,7 @@ El acumulador, definido en el Ejemplo 2.5 tampoco es estable. Por ejemplo, consi
 `$$=  \left\{
 \begin{array}{l l}
 0, & \quad n < 0\\
-(n+1), & \quad n \req 0
+(n+1), & \quad n \geq 0
 \end{array} \right.
 $$`
 
