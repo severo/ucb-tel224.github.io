@@ -142,7 +142,7 @@ $$`
 
 Acumulador
 
-`$$h[n] = \sum_{k=-\infty}^{\infty} \delta[k] = \left\{
+`$$h[n] = \sum_{k=-\infty}^{n} \delta[k] = \left\{
 \begin{array}{l l}
 1, & \quad n \geq 0,\\
 0, & \quad n<0
@@ -153,15 +153,57 @@ Diferencia progresiva (Ejemplo 2.9)
 
 `$$h[n] = \delta[n+1] - \delta[n]$$`
 
-Diferencia prograsiva (Ejemplo 2.9)
+Diferencia regresiva (Ejemplo 2.9)
 
 `$$h[n] = \delta[n] - \delta[n-1]$$`
 
 ---
 
-Dadas las respuestas al impulso de estos sistemas básicas, podemos comprobar la estabilidad de cada uno de ellos calculando la suma:
+# Comprobando la estabilidad de sistemas
 
-`$$B_h = $$` (pag 32)
+Dadas las respuestas al impulso de estos sistemas básicos, podemos comprobar la estabilidad de cada uno de ellos calculando la suma:
+
+`$$B_h = \suma_{n=-\infty}^{\infty} |h[n]|$$^
+
+---
+
+# Comprobando la estabilidad de sistemas
+
+Para los ejemplos del retardo ideal, promediado móvil, diferencia progresiva y diferencia regresiva se obtiene `\(B_h < \infty\)`, ya que la respuesta al impulso sólo tiene un número finito de muestras distintas de cero.
+
+Un sistema con espuesta al impulso de duración finita (FIR, Finite-duration-Impulse Response) será siempre estable mientras los valores de su respuesta al impulso sean de módulo finito.
+
+---
+
+# Comprobando la estabilidad de sistemas
+
+Sin embargo el acumulador es un sistema inestable porque:
+
+``$B_h = \sum_{n=0}^{\infty} u[n] = \infty$$`
+
+Anteriormente también habíamos demostrado la inestabilidad del acumulador proporcionando un ejemplo de entrada acotada (el escalón unidad) que producía una salida no acotada.
+
+La respuesta al impulso del acumulador es de duración infinita. Este sistema es un ejemplo de la clase de sistemas denominada de repuesta al impulso de duración infinita (IIR, Infinite-duration Impulse Response).
+
+---
+
+# Un ejemplo de sistema IIR
+
+Otro ejemplo de sistema IIR estable sería un sistema cuya respuesta al impulso es `\(h[n] = a^n u[n]}\)` con `\(|a| < 1\)`. En este caso,
+
+`$$B_h = \sum_{n=0}^{\infty} |a|^n$$`
+
+Si `\(|a| < 1\), la fórmula de la suma de términos de una serie geométrica infinita proporciona el siguiente resultado:
+
+`$$B_h = \frac{1}{1-|a|} < \infty$$``
+
+Por otra parte, si `\(|a| > 1</0>\)`m ka suma es infinita y el sistema es inestable.
+
+---
+
+# Comprobando la causalidad de sistemas
+
+
 
 ---
 
