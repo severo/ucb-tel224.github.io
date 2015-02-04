@@ -27,6 +27,10 @@ Las señales son un soporte para la información. Generalmente son el resultado 
 
 Definición de una señal por la revista "IEEE Transactions on Signal Processing": The term "signal" includes, among others, audio, video, speech, image, communication, geophysical, sonar, radar, medical and musical signals."
 
+---
+
+# Las señales
+
 Para acceder a la información contenida en una señal, se realiza un **análisis**.
 
 Para generar una señal a partir de una información, se realiza una **síntesis**.
@@ -66,6 +70,37 @@ En un muestreo, además de manejar un tiempo discreto, la amplitud de la señal 
 Para transformar una señal en una otra señal, se realiza un **procesamiento**, a través de un **sistema**. Un sistema transforma una o varias señales (**entradas**) en una o varias señales (**salidas**).
 
 Si las señales de entrada y salida son digitales, se dice que el sistema es **digital**.  De la misma forma, si las señales de entrada y salida son de tiempo discreto, entonces se dice que el sistema es **de tiempo discreto**.
+
+Los sistemas de tiempo discreto tiene una gran ventaja sobre los sistemas continuos: corresponden a simples operaciones lógicas y aritméticas, y no necesitan integral, derivación, etc. Las computadoras, DSP, microcontroladores pueden realizar estas operaciones fácilmente y rápidamente.
+
+---
+
+# Los sistemas
+
+A continuación listamos algunos sistemas en tiempo discreto que presentaremos en este curso:
+
+* análisis espectral - transformada de Fourier
+* filtro a respuesta impulsional finita (RIF)
+* filtro a respuesta impulsional infinita (RII)
+* transcodificación
+* modulación
+* detección
+* estimación
+* extracción de parámetros
+
+---
+
+# La TFD - Transformada de Fourier Discreta
+
+La Transformada de Fourier Discreta (TFD) es el equivalente digital de la transformada de Fourier en el caso de tiempo continuo. Representa una señal como la suma de todas sus componentes frecuenciales. La TFD es un sistema lineal, invariante con el tiempo.
+
+Algunas de sus características: el espacio de tiempo y el espacio de frecuencias son discretos, el paso de frecuencia es un divisor de la frecuencia de muestreo.
+
+El invento del **algoritmo de cálculo rápido** de la TFD ha sido un paso clave para lanzar el uso masivo del procesamiento digital de señales.
+
+---
+
+# Tratamiento de señales en tiempo discreto
 
 Este curso, basado en el libro ["Tratamiento de señales en tiempo discreto"](http://es.scribd.com/doc/235220688/Tratamiento-de-Senales-en-Tiempo-Discreto-Oppenheim-pdf) de Alan Oppenheim y Ronald Schafer, se concentra sobre las señales y los sistemas en **tiempo discreto**.
 
