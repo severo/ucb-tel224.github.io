@@ -17,6 +17,90 @@ class: center, middle
 
 ---
 
+# Sistemas lineales e invariantes con el tiempo
+
+Un SLIT combina dos propiedades:
+
+* lineal (principio de superposición)
+* invariante con el tiempo 
+
+Permiten una representación conveniente de los sistemas. Los SLIT tienen importantes aplicaciones en procesamiento de señales.
+
+---
+
+# Propiedad de linealidad
+
+La propiedad de linealidad permite **caracterizar** completamente un sistema lineal por su respuesta al impulso.
+
+2. Sistema lineal
+
+    `$$y[n] = T \left\{ x[n] \right\} = T \left\{ \sum_{k \in \mathbb Z} x[k] \delta[n-k] \right\} , \forall n \in \mathbb Z$$`
+
+3. Propiedad de linealidad
+
+    `$$y[n] = \sum_{k \in \mathbb Z} x[k] T \left\{ \delta[n-k] \right\} , \forall n \in \mathbb Z$$`
+
+4. Anotando `\(h_k[n] = T \left\{ \delta[n-k] \right\}\)` la respuesta del sistema a la entrada `\(\delta[n−k]\)`, un impulso en `\(n = k\)`, la señal `\(y[n]\)` se puede escribir
+
+    `$$y[n] = \sum_{k \in \mathbb Z} x[k] h_k[n] , \forall n \in \mathbb Z$$`
+
+Es de interés limitado, porque `\(h_k[n]\)` depende de `\(n\)` y de `\(k\)`.
+
+---
+
+# Propiedad de invarianza con el tiempo
+
+Adicionando la propiedad de invarianza temporal, se obtiene un resultado mucho más útil.
+
+1. Invarianza temporal
+
+    `$$h[n] = T \left\{ \delta[n] \right\} , \forall n \in \mathbb Z \iff h[n-k] = T \left\{ \delta[n-k] \right\} , \forall n,k \in \mathbb Z$$`
+
+2. Sistema LIT
+
+    `$$y[n] = \sum_{k \in \mathbb Z} x[k] h[n-k] , \forall n \in \mathbb Z$$`
+
+Este resultado muy útil implica que el conocimiento **independiente** de la secuencia `\(\{x[n]\}\)` y de la respuesta impulsional `\(\{h[n]\}\)` permite calcular toda la secuencia de la salida `\(\{y[n]\}\)`.
+
+---
+
+# Ilustración
+
+Interpretación:
+
+1. para cualquier valor de `\(k\)`, el componente de la señal de entrada que contiene simplemente la muestra en el instante `\(n=k\)` esta transformado por el sistema en una secuencia `\(\{x[k] h[n-k]\}\)`. 
+
+
+.figura[![Señal y respuesta impulsional](imagenes/01-03-senal-x-respuesta-h.svg)]
+
+Ejemplo: el componente `\(\{x_{-2}[n]\}=\{x[-2]\delta[n+2]\}\)` de la secuencia `\(\{x[n]\}\)` de entrada se transforma en `\(\{x[-2]h[n+2]\}\)`
+
+.figura[![Señal y respuesta impulsional](imagenes/01-03-salida-a.svg)]
+
+---
+
+# Ilustración
+
+Ejemplo: el componente `\(\{x_{0}[n]\}=\{x[0]\delta[n]\}\)` de la secuencia `\(\{x[n]\}\)` de entrada se transforma en `\(\{x[0]h[n]\}\)`
+
+.figura[![Señal y respuesta impulsional](imagenes/01-03-salida-b.svg)]
+
+Ejemplo: el componente `\(\{x_{3}[n]\}=\{x[3]\delta[n-3]\}\)` de la secuencia `\(\{x[n]\}\)` de entrada se transforma en `\(\{x[3]h[n-3]\}\)`
+
+.figura[![Señal y respuesta impulsional](imagenes/01-03-salida-c.svg)]
+
+---
+
+# Ilustración
+
+2. la señal resultante `\(\{y[n]\}\)` es la suma de todos estos componentes
+
+.figura[![Señal y respuesta impulsional](imagenes/01-03-salida-completa.svg)]
+
+La respuesta a la señal `\(\{x[n]\}\)` es la suma de estas tres respuestas individuales.
+
+---
+
 # Navegación
 
 Seguir con [1.4 Propiedades de los sistemas lineales e invariantes con el tiempo](./01-04-propiedades-de-los-slit)
