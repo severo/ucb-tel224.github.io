@@ -17,7 +17,70 @@ class: center, middle
 
 ---
 
-# Ini
+# La frecuencia compleja de entrada se mantiene en la salida del sistema
+
+Las señales en tiempo discreto se pueden representar de varias formas diferentes. Las secuencias exponenciales complejas (de las que se desprenden funciones sin y cosenoidales) son **autofunciones** de los SLIT, que significa que la frecuencia compleja de la señal de entrada se mantiene a la salida del sistema y que unicamente la amplitud y fase de la señal de salida estan determinadas por el sistema. Esta propiedad fundamental de los SLIT hace que las representaciones de señales como la suma de exponenciales complejas (representación de Fourier) sean tan útiles.
+
+---
+
+# Autofunciones de los SLIT
+
+Se puede demostrar que dada una secuencia de entrada `\(x[n] = e^{j\omega n}\)` para `\(-\infty < n z \infty\)`, la correspondiente salida del SLIT con respuesta al impulso `\(h[n]\)` es:
+
+`$$y[n] = H(e^{j\omega}) e^{\j \omega n}$$`
+
+Siendo,
+
+`$$H(e^{j\omega}) = \sum_{k=-\infty}^{\infty} h[k] e^{-j \omega k}$$`
+
+En consecuencia, `\(e^{j \omega n}\)` es una autofunción del sistema, y su autovalor asociado es `\(H(e^{j \omega})\), que describe el cambio de la amplitud completa en función de la frecuencia `\(\omega\)` de una señal de entrada de tipo exponencial compleja. El autovalor `\(H(e^{j \omega})\) se denomina respuesta en frecuencia del sistema. En general, `\(H(e^{j \omega})\)` es un número complejo y se puede expresar por tanto en función de sus partes real e imaginaria:
+
+`$$H(e^{j \omega}) = H_R(e^{j \omega}) + j H_I(e^{j \omega})$$`
+
+O en función de su amplitud y fase,
+
+`$$H(e^{j \omega}) = |H(e^{j \omega}) e^{j \angle H(e^{j \omega})}|$$`
+
+---
+
+# Ejemplo 2.14 Respuesta en frecuencia del sistema de retardo ideal
+
+Consideremos el sistema `\(y[n] = x[n-n_d]\)`, siendo `\(n_d\)` un entero fijo. Si consideramos que la entrada al sistema es: `\(x[n] = e^{j \omega n}\)`, aplicando la definición del sistema:
+
+`$$y[n] = e^{j \omega (n-n_d)} = e^{-j\omega d_d} e^{\j\omega n}\)$$`
+
+La respuesta en frecuencia del retardo ideal es: `\(H(e^{j \omega} = e^{-j \omega n_d})\)`
+
+Podemos obtener la respuesta en frecuencia por un método alternatico si tenemos en cuenta que en el sistema de retardo ideal, `\(h[n] = \delta[n-n_d]\)` y utilizando la definción anterior de `\(H(e^{j\omega}) = \sum_{k=-\infty}^{\infty} h[k] e^{-j \omega k}\)`:
+
+`$$H(e^{j \omega}) = \sum_{n = -\infty}^{\infty}  \delta[n-n_d] e^{-j \omega n} = e^{-j \omega n_d} $$`
+
+Las parte sreal e imaginaria de la respuesta en frecuencia son: 
+
+`$$H_R(e^{j \omega}) = cos(\omega n_D), \quad H_I(e^{j \omega}) = -sin(\omega n_D)$$`
+
+Así su módulo y fase serán:
+
+`$$|H(e^{j \omega} = 1, \quad \angle H(e^{j \omega}) = -\omega n_d)|$$`
+
+---
+
+# Representación de señales como exponenciales complejas
+
+Más adelante demostraremos que una amplia clase de señales se puede representar mediante una combinación lineal de exponenciales complejas de la forma:
+
+`$$x[n] = \sum_{k} \alpha_k e^{j \omega_k n}$$`
+
+Aplicando el principio de superposición, la correspondiente salida de un SLIT.
+
+`$$y[n} = \sum_{k} \alpha_k H(e^{j \omega_k}) e^{j \'omega_k n}$$`
+
+De esta manera, si podemos obtener una representación de `\(x[n]\)` en forma de superposición de secuencias exponenciales complejas, y conocemos la respuesta en frecuencia del sistema en todas las las frecuencias \omega_k, podremos obtener la salida empleando esta última ecuación. Veremos un ejemplo.
+
+---
+
+# Ejempo 2.15 Respuesta de los SLIT a una sinusoide
+
 
 
 ---
