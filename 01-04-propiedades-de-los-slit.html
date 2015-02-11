@@ -50,7 +50,11 @@ Además, como la operación es conmutativa:
 
 `$$y[n] = x[n] * (h_2[n] * h_1[n]) = (x[n] * h_2[n]) * h_1[n]$$`
 
-.figura[![scale=0.5][Combinación en cascada](imagenes/01-02-figura-2.12.jpg)]
+.figura[![Combinación en cascada](imagenes/01-02-figura-2.12.jpg)]
+
+---
+
+# Propiedad de asociatividad:
 
 Esto implica que si dos SLIT con respuestas al impulso `\(h_1[n]\)` y `\(h_2[n]\)` se conectan en cascada, la respuesta al impulso global equivalente es:
 
@@ -228,11 +232,9 @@ Es decir, que la convolución de cualquier señal x[n] con un impulso desplazado
 
 El retardo es una operación fundamental en la implementación de sistemas lineales, el resultado anterior es de utilidad en el análisis y simplificación de interconexiones de SLIT.
 
-Considere el sistema de la siguiente Fig.
+Considere el sistema de la siguiente Fig. que consiste en un sistema de diferencia progresiva seguido por un retardo ideal de una muestra. De acuerdo con la propiedad conmutativa de la convolución, el orden en el que se conectan los sistemas en cascada no es relevante, mientras se trate de SLIT. Por tanto, obtedremos el mismo resultado si calculamos primero la diferencia progresiva y seguidamente retardamos el resultado que si retardamos primero la secuencia y después calculamos la diferencia progresiva. 
 
 .figura[![Sistemas equivalentes](imagenes/01-02-figura-2.13.jpg)]
-
-Que consiste en un sistema de diferencia progresiva seguido por un retardo ideal de una muestra. De acuerdo con la propiedad conmutativa de la convolución, el orden en el que se conectan los sistemas en cascada no es relevante, mientras se trate de SLIT. Por tanto, obtedremos el mismo resultado si calculamos primero la diferencia progresiva y seguidamente retardamos el resultado que si retardamos primero la secuencia y después calculamos la diferencia progresiva. 
 
 ---
 
