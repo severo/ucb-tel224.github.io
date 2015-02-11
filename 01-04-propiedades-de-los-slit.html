@@ -50,7 +50,7 @@ Además, como la operación es conmutativa:
 
 `$$y[n] = x[n] * (h_2[n] * h_1[n]) = (x[n] * h_2[n]) * h_1[n]$$`
 
-Grafica 2.12
+.figura[![Combinación en cascada](imagenes/01-02-figura-2.12.jpg)]
 
 Esto implica que si dos SLIT con respuestas al impulso `\(h_1[n]\)` y `\(h_2[n]\)` se conectan en cascada, la respuesta al impulso global equivalente es:
 
@@ -125,7 +125,7 @@ Para los Ejemplos 2.2, 2.3, 2.5 y 2.9 se consideró como entrada `\(x[n] = \delt
 
 Retardo ideal (Ejemplo 2.2)
 
-`$$h[n] = \delta[n-n_0], \quad n_d \text{entero positivo fijo}$$`
+`$$h[n] = \delta[n-n_0], \quad n_d \text{ entero positivo fijo}$$`
 
 
 Promediado móvil (Ejemplo 2.3)
@@ -228,7 +228,9 @@ Es decir, que la convolución de cualquier señal x[n] con un impulso desplazado
 
 El retardo es una operación fundamental en la implementación de sistemas lineales, el resultado anterior es de utilidad en el análisis y simplificación de interconexiones de SLIT.
 
-Considere el sistema de la siguiente Fig. (Figura 2.13).
+Considere el sistema de la siguiente Fig.
+
+.figura[![Sistemas equivalentes](imagenes/01-02-figura-2.13.jpg)]
 
 Que consiste en un sistema de diferencia progresiva seguido por un retardo ideal de una muestra. De acuerdo con la propiedad conmutativa de la convolución, el orden en el que se conectan los sistemas en cascada no es relevante, mientras se trate de SLIT. Por tanto, obtedremos el mismo resultado si calculamos primero la diferencia progresiva y seguidamente retardamos el resultado que si retardamos primero la secuencia y después calculamos la diferencia progresiva. 
 
@@ -250,7 +252,9 @@ Y todavía más, sabe que la respuesta total de una cascada de sistemas es la co
 
 # Convolución y sistema inverso
 
-El arreglo en cascada permite desarrollar el concepto de sistema inverso. (Subir Figura 2.14). La respuesta al impulso de la cascada de sistemas es:
+.figura[![Acumulador en cascada con sistema de diferencia regresiva](imagenes/01-02-figura-2.14.jpg)]
+
+El arreglo en cascada permite desarrollar el concepto de sistema inverso. La respuesta al impulso de la cascada de sistemas es:
 
 `$$h[n] = u[n] * (\delta[n] - \delta[n-1])$$`
 
