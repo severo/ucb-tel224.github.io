@@ -55,7 +55,7 @@ Consideremos el sistema `\(y[n] = x[n-n_d]\)`, siendo `\(n_d\)` un entero fijo. 
 
 `$$y[n] = e^{j \omega (n-n_d)} = e^{-j\omega d_d} e^{j\omega n}$$`
 
-La respuesta en frecuencia del retardo ideal es: `\(H(e^{j \omega} = e^{-j \omega n_d})\)`
+La respuesta en frecuencia del retardo ideal es: `\(H(e^{j \omega}) = e^{-j \omega n_d}\)`
 
 Podemos obtener la respuesta en frecuencia por un método alternativo si tenemos en cuenta que en el sistema de retardo ideal, `\(h[n] = \delta[n-n_d]\)` y utilizando la definción anterior de `\(H(e^{j\omega}) = \sum_{k=-\infty}^{\infty} h[k] e^{-j \omega k}\)`:
 
@@ -67,11 +67,11 @@ Podemos obtener la respuesta en frecuencia por un método alternativo si tenemos
 
 Las parte real e imaginaria de la respuesta en frecuencia son: 
 
-`$$H_R(e^{j \omega}) = cos(\omega n_D), \quad H_I(e^{j \omega}) = -sin(\omega n_D)$$`
+`$$H_R(e^{j \omega}) = cos(\omega n_d), \quad H_I(e^{j \omega}) = -sin(\omega n_d)$$`
 
 Así su módulo y fase serán:
 
-`$$|H(e^{j \omega} = 1, \quad \angle H(e^{j \omega}) = -\omega n_d)|$$`
+`$$|H(e^{j \omega}| = 1, \quad \angle H(e^{j \omega}) = -\omega n_d)$$`
 
 ---
 
@@ -93,19 +93,19 @@ De esta manera, si podemos obtener una representación de `\(x[n]\)` en forma de
 
 Consideremos una entrada sinusoidal:
 
-`$$x[n] = A cos(\omega_k+\phi) = \frac{A}{2} e^{j\phi} e^{j\omega_0 n} + \frac{A}{2} e^{-j\phi} e^{-j\omega_0 n}$$`
+`$$x[n] = A cos(\omega_0+\phi) = \frac{A}{2} e^{j\phi} e^{j\omega_0 n} + \frac{A}{2} e^{-j\phi} e^{-j\omega_0 n}$$`
 
 Aplicando `\(y[n] = H(e^{j\omega}) e^{j \omega n}\)`, podemos obtener la respuesta a `\(x_1[n] = (A/2) e^{j\phi} e^{j\omega_0 n}\)`:
 
-`$$y_1 = H(e^{j\omega_0})\frac{A}{2} e^{j\phi} e^{j\omega_0 n}$$`
+`$$y_1[n] = H(e^{j\omega_0})\frac{A}{2} e^{j\phi} e^{j\omega_0 n}$$`
 
  La respuesta a `\(x_2[n] = (A/2) e^{-j\phi} e^{-j\omega_0 n}\)`:
 
-`$$y_2 = H(e^{-j\omega_0})\frac{A}{2} e^{-j\phi} e^{-j\omega_0 n}$$`
+`$$y_2[n] = H(e^{-j\omega_0})\frac{A}{2} e^{-j\phi} e^{-j\omega_0 n}$$`
 
 La respuesta total será:
 
-`$$y[n] = \frac{A}{2} \[ H(e^{j\omega_0}) e^{j\phi} e^{j\omega_0 n} + H(e^{-j\omega_0}) e^{-j\phi} e^{-j\omega_0 n} \]$$`
+`$$y[n] = \frac{A}{2} [H(e^{j\omega_0}) e^{j\phi} e^{j\omega_0 n} + H(e^{-j\omega_0}) e^{-j\phi} e^{-j\omega_0 n}]$$`
 
 ---
 
@@ -113,15 +113,53 @@ La respuesta total será:
 
 Si `\(h[n]\)` es real, se puede demostrar que `\(H(e^{-j\omega_0}) = H^*(e^{j\omega_0})\)`, así:
 
-`$$y[n] = A |H(e^{j\omega_0})| cos(\omega_0 n+\phi+\Theta)$$`
+`$$y[n] = A |H(e^{j\omega_0})| cos(\omega_0 n+\phi+\theta)$$`
 
-Donde `\(\Theta = \angle H(e^{j\omega_0})\)` que es la fase de la función del sistema a la frecuencia `\(\omega_0\)`.
+Donde `\(\theta = \angle H(e^{j\omega_0})\)` que es la fase de la función del sistema a la frecuencia `\(\omega_0\)`.
 
-En el caso simple del retardo ideal, `\(|H(e^{j\omega_0})| = 1\)` y `\(Theta = \angle H(e^{j\omega_0}) = -\omega_0 n_d\)`, por tanto:
+En el caso simple del retardo ideal, `\(|H(e^{j\omega_0})| = 1\)` y `\(\theta = \angle H(e^{j\omega_0}) = -\omega_0 n_d\)`, por tanto:
 
 `$$y[n] = A cos(\omega_0 n + \phi - \omega_0 n_d) = cos[\omega_0(n-n_d)+\phi]$$`
 
 Que es lo mismo que se hubiera obtenido si se hubiera aplicado directamente la definición de sistema de retardo lineal.
+
+---
+
+# Sobre el concepto en respuesta en frecuencia de un SLIT
+
+La respuesta en frecuencia de sistemas discretos siempre son una función periódica en la variable de frecuencia `\(\omega\)` con periodo `\(2\pi\)`, para demostrarlo sustituiremos `\(\omega + 2\pi\)` en `\(H(e^{j\omega}) = \sum_{k=-\infty}^{\infty} h[k] e^{-j \omega k}\)`:
+
+`$$H(e^{j(\omega + 2\pi)}) = \sum_{k=-\infty}^{\infty} h[k] e^{-j (\omega +2\pi) k}$$`
+
+Utilizando el hecho que: `\(e^{\pm j 2\pi k} = 1\)` para `\(k \in \doubleZ\)`, sucede que:
+
+`$$e^{-j(\omega + 2\pi)k} = e^{-j\omega k} e^{-j 2\pi k} = e^{-j \omega k}$$`
+
+Por tanto,
+
+`$$H(e^{j(\omega + 2\pi)}) = H(e^{j\omega}), \quad \forall \omega$$`
+
+y de forma más general:
+
+`$$H(e^{j(\omega + 2\pi r)}) = H(e^{j\omega}), \quad \forall r \in \doubleZ$$`
+
+Es decir, `\(H(e^{j\omega})\)` es periódica con periodoo de `\(2\pi\)`.
+
+---
+
+# Sobre la periodicidad de la repuesta en frecuencia de un SLIT
+
+El motivo de esta periodicidad está relacionado con que la secuencia:
+
+`$${e^{j\omega n}}, \quad -\infty<n<\infty,$$`
+
+No se puede distinguir de la secuencia:
+
+`$$e^{j(\omega+2\pi)n}, \quad -\infty<n<\infty$$`
+
+Como estas dos secuencias tienen los mismos valores para todo n, el sistema tiene que responder de igual forma a ambas secuencias de entrada.
+
+
 
 ---
 
