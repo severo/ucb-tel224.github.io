@@ -34,7 +34,7 @@ El orden de las secuencias en la convolución no es relevante y por lo tanto, la
 
 `$$x[n] * (h_1[n]+h_2[n])=x[n] * h_1[n] + x[n] * h_2[n]$$`
 
-Grafica 2.11
+.figura[![Combinación en paralelo](imagenes/01-02-figura-2.11.jpg)]
 
 En una conexión en paralelo, los sistemsa tienen la misma entrada, y sus salidas se suman para producir la salida total. Así la conexión en paralelo de dos SLIT es equivalente a un único sistema cuya respuesta al impulso es la suma de las respuestas al impulso de cada uno de los sistemas.
 
@@ -44,13 +44,17 @@ En una conexión en paralelo, los sistemsa tienen la misma entrada, y sus salida
 
 # Propiedad de asociatividad:
 
+Figura-2.12
+
 `$$y[n]=(x[n] * h_1[n]) * h_2 = x[n] * (h_1[n] * h_2[n])$$`
 
 Además, como la operación es conmutativa:
 
 `$$y[n] = x[n] * (h_2[n] * h_1[n]) = (x[n] * h_2[n]) * h_1[n]$$`
 
-Grafica 2.12
+---
+
+# Propiedad de asociatividad:
 
 Esto implica que si dos SLIT con respuestas al impulso `\(h_1[n]\)` y `\(h_2[n]\)` se conectan en cascada, la respuesta al impulso global equivalente es:
 
@@ -125,7 +129,7 @@ Para los Ejemplos 2.2, 2.3, 2.5 y 2.9 se consideró como entrada `\(x[n] = \delt
 
 Retardo ideal (Ejemplo 2.2)
 
-`$$h[n] = \delta[n-n_0], \quad n_d \text{entero positivo fijo}$$`
+`$$h[n] = \delta[n-n_0], \quad n_d \text{ entero positivo fijo}$$`
 
 
 Promediado móvil (Ejemplo 2.3)
@@ -226,11 +230,11 @@ Es decir, que la convolución de cualquier señal x[n] con un impulso desplazado
 
 # Convolución y retardo
 
+Figura-2.13
+
 El retardo es una operación fundamental en la implementación de sistemas lineales, el resultado anterior es de utilidad en el análisis y simplificación de interconexiones de SLIT.
 
-Considere el sistema de la siguiente Fig. (Figura 2.13).
-
-Que consiste en un sistema de diferencia progresiva seguido por un retardo ideal de una muestra. De acuerdo con la propiedad conmutativa de la convolución, el orden en el que se conectan los sistemas en cascada no es relevante, mientras se trate de SLIT. Por tanto, obtedremos el mismo resultado si calculamos primero la diferencia progresiva y seguidamente retardamos el resultado que si retardamos primero la secuencia y después calculamos la diferencia progresiva. 
+Considere el sistema de la siguiente Fig. que consiste en un sistema de diferencia progresiva seguido por un retardo ideal de una muestra. De acuerdo con la propiedad conmutativa de la convolución, el orden en el que se conectan los sistemas en cascada no es relevante, mientras se trate de SLIT. Por tanto, obtedremos el mismo resultado si calculamos primero la diferencia progresiva y seguidamente retardamos el resultado que si retardamos primero la secuencia y después calculamos la diferencia progresiva. 
 
 ---
 
@@ -250,7 +254,9 @@ Y todavía más, sabe que la respuesta total de una cascada de sistemas es la co
 
 # Convolución y sistema inverso
 
-El arreglo en cascada permite desarrollar el concepto de sistema inverso. (Subir Figura 2.14). La respuesta al impulso de la cascada de sistemas es:
+Figura-2.14
+
+El arreglo en cascada permite desarrollar el concepto de sistema inverso. La respuesta al impulso de la cascada de sistemas es:
 
 `$$h[n] = u[n] * (\delta[n] - \delta[n-1])$$`
 
