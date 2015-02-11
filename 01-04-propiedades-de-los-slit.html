@@ -44,13 +44,13 @@ En una conexión en paralelo, los sistemsa tienen la misma entrada, y sus salida
 
 # Propiedad de asociatividad:
 
+.figura[![Combinación en cascada](imagenes/01-02-figura-2.12.jpg)]
+
 `$$y[n]=(x[n] * h_1[n]) * h_2 = x[n] * (h_1[n] * h_2[n])$$`
 
 Además, como la operación es conmutativa:
 
 `$$y[n] = x[n] * (h_2[n] * h_1[n]) = (x[n] * h_2[n]) * h_1[n]$$`
-
-.figura[![Combinación en cascada](imagenes/01-02-figura-2.12.jpg)]
 
 ---
 
@@ -230,11 +230,11 @@ Es decir, que la convolución de cualquier señal x[n] con un impulso desplazado
 
 # Convolución y retardo
 
+.center[![Sistemas equivalentes](imagenes/01-02-figura-2.13.jpg)]
+
 El retardo es una operación fundamental en la implementación de sistemas lineales, el resultado anterior es de utilidad en el análisis y simplificación de interconexiones de SLIT.
 
 Considere el sistema de la siguiente Fig. que consiste en un sistema de diferencia progresiva seguido por un retardo ideal de una muestra. De acuerdo con la propiedad conmutativa de la convolución, el orden en el que se conectan los sistemas en cascada no es relevante, mientras se trate de SLIT. Por tanto, obtedremos el mismo resultado si calculamos primero la diferencia progresiva y seguidamente retardamos el resultado que si retardamos primero la secuencia y después calculamos la diferencia progresiva. 
-
-.figura[![Sistemas equivalentes](imagenes/01-02-figura-2.13.jpg)]
 
 ---
 
