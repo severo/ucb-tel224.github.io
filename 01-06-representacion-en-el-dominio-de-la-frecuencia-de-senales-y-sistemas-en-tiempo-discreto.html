@@ -45,7 +45,7 @@ El autovalor `\(H(e^{j \omega})\)` se denomina *respuesta en frecuencia* del sis
 
 O en función de su amplitud y fase,
 
-`$$H(e^{j \omega}) = |H(e^{j \omega}) e^{j \angle H(e^{j \omega})}|$$`
+`$$H(e^{j \omega}) = |H(e^{j \omega})| e^{j \angle H(e^{j \omega})}$$`
 
 ---
 
@@ -53,15 +53,19 @@ O en función de su amplitud y fase,
 
 Consideremos el sistema `\(y[n] = x[n-n_d]\)`, siendo `\(n_d\)` un entero fijo. Si consideramos que la entrada al sistema es: `\(x[n] = e^{j \omega n}\)`, aplicando la definición del sistema:
 
-`$$y[n] = e^{j \omega (n-n_d)} = e^{-j\omega d_d} e^{j\omega n})$$`
+`$$y[n] = e^{j \omega (n-n_d)} = e^{-j\omega d_d} e^{j\omega n}$$`
 
 La respuesta en frecuencia del retardo ideal es: `\(H(e^{j \omega} = e^{-j \omega n_d})\)`
 
-Podemos obtener la respuesta en frecuencia por un método alternatico si tenemos en cuenta que en el sistema de retardo ideal, `\(h[n] = \delta[n-n_d]\)` y utilizando la definción anterior de `\(H(e^{j\omega}) = \sum_{k=-\infty}^{\infty} h[k] e^{-j \omega k}\)`:
+Podemos obtener la respuesta en frecuencia por un método alternativo si tenemos en cuenta que en el sistema de retardo ideal, `\(h[n] = \delta[n-n_d]\)` y utilizando la definción anterior de `\(H(e^{j\omega}) = \sum_{k=-\infty}^{\infty} h[k] e^{-j \omega k}\)`:
 
 `$$H(e^{j \omega}) = \sum_{n = -\infty}^{\infty}  \delta[n-n_d] e^{-j \omega n} = e^{-j \omega n_d} $$`
 
-Las parte sreal e imaginaria de la respuesta en frecuencia son: 
+---
+
+# Ejemplo 2.14 Respuesta en frecuencia del sistema de retardo ideal
+
+Las parte real e imaginaria de la respuesta en frecuencia son: 
 
 `$$H_R(e^{j \omega}) = cos(\omega n_D), \quad H_I(e^{j \omega}) = -sin(\omega n_D)$$`
 
@@ -91,7 +95,33 @@ Consideremos una entrada sinusoidal:
 
 `$$x[n] = A cos(\omega_k+\phi) = \frac{A}{2} e^{j\phi} e^{j\omega_0 n} + \frac{A}{2} e^{-j\phi} e^{-j\omega_0 n}$$`
 
-Aplicando `\(y[n] = H(e^{j\omega}) e^{j \omega n}\)`
+Aplicando `\(y[n] = H(e^{j\omega}) e^{j \omega n}\)`, podemos obtener la respuesta a `\(x_1[n] = (A/2) e^{j\phi} e^{j\omega_0 n}\)`:
+
+`$$y_1 = H(e^{j\omega_0})\frac{A}{2} e^{j\phi} e^{j\omega_0 n}$$`
+
+ La respuesta a `\(x_2[n] = (A/2) e^{-j\phi} e^{-j\omega_0 n}\)`:
+
+`$$y_2 = H(e^{-j\omega_0})\frac{A}{2} e^{-j\phi} e^{-j\omega_0 n}$$`
+
+La respuesta total será:
+
+`$$y[n] = \frac{A}{2} \[ H(e^{j\omega_0}) e^{j\phi} e^{j\omega_0 n} + H(e^{-j\omega_0}) e^{-j\phi} e^{-j\omega_0 n} \]$$`
+
+---
+
+# Ejempo 2.15 Respuesta de los SLIT a una sinusoide
+
+Si `\(h[n]\)` es real, se puede demostrar que `\(H(e^{-j\omega_0}) = H^*(e^{j\omega_0})\)`, así:
+
+`$$y[n] = A |H(e^{j\omega_0})| cos(\omega_0 n+\phi+\Theta)$$`
+
+Donde `\(\Theta = \angle H(e^{j\omega_0})\)` que es la fase de la función del sistema a la frecuencia `\(\omega_0\)`.
+
+En el caso simple del retardo ideal, `\(|H(e^{j\omega_0})| = 1\)` y `\(Theta = \angle H(e^{j\omega_0}) = -\omega_0 n_d\)`, por tanto:
+
+`$$y[n] = A cos(\omega_0 n + \phi - \omega_0 n_d) = cos[\omega_0(n-n_d)+\phi]$$`
+
+Que es lo mismo que se hubiera obtenido si se hubiera aplicado directamente la definición de sistema de retardo lineal.
 
 ---
 
