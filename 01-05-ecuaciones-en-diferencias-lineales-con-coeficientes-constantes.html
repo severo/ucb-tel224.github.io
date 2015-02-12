@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TEL 224 - 1.0 Introducción</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<link media="screen, handheld, projection, tv" href="css/estilo.css" rel="stylesheet">
+	<link media="screen, handheld, projection, tv" href="css/colors.min.css" rel="stylesheet">
+</head>
+<body>
+	<textarea id="source">
+
+class: center, middle
+
+# Procesamiento digital de señales
+# 1. Señales y sistemas en tiempo discreto
+# 1.5 Ecuaciones en diferencias lineales con coeficientes constantes
+
+---
+
+# Clase de SLIT: ecuación en diferencias lineal
+
+Una clase de SLIT importante: la entrada y la salida satisfacen una ecuación en diferencias lineal con coeficientes constantes de orden `\(N\)`:
+
+`$$\sum_{k=0}^{N} a_k y[n-k] = \sum_{m=0}^{M} b_m x[n-m]$$`
+
+---
+
+# Ejemplo: representación del sistema acumulador
+
+El sistema acumulador se puede representar como una ecuación en diferencias lineal.
+
+`$$y[n] = \sum_{k=-\infty}^{n} x[k] \quad= x[n] + \sum_{k=-\infty}^{n-1} x[k] \quad= x[n] + y[n-1]$$`
+
+o sea
+
+`$$y[n] - y[n-1] = x[n]$$`
+
+Corresponde a una ecuación en diferencias lineal
+
+`$$\sum_{k=0}^{N} a_k y[n-k] = \sum_{m=0}^{M} b_m x[n-m]$$`
+
+con los valores siguientes: `\(N=1\)`, `\(a_0=1\)`, `\(a_1=-1\)`, `\(M=0\)`, `\(b_0=1\)`
+
+---
+
+# Ejemplo: representación del sistema acumulador
+
+La ecuación en diferencias lineal siguiente define un bucle de retroacción, o representación recursiva
+
+`$$y[n] = x[n] + y[n-1]$$`
+
+que se puede representar de la forma siguiente
+
+.pequena[.figura[![Retroacción del sistema acumulador](imagenes/01-05-figura-2.15.svg)]]
+
+---
+
+# Ejemplo: promediado móvil
+
+El sistema promediado móvil causal (con `\(M_1=0\)`) se escribe
+
+`$$y[n] = \frac{1}{M_2+1} \sum_{k=0}^{M_2} x[n-k]$$`
+
+`$$y[n] - y[n-1] = \frac{1}{M_2+1} \left( \sum_{k=0}^{M_2} x[n-k] - \sum_{k=0}^{M_2} x[n+1-k] \right)$$`
+
+`$$y[n] - y[n-1] = \frac{1}{M_2+1} \left( \sum_{k=0}^{M_2} x[n-k] - \sum_{k=1}^{M_2+1} x[n-k] \right) = \frac{1}{M_2+1} \left( x[n] - x[n-M_2-1] \right)$$`
+
+---
+
+# Ejemplo: promediado móvil
+
+La ecuación
+
+`$$y[n] - y[n-1] = \frac{1}{M_2+1} \left( x[n] - x[n-(M_2+1)] \right)$$`
+
+Corresponde a una ecuación en diferencias lineal con los valores siguientes: `\(N=1\)`, `\(a_0=1\)`, `\(a_1=-1\)`, `\(M=M_2+1\)`, `\(b_0=-b_{M_2+1}=\frac{1}{M_2+1}\)`
+
+Se puede representar con el diagrama de bloques siguiente:
+
+.figura[![Diagrama de bloque del promediado móvil](imagenes/01-05-figura-2.16.svg)]
+
+---
+
+# Ejemplo: promediado móvil
+
+Es interesante, con este ejemplo del promediado móvil, darse cuenta que el mismo resultado puede ser obtenido:
+
+* con un sistema FIR, donde el sistema solo depende de las `\(M_2+1\)` últimas muestras de la entrada
+
+`$$y[n] = \frac{1}{M_2+1} \sum_{k=0}^{M_2} x[n-k]$$`
+
+* o como un sistema con bucle recursivo
+
+`$$y[n] - y[n-1] = \frac{1}{M_2+1} \left( x[n] - x[n-(M_2+1)] \right)$$`
+
+Significa que existen varios métodos prácticos para efectuar un mismo procesamiento de señales, y se puede elegir entre los diferentes métodos en base a la precisión numérica a alcanzar, el tamaño del almacenamiento de datos necesario o el número de operaciones a efectuar (compromiso entre precisión, memoria y velocidad).
+
+---
+
+# Condiciones iniciales
+
+Cuando un sistema se representa como ecuación en diferencias lineal, no existe una única salida `\(y[n]\)` para una entrada definida `\(x[n]\)`. En efecto, debido a la recursividad, es indispensable tener **condiciones iniciales** para conocer de manera única la salida `\(y[n]\)`.
+
+Podemos escribir la ecuación en diferencias lineal de la forma siguiente
+
+`$$y[n] = - \sum_{k=1}^{N} \frac{a_k}{a_0} y[n-k] + \sum_{m=0}^{M} \frac{b_m}{a_0} x[n-m]$$`
+
+Para conocer el valor de la salida `\(y[0]\)`, es necesario conocer, además de los valores de la entrada, los valores anteriores de la salida `\(y[-1]\)`, `\(y[-2]\)` hasta `\(y[-N]\)`. Son las condiciones iniciales. Según los valores de las condiciones iniciales, la solución `\(y[n]\)` puede tomar todo tipo de valores, dentro de una clase de soluciones del sistema.
+
+---
+
+# Condiciones iniciales y reposo inicial
+
+En el caso de un sistema **lineal, invariante en el tiempo y causal**, definido por una ecuación en diferencias lineal, entonces la solución es única, y se habla de condiciones iniciales de **reposo inicial**. Significa que antes de un cierto valor `\(n=n_0\)`, todos los valores de entrada `\(x[n]\)` valen `\(0\)` y los valores de salida `\(y[n]\)` también. Esta situación de reposo inicial provee suficientes condiciones iniciales para calcular una única solución `\(y[n]\)` al sistema.
+
+A notar que la reciproca es cierta: si un sistema esta definido por una ecuación en diferencias lineal y se encuentra con condiciones de reposo inicial, entonces el sistema es un SLIT causal.
+
+---
+
+# Clase de soluciones
+
+Sin conocer las condiciones iniciales, existe toda una clase de soluciones, donde cada una se puede escribir `\(y[n] = y_p[n] + y_h[n]\)`, con:
+
+* `\(y_p[n]\)` una solución del sistema para una entrada `\(x_p[n]\)`
+* `\(y_h[n]\)` una solución **homogénea** del sistema, o sea una solución del sistema para una entrada nula `\(x[n]=0, \forall n\)`, lo que resulta de la **ecuación en diferencias homogénea**:
+
+`$$\sum_{k=0}^{N} a_k y_h[n-k] = 0$$`
+
+---
+
+# Soluciones homogéneas
+
+Se puede mostrar que las soluciones homogéneas del sistema se pueden escribir
+
+`$$y_h[n] = \sum_{m=1}^{N} A_m z_m^n$$`
+
+donde `\(z_m\)` son números complejos y `\(A_m\)` son coeficientes que se pueden calcular según las condiciones iniciales del sistema.
+
+Se puede demostrar que los números `\(z_m\)` deben ser las raíces del polinomio:
+
+`$$A(z) = \sum_{k=0}^{N} a_k z^{-k}$$`
+
+o sea `\(A(z_m)=0, \forall m \in \{ 1,2,\dots,N \}\)`. Con las condiciones iniciales del sistema, las raíces del polígono se calculan resolviendo un sistema a `\(N\)` ecuaciones lineales.
+
+---
+
+# Navegación
+
+Seguir con [1.6 Representación en el dominio de la frecuencia de señales y sistemas en tiempo discreto](./01-06-representacion-en-el-dominio-de-la-frecuencia-de-senales-y-sistemas-en-tiempo-discreto)
+
+Volver al capitulo [Señales y sistemas en tiempo discreto](./01-senales-y-sistemas-en-tiempo-discreto.html)
+
+	</textarea>
+    <script src="js/remark.min.js"></script>
+    <script src="js/MathJax/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured" type="text/javascript"></script>
+    <script type="text/javascript">
+      var slideshow = remark.create();
+      // Setup MathJax
+      MathJax.Hub.Config({
+          tex2jax: {
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+          }
+      });
+      MathJax.Hub.Queue(function() {
+          $(MathJax.Hub.getAllJax()).map(function(index, elem) {
+              return(elem.SourceElement());
+          }).parent().addClass('has-jax');
+      });
+      MathJax.Hub.Configured();
+    </script>
+</body>
+</html>
