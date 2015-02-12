@@ -103,7 +103,7 @@ Analizando la salida de un sistema (donde `\(B_h = \infty\)`) frente a `\(x[n]\)
 
 `$$y[n]=\sum_{k=-\infty}^{\infty} x[n-k] h[k]$$`
 
-`$$y[0]=\sum_{k=-\infty}^{\infty} x[-k] h[k] = \sum_{k=\infty}^{\infty} \frac{|h[k]|^2}{|h[k]|} = B_h$$`
+`$$y[0]=\sum_{k=-\infty}^{\infty} x[-k] h[k] = \sum_{k=-\infty}^{\infty} \frac{|h[k]|^2}{|h[k]|} = \sum_{k=-\infty}^{\infty} |h[k]| = B_h$$`
 
 Como `\(B_h = \infty\)` acabamos de demostrar que una secuencia de entrada acotada producirá una secuencia de salida no acotada.
 
@@ -121,7 +121,7 @@ Esta es la condición de causalidad para SLIT. Cualquier secuencia que cumpla es
 
 # Causalidad:
 
-Para ilustrar cómo se reflejan las propiedades de los sistemsa lineales e invariantes en el tiempo en la respuesta al impulso, consideremos algunos de los sistemas definidos anteriormente. ¿Pero qué pasa con sistemas no lineales o no invariantes en el tiempo? Su respuesta al impulso se consigue reemplazando el impulso en su entrada, pero la convolución, la estabilidad y casusalidad no sirven para estos sistemas.
+Para ilustrar cómo se reflejan las propiedades de los sistemas lineales e invariantes en el tiempo en la respuesta al impulso, consideremos algunos de los sistemas definidos anteriormente. ¿Pero qué pasa con sistemas no lineales o no invariantes en el tiempo? Su respuesta al impulso se consigue reemplazando el impulso en su entrada, pero la convolución, la estabilidad y casusalidad no sirven para estos sistemas.
 
 Para los Ejemplos 2.2, 2.3, 2.5 y 2.9 se consideró como entrada `\(x[n] = \delta[n]\)` en la convolución `\(y[n]=\sum_{k=-\infty}^{\infty} x[n-k] h[k]\)`
 
@@ -178,7 +178,7 @@ Dadas las respuestas al impulso de estos sistemas básicos, podemos comprobar la
 
 Para los ejemplos del retardo ideal, promediado móvil, diferencia progresiva y diferencia regresiva se obtiene `\(B_h < \infty\)`, ya que la respuesta al impulso sólo tiene un número finito de muestras distintas de cero.
 
-Un sistema con espuesta al impulso de duración finita (FIR, Finite-duration-Impulse Response) será siempre estable mientras los valores de su respuesta al impulso sean de módulo finito.
+Un sistema con respuesta al impulso de duración finita (FIR, Finite-duration-Impulse Response) será siempre estable mientras los valores de su respuesta al impulso sean de módulo finito.
 
 ---
 
@@ -212,7 +212,7 @@ Por otra parte, si `\(|a| \geq 1\)` la suma es infinita y el sistema es inestabl
 
 La respuesta al impulso de un sistema causal cumple `\(h[n] = 0\)` para cualquier `\(n < 0\)`.
 
-El sistema de retardo ideal [`\(n_d \geq 0\)`] es causal. Si `\(n_d < 0\)`, es sistema es no causal. Para el sistema promediado móvil, la condición de causalidad exige que `\(-M_1 \geq 0\)` y `\(M_2 \geq 0\)`. Los sistemas acumulador y de diferencia regresiva son causales, el de diferencia progresiva es no causal.
+El sistema de retardo ideal [`\(n_d \geq 0\)`] es causal. Si `\(n_d < 0\)`, el sistema es no causal. Para el sistema promediado móvil, la condición de causalidad exige que `\(-M_1 \geq 0\)` y `\(M_2 \geq 0\)`. Los sistemas acumulador y de diferencia regresiva son causales, el de diferencia progresiva es no causal.
 
 ---
 
@@ -224,7 +224,7 @@ La salida del sistema es: `\(y[n]=x[n-n_d]\)`, y dado que su respuesta al impuls
 
 `$$x[n] * \delta[n-n_d] = \delta[n-n_d] * x[n] = x[n-n_d]$$`
 
-Es decir, que la convolución de cualquier señal x[n] con un impulso desplazado se puede obtener fácilmente desplazando `\(x[n]\)` una cantidad igual al desplazamiento del impulso.
+Es decir, que la convolución de cualquier señal `\(x[n]\)` con un impulso desplazado se puede obtener fácilmente desplazando `\(x[n]\)` una cantidad igual al desplazamiento del impulso.
 
 ---
 
@@ -233,7 +233,7 @@ Es decir, que la convolución de cualquier señal x[n] con un impulso desplazado
 
 El retardo es una operación fundamental en la implementación de sistemas lineales, el resultado anterior es de utilidad en el análisis y simplificación de interconexiones de SLIT.
 
-Considere el sistema de la siguiente Fig. que consiste en un sistema de diferencia progresiva seguido por un retardo ideal de una muestra. De acuerdo con la propiedad conmutativa de la convolución, el orden en el que se conectan los sistemas en cascada no es relevante, mientras se trate de SLIT. Por tanto, obtedremos el mismo resultado si calculamos primero la diferencia progresiva y seguidamente retardamos el resultado que si retardamos primero la secuencia y después calculamos la diferencia progresiva. 
+Considere el sistema de la siguiente Fig. que consiste en un sistema de diferencia progresiva seguido por un retardo ideal de una muestra. De acuerdo con la propiedad conmutativa de la convolución, el orden en el que se conectan los sistemas en cascada no es relevante, mientras se trate de SLIT. Por tanto, obtendremos el mismo resultado si calculamos primero la diferencia progresiva y seguidamente retardamos el resultado que si retardamos primero la secuencia y después calculamos la diferencia progresiva. 
 
 .pequena[.figura[![Combinación en paralelo](imagenes/01-02-figura-2.13.jpg)]]
 
@@ -241,7 +241,7 @@ Considere el sistema de la siguiente Fig. que consiste en un sistema de diferenc
 
 # Convolución y retardo
 
-Y todavía más, sabe que la respuesta total de una cascada de sistemas es la convolución de las respuestas al impulso da cada sistema. Por tanto,
+Y todavía más, sabe que la respuesta total de una cascada de sistemas es la convolución de las respuestas al impulso de cada sistema. Por tanto,
 
 `$$h[n] = (\delta[n+1] - \delta[n]) * \delta[n-1]$$`
 
@@ -249,7 +249,7 @@ Y todavía más, sabe que la respuesta total de una cascada de sistemas es la co
 
 `$$=\delta[n] - \delta[n-1]$$`
 
-`\(h[n]\)` es idéntica a la respuesta al impulso del sistema de diferencia regresiva. Nótese que los sistemas no causales de diferencia progresiva se transforman en sistems causales al colocarlos en cascada con un retardo. En general, cualquier sistema FIR no causal se puede convertir en causal colocándolo en cascada con un retardo suficientemente grande.
+`\(h[n]\)` es idéntica a la respuesta al impulso del sistema de diferencia regresiva. Nótese que los sistemas no causales de diferencia progresiva se transforman en sistemas causales al colocarlos en cascada con un retardo. En general, cualquier sistema FIR no causal se puede convertir en causal colocándolo en cascada con un retardo suficientemente grande.
 
 ---
 
