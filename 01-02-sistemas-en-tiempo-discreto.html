@@ -142,15 +142,15 @@ Dado el ejemplo del acumulador, definimos `\(x_1[n] = x[n-n_0]\)` (obtendremos `
 
 `$$y[n-n_0]=\sum_{k=-\infty}^{n-n_0} x[k]$$`
 
-`$$y_1[n]=\sum_{k=-\infty}^{n} x_1[k]$$`
+`$$y_1[n]=\sum_{k=-\infty}^{n} x_1[k] = \sum_{k=-\infty}^{n} x[k-n_0]$$`
 
-`$$=\sum_{k=-\infty}^{n} x[k-n_0]$$`
+`$$$$`
 
 ---
 
 # Ejemplo 2.7 El acumulador como sistema invariante con el tiempo
 
-Realizando el cambio de variable `\(k_1=k-n_0 (k_1=-\infty-n_0=-\infty;k_1=n-n_0)\)`se obtendrá:
+Realizando el cambio de variable `\(k_1=k-n_0 (k_1=-\infty-n_0=-\infty;k_1=n-n_0)\)` en la segunda ecuación se obtendrá:
 
 `$$y_1[n]=\sum_{k_1=-\infty}^{n-n_0} x[k_1]$$`
 
@@ -171,7 +171,7 @@ donde `\(y_1[n]\)` es la respuesta frente a `\(x[n-n_0]\)`. Por lo tanto es un s
 Siendo `\(M \in \mathbb{Z}^+\)`, que se denomina compresor. Este sistema descarta `\(M-1\)` muestras cada `\(M\)`. Este sistema no es invariante con el tiempo.
 
 Consideremos la respuesta `\(y_1[n]\)` a la entrada `\(x_1[n]=x[n-n_0]\)`. Para que el sistema sea invariante con el tiempo, la salida del sistema cuando la entrada es `\(x_1[n]\)` debe ser igual a `\(y[n-n_0]\)`.
-`$$y_1[n] = x_1[Mn] = x[Mn-n_0]$$`
+`$$y_1[n] = x[Mn-n_0]$$`
 `$$y[n-n_0]=x[M(n-n_0)]=x[Mn-Mn_0]$$`
 
 Comparando estas dos salidas, vemos que `\(y[n-n_0]\)` no es igual a `\(y_1[n]\)` para todo `\(M\)` y `\(n_0\)`, por lo tanto el sistema no es invariante.
@@ -192,7 +192,7 @@ El Ejemplo 2.2 es causal para `\(n_d \geq 0\)` y es no causal para `\(n_d < 0\)`
 
 Es no causal, ya que el valor actual de la salida depende de un valor futuro de la entrada (`\(x[n+1]\)`).
 
-La violación de la causalidad se puede demostrar considearndo las entradas `\(x_1[n]=\delta[n-1]\)` y `\(x_2[n]=0\)` y sus correspondientes salidas `\(y_1[n]=\delta[n]-\delta[n-1]\)`, `\(y_2[n]=0\)` para todo `\(n\)`. `\(x_1[n]=x_2[n]\)` para `\(n \leq 0\)`, por lo que la definción de causalidad exige que `\(y_1[n]=y_2[n]\)` para `\(n \leq 0\)` lo que claramente no es cierto para `\(n=0\)`.
+La violación de la causalidad se puede demostrar considerando las entradas `\(x_1[n]=\delta[n-1]\)` y `\(x_2[n]=0\)` y sus correspondientes salidas `\(y_1[n]=\delta[n]-\delta[n-1]\)`, `\(y_2[n]=0\)` para todo `\(n\)`. `\(x_1[n]=x_2[n]\)` para `\(n \leq 0\)`, por lo que la definción de causalidad exige que `\(y_1[n]=y_2[n]\)` para `\(n \leq 0\)` lo que claramente no es cierto para `\(n=0\)`.
 
 
 El sistema de diferencia regresiva, `\(y[n]=x[n]-x[n-1]\)` tiene una salida que depende sólo de los valores presente e inmediatamente anterior a la entrada. `\(y[n_0]\)` depende sólo de `\(x[n_0]\)` y `\(x[n_0-1]\)`, el sistema es causal.
@@ -211,7 +211,7 @@ Se dice que la entrada `\(x[n]\)` está acotada si existe un valor finito positi
 
 La estabilidad requiere que, para cualquier entrada acotada, exista un valor finito positivo fijo `\(B_y\)` tal que:
 
-`$$|y[n]| \leq B_y < \infty \forall n$$`
+`$$|y[n]| \leq B_y < \infty, \forall n$$`
 
 ---
 
