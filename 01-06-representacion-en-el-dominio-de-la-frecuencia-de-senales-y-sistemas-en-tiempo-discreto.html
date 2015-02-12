@@ -71,7 +71,7 @@ Las parte real e imaginaria de la respuesta en frecuencia son:
 
 Así su módulo y fase serán:
 
-`$$|H(e^{j \omega}| = 1, \quad \angle H(e^{j \omega}) = -\omega n_d)$$`
+`$$|H(e^{j \omega})| = 1, \quad \angle H(e^{j \omega}) = -\omega n_d$$`
 
 ---
 
@@ -91,9 +91,7 @@ De esta manera, si podemos obtener una representación de `\(x[n]\)` en forma de
 
 # Ejempo 2.15 Respuesta de los SLIT a una sinusoide
 
-Consideremos una entrada sinusoidal:
-
-`$$x[n] = A cos(\omega_0+\phi) = \frac{A}{2} e^{j\phi} e^{j\omega_0 n} + \frac{A}{2} e^{-j\phi} e^{-j\omega_0 n}$$`
+Consideremos una entrada sinusoidal: `\(x[n] = A cos(\omega_0+\phi) = \frac{A}{2} e^{j\phi} e^{j\omega_0 n} + \frac{A}{2} e^{-j\phi} e^{-j\omega_0 n}\)`.
 
 Aplicando `\(y[n] = H(e^{j\omega}) e^{j \omega n}\)`, podemos obtener la respuesta a `\(x_1[n] = (A/2) e^{j\phi} e^{j\omega_0 n}\)`:
 
@@ -131,17 +129,15 @@ La respuesta en frecuencia de sistemas discretos siempre son una función perió
 
 `$$H(e^{j(\omega + 2\pi)}) = \sum_{k=-\infty}^{\infty} h[k] e^{-j (\omega +2\pi) k}$$`
 
-Utilizando el hecho que: `\(e^{\pm j 2\pi k} = 1\)` para `\(k \in \doubleZ\)`, sucede que:
+Utilizando el hecho que: `\(e^{\pm j 2\pi k} = 1\)` para `\(k \in \mathbb Z\)`, sucede que:
 
 `$$e^{-j(\omega + 2\pi)k} = e^{-j\omega k} e^{-j 2\pi k} = e^{-j \omega k}$$`
 
-Por tanto,
-
-`$$H(e^{j(\omega + 2\pi)}) = H(e^{j\omega}), \quad \forall \omega$$`
+Por tanto, `\(H(e^{j(\omega + 2\pi)}) = H(e^{j\omega}), \quad \forall \omega\)`
 
 y de forma más general:
 
-`$$H(e^{j(\omega + 2\pi r)}) = H(e^{j\omega}), \quad \forall r \in \doubleZ$$`
+`$$H(e^{j(\omega + 2\pi r)}) = H(e^{j\omega}), \quad \forall r \in \mathbb Z$$`
 
 Es decir, `\(H(e^{j\omega})\)` es periódica con periodoo de `\(2\pi\)`.
 
@@ -157,7 +153,7 @@ No se puede distinguir de la secuencia:
 
 `$$e^{j(\omega+2\pi)n}, \quad -\infty<n<\infty$$`
 
-Como estas dos secuencias tienen los mismos valores para todo n, el sistema tiene que responder de igual forma a ambas secuencias de entrada.
+Como estas dos secuencias tienen los mismos valores para todo `\(n\)`, el sistema tiene que responder de igual forma a ambas secuencias de entrada.
 
 
 
