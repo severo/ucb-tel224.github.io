@@ -177,9 +177,9 @@ Este es un filtro pasa bajo ideal. (a) se muestra la periodicidad de la respuest
 
 Una clase importante de SLIT incluye a los sistemas cuya respuesta en frecuencia es la unidad en un intervalo de frecuencias determinado y es cero para las restantes frecuencias. Estos sistemas se denominan *filtros ideales selectivos en frecuencia*.
 
-En la anterior presentación se observa un filtro pasa bajo ideal; debido a la periodicidad implícita de la respuesta en frecuencia en tiempo discreto, tiene la apariencia de un filtro multibanda, ya que las frecuencias alrededor de `\(\omega = 2\pi\)` son indistinguibles de las frecuencias alrededor de `\(\omega = 0\)`. Como la respuesta en frecuencia queda completamente especificada por su comportamiento en el intervalo `\(-\pi < \omega \eq \pi\)` es típico mostrar la respuesta en frecuencia del filtro pasa bajoideal sómo en el intervalo `\(-\pi < \omega \eq \pi\)`.
+En la anterior presentación se observa un filtro pasa bajo ideal; debido a la periodicidad implícita de la respuesta en frecuencia en tiempo discreto, tiene la apariencia de un filtro multibanda, ya que las frecuencias alrededor de `\(\omega = 2\pi\)` son indistinguibles de las frecuencias alrededor de `\(\omega = 0\)`. Como la respuesta en frecuencia queda completamente especificada por su comportamiento en el intervalo `\(-\pi < \omega \le \pi\)` es típico mostrar la respuesta en frecuencia del filtro pasa bajoideal sómo en el intervalo `\(-\pi < \omega \le \pi\)`.
 
-Las siguiente imágen muestra las respuestas en frecuencia de filtros ideales pasa alto, elimina banda y pasa banda, respectivamente.
+Las siguiente imágen muestra las respuestas en frecuencia de filtros ideales.
 
 ---
 
@@ -202,7 +202,7 @@ Se sabe que la respuesta al impulso de dicho sistema es:
 \end{array} \right.
 $$`
 
-Utilizando la definifición: `\($H(e^{j\omega}) = \sum_{k=-\infty}^{\infty} h[k] e^{-j \omega k}\)` se obtiene que su respuesta en frecuencia es:
+Utilizando la definifición: `\(H(e^{j\omega}) = \sum_{k=-\infty}^{\infty} h[k] e^{-j \omega k}\)` se obtiene que su respuesta en frecuencia es:
 
 `$$H(e^{j\omega}) = \frac{1}{M_1 + M_2 + 1} \sum_{n=-M_1}^{M_2} e^{-j\omega n}$$`
 
@@ -214,7 +214,41 @@ En el caso del sistema promediado móvil causal `\(M_1 = 0\)`, así lo anterior 
 
 # Ejemplo 2.16 Respuesta en frecuencia del sistema de promediado móvil
 
-Utilizando... (pagina 44)
+`$$H(e^{j\omega}) = \frac{1}{M_2 + 1} \sum_{n=0}^{M_2} e^{-j\omega n}$$`
+
+Por la convergencia de series geometricas:
+
+`$$H(e^{j\omega}) = \frac{1}{M_2+1} \frac{1-e^{j\omega(M_2+1)}}{1-e^{-j\omega}}$$`
+
+`$$= \frac{1}{M_2 + 1} \frac{(e^{j\omega(M_2+1)/2}-e^{-j\omega(M_2+1)/2})e^{-j\omega(M_2+1)/2}}{(e^{j\omega/2}-e^{-j\omega/2})e^{-j\omega/2}}$$`
+
+Por la definición compleja de la función sinusoidal:
+
+`$$= \frac{1}{M_2 + 1} \frac{sen[\omega(M_2 + 1)/2]}{sen[\omega/2]} e^{-j\omegaM_2/2}$$`
+
+La siguiente figura muestra el módulo y la fase de `\(H(e^{j\omega})\)` para este caso, con `\(M_2 = 4\)`.
+
+Ejercicio. Encuentre la respuesta en frecuencia del sistema de promediado movil con `\(M_1 = M_2\)`.
+
+---
+
+# Ejemplo 2.16 Respuesta en frecuencia del sistema de promediado móvil
+
+Subir Figura 2.19
+
+`\(H(e^{j\omega})\)` es periódica, como debe ocurrir con la respuesta en frecuencia de un sistema en tiempo discreto. Note también que `\(|H(e^{j\omega})|\)` decrece en las "altas frecuencias" y que `\(\angle H(e^{j\omega})\)` varía linealmente con `\(\omega\)`. Esta atenuación de las altas frecuencias sugiere que el sistema suaviza las variaciones rápidas de la secuencia de entrada, en otras palabras el sistema es una aproxación tosca de un filtro pasa bajo. Esto es consistente con lo que nuestra intuición nos sugiere acerca del comportamiento del sistema de promediado móvil.
+
+---
+
+# Aplicación súbita de entradas exponenciales complejas
+
+Las entradas exponenciales complejas `\(e^{j\omega n}\)` para `\(-\infty < n < \infty\)` producen en los SLIT salidas de la forma `\(H(e^{j\omega})e^{j\omega n}\)`. Podemos aumentar nuestra comprensión de los SLIT considerando entradas de apariencia más práctica:
+
+`$$x[n] = e^{j\omega n} u[n]$$`
+
+Que es una señal exponencial compleja que se aplica súbitamente en un instante temporal arbitrario, que hemos escogido como `\(n=0\)`. Utilizando la suma de convolución se puede obtener la correspondiente salida de un SLIT y causal con respuesta al impulso `\(h[n]\)`:
+
+
 
 ---
 
