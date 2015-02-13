@@ -244,9 +244,58 @@ Las entradas exponenciales complejas `\(e^{j\omega n}\)` para `\(-\infty < n < \
 
 `$$x[n] = e^{j\omega n} u[n]$$`
 
-Que es una señal exponencial compleja que se aplica súbitamente en un instante temporal arbitrario, que hemos escogido como `\(n=0\)`. Utilizando la suma de convolución se puede obtener la correspondiente salida de un SLIT y causal con respuesta al impulso `\(h[n]\)`:
+Que es una señal exponencial compleja que se aplica súbitamente en un instante temporal arbitrario, que hemos escogido como `\(n=0\)`. Utilizando la suma de convolución `\(\sum_{k=-\infty}^{\infty} x[k] h[n-k]\)`se puede obtener la correspondiente salida de un SLIT y causal con respuesta al impulso `\(h[n]\)`:
 
+`$$\y[n] =  \left\{
+\begin{array}{l l}
+0, & \quad n < 0,\\
+\(\sum_{k = 0}^{n} h[k] e^{-j\omega k}\)e^{j\omega n}, & \quad n \ge 0.
+\end{array} \right.
+$$`
 
+---
+
+# Aplicación súbita de entradas exponenciales complejas
+
+Si consideramos la salida para `\(n \ge 0\)`:
+
+`$$y[n] = (\sum_{k = 0}^{\infty} h[k] e^{-j\omega k}\)e^{j\omega n} - (\sum_{k = n+1}^{\infty} h[k] e^{-j\omega k}\)e^{j\omega n}$$`
+
+`$$H(e^{j\omega})e^{j\omega n}-\(\sum_{k = n+1}^{\infty} h[k] e^{-j\omega k}\)e^{j\omega n}$$`
+
+Este resultado tiene dos términos, `\(y[n] = y_{ss}[n] + y_1[n]\)`:
+
+`$$y_{ss}[n] = H(e^{j\omega})e^{j\omega n}$$`
+
+Se denomina respuesta al estado estacionario. Es idéntica a la respuesta del sistema cuando la entrada es `\(e^{j\omega n}\)`, para todo `\(n\)`.
+
+`$$y_1[n] = -\sum_{k=n+1}^{\infty}  h[k] e^{-j\omaga n} e^{j \omega n}$$`
+
+Representa la cantidad en la que la salida difiere del resultado correspondiente a la autofinión. Esta parte se denomina, *respuesta transitoria*, ya que resulta claro que en algunos casos se puede aproximar a cero. Para ver las condiciones para las que esto ocurre, consideremos el tamaño del segundo término.
+
+---
+
+# Aplicación súbita de entradas exponenciales complejas
+
+`$$|y[n]| = \|\sum_{k = n + 1}^{\infty} h[k] e^{-j \omega k} e^{j\omega n}\| \le \sum_{k = n + 1}^{\infty} |h[k]| $$`
+
+De aquí se puede observar que si la respuesta al impulso es de longitud finita, es denir `\(h[n] = 0\)` excepto para `\(0 \le n \le M\)`, el término `\(y_1[n] = 0\)` para `\(n + 1 > M</n>\)`, o `\(n > M - 1\)`, así:
+
+`$$y[n] = y_ss[n] = H(e^{j \omega}) e^{j\omega n}, \quad \text{para} n > M - 1$$`.
+
+---
+
+# Aplicación súbita de entradas exponenciales complejas
+
+Por el contrario, si la respuesta al impulso es de longitud infinita, la respuesta transitoria no desaparece abruptamente, pero si las muestras de la respuesta al impulso se aproximan a cero al aumentar `\(n\)`, entonces `\(y_1[n]\)` se aproximará a cero, así `\(y_1[n]\)` se puede escribir como:
+
+`$$|y_1[n]| = \|\sum_{k = n + 1}^{\infty} h[k] e^{-j \omega k} e^{j\omega n}\| \le \sum_{k = n + 1}^{\infty} |h[k]| \le \sum_{k = 0}^{\infty} |h[k]|$$`
+
+Es decir, la respuesta transitoria estará acotada por la suma de los valores absolutos de *todas* las muestras de la respuesta al impulso, si y sólo si el miembro derecho de la ecuación está acotado:
+
+`$$\sum_{k = 0}^{\infty} |h[k}| < \infty$$`
+
+Lo que significa que el sistema será estable. De la primera ecuación de esta diapositiva se puede decir que en sistemas estables, la respuesta transitoria debe decrecer progresivamente a medida que `\(n -> \infty\)`. Por lo tanto una condición suficiente para que la respuesta transitoria se desvanezca asintóticamente es que el sistema sea estable.
 
 ---
 
