@@ -63,7 +63,9 @@ El sistema promediado móvil causal (con `\(M_1=0\)`) se escribe
 
 `$$y[n] - y[n-1] = \frac{1}{M_2+1} \left( \sum_{k=0}^{M_2} x[n-k] - \sum_{k=0}^{M_2} x[n+1-k] \right)$$`
 
-`$$y[n] - y[n-1] = \frac{1}{M_2+1} \left( \sum_{k=0}^{M_2} x[n-k] - \sum_{k=1}^{M_2+1} x[n-k] \right) = \frac{1}{M_2+1} \left( x[n] - x[n-M_2-1] \right)$$`
+`$$y[n] - y[n-1] = \frac{1}{M_2+1} \left( \sum_{k=0}^{M_2} x[n-k] - \sum_{k=1}^{M_2+1} x[n-k] \right) =$$`
+
+`$$y[n] - y[n-1] = \frac{1}{M_2+1} \left( x[n] - x[n-M_2-1] \right)$$`
 
 ---
 
