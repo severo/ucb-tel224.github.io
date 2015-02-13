@@ -161,7 +161,7 @@ Como estas dos secuencias tienen los mismos valores para todo `\(n\)`, el sistem
 
 Como `\(H(e^{j\omega})\)` es periódica de periodo `\(2\pi\)`, y como las frecuencias `\(\omega\)` y `\(\omega+2\pi\)` no se pueden distinguir, se deduce que sólo es necesario especificar `\(H(e^{j\omega})\)` en un intervalo de longitud `\(2\pi\)`, como por ejemplo, `\(0 \le \omega < 2\pi\)` o `\(-\pi < \omega \le \pi\)`. La periodicidad inherente define la respuesta en frecuencia para cualquier valor fuera del intervalo espogido. Por motivos de simplicidad y de consistencia resulta conveniente especificar `\(H(e^{j\omega})\)` en el intervalo `\(-\pi < \omega \le \pi\)`. Las *bajas frecuencias* son frecuencias cercanas a cero, y las *altas frecuencias* son las frecuencias cercanas a `\(\pm\pi\)`.
 
-Considerando que las frecuencias que difieren en un múltiplo entero de `\(2\pi\)` son indistinguibles, podríamos generalizar lo anteriormente dicho como: "bajas frecuencias" son aquellas cercanas a un múltiplo par de `\(\pi\)` y las "altas frecuencias" son aquellas cercanas a un múltiplo impar de `\(pi\)`.
+Considerando que las frecuencias que difieren en un múltiplo entero de `\(2\pi\)` son indistinguibles, podríamos generalizar lo anteriormente dicho como: "bajas frecuencias" son aquellas cercanas a un múltiplo par de `\(\pi\)` y las "altas frecuencias" son aquellas cercanas a un múltiplo impar de `\(\pi\)`.
 
 ---
 
@@ -214,8 +214,6 @@ En el caso del sistema promediado móvil causal `\(M_1 = 0\)`, así lo anterior 
 
 # Ejemplo 2.16 Respuesta en frecuencia del sistema de promediado móvil
 
-`$$H(e^{j\omega}) = \frac{1}{M_2 + 1} \sum_{n=0}^{M_2} e^{-j\omega n}$$`
-
 Por la convergencia de series geometricas:
 
 `$$H(e^{j\omega}) = \frac{1}{M_2+1} \frac{1-e^{j\omega(M_2+1)}}{1-e^{-j\omega}}$$`
@@ -224,7 +222,7 @@ Por la convergencia de series geometricas:
 
 Por la definición compleja de la función sinusoidal:
 
-`$$= \frac{1}{M_2 + 1} \frac{sen[\omega(M_2 + 1)/2]}{sen[\omega/2]} e^{-j\omegaM_2/2}$$`
+`$$= \frac{1}{M_2 + 1} \frac{sen[\omega(M_2 + 1)/2]}{sen[\omega/2]} e^{-j\omega M_2/2}$$`
 
 La siguiente figura muestra el módulo y la fase de `\(H(e^{j\omega})\)` para este caso, con `\(M_2 = 4\)`.
 
