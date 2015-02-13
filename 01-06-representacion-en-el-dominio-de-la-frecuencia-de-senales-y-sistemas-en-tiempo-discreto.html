@@ -159,7 +159,62 @@ Como estas dos secuencias tienen los mismos valores para todo `\(n\)`, el sistem
 
 # Sobre la periodicidad de la repuesta en frecuencia de un SLIT
 
-Como `\(H(e^{j\omega})\)` es periódica de periodo `\(2\pi\)`, y como las frecuencias `\(\omega\)` y `\(\omega+2\pi\)` no se pueden distinguir, se deduce que sólo es necesario especificar `\(H(e^{j\omega})\)` en un intervalo de longitud `\(2\pi\)`, como por ejemplo, `\(0 \le \omega < 2\pi\)` o `\(-\pi < \omega \le pi\)`. La periodicidad inherente define la respuesta en frecuencia para cualquier valor fuera del intervalo espogido. Por motivos de simplicidad y de consistencia resulta conveniente especificar `\(H(e^{j\omega})\)` en el intervalo `\(-\pi < \omega \le \pi\). Las *bajas frecuencias* son frecuencias cercanas a cero, y las *altas frecuencias* son las frecuencias mera.
+Como `\(H(e^{j\omega})\)` es periódica de periodo `\(2\pi\)`, y como las frecuencias `\(\omega\)` y `\(\omega+2\pi\)` no se pueden distinguir, se deduce que sólo es necesario especificar `\(H(e^{j\omega})\)` en un intervalo de longitud `\(2\pi\)`, como por ejemplo, `\(0 \le \omega < 2\pi\)` o `\(-\pi < \omega \le \pi\)`. La periodicidad inherente define la respuesta en frecuencia para cualquier valor fuera del intervalo espogido. Por motivos de simplicidad y de consistencia resulta conveniente especificar `\(H(e^{j\omega})\)` en el intervalo `\(-\pi < \omega \le \pi\)`. Las *bajas frecuencias* son frecuencias cercanas a cero, y las *altas frecuencias* son las frecuencias cercanas a `\(\pm\pi\)`.
+
+Considerando que las frecuencias que difieren en un múltiplo entero de `\(2\pi\)` son indistinguibles, podríamos generalizar lo anteriormente dicho como: "bajas frecuencias" son aquellas cercanas a un múltiplo par de `\(\pi\)` y las "altas frecuencias" son aquellas cercanas a un múltiplo impar de `\(pi\)`.
+
+---
+
+# Sobre la periodicidad de la repuesta en frecuencia de un SLIT
+
+Subir Figura 2.17
+
+Este es un filtro pasa bajo ideal. (a) se muestra la periodicidad de la respuesta en frecuencia y (b) se muestra un periodo de la respuesta en frecuencia.
+
+---
+
+# Sobre los filtros ideales selectivos en frecuencia
+
+Una clase importante de SLIT incluye a los sistemas cuya respuesta en frecuencia es la unidad en un intervalo de frecuencias determinado y es cero para las restantes frecuencias. Estos sistemas se denominan *filtros ideales selectivos en frecuencia*.
+
+En la anterior presentación se observa un filtro pasa bajo ideal; debido a la periodicidad implícita de la respuesta en frecuencia en tiempo discreto, tiene la apariencia de un filtro multibanda, ya que las frecuencias alrededor de `\(\omega = 2\pi\)` son indistinguibles de las frecuencias alrededor de `\(\omega = 0\)`. Como la respuesta en frecuencia queda completamente especificada por su comportamiento en el intervalo `\(-\pi < \omega \eq \pi\)` es típico mostrar la respuesta en frecuencia del filtro pasa bajoideal sómo en el intervalo `\(-\pi < \omega \eq \pi\)`.
+
+Las siguiente imágen muestra las respuestas en frecuencia de filtros ideales pasa alto, elimina banda y pasa banda, respectivamente.
+
+---
+
+# Sobre los filtros ideales selectivos en frecuencia
+
+Subir Figura 2.18
+
+Filtros ideales selectivos en frecuencia. (a) Filtro pasa alto. (b) Filtro elimina banda (notch). (c) Filtro pasa banda. En todos los casos sólo se muestra un periódo.
+
+---
+
+# Ejemplo 2.16 Respuesta en frecuencia del sistema de promediado móvil
+
+Se sabe que la respuesta al impulso de dicho sistema es:
+
+`$$h[n] = \left\{
+\begin{array}{l l}
+\frac{1}{M_1+M_2+1}, & \quad -M_1 \leq n \leq M_2,\\
+0, & \quad \text{en el resto}
+\end{array} \right.
+$$`
+
+Utilizando la definifición: `\($H(e^{j\omega}) = \sum_{k=-\infty}^{\infty} h[k] e^{-j \omega k}\)` se obtiene que su respuesta en frecuencia es:
+
+`$$H(e^{j\omega}) = \frac{1}{M_1 + M_2 + 1} \sum_{n=-M_1}^{M_2} e^{-j\omega n}$$`
+
+En el caso del sistema promediado móvil causal `\(M_1 = 0\)`, así lo anterior se puede escribir como:
+
+`$$H(e^{j\omega}) = \frac{1}{M_2 + 1} \sum_{n=0}^{M_2} e^{-j\omega n}$$`
+
+---
+
+# Ejemplo 2.16 Respuesta en frecuencia del sistema de promediado móvil
+
+Utilizando... (pagina 44)
 
 ---
 
