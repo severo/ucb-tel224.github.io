@@ -302,7 +302,21 @@ Lo que significa que el sistema será estable. De la primera ecuación de esta d
 
 Subir Figura 2.20
 
-La figura muestra la parte real de una señal exponencial compleja de frecuencia `\(\omega =2\pi/10\)` Los puntos rellenos indican muestras `\(x[k]\)` de la exponencial compleja aplicada súbitamente, miesntras que los puntos no rellenos indican las muestras "perdidas" de la exponencial compleja, es decir, las que serían distitnas de cero si la entrada fuera de la forma `\(e^{j\omega n} \quad \forall n\)`. Los puntos sombrados indican las muestras de la respuesta al impulso `\(h[n-k]\)` en función de `\(k\)` para `\(n = 8\)`. 
+La figura muestra la parte real de una señal exponencial compleja de frecuencia `\(\omega =2\pi/10\)` Los puntos rellenos indican muestras `\(x[k]\)` de la exponencial compleja aplicada súbitamente, miesntras que los puntos no rellenos indican las muestras "perdidas" de la exponencial compleja, es decir, las que serían distitnas de cero si la entrada fuera de la forma `\(e^{j\omega n} \quad \forall n\)`. Los puntos sombrados indican las muestras de la respuesta al impulso `\(h[n-k]\)` en función de `\(k\)` para `\(n = 8\)`. En el caso de longitud finita se claro que para `\(n \ge 8 \)`, la salida constará sólo de la componente en estado estacionario, mientras que el caso de longitud infinita las muestras "perdidas" tendrán cada vez menos efecto a medida que `\(n\)` aumenta debido a la naturaleza decreciente de la respuesta al impulso.
+
+---
+
+# Sobre la condición suficiente para la existencia de la función de respueste en frecuencia
+
+La condición de estabilidad es una condición suficiente para la existencia de la función de respuesta en frecuencia. En general:
+
+`$$|H(e^{j\omega})| = \left| \sum_{k = -\infty}^{\infty} h[k] e^{-j \omega k}\rigth| \le \sum_{k = -\infty}^{\infty} |h[k] e^{-j\omega k}| \le \sum_{k=-\infty}^{infty} |h[k]|$$`
+
+De forma que la condición general
+
+`$$\sum_{k=-\infty}^{\infty} |h[k]| < \infty$$`
+
+Asegura que `\(H(e^{j\omega})\)` existe. No es sorprendente que la condición para la existencia de la respuesta en frecuencia sea la misma que la condición de existencia de un estado estacionario dominante. De hecho, una exponencial compleja que existe para todo `\(n\)` puede verse como una exponencial compleja aplicada en `\(n = -\infty\)`. La propiedad de autofunción de las exponenciales complejas depende de la estabilidad del sistema, ya que para `\(n\)` infinito la respuesta transitoria debe anularse de forma que sólo veamos el término de respuesta en estado estacionario `\(H(e^{j\omega})e^{j\omega n}\)` a partir de algún valor finito de `\(n\)`.
 
 ---
 
