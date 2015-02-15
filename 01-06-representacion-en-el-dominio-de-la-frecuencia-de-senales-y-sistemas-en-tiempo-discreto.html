@@ -161,7 +161,7 @@ Como estas dos secuencias tienen los mismos valores para todo `\(n\)`, el sistem
 
 Como `\(H(e^{j\omega})\)` es periódica de periodo `\(2\pi\)`, y como las frecuencias `\(\omega\)` y `\(\omega+2\pi\)` no se pueden distinguir, se deduce que sólo es necesario especificar `\(H(e^{j\omega})\)` en un intervalo de longitud `\(2\pi\)`, como por ejemplo, `\(0 \le \omega < 2\pi\)` o `\(-\pi < \omega \le \pi\)`. La periodicidad inherente define la respuesta en frecuencia para cualquier valor fuera del intervalo espogido. Por motivos de simplicidad y de consistencia resulta conveniente especificar `\(H(e^{j\omega})\)` en el intervalo `\(-\pi < \omega \le \pi\)`. Las *bajas frecuencias* son frecuencias cercanas a cero, y las *altas frecuencias* son las frecuencias cercanas a `\(\pm\pi\)`.
 
-Considerando que las frecuencias que difieren en un múltiplo entero de `\(2\pi\)` son indistinguibles, podríamos generalizar lo anteriormente dicho como: "bajas frecuencias" son aquellas cercanas a un múltiplo par de `\(\pi\)` y las "altas frecuencias" son aquellas cercanas a un múltiplo impar de `\(\pi\)`.
+Considerando que las frecuencias que difieren en un múltiplo entero de `\(2\pi\)` son indistinguibles, lo anterior se puede generalizar como: "bajas frecuencias" son aquellas cercanas a un múltiplo par de `\(\pi\)` y las "altas frecuencias" son aquellas cercanas a un múltiplo impar de `\(\pi\)`.
 
 ---
 
@@ -177,7 +177,9 @@ Este es un filtro pasa bajo ideal. (a) se muestra la periodicidad de la respuest
 
 Una clase importante de SLIT incluye a los sistemas cuya respuesta en frecuencia es la unidad en un intervalo de frecuencias determinado y es cero para las restantes frecuencias. Estos sistemas se denominan *filtros ideales selectivos en frecuencia*.
 
-En la anterior presentación se observa un filtro pasa bajo ideal; debido a la periodicidad implícita de la respuesta en frecuencia en tiempo discreto, tiene la apariencia de un filtro multibanda, ya que las frecuencias alrededor de `\(\omega = 2\pi\)` son indistinguibles de las frecuencias alrededor de `\(\omega = 0\)`. Como la respuesta en frecuencia queda completamente especificada por su comportamiento en el intervalo `\(-\pi < \omega \le \pi\)` es típico mostrar la respuesta en frecuencia del filtro pasa bajoideal sómo en el intervalo `\(-\pi < \omega \le \pi\)`.
+En la anterior presentación se observa un filtro pasa bajo ideal; debido a la periodicidad implícita de la respuesta en frecuencia en tiempo discreto, tiene la apariencia de un filtro multibanda, ya que las frecuencias alrededor de `\(\omega = 2\pi\)` son indistinguibles de las frecuencias alrededor de `\(\omega = 0\)`.
+
+Como la respuesta en frecuencia queda completamente especificada por su comportamiento en el intervalo `\(-\pi < \omega \le \pi\)` es típico mostrar la respuesta en frecuencia del filtro pasa bajo ideal sómo en el intervalo `\(-\pi < \omega \le \pi\)`.
 
 Las siguiente imágen muestra las respuestas en frecuencia de filtros ideales.
 
@@ -234,7 +236,7 @@ Ejercicio. Encuentre la respuesta en frecuencia del sistema de promediado movil 
 
 Subir Figura 2.19
 
-`\(H(e^{j\omega})\)` es periódica, como debe ocurrir con la respuesta en frecuencia de un sistema en tiempo discreto. Note también que `\(|H(e^{j\omega})|\)` decrece en las "altas frecuencias" y que `\(\angle H(e^{j\omega})\)` varía linealmente con `\(\omega\)`. Esta atenuación de las altas frecuencias sugiere que el sistema suaviza las variaciones rápidas de la secuencia de entrada, en otras palabras el sistema es una aproxación tosca de un filtro pasa bajo. Esto es consistente con lo que nuestra intuición nos sugiere acerca del comportamiento del sistema de promediado móvil.
+`\(H(e^{j\omega})\)` es periódica, como debe ocurrir con la respuesta en frecuencia de un sistema en tiempo discreto. Note también que `\(|H(e^{j\omega})|\)` decrece en las "altas frecuencias" y que `\(\angle H(e^{j\omega})\)` varía linealmente con `\(\omega\)`. Esta atenuación de las altas frecuencias sugiere que el sistema suaviza las variaciones rápidas de la secuencia de entrada, en otras palabras el sistema es una aproximación tosca de un filtro pasa bajo. Esto es consistente con lo que nuestra intuición nos sugiere acerca del comportamiento del sistema de promediado móvil.
 
 ---
 
@@ -249,7 +251,7 @@ Que es una señal exponencial compleja que se aplica súbitamente en un instante
 `$$y[n] =  \left\{
 \begin{array}{l l}
 0, & \quad n < 0,\\
-\left(\sum_{k = 0}^{n} h[k] e^{-j\omega k}\rigth)e^{j\omega n}, & \quad n \ge 0.
+(\sum_{k = 0}^{n} h[k] e^{-j\omega k})e^{j\omega n}, & \quad n \ge 0.
 \end{array} \right.
 $$`
 
@@ -259,16 +261,16 @@ $$`
 
 Si consideramos la salida para `\(n \ge 0\)`:
 
-`$$y[n] = \left(\sum_{k = 0}^{\infty} h[k] e^{-j\omega k}\rigth)e^{j\omega n} - \left(\sum_{k = n+1}^{\infty} h[k] e^{-j\omega k}\rigth)e^{j\omega n)
-`$$ = H(e^{j\omega})e^{j\omega n}-\left(\sum_{k = n+1}^{\infty} h[k] e^{-j\omega k}\rigth)e^{j\omega n}$$`
+`$$y[n] = (\sum_{k = 0}^{\infty} h[k] e^{-j\omega k})e^{j\omega n} - (\sum_{k = n+1}^{\infty} h[k] e^{-j\omega k})e^{j\omega n)
+`$$ = H(e^{j\omega})e^{j\omega n}-(\sum_{k = n+1}^{\infty} h[k] e^{-j\omega k})e^{j\omega n}$$`
 
-Este resultado tiene dos términos, `\(y[n] = y_{ss}[n] + y_1[n]\)`:
+Este resultado tiene dos términos, `\(y[n] = y_{ss}[n] + y_t[n]\)`:
 
 `$$y_{ss}[n] = H(e^{j\omega})e^{j\omega n}$$`
 
 Se denomina respuesta al estado estacionario. Es idéntica a la respuesta del sistema cuando la entrada es `\(e^{j\omega n}\)`, para todo `\(n\)`.
 
-`$$y_t[n] = -\sum_{k=n+1}^{\infty}  h[k] e^{-j\omaga n} e^{j \omega n}$$`
+`$$y_t[n] = -\sum_{k=n+1}^{\infty}  h[k] e^{-j\omega n} e^{j \omega n}$$`
 
 ---
 
