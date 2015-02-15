@@ -280,7 +280,7 @@ Representa la cantidad en la que la salida difiere del resultado correspondiente
 
 `$$|y_t[n]| = |\sum_{k = n + 1}^{\infty} h[k] e^{-j \omega k} e^{j\omega n}| \le \sum_{k = n + 1}^{\infty} |h[k]| $$`
 
-De aquí se puede observar que si la respuesta al impulso es de longitud finita, es denir `\(h[n] = 0\)` excepto para `\(0 \le n \le M\)`, el término `\(y_t[n] = 0\)` para `\(n + 1 > M\)`, o `\(n > M - 1\)`. Así:
+De aquí se puede observar que si la respuesta al impulso es de longitud finita, es decir `\(h[n] = 0\)` excepto para `\(0 \le n \le M\)`, el término `\(y_t[n] = 0\)` para `\(n + 1 > M\)`, o `\(n > M - 1\)`. Así:
 
 `$$y[n] = y_{ss}[n] = H(e^{j \omega}) e^{j\omega n}, \quad \text{para } n > M - 1$$`.
 
@@ -294,7 +294,7 @@ Por el contrario, si la respuesta al impulso es de longitud infinita, la respues
 
 Es decir, la respuesta transitoria estará acotada por la suma de los valores absolutos de *todas* las muestras de la respuesta al impulso, si y sólo si el miembro derecho de la ecuación está acotado `\(\sum_{k = 0}^{\infty} |h[k]| < \infty\)`:
 
-Lo que significa que el sistema será estable. De la primera ecuación de esta diapositiva se puede decir que en sistemas estables, la respuesta transitoria debe decrecer progresivamente a medida que `\(n \rightarrow \infty\)`. Por lo tanto una condición suficiente para que la respuesta transitoria se desvanezca asintóticamente es que el sistema sea estable.
+Lo que significa que el sistema será estable. De esta última ecuación de `\(|y_t[n]|\)` se puede decir que en sistemas estables, la respuesta transitoria debe decrecer progresivamente a medida que `\(n \rightarrow \infty\)`. Por lo tanto una condición suficiente para que la respuesta transitoria se desvanezca asintóticamente es que el sistema sea estable.
 
 ---
 
@@ -302,7 +302,7 @@ Lo que significa que el sistema será estable. De la primera ecuación de esta d
 
 Subir Figura 2.20
 
-La figura muestra la parte real de una señal exponencial compleja de frecuencia `\(\omega =2\pi/10\)` Los puntos rellenos indican muestras `\(x[k]\)` de la exponencial compleja aplicada súbitamente, miesntras que los puntos no rellenos indican las muestras "perdidas" de la exponencial compleja, es decir, las que serían distitnas de cero si la entrada fuera de la forma `\(e^{j\omega n} \quad \forall n\)`. Los puntos sombrados indican las muestras de la respuesta al impulso `\(h[n-k]\)` en función de `\(k\)` para `\(n = 8\)`. En el caso de longitud finita se claro que para `\(n \ge 8 \)`, la salida constará sólo de la componente en estado estacionario, mientras que el caso de longitud infinita las muestras "perdidas" tendrán cada vez menos efecto a medida que `\(n\)` aumenta debido a la naturaleza decreciente de la respuesta al impulso.
+La figura muestra la parte real de una señal exponencial compleja de frecuencia `\(\omega =2\pi/10\)` Los puntos rellenos indican muestras `\(x[k]\)` de la exponencial compleja aplicada súbitamente, mientras que los puntos no rellenos indican las muestras "perdidas" de la exponencial compleja, es decir, las que serían distitnas de cero si la entrada fuera de la forma `\(e^{j\omega n}, \forall n\)`. Los puntos sombrados indican las muestras de la respuesta al impulso `\(h[n-k]\)` en función de `\(k\)` para `\(n = 8\)`. En el caso de longitud finita, es claro que para `\(n \ge 8 \)`, la salida constará sólo de la componente en estado estacionario, mientras que el caso de longitud infinita las muestras "perdidas" tendrán cada vez menos efecto a medida que `\(n\)` aumenta debido a la naturaleza decreciente de la respuesta al impulso.
 
 ---
 
@@ -310,7 +310,7 @@ La figura muestra la parte real de una señal exponencial compleja de frecuencia
 
 La condición de estabilidad es una condición suficiente para la existencia de la función de respuesta en frecuencia. En general:
 
-`$$|H(e^{j\omega})| = | \sum_{k = -\infty}^{\infty} h[k] e^{-j \omega k}| \le \sum_{k = -\infty}^{\infty} |h[k] e^{-j\omega k}| \le \sum_{k=-\infty}^{infty} |h[k]|$$`
+`$$|H(e^{j\omega})| = | \sum_{k = -\infty}^{\infty} h[k] e^{-j \omega k}| \le \sum_{k = -\infty}^{\infty} |h[k] e^{-j\omega k}| \le \sum_{k=-\infty}^{\infty} |h[k]|$$`
 
 De forma que la condición general: `\(\sum_{k=-\infty}^{\infty} |h[k]| < \infty\)`
 
