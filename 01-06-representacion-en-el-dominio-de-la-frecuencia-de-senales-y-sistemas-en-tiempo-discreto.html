@@ -261,7 +261,7 @@ $$`
 
 Si consideramos la salida para `\(n \ge 0\)`:
 
-`$$y[n] = (\sum_{k = 0}^{\infty} h[k] e^{-j\omega k})e^{j\omega n} - (\sum_{k = n+1}^{\infty} h[k] e^{-j\omega k})e^{j\omega n)$$`
+`$$y[n] = (\sum_{k = 0}^{\infty} h[k] e^{-j\omega k})e^{j\omega n} - (\sum_{k = n+1}^{\infty} h[k] e^{-j\omega k})e^{j\omega n}$$`
 `$$ = H(e^{j\omega})e^{j\omega n}-(\sum_{k = n+1}^{\infty} h[k] e^{-j\omega k})e^{j\omega n}$$`
 
 Este resultado tiene dos términos, `\(y[n] = y_{ss}[n] + y_t[n]\)`:
@@ -276,11 +276,11 @@ Se denomina respuesta al estado estacionario. Es idéntica a la respuesta del si
 
 # Aplicación súbita de entradas exponenciales complejas
 
-Representa la cantidad en la que la salida difiere del resultado correspondiente a la autofinión. Esta parte se denomina, *respuesta transitoria*, ya que resulta claro que en algunos casos se puede aproximar a cero. Para ver las condiciones para las que esto ocurre, consideremos el tamaño del segundo término.
+Representa la cantidad en la que la salida difiere del resultado correspondiente a la autofunción. Esta parte se denomina, *respuesta transitoria*, ya que en algunos casos se puede aproximar a cero. Para ver las condiciones para las que esto ocurre, consideremos el tamaño del segundo término.
 
-`$$|y_t[n]| = \left| \sum_{k = n + 1}^{\infty} h[k] e^{-j \omega k} e^{j\omega n}\rigth| \le \sum_{k = n + 1}^{\infty} |h[k]| $$`
+`$$|y_t[n]| = |\sum_{k = n + 1}^{\infty} h[k] e^{-j \omega k} e^{j\omega n}| \le \sum_{k = n + 1}^{\infty} |h[k]| $$`
 
-De aquí se puede observar que si la respuesta al impulso es de longitud finita, es denir `\(h[n] = 0\)` excepto para `\(0 \le n \le M\)`, el término `\(y_1[n] = 0\)` para `\(n + 1 > M\)`, o `\(n > M - 1\)`, así:
+De aquí se puede observar que si la respuesta al impulso es de longitud finita, es denir `\(h[n] = 0\)` excepto para `\(0 \le n \le M\)`, el término `\(y_t[n] = 0\)` para `\(n + 1 > M\)`, o `\(n > M - 1\)`. Así:
 
 `$$y[n] = y_{ss}[n] = H(e^{j \omega}) e^{j\omega n}, \quad \text{para } n > M - 1$$`.
 
