@@ -288,13 +288,11 @@ De aquí se puede observar que si la respuesta al impulso es de longitud finita,
 
 # Aplicación súbita de entradas exponenciales complejas
 
-Por el contrario, si la respuesta al impulso es de longitud infinita, la respuesta transitoria no desaparece abruptamente, pero si las muestras de la respuesta al impulso se aproximan a cero al aumentar `\(n\)`, entonces `\(y_1[n]\)` se aproximará a cero, así `\(y_1[n]\)` se puede escribir como:
+Por el contrario, si la respuesta al impulso es de longitud infinita, la respuesta transitoria no desaparece abruptamente, pero si las muestras de la respuesta al impulso se aproximan a cero al aumentar `\(n\)`, entonces `\(y_t[n]\)` se aproximará a cero, así `\(y_t[n]\)` se puede escribir como:
 
 `$$|y_t[n]| = |\sum_{k = n + 1}^{\infty} h[k] e^{-j \omega k} e^{j\omega n}| \le \sum_{k = n + 1}^{\infty} |h[k]| \le \sum_{k = 0}^{\infty} |h[k]|$$`
 
-Es decir, la respuesta transitoria estará acotada por la suma de los valores absolutos de *todas* las muestras de la respuesta al impulso, si y sólo si el miembro derecho de la ecuación está acotado:
-
-`$$\sum_{k = 0}^{\infty} |h{k}| < \infty$$`
+Es decir, la respuesta transitoria estará acotada por la suma de los valores absolutos de *todas* las muestras de la respuesta al impulso, si y sólo si el miembro derecho de la ecuación está acotado `\(\sum_{k = 0}^{\infty} |h[k]| < \infty\)`:
 
 Lo que significa que el sistema será estable. De la primera ecuación de esta diapositiva se puede decir que en sistemas estables, la respuesta transitoria debe decrecer progresivamente a medida que `\(n \rightarrow \infty\)`. Por lo tanto una condición suficiente para que la respuesta transitoria se desvanezca asintóticamente es que el sistema sea estable.
 
