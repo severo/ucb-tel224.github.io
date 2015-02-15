@@ -290,13 +290,13 @@ De aquí se puede observar que si la respuesta al impulso es de longitud finita,
 
 Por el contrario, si la respuesta al impulso es de longitud infinita, la respuesta transitoria no desaparece abruptamente, pero si las muestras de la respuesta al impulso se aproximan a cero al aumentar `\(n\)`, entonces `\(y_1[n]\)` se aproximará a cero, así `\(y_1[n]\)` se puede escribir como:
 
-`$$|y_t[n]| = \left| \sum_{k = n + 1}^{\infty} h[k] e^{-j \omega k} e^{j\omega n}\rigth| \le \sum_{k = n + 1}^{\infty} |h[k]| \le \sum_{k = 0}^{\infty} |h[k]|$$`
+`$$|y_t[n]| = |\sum_{k = n + 1}^{\infty} h[k] e^{-j \omega k} e^{j\omega n}| \le \sum_{k = n + 1}^{\infty} |h[k]| \le \sum_{k = 0}^{\infty} |h[k]|$$`
 
 Es decir, la respuesta transitoria estará acotada por la suma de los valores absolutos de *todas* las muestras de la respuesta al impulso, si y sólo si el miembro derecho de la ecuación está acotado:
 
-`$$\sum_{k = 0}^{\infty} |h[k}| < \infty$$`
+`$$\sum_{k = 0}^{\infty} |h{k}| < \infty$$`
 
-Lo que significa que el sistema será estable. De la primera ecuación de esta diapositiva se puede decir que en sistemas estables, la respuesta transitoria debe decrecer progresivamente a medida que `\(n \rigtharrow \infty\)`. Por lo tanto una condición suficiente para que la respuesta transitoria se desvanezca asintóticamente es que el sistema sea estable.
+Lo que significa que el sistema será estable. De la primera ecuación de esta diapositiva se puede decir que en sistemas estables, la respuesta transitoria debe decrecer progresivamente a medida que `\(n \rightarrow \infty\)`. Por lo tanto una condición suficiente para que la respuesta transitoria se desvanezca asintóticamente es que el sistema sea estable.
 
 ---
 
@@ -312,11 +312,9 @@ La figura muestra la parte real de una señal exponencial compleja de frecuencia
 
 La condición de estabilidad es una condición suficiente para la existencia de la función de respuesta en frecuencia. En general:
 
-`$$|H(e^{j\omega})| = \left| \sum_{k = -\infty}^{\infty} h[k] e^{-j \omega k}\rigth| \le \sum_{k = -\infty}^{\infty} |h[k] e^{-j\omega k}| \le \sum_{k=-\infty}^{infty} |h[k]|$$`
+`$$|H(e^{j\omega})| = | \sum_{k = -\infty}^{\infty} h[k] e^{-j \omega k}| \le \sum_{k = -\infty}^{\infty} |h[k] e^{-j\omega k}| \le \sum_{k=-\infty}^{infty} |h[k]|$$`
 
-De forma que la condición general
-
-`$$\sum_{k=-\infty}^{\infty} |h[k]| < \infty$$`
+De forma que la condición general: `\(\sum_{k=-\infty}^{\infty} |h[k]| < \infty\)`
 
 Asegura que `\(H(e^{j\omega})\)` existe. No es sorprendente que la condición para la existencia de la respuesta en frecuencia sea la misma que la condición de existencia de un estado estacionario dominante. De hecho, una exponencial compleja que existe para todo `\(n\)` puede verse como una exponencial compleja aplicada en `\(n = -\infty\)`. La propiedad de autofunción de las exponenciales complejas depende de la estabilidad del sistema, ya que para `\(n\)` infinito la respuesta transitoria debe anularse de forma que sólo veamos el término de respuesta en estado estacionario `\(H(e^{j\omega})e^{j\omega n}\)` a partir de algún valor finito de `\(n\)`.
 
