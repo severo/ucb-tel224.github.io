@@ -56,7 +56,7 @@ Sustituyendo `\(-\omega\)` por `\(\omega\)` en las anteriores dos ecuaciones, se
 
 # Propiedades de la simetría de la transformada de Fourier
 
-Secuencia `\(x[n]\)`  | Transformada de Fourier `\(X(e^{j\omega})\)`
+Secuencia `\(x[n]\)` cualquiera | Transformada de Fourier `\(X(e^{j\omega})\)`
 :-------------:|:-------------:
 `\(x^{*}[n]\)`| `\(X^{*}(w^{-j\omega})\)`
 `\(x^{*}[-n]\)`| `\(X^{*}(w^{j\omega})\)`
@@ -78,6 +78,38 @@ Secuencia `\(x[n]\)` Real | Transformada de Fourier `\(X(e^{j\omega})\)`
 `\(x[n]\)`|`\(\angle X(e^{j\omega}) = -\angle X(e^{-j\omega})\)` (la fase es impar)
 `\(x_e[n]\)` (parte par de `\(x[n]\)`)|`\(X_R(e^{j\omega})\)`
 `\(x_o[n]\)` (parte impar de `\(x[n]\)`)|`\(jX_I(e^{j\omega})\)`
+
+---
+
+# Propiedades de la simetría de la transformada de Fourier
+
+Parte simétrica conjugada de `\(x[n]\)`:
+
+`$$\Re(x[n]) = \frac{1}{2} (x[n] + x^*[n])$$`
+
+Parte asimétrica conjugada de `\(x[n]\)`:
+
+`$$j\Im(x[n]) = \frac{1}{2} (x[n] - x^*[n])$$`
+
+Si `\(x[n]\)` es una secuencia real su transformada de Fourier es simétrica conjugada, es decir, `\(X(e^{j\omega})) = X^*(e^{-j\omega})\)`, expresando `\(X(e^{j\omega}))\)` en función de sus partes real e imaginaria:
+
+`$$X(e^{j\omega}) = X_R(e^{j\omega}) + jX_I(e^{j\omega})$$`
+
+`$$X_R(e^{j\omega}) = X_R(e^{-j\omega}) \quad X_I(e^{j\omega}) = -X_I(e^{-j\omega})$$`
+
+En palabras simples, si una secuencia es real, la parte real de su transformada de Fourier es una función par, y la parte imaginaria es una función impar.
+
+---
+
+# Propiedades de la simetría de la transformada de Fourier
+
+Si expresamos `\(X(e^{j\omega}))\)`. en la forma polar:
+
+`$$X(e^{j\omega}) = |X(e^{j\omega})|e^{j\angle X(e^{j\omega})}$$`
+
+Se puede demostrar que dada una secuencia real `\(x[n]\)`, el módulo de su transformada de Fourier, `\(|X(e^{j\omega})|\)`, es una función par de `\(\omega\)` y la fase `\(\angle X(e^{j\omega})\)` se puede escoger de la forma que sea una función impoar de `\(\omega\)`.
+
+También se cumple que dad una secuencia real `\(x[n]\)`, su parte se par se transforma en `\(X_R(e^{j\omega})\)`, y su parte impar se transforma en `\(X_I(e^{j\omega})\)`.
 
 ---
 # Navegación
