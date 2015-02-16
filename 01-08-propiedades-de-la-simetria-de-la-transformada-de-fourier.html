@@ -57,18 +57,27 @@ Sustituyendo `\(-\omega\)` por `\(\omega\)` en las anteriores dos ecuaciones, se
 # Propiedades de la simetría de la transformada de Fourier
 
 Secuencia `\(x[n]\)`  | Transformada de Fourier `\(X(e^{j\omega})\)`
-------------- | -------------
+:-------------:|:-------------:
 `\(x^{*}[n]\)`| `\(X^{*}(w^{-j\omega})\)`
 `\(x^{*}[-n]\)`| `\(X^{*}(w^{j\omega})\)`
-`\(Re{x[n]}\)`|`\(X_e(w^{j\omega})\)` \\ (parte simétrica conjugada de `\(X(e^{j\omega})\)`)
-`\(jIm{x[n]}\)`|`\(X_o(w^{j\omega})\)` \\ (parte antisimétrica conjugada de `\(X(e^{j\omega})\)`)
-`\(x_e[n]\)` \\ (parte simétrica conjugada de `\(x[n]\)`)|`\(X_R(e^{j\omega}) = Re{X(e^{j\omega})}\)`
-`\(x_o[n]\)` \\ (parte antisimétrica conjugada de `\(x[n]\)`)|`\(jX_I(e^{j\omega}) = jIm{X(e^{j\omega})}\)`
+`\(\Re(x[n])\)`|`\(X_e(w^{j\omega})\)` (parte simétrica conjugada de `\(X(e^{j\omega})\)`)
+`\(j\Im(x[n])\)`|`\(X_o(w^{j\omega})\)` (parte antisimétrica conjugada de `\(X(e^{j\omega})\)`)
+`\(x_e[n]\)` (parte simétrica conjugada de `\(x[n]\)`)|`\(X_R(e^{j\omega}) = \Re(X(e^{j\omega}))\)`
+`\(x_o[n]\)` (parte antisimétrica conjugada de `\(x[n]\)`)|`\(jX_I(e^{j\omega}) = j\Im(X(e^{j\omega}))\)`
 
 ---
 
 # Propiedades de la simetría de la transformada de Fourier
 
+Secuencia `\(x[n]\)` Real | Transformada de Fourier `\(X(e^{j\omega})\)`
+:-------------:|:-------------:
+`\(x[n]\)`|`\(X(e^{j\omega}) = X^{*}(e^{-j\omega})\)` (La transformada de Fourier es simétrica conjugada)
+`\(x[n]\)`|`\(X_R(e^{j\omega}) = X_R(e^{-j\omega})\)` (la parte real es par)
+`\(x[n]\)`|`\(X_I(e^{j\omega}) = -X_I(e^{-j\omega})\)` (la parte imaginaria es impar)
+`\(x[n]\)`|`\(|X(e^{j\omega})| = -|X(e^{-j\omega})|\)` (el módulo es par)
+`\(x[n]\)`|`\(\angle X(e^{j\omega}) = -\angle X(e^{-j\omega})\)` (la fase es impar)
+`\(x_e[n]\)` (parte par de `\(x[n]\)`)|`\(X_R(e^{j\omega})\)`
+`\(x_o[n]\)` (parte impar de `\(x[n]\)`)|`\(jX_I(e^{j\omega})\)`
 
 ---
 # Navegación
