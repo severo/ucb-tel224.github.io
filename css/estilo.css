@@ -60,3 +60,6 @@ h1, h2, h3 {
 .mediana .figura img{
   width: 50%;
 }
+.grande .figura img{
+  width: 60%;
+}

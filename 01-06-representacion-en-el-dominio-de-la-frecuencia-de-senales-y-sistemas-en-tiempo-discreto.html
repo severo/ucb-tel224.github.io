@@ -91,7 +91,9 @@ De esta manera, si podemos obtener una representación de `\(x[n]\)` en forma de
 
 # Ejempo 2.15 Respuesta de los SLIT a una sinusoide
 
-Consideremos una entrada sinusoidal: `\(x[n] = A cos(\omega_0+\phi) = \frac{A}{2} e^{j\phi} e^{j\omega_0 n} + \frac{A}{2} e^{-j\phi} e^{-j\omega_0 n}\)`.
+Consideremos una entrada sinusoidal:
+
+`$$x[n] = A cos(\omega_0+\phi) = \frac{A}{2} e^{j\phi} e^{j\omega_0 n} + \frac{A}{2} e^{-j\phi} e^{-j\omega_0 n}$$`
 
 Aplicando `\(y[n] = H(e^{j\omega}) e^{j \omega n}\)`, podemos obtener la respuesta a `\(x_1[n] = (A/2) e^{j\phi} e^{j\omega_0 n}\)`:
 
@@ -101,23 +103,27 @@ Aplicando `\(y[n] = H(e^{j\omega}) e^{j \omega n}\)`, podemos obtener la respues
 
 `$$y_2[n] = H(e^{-j\omega_0})\frac{A}{2} e^{-j\phi} e^{-j\omega_0 n}$$`
 
-La respuesta total será:
-
-`$$y[n] = \frac{A}{2} [H(e^{j\omega_0}) e^{j\phi} e^{j\omega_0 n} + H(e^{-j\omega_0}) e^{-j\phi} e^{-j\omega_0 n}]$$`
-
 ---
 
 # Ejempo 2.15 Respuesta de los SLIT a una sinusoide
+
+La respuesta total será:
+
+`$$y[n] = \frac{A}{2} [H(e^{j\omega_0}) e^{j\phi} e^{j\omega_0 n} + H(e^{-j\omega_0}) e^{-j\phi} e^{-j\omega_0 n}]$$`
 
 Si `\(h[n]\)` es real, se puede demostrar que `\(H(e^{-j\omega_0}) = H^*(e^{j\omega_0})\)`, así:
 
 `$$y[n] = A |H(e^{j\omega_0})| cos(\omega_0 n+\phi+\theta)$$`
 
-Donde `\(\theta = \angle H(e^{j\omega_0})\)` que es la fase de la función del sistema a la frecuencia `\(\omega_0\)`.
+Donde `\(\theta = \angle H(e^{j\omega_0})\)`, la fase de la función del sistema a la frecuencia `\(\omega_0\)`.
+
+---
+
+# Ejempo 2.15 Respuesta de los SLIT a una sinusoide
 
 En el caso simple del retardo ideal, `\(|H(e^{j\omega_0})| = 1\)` y `\(\theta = \angle H(e^{j\omega_0}) = -\omega_0 n_d\)`, por tanto:
 
-`$$y[n] = A cos(\omega_0 n + \phi - \omega_0 n_d) = cos[\omega_0(n-n_d)+\phi]$$`
+`$$y[n] = A cos(\omega_0 n + \phi - \omega_0 n_d) = A cos[\omega_0(n-n_d)+\phi]$$`
 
 Que es lo mismo que se hubiera obtenido si se hubiera aplicado directamente la definición de sistema de retardo lineal.
 
@@ -125,7 +131,9 @@ Que es lo mismo que se hubiera obtenido si se hubiera aplicado directamente la d
 
 # Sobre el concepto en respuesta en frecuencia de un SLIT
 
-La respuesta en frecuencia de sistemas discretos siempre son una función periódica en la variable de frecuencia `\(\omega\)` con periodo `\(2\pi\)`, para demostrarlo sustituiremos `\(\omega + 2\pi\)` en `\(H(e^{j\omega}) = \sum_{k=-\infty}^{\infty} h[k] e^{-j \omega k}\)`:
+La respuesta en frecuencia de sistemas discretos siempre son **una función periódica en la variable de frecuencia `\(\omega\)` con periodo `\(2\pi\)`**.
+
+Para demostrarlo sustituiremos `\(\omega + 2\pi\)` en `\(H(e^{j\omega}) = \sum_{k=-\infty}^{\infty} h[k] e^{-j \omega k}\)`:
 
 `$$H(e^{j(\omega + 2\pi)}) = \sum_{k=-\infty}^{\infty} h[k] e^{-j (\omega +2\pi) k}$$`
 
@@ -133,9 +141,7 @@ Utilizando el hecho que: `\(e^{\pm j 2\pi k} = 1\)` para `\(k \in \mathbb Z\)`, 
 
 `$$e^{-j(\omega + 2\pi)k} = e^{-j\omega k} e^{-j 2\pi k} = e^{-j \omega k}$$`
 
-Por tanto, `\(H(e^{j(\omega + 2\pi)}) = H(e^{j\omega}), \quad \forall \omega\)`
-
-y de forma más general:
+Por tanto, `\(H(e^{j(\omega + 2\pi)}) = H(e^{j\omega}), \quad \forall \omega\)`, y de forma más general:
 
 `$$H(e^{j(\omega + 2\pi r)}) = H(e^{j\omega}), \quad \forall r \in \mathbb Z$$`
 
@@ -159,7 +165,9 @@ Como estas dos secuencias tienen los mismos valores para todo `\(n\)`, el sistem
 
 # Sobre la periodicidad de la repuesta en frecuencia de un SLIT
 
-Como `\(H(e^{j\omega})\)` es periódica de periodo `\(2\pi\)`, y como las frecuencias `\(\omega\)` y `\(\omega+2\pi\)` no se pueden distinguir, se deduce que sólo es necesario especificar `\(H(e^{j\omega})\)` en un intervalo de longitud `\(2\pi\)`, como por ejemplo, `\(0 \le \omega < 2\pi\)` o `\(-\pi < \omega \le \pi\)`. La periodicidad inherente define la respuesta en frecuencia para cualquier valor fuera del intervalo escogido. Por motivos de simplicidad y de consistencia resulta conveniente especificar `\(H(e^{j\omega})\)` en el intervalo `\(-\pi < \omega \le \pi\)`. Las *bajas frecuencias* son frecuencias cercanas a cero, y las *altas frecuencias* son las frecuencias cercanas a `\(\pm\pi\)`.
+Como `\(H(e^{j\omega})\)` es periódica de periodo `\(2\pi\)`, y como las frecuencias `\(\omega\)` y `\(\omega+2\pi\)` no se pueden distinguir, se deduce que sólo es necesario especificar `\(H(e^{j\omega})\)` en un **intervalo de longitud `\(2\pi\)`**, como por ejemplo, `\(0 \le \omega < 2\pi\)` o `\(-\pi < \omega \le \pi\)`.
+
+La periodicidad inherente define la respuesta en frecuencia para cualquier valor fuera del intervalo escogido. Por motivos de simplicidad y de consistencia resulta conveniente especificar `\(H(e^{j\omega})\)` en el intervalo `\(-\pi < \omega \le \pi\)`. Las *bajas frecuencias* son frecuencias cercanas a cero, y las *altas frecuencias* son las frecuencias cercanas a `\(\pm\pi\)`.
 
 Considerando que las frecuencias que difieren en un múltiplo entero de `\(2\pi\)` son indistinguibles, lo anterior se puede generalizar como: "bajas frecuencias" son aquellas cercanas a un múltiplo par de `\(\pi\)` y las "altas frecuencias" son aquellas cercanas a un múltiplo impar de `\(\pi\)`.
 
@@ -169,7 +177,7 @@ Considerando que las frecuencias que difieren en un múltiplo entero de `\(2\pi\
 
 .figura[![](imagenes/01-06-figura-2.17.svg)]
 
-Este es un filtro pasa bajo ideal. (a) se muestra la periodicidad de la respuesta en frecuencia y (b) se muestra un periodo de la respuesta en frecuencia.
+Este es un filtro pasa bajo ideal. (a) se muestra la periodicidad de la respuesta en frecuencia y pero **(b) un solo periodo es suficiente**.
 
 ---
 
@@ -177,7 +185,7 @@ Este es un filtro pasa bajo ideal. (a) se muestra la periodicidad de la respuest
 
 Una clase importante de SLIT incluye a los sistemas cuya respuesta en frecuencia es la unidad en un intervalo de frecuencias determinado y es cero para las restantes frecuencias. Estos sistemas se denominan *filtros ideales selectivos en frecuencia*.
 
-En la anterior presentación se observa un filtro pasa bajo ideal; debido a la periodicidad implícita de la respuesta en frecuencia en tiempo discreto, tiene la apariencia de un filtro multibanda, ya que las frecuencias alrededor de `\(\omega = 2\pi\)` son indistinguibles de las frecuencias alrededor de `\(\omega = 0\)`.
+En la anterior presentación se observa un filtro pasa bajo ideal ; debido a la periodicidad implícita de la respuesta en frecuencia en tiempo discreto, tiene la apariencia de un filtro multibanda, ya que las frecuencias alrededor de `\(\omega = 2\pi\)` son indistinguibles de las frecuencias alrededor de `\(\omega = 0\)`.
 
 Como la respuesta en frecuencia queda completamente especificada por su comportamiento en el intervalo `\(-\pi < \omega \le \pi\)` es típico mostrar la respuesta en frecuencia del filtro pasa bajo ideal sómo en el intervalo `\(-\pi < \omega \le \pi\)`.
 
@@ -187,15 +195,13 @@ Las siguiente imágen muestra las respuestas en frecuencia de filtros ideales.
 
 # Sobre los filtros ideales selectivos en frecuencia
 
-.mediana[.figura[![](imagenes/01-06-figura-2.18.svg)]]
-
-Filtros ideales selectivos en frecuencia. (a) Filtro pasa alto. (b) Filtro elimina banda (notch). (c) Filtro pasa banda. En todos los casos sólo se muestra un periódo.
+.grande[.figura[![](imagenes/01-06-figura-2.18.svg)]]
 
 ---
 
-# Ejemplo 2.16 Respuesta en frecuencia del sistema de promediado móvil
+# Ejemplo 2.16 - promediado móvil
 
-Se sabe que la respuesta al impulso de dicho sistema es:
+Se sabe que la respuesta al impulso del sistema de promediado móvil es:
 
 `$$h[n] = \left\{
 \begin{array}{l l}
@@ -204,7 +210,7 @@ Se sabe que la respuesta al impulso de dicho sistema es:
 \end{array} \right.
 $$`
 
-Utilizando la definifición: `\(H(e^{j\omega}) = \sum_{k=-\infty}^{\infty} h[k] e^{-j \omega k}\)` se obtiene que su respuesta en frecuencia es:
+Utilizando la definición: `\(H(e^{j\omega}) = \sum_{k=-\infty}^{\infty} h[k] e^{-j \omega k}\)` se obtiene que su respuesta en frecuencia es:
 
 `$$H(e^{j\omega}) = \frac{1}{M_1 + M_2 + 1} \sum_{n=-M_1}^{M_2} e^{-j\omega n}$$`
 
@@ -214,7 +220,7 @@ En el caso del sistema promediado móvil causal `\(M_1 = 0\)`, así lo anterior 
 
 ---
 
-# Ejemplo 2.16 Respuesta en frecuencia del sistema de promediado móvil
+# Ejemplo 2.16 - promediado móvil
 
 Por la convergencia de series geometricas:
 
@@ -228,11 +234,11 @@ Por la definición compleja de la función sinusoidal:
 
 La siguiente figura muestra el módulo y la fase de `\(H(e^{j\omega})\)` para este caso, con `\(M_2 = 4\)`.
 
-Ejercicio. Encuentre la respuesta en frecuencia del sistema de promediado movil con `\(M_1 = M_2\)`.
+.red[* ]Ejercicio. Encuentre la respuesta en frecuencia del sistema de promediado movil con `\(M_1 = M_2\)` y dibujarlo en computadora.
 
 ---
 
-# Ejemplo 2.16 Respuesta en frecuencia del sistema de promediado móvil
+# Ejemplo 2.16 - promediado móvil
 
 .mediana[.figura[![](imagenes/01-06-figura-2.19.svg)]]
 
@@ -251,7 +257,7 @@ Que es una señal exponencial compleja que se aplica súbitamente en un instante
 `$$y[n] =  \left\{
 \begin{array}{l l}
 0, & \quad n < 0,\\
-(\sum_{k = 0}^{n} h[k] e^{-j\omega k})e^{j\omega n}, & \quad n \ge 0.
+\left(\sum_{k = 0}^{n} h[k] e^{-j\omega k}\right)e^{j\omega n}, & \quad n \ge 0.
 \end{array} \right.
 $$`
 
@@ -261,28 +267,34 @@ $$`
 
 Si consideramos la salida para `\(n \ge 0\)`:
 
-`$$y[n] = (\sum_{k = 0}^{\infty} h[k] e^{-j\omega k})e^{j\omega n} - (\sum_{k = n+1}^{\infty} h[k] e^{-j\omega k})e^{j\omega n}$$`
-`$$ = H(e^{j\omega})e^{j\omega n}-(\sum_{k = n+1}^{\infty} h[k] e^{-j\omega k})e^{j\omega n}$$`
+`$$y[n] = \left(\sum_{k = 0}^{\infty} h[k] e^{-j\omega k}\right)e^{j\omega n} - \left(\sum_{k = n+1}^{\infty} h[k] e^{-j\omega k}\right)e^{j\omega n}$$`
+`$$ = H(e^{j\omega})e^{j\omega n}-\left(\sum_{k = n+1}^{\infty} h[k] e^{-j\omega k}\right)e^{j\omega n}$$`
 
-Este resultado tiene dos términos, `\(y[n] = y_{ss}[n] + y_t[n]\)`:
+Este resultado tiene dos términos, `\(y[n] = y_{ss}[n] + y_t[n]\)`.
+
+El término `\(y_{ss}[n]\)` se denomina respuesta al estado estacionario. Es idéntico a la respuesta del sistema cuando la entrada es `\(e^{j\omega n}\)`, para todo `\(n\)`.
 
 `$$y_{ss}[n] = H(e^{j\omega})e^{j\omega n}$$`
-
-Se denomina respuesta al estado estacionario. Es idéntica a la respuesta del sistema cuando la entrada es `\(e^{j\omega n}\)`, para todo `\(n\)`.
-
-`$$y_t[n] = -\sum_{k=n+1}^{\infty}  h[k] e^{-j\omega n} e^{j \omega n}$$`
 
 ---
 
 # Aplicación súbita de entradas exponenciales complejas
 
-Representa la cantidad en la que la salida difiere del resultado correspondiente a la autofunción. Esta parte se denomina, *respuesta transitoria*, ya que en algunos casos se puede aproximar a cero. Para ver las condiciones para las que esto ocurre, consideremos el tamaño del segundo término.
+El término `\(y_{t}[n]\)` representa la cantidad en la que la salida difiere del resultado correspondiente a la autofunción.
 
-`$$|y_t[n]| = |\sum_{k = n + 1}^{\infty} h[k] e^{-j \omega k} e^{j\omega n}| \le \sum_{k = n + 1}^{\infty} |h[k]| $$`
+`$$y_t[n] = -\sum_{k=n+1}^{\infty}  h[k] e^{-j\omega n} e^{j \omega n}$$`
+
+Esta parte se denomina, *respuesta transitoria*, ya que en algunos casos se puede aproximar a cero. Para ver las condiciones para las que esto ocurre, consideremos el tamaño del segundo término.
+
+`$$\left|y_t[n]\right| = \left|\sum_{k = n + 1}^{\infty} h[k] e^{-j \omega k} e^{j\omega n}\right| \le \sum_{k = n + 1}^{\infty} \left|h[k]\right| $$`
+
+---
+
+# Aplicación súbita de entradas exponenciales complejas
 
 De aquí se puede observar que si la respuesta al impulso es de longitud finita, es decir `\(h[n] = 0\)` excepto para `\(0 \le n \le M\)`, el término `\(y_t[n] = 0\)` para `\(n + 1 > M\)`, o `\(n > M - 1\)`. Así:
 
-`$$y[n] = y_{ss}[n] = H(e^{j \omega}) e^{j\omega n}, \quad \text{para } n > M - 1$$`.
+`$$y[n] = y_{ss}[n] = H(e^{j \omega}) e^{j\omega n}, \quad \text{para } n > M - 1$$`
 
 ---
 
@@ -290,31 +302,39 @@ De aquí se puede observar que si la respuesta al impulso es de longitud finita,
 
 Por el contrario, si la respuesta al impulso es de longitud infinita, la respuesta transitoria no desaparece abruptamente, pero si las muestras de la respuesta al impulso se aproximan a cero al aumentar `\(n\)`, entonces `\(y_t[n]\)` se aproximará a cero, así `\(y_t[n]\)` se puede escribir como:
 
-`$$|y_t[n]| = |\sum_{k = n + 1}^{\infty} h[k] e^{-j \omega k} e^{j\omega n}| \le \sum_{k = n + 1}^{\infty} |h[k]| \le \sum_{k = 0}^{\infty} |h[k]|$$`
+`$$\left|y_t[n]\right| = \left|\sum_{k = n + 1}^{\infty} h[k] e^{-j \omega k} e^{j\omega n}\right| \le \sum_{k = n + 1}^{\infty} \left|h[k]\right| \le \sum_{k = 0}^{\infty} \left|h[k]\right|$$`
 
-Es decir, la respuesta transitoria estará acotada por la suma de los valores absolutos de *todas* las muestras de la respuesta al impulso, si y sólo si el miembro derecho de la ecuación está acotado `\(\sum_{k = 0}^{\infty} |h[k]| < \infty\)`:
+Es decir, la respuesta transitoria estará acotada por la suma de los valores absolutos de *todas* las muestras de la respuesta al impulso, si y sólo si el miembro derecho de la ecuación está acotado `\(\sum_{k = 0}^{\infty} |h[k]| < \infty\)` (sistema estable BIBO).
 
-Lo que significa que el sistema será estable. De esta última ecuación de `\(|y_t[n]|\)` se puede decir que en sistemas estables, la respuesta transitoria debe decrecer progresivamente a medida que `\(n \rightarrow \infty\)`. Por lo tanto una condición suficiente para que la respuesta transitoria se desvanezca asintóticamente es que el sistema sea estable.
+De esta última ecuación de `\(\left|y_t[n]\right|\)` se puede decir que en sistemas estables, la respuesta transitoria debe decrecer progresivamente a medida que `\(n \rightarrow \infty\)`. Por lo tanto una condición suficiente para que la respuesta transitoria se desvanezca asintóticamente es que el sistema sea estable.
 
 ---
 
 # Aplicación súbita de entradas exponenciales complejas
 
-Subir Figura 2.20
+.figura[![](imagenes/01-06-figura-2.20.svg)]
 
-La figura muestra la parte real de una señal exponencial compleja de frecuencia `\(\omega =2\pi/10\)` Los puntos rellenos indican muestras `\(x[k]\)` de la exponencial compleja aplicada súbitamente, mientras que los puntos no rellenos indican las muestras "perdidas" de la exponencial compleja, es decir, las que serían distitnas de cero si la entrada fuera de la forma `\(e^{j\omega n}, \forall n\)`. Los puntos sombreados indican las muestras de la respuesta al impulso `\(h[n-k]\)` en función de `\(k\)` para `\(n = 8\)`. En el caso de longitud finita, es claro que para `\(n \ge 8 \)`, la salida constará sólo de la componente en estado estacionario, mientras que el caso de longitud infinita las muestras "perdidas" tendrán cada vez menos efecto a medida que `\(n\)` aumenta debido a la naturaleza decreciente de la respuesta al impulso.
+---
+
+# Aplicación súbita de entradas exponenciales complejas
+
+La figura muestra la parte real de una señal exponencial compleja de frecuencia `\(\omega =2\pi/10\)`.
+
+Los puntos rellenos indican muestras `\(x[k]\)` de la exponencial compleja aplicada súbitamente, mientras que los puntos no rellenos indican las muestras "perdidas" de la exponencial compleja, es decir, las que serían distintas de cero si la entrada fuera de la forma `\(e^{j\omega n}, \forall n\)`. Los puntos sombreados indican las muestras de la respuesta al impulso `\(h[n-k]\)` en función de `\(k\)` para `\(n = 8\)`.
+
+En el caso de longitud finita, es claro que para `\(n \ge 8 \)`, la salida constará sólo de la componente en estado estacionario, mientras que el caso de longitud infinita las muestras "perdidas" tendrán cada vez menos efecto a medida que `\(n\)` aumenta debido a la naturaleza decreciente de la respuesta al impulso.
 
 ---
 
 # Condición suficiente para la existencia de la función de respuesta en frecuencia
 
-La condición de estabilidad es una condición suficiente para la existencia de la función de respuesta en frecuencia. En general:
+La condición de estabilidad es también una condición suficiente para la existencia de la función de respuesta en frecuencia. En general:
 
-`$$|H(e^{j\omega})| = | \sum_{k = -\infty}^{\infty} h[k] e^{-j \omega k}| \le \sum_{k = -\infty}^{\infty} |h[k] e^{-j\omega k}| \le \sum_{k=-\infty}^{\infty} |h[k]|$$`
+`$$\left|H(e^{j\omega})\right| = \left|\sum_{k = -\infty}^{\infty} h[k] e^{-j \omega k}\right| \le \sum_{k = -\infty}^{\infty} \left|h[k] e^{-j\omega k}\right| \le \sum_{k=-\infty}^{\infty} \left|h[k]\right|$$`
 
-De forma que la condición general: `\(\sum_{k=-\infty}^{\infty} |h[k]| < \infty\)`
+De forma que la condición general: `\(\sum_{k=-\infty}^{\infty} |h[k]| < \infty\)` asegura que `\(H(e^{j\omega})\)` existe.
 
-Asegura que `\(H(e^{j\omega})\)` existe. No es sorprendente que la condición para la existencia de la respuesta en frecuencia sea la misma que la condición de existencia de un estado estacionario dominante. De hecho, una exponencial compleja que existe para todo `\(n\)` puede verse como una exponencial compleja aplicada en `\(n = -\infty\)`. La propiedad de autofunción de las exponenciales complejas depende de la estabilidad del sistema, ya que para `\(n\)` infinito la respuesta transitoria debe anularse de forma que sólo veamos el término de respuesta en estado estacionario `\(H(e^{j\omega})e^{j\omega n}\)` a partir de algún valor finito de `\(n\)`.
+No es sorprendente que la condición para la existencia de la respuesta en frecuencia sea la misma que la condición de existencia de un estado estacionario dominante. De hecho, una exponencial compleja que existe para todo `\(n\)` puede verse como una exponencial compleja aplicada en `\(n = -\infty\)`. La propiedad de autofunción de las exponenciales complejas depende de la estabilidad del sistema, ya que para `\(n\)` infinito la respuesta transitoria debe anularse de forma que sólo veamos el término de respuesta en estado estacionario `\(H(e^{j\omega})e^{j\omega n}\)` a partir de algún valor finito de `\(n\)`.
 
 ---
 
