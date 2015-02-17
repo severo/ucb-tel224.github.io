@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Curso UCB - TEL 224 - Procesamiento digital de señales - Señales y sistemas en tiempo discreto</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<link media="screen, handheld, projection, tv" href="css/estilo.css" rel="stylesheet">
+</head>
+<body>
+	<textarea id="source">
+
+class: center, middle
+
+# Procesamiento digital de señales
+# 1. Señales y sistemas en tiempo discreto
+# 1.10 Señales aleatorias en tiempo discreto
+
+---
+
+# Señales aleatorias en tiempo discreto
+
+Hasta ahora nos hemos concentrado en en señales deterministas, cada valor de la secuencia está exactamente determinado por una expresión matemática, una tabla de datos o una regla de algún tipo.
+
+En muchas situaciones (en realidad la mayoría) los procesos generan señales tan complejas que realizar una descripción precisa de una señal se hace extremadamente difícil o no es deseable, e incluso puede ser imposible. En estos casos, resulta útil modelar analíticamente la señal como un proceso estocástico. Más adelante veremos que muchos de los efectos que aparecen al realizar sistemas de tratamiento de señales utilizando registros de longitud finita se pueden representar como ruido aditivo, es decir, como una secuencia aleatoria. Muchos sistemas mecánicos, hidraulicos, térmicos, químicos generan señales acústicas o vibratorias que se pueden procesar para diagnosticar fallos potenciales. Estas señales a menudo se procesan más adecuadamente considerándolas señales aleatorias.
+
+Las señales de voz que son procesadas para realizar reconocimiento automático o compresión de ancho de banda y las señales musicales que se procesan para mejorar su calidad son dos ejemplos más entre otros.
+
+---
+
+# Señales aleatorias en tiempo discreto
+
+Una señal aleatoria se considera como miembro de un conjunto de señales en tiempo discreto caracterizada por un conjunto de funciones de densidad de probabildiad. Dada una señal particular en un instante concreto, su amplitud en ese instante se supone determinada por un esquema de probabilidades subyacente; cada muestra individual `\(x[n]\)` de una señal particular se supone que es una realización de una variable aleatoria `\(x_n\)`. La señal completa se representa mediante un conjunto de esas variables aleatorias, una para cada muestra temporal, `\(-\infty < n < \infty\)`. Este conjunto de variables aleatorias se denomina *proceso aleatorio*  y supondremos que cada secuencia particular de...
+
+---
+
+# Navegación
+
+Seguir con [1.11 Resumen](./01-11-resumen.html)
+
+Volver al capitulo [Señales y sistemas en tiempo discreto](./01-senales-y-sistemas-en-tiempo-discreto.html)
+
+	</textarea>
+    <script src="js/remark.min.js"></script>
+    <script src="js/MathJax/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured" type="text/javascript"></script>
+    <script type="text/javascript">
+      var slideshow = remark.create();
+      // Setup MathJax
+      MathJax.Hub.Config({
+          tex2jax: {
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+          }
+      });
+      MathJax.Hub.Queue(function() {
+          $(MathJax.Hub.getAllJax()).map(function(index, elem) {
+              return(elem.SourceElement());
+          }).parent().addClass('has-jax');
+      });
+      MathJax.Hub.Configured();
+    </script>
+</body>
+</html>

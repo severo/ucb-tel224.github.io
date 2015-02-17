@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Curso UCB - TEL 224 - Procesamiento digital de señales - Señales y sistemas en tiempo discreto</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<link media="screen, handheld, projection, tv" href="css/estilo.css" rel="stylesheet">
+</head>
+<body>
+	<textarea id="source">
+
+class: center, middle
+
+# Procesamiento digital de señales
+# 1. Señales y sistemas en tiempo discreto
+# 1.8 Propiedades de simetría de la transformada de Fourier
+
+---
+
+# Propiedades de la simetría de la transformada de Fourier
+
+Es útil tener conociento de la forma en la que las propiedades de las secuencias se manifiestan en la transformada de Fourier y viceversa. Las propiedades de simetría resultan a menudo muy útiles para simplificar la resolución de problemas.
+
+Una *secuencia simétrica conjugada* `\(x_e[n]\)` se define como una secuencia que cumple que `\(x_e[n] = x_{e}^{*}[-n]\)` (sí sólo es real se denomina *secuencia par*) y una *secuencia antisimétrica conjugada* `\(x_o\)` se define como una secuencia que cumple que `\(x_o[n] = -x_{o}^{*}[-n]\)` (sí sólo es real se denomina *secuencia impar*), donde `\(^{*}\)` indica conjugación compleja. Cualquier secuencia `\(x[n]\)` se puede expresar como la suma de una secuencia simétrica conjugada y una secuencia antisimétrica conjugada.
+
+`$$x[n] = x_e[n] + x_o[n]$$`
+
+---
+
+# Propiedades de la simetría de la transformada de Fourier
+
+Donde:
+
+`$$x_e[n] = \frac{1}{2} (x[n] + x^{*}[-n]) = x_{e}^{*}[-n]$$`
+
+`$$x_o[n] = \frac{1}{2} (x[n] + x^{*}[-n]) = -x_{o}[-n]$$`
+
+---
+
+# La transformada de Fourier de una señal como suma de conjugada simétrica y antisimétrica
+
+`$$x[n] = x_e[n] + x_o[n]$$`
+
+`$$X(e^{j\omega}) = X_e(e^{j\omega}) + X_o(e^{j\omega})$$`
+
+Donde:
+
+`$$X_e(e^{j\omega}) = \frac{1}{2} [X(e^{j\omega}) + X^*(e^{-j\omega})]$$`
+
+`$$X_o(e^{j\omega}) = \frac{1}{2} [X(e^{j\omega}) - X^*(e^{-j\omega})]$$`
+
+Sustituyendo `\(-\omega\)` por `\(\omega\)` en las anteriores dos ecuaciones, se deduce que `\(X_e(e^{j\omega})\)` es simétrica conjugada y que `\(X_o(e^{j\omega})\)` es antisimétrica conjugada.
+
+`$$X_e(e^{j\omega}) = X_{e}^{*} (e^{-j\omega}) \quad X_o(e^{j\omega}) = -X_{o}^{*} (e^{-j\omega})$$`
+
+---
+
+# Propiedades de la simetría de la transformada de Fourier
+
+Secuencia `\(x[n]\)` cualquiera | Transformada de Fourier `\(X(e^{j\omega})\)`
+:-------------:|:-------------:
+`\(x^{*}[n]\)`| `\(X^{*}(e^{-j\omega})\)`
+`\(x^{*}[-n]\)`| `\(X^{*}(e^{j\omega})\)`
+`\(\Re(x[n])\)`|`\(X_e(e^{j\omega})\)` (parte simétrica conjugada de `\(X(e^{j\omega})\)`)
+`\(j\Im(x[n])\)`|`\(X_o(e^{j\omega})\)` (parte antisimétrica conjugada de `\(X(e^{j\omega})\)`)
+`\(x_e[n]\)` (parte simétrica conjugada de `\(x[n]\)`)|`\(X_R(e^{j\omega}) = \Re(X(e^{j\omega}))\)`
+`\(x_o[n]\)` (parte antisimétrica conjugada de `\(x[n]\)`)|`\(jX_I(e^{j\omega}) = j\Im(X(e^{j\omega}))\)`
+
+---
+
+# Propiedades de la simetría de la transformada de Fourier
+
+Secuencia `\(x[n]\)` Real | Transformada de Fourier `\(X(e^{j\omega})\)`
+:-------------:|:-------------:
+`\(x[n]\)`|`\(X(e^{j\omega}) = X^{*}(e^{-j\omega})\)` (La transformada de Fourier es simétrica conjugada)
+`\(x[n]\)`|`\(X_R(e^{j\omega}) = X_R(e^{-j\omega})\)` (la parte real es par)
+`\(x[n]\)`|`\(X_I(e^{j\omega}) = -X_I(e^{-j\omega})\)` (la parte imaginaria es impar)
+`\(x[n]\)`|`\(\abs{X(e^{j\omega})} = -\abs{X(e^{-j\omega})} \)` (el módulo es par)
+`\(x[n]\)`|`\(\angle X(e^{j\omega}) = -\angle X(e^{-j\omega})\)` (la fase es impar)
+`\(x_e[n]\)` (parte par de `\(x[n]\)`)|`\(X_R(e^{j\omega})\)`
+`\(x_o[n]\)` (parte impar de `\(x[n]\)`)|`\(jX_I(e^{j\omega})\)`
+
+---
+
+# Propiedades de la simetría de la transformada de Fourier
+
+Parte simétrica conjugada de `\(x[n] : \Re(x[n]) = \frac{1}{2} (x[n] + x^*[n])\)`.
+
+Parte asimétrica conjugada de `\(x[n] : j\Im(x[n]) = \frac{1}{2} (x[n] - x^*[n])\)`.
+
+Si `\(x[n]\)` es una secuencia real su transformada de Fourier es simétrica conjugada, es decir, `\(X(e^{j\omega}) = X^*(e^{-j\omega})\)`, expresando `\(X(e^{j\omega})\)` en función de sus partes real e imaginaria:
+
+`$$X(e^{j\omega}) = X_R(e^{j\omega}) + jX_I(e^{j\omega})$$`
+
+`$$X_R(e^{j\omega}) = X_R(e^{-j\omega}) \quad X_I(e^{j\omega}) = -X_I(e^{-j\omega})$$`
+
+En palabras simples, si una secuencia es real, la parte real de su transformada de Fourier es una función par, y la parte imaginaria es una función impar.
+
+---
+
+# Propiedades de la simetría de la transformada de Fourier
+
+Si expresamos `\(X(e^{j\omega})\)`. en la forma polar:
+
+`$$X(e^{j\omega}) = |X(e^{j\omega})|e^{j\angle X(e^{j\omega})}$$`
+
+Se puede demostrar que dada una secuencia real `\(x[n]\)`, el módulo de su transformada de Fourier, `\(|X(e^{j\omega})|\)`, es una función par de `\(\omega\)` y la fase `\(\angle X(e^{j\omega})\)` se puede escoger de forma que sea una función impar de `\(\omega\)`.
+
+También se cumple que dada una secuencia real `\(x[n]\)`, su parte se par se transforma en `\(X_R(e^{j\omega})\)`, y su parte impar se transforma en `\(jX_I(e^{j\omega})\)`.
+
+---
+# Navegación
+
+Seguir con [1.9 Propiedades de la transformada de Fourier](./01-09-propiedades-de-la-transformada-de-fourier.html)
+
+Volver al capitulo [Señales y sistemas en tiempo discreto](./01-senales-y-sistemas-en-tiempo-discreto.html)
+
+	</textarea>
+    <script src="js/remark.min.js"></script>
+    <script src="js/MathJax/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured" type="text/javascript"></script>
+    <script type="text/javascript">
+      var slideshow = remark.create();
+      // Setup MathJax
+      MathJax.Hub.Config({
+          tex2jax: {
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+          }
+      });
+      MathJax.Hub.Queue(function() {
+          $(MathJax.Hub.getAllJax()).map(function(index, elem) {
+              return(elem.SourceElement());
+          }).parent().addClass('has-jax');
+      });
+      MathJax.Hub.Configured();
+    </script>
+</body>
+</html>
