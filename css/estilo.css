@@ -57,3 +57,6 @@ h1, h2, h3 {
 .pequena .figura img{
   width: 30%;
 }
+.mediana .figura img{
+  width: 50%;
+}

@@ -59,7 +59,7 @@ La respuesta en frecuencia del retardo ideal es: `\(H(e^{j \omega}) = e^{-j \ome
 
 Podemos obtener la respuesta en frecuencia por un método alternativo si tenemos en cuenta que en el sistema de retardo ideal, `\(h[n] = \delta[n-n_d]\)` y utilizando la definción anterior de `\(H(e^{j\omega}) = \sum_{k=-\infty}^{\infty} h[k] e^{-j \omega k}\)`:
 
-`$$H(e^{j \omega}) = \sum_{n = -\infty}^{\infty}  \delta[n-n_d] e^{-j \omega n} = e^{-j \omega n_d} $$`
+`$$H(e^{j \omega}) = \sum_{k = -\infty}^{\infty}  \delta[k-n_d] e^{-j \omega k} = e^{-j \omega n_d} $$`
 
 ---
 
@@ -159,7 +159,7 @@ Como estas dos secuencias tienen los mismos valores para todo `\(n\)`, el sistem
 
 # Sobre la periodicidad de la repuesta en frecuencia de un SLIT
 
-Como `\(H(e^{j\omega})\)` es periódica de periodo `\(2\pi\)`, y como las frecuencias `\(\omega\)` y `\(\omega+2\pi\)` no se pueden distinguir, se deduce que sólo es necesario especificar `\(H(e^{j\omega})\)` en un intervalo de longitud `\(2\pi\)`, como por ejemplo, `\(0 \le \omega < 2\pi\)` o `\(-\pi < \omega \le \pi\)`. La periodicidad inherente define la respuesta en frecuencia para cualquier valor fuera del intervalo espogido. Por motivos de simplicidad y de consistencia resulta conveniente especificar `\(H(e^{j\omega})\)` en el intervalo `\(-\pi < \omega \le \pi\)`. Las *bajas frecuencias* son frecuencias cercanas a cero, y las *altas frecuencias* son las frecuencias cercanas a `\(\pm\pi\)`.
+Como `\(H(e^{j\omega})\)` es periódica de periodo `\(2\pi\)`, y como las frecuencias `\(\omega\)` y `\(\omega+2\pi\)` no se pueden distinguir, se deduce que sólo es necesario especificar `\(H(e^{j\omega})\)` en un intervalo de longitud `\(2\pi\)`, como por ejemplo, `\(0 \le \omega < 2\pi\)` o `\(-\pi < \omega \le \pi\)`. La periodicidad inherente define la respuesta en frecuencia para cualquier valor fuera del intervalo escogido. Por motivos de simplicidad y de consistencia resulta conveniente especificar `\(H(e^{j\omega})\)` en el intervalo `\(-\pi < \omega \le \pi\)`. Las *bajas frecuencias* son frecuencias cercanas a cero, y las *altas frecuencias* son las frecuencias cercanas a `\(\pm\pi\)`.
 
 Considerando que las frecuencias que difieren en un múltiplo entero de `\(2\pi\)` son indistinguibles, podríamos generalizar lo anteriormente dicho como: "bajas frecuencias" son aquellas cercanas a un múltiplo par de `\(\pi\)` y las "altas frecuencias" son aquellas cercanas a un múltiplo impar de `\(\pi\)`.
 
@@ -167,7 +167,7 @@ Considerando que las frecuencias que difieren en un múltiplo entero de `\(2\pi\
 
 # Sobre la periodicidad de la repuesta en frecuencia de un SLIT
 
-Subir Figura 2.17
+.figura[![](imagenes/01-06-figura-2.17.svg)]
 
 Este es un filtro pasa bajo ideal. (a) se muestra la periodicidad de la respuesta en frecuencia y (b) se muestra un periodo de la respuesta en frecuencia.
 
@@ -185,7 +185,7 @@ Las siguiente imágen muestra las respuestas en frecuencia de filtros ideales.
 
 # Sobre los filtros ideales selectivos en frecuencia
 
-Subir Figura 2.18
+.mediana[.figura[![](imagenes/01-06-figura-2.18.svg)]]
 
 Filtros ideales selectivos en frecuencia. (a) Filtro pasa alto. (b) Filtro elimina banda (notch). (c) Filtro pasa banda. En todos los casos sólo se muestra un periódo.
 
@@ -232,7 +232,7 @@ Ejercicio. Encuentre la respuesta en frecuencia del sistema de promediado movil 
 
 # Ejemplo 2.16 Respuesta en frecuencia del sistema de promediado móvil
 
-Subir Figura 2.19
+.mediana[.figura[![](imagenes/01-06-figura-2.19.svg)]]
 
 `\(H(e^{j\omega})\)` es periódica, como debe ocurrir con la respuesta en frecuencia de un sistema en tiempo discreto. Note también que `\(|H(e^{j\omega})|\)` decrece en las "altas frecuencias" y que `\(\angle H(e^{j\omega})\)` varía linealmente con `\(\omega\)`. Esta atenuación de las altas frecuencias sugiere que el sistema suaviza las variaciones rápidas de la secuencia de entrada, en otras palabras el sistema es una aproxación tosca de un filtro pasa bajo. Esto es consistente con lo que nuestra intuición nos sugiere acerca del comportamiento del sistema de promediado móvil.
 
