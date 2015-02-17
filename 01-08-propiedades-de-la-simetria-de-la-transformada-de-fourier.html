@@ -32,7 +32,7 @@ Donde:
 
 `$$x_e[n] = \frac{1}{2} (x[n] + x^{*}[-n]) = x_{e}^{*}[-n]$$`
 
-`$$x_o[n] = \frac{1}{2} (x[n] + x^{*}[-n]) = -x_{o}^{-n}$$`
+`$$x_o[n] = \frac{1}{2} (x[n] + x^{*}[-n]) = -x_{o}[-n]$$`
 
 ---
 
@@ -58,10 +58,10 @@ Sustituyendo `\(-\omega\)` por `\(\omega\)` en las anteriores dos ecuaciones, se
 
 Secuencia `\(x[n]\)` cualquiera | Transformada de Fourier `\(X(e^{j\omega})\)`
 :-------------:|:-------------:
-`\(x^{*}[n]\)`| `\(X^{*}(w^{-j\omega})\)`
-`\(x^{*}[-n]\)`| `\(X^{*}(w^{j\omega})\)`
-`\(\Re(x[n])\)`|`\(X_e(w^{j\omega})\)` (parte simétrica conjugada de `\(X(e^{j\omega})\)`)
-`\(j\Im(x[n])\)`|`\(X_o(w^{j\omega})\)` (parte antisimétrica conjugada de `\(X(e^{j\omega})\)`)
+`\(x^{*}[n]\)`| `\(X^{*}(e^{-j\omega})\)`
+`\(x^{*}[-n]\)`| `\(X^{*}(e^{j\omega})\)`
+`\(\Re(x[n])\)`|`\(X_e(e^{j\omega})\)` (parte simétrica conjugada de `\(X(e^{j\omega})\)`)
+`\(j\Im(x[n])\)`|`\(X_o(e^{j\omega})\)` (parte antisimétrica conjugada de `\(X(e^{j\omega})\)`)
 `\(x_e[n]\)` (parte simétrica conjugada de `\(x[n]\)`)|`\(X_R(e^{j\omega}) = \Re(X(e^{j\omega}))\)`
 `\(x_o[n]\)` (parte antisimétrica conjugada de `\(x[n]\)`)|`\(jX_I(e^{j\omega}) = j\Im(X(e^{j\omega}))\)`
 
@@ -74,7 +74,7 @@ Secuencia `\(x[n]\)` Real | Transformada de Fourier `\(X(e^{j\omega})\)`
 `\(x[n]\)`|`\(X(e^{j\omega}) = X^{*}(e^{-j\omega})\)` (La transformada de Fourier es simétrica conjugada)
 `\(x[n]\)`|`\(X_R(e^{j\omega}) = X_R(e^{-j\omega})\)` (la parte real es par)
 `\(x[n]\)`|`\(X_I(e^{j\omega}) = -X_I(e^{-j\omega})\)` (la parte imaginaria es impar)
-`\(x[n]\)`|`\(|X(e^{j\omega})| = -|X(e^{-j\omega})|\)` (el módulo es par)
+`\(x[n]\)`|`\( |X(e^{j\omega})| = -|X(e^{-j\omega})| \)` (el módulo es par)
 `\(x[n]\)`|`\(\angle X(e^{j\omega}) = -\angle X(e^{-j\omega})\)` (la fase es impar)
 `\(x_e[n]\)` (parte par de `\(x[n]\)`)|`\(X_R(e^{j\omega})\)`
 `\(x_o[n]\)` (parte impar de `\(x[n]\)`)|`\(jX_I(e^{j\omega})\)`
@@ -83,15 +83,11 @@ Secuencia `\(x[n]\)` Real | Transformada de Fourier `\(X(e^{j\omega})\)`
 
 # Propiedades de la simetría de la transformada de Fourier
 
-Parte simétrica conjugada de `\(x[n]\)`:
+Parte simétrica conjugada de `\(x[n] : \Re(x[n]) = \frac{1}{2} (x[n] + x^*[n])\)`.
 
-`$$\Re(x[n]) = \frac{1}{2} (x[n] + x^*[n])$$`
+Parte asimétrica conjugada de `\(x[n] : j\Im(x[n]) = \frac{1}{2} (x[n] - x^*[n])\)`.
 
-Parte asimétrica conjugada de `\(x[n]\)`:
-
-`$$j\Im(x[n]) = \frac{1}{2} (x[n] - x^*[n])$$`
-
-Si `\(x[n]\)` es una secuencia real su transformada de Fourier es simétrica conjugada, es decir, `\(X(e^{j\omega})) = X^*(e^{-j\omega})\)`, expresando `\(X(e^{j\omega}))\)` en función de sus partes real e imaginaria:
+Si `\(x[n]\)` es una secuencia real su transformada de Fourier es simétrica conjugada, es decir, `\(X(e^{j\omega}) = X^*(e^{-j\omega})\)`, expresando `\(X(e^{j\omega})\)` en función de sus partes real e imaginaria:
 
 `$$X(e^{j\omega}) = X_R(e^{j\omega}) + jX_I(e^{j\omega})$$`
 
@@ -103,13 +99,13 @@ En palabras simples, si una secuencia es real, la parte real de su transformada 
 
 # Propiedades de la simetría de la transformada de Fourier
 
-Si expresamos `\(X(e^{j\omega}))\)`. en la forma polar:
+Si expresamos `\(X(e^{j\omega})\)`. en la forma polar:
 
 `$$X(e^{j\omega}) = |X(e^{j\omega})|e^{j\angle X(e^{j\omega})}$$`
 
-Se puede demostrar que dada una secuencia real `\(x[n]\)`, el módulo de su transformada de Fourier, `\(|X(e^{j\omega})|\)`, es una función par de `\(\omega\)` y la fase `\(\angle X(e^{j\omega})\)` se puede escoger de la forma que sea una función impoar de `\(\omega\)`.
+Se puede demostrar que dada una secuencia real `\(x[n]\)`, el módulo de su transformada de Fourier, `\(|X(e^{j\omega})|\)`, es una función par de `\(\omega\)` y la fase `\(\angle X(e^{j\omega})\)` se puede escoger de forma que sea una función impar de `\(\omega\)`.
 
-También se cumple que dad una secuencia real `\(x[n]\)`, su parte se par se transforma en `\(X_R(e^{j\omega})\)`, y su parte impar se transforma en `\(X_I(e^{j\omega})\)`.
+También se cumple que dada una secuencia real `\(x[n]\)`, su parte se par se transforma en `\(X_R(e^{j\omega})\)`, y su parte impar se transforma en `\(jX_I(e^{j\omega})\)`.
 
 ---
 # Navegación
