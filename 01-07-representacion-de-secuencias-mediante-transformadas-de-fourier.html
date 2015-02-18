@@ -17,7 +17,95 @@ class: center, middle
 
 ---
 
-# 
+# La representación de Fourier de una secuencia
+
+La representación de Fourier de una secuencia `\(x[n]\)` esta dada por las dos ecuaciones siguientes:
+
+Síntesis (transformada inversa de Fourier): `$$x[n] = \frac{1}{2\pi} \int_{-\pi}^{\pi} X\left(e^{j\omega}\right) e^{j\omega n} d\omega$$`
+
+Análisis (transformada de Fourier en tiempo discreto): `$$X\left(e^{j\omega}\right) = \sum_{n=-\infty}^{\infty} x[n] e^{-j\omega n}$$`
+
+Generalmente la transformada de Fourier en tiempo discreto `\(X\left(e^{j\omega}\right)\)` es una función compleja de `\(\omega\)`.
+
+---
+
+# Transformada de Fourier de un SLIT
+
+La transformada de  Fourier de la respuesta impulsional de un SLIT es su respuesta en frecuencia. Entonces, se obtiene la respuesta impulsional a partir de su respuesta en frecuencia con la transformada inversa:
+
+`$$h[n] = \frac{1}{2\pi} \int_{-\pi}^{\pi} H\left(e^{j\omega}\right) e^{j\omega n} d\omega$$`
+
+---
+
+# Clase de señales que aceptan transformada de Fourier
+
+Se puede aplicar la transformada de Fourier a las señales que respetan:
+
+`$$\left| X\left( e^{j\omega} \right) \right| < \infty, \forall \omega$$`
+
+o sea a las señales para las cuales la siguiente suma finita converge (convergencia uniforme) cuando `\(M \to \infty\)`
+
+`$$X_M \left( e^{j\omega} \right) = \sum_{n=-M}^{M} x[n] e^{-j\omega n}$$`
+
+---
+
+# Clase de señales que aceptan transformada de Fourier
+
+Una condición suficiente para la convergencia es que la señal sea **absolutamente sumable**:
+
+`\begin{align*}
+\left| X\left( e^{j\omega} \right) \right| &= \left| \sum_{n=-\infty}^{\infty} x[n] e^{-j\omega n} \right| \\
+&\le \sum_{n=-\infty}^{\infty} \left| x[n] \right| \left| e^{-j\omega n} \right| \\
+&\le \sum_{n=-\infty}^{\infty} \left| x[n] \right| < \infty
+\end{align*}`
+
+Significa que todas las secuencias estables tienen transformada de Fourier, y que todos los sistemas estables tienen una respuesta en frecuencia finita y continua (lo de continua se puede demostrar - ver el libro). En particular, es valido para todos los sistemas FIR. Sin embargo para los sistemas IIR, se tiene que evaluar la estabilidad para poder utilizar la transformada de Fourier.
+
+---
+
+# Ejemplo de una exponencial aplicada súbitamente
+
+Para la señal `\(x[n] = a^n u[n]\)`, la condición de señal absolutamente sumable se traduce por
+
+`$$\sum_{n=-\infty}^{\infty} \left| x[n] \right| < \infty$$`
+
+o sea
+
+`$$\sum_{n=-\infty}^{\infty} \left| a^n u[n] \right| = \sum_{n=0}^{\infty} \left| a^n \right|$$`
+
+que converge si `\(a < 1\)` ; en tal caso, la suma vale
+
+`$$\frac{1}{1-|a|} < \infty$$`
+
+---
+
+# Condición de convergencia en sentido cuadrático
+
+Para otras señales, no se puede obtener la convergencia uniforme, sino la convergencia en sentido cuadrático (ver libro), lo cual también permite aplicar la transformada de Fourier. Se trata de las señales de cuadrado sumable:
+
+`$$\sum_{n=-\infty}^{\infty} \left| x[n] \right|^2 < \infty$$`
+
+A notar que la representación de Fourier se puede extender a otros tipos de señales: los que se pueden representar como suma de componentes discretas de frecuencia (contexto de las funciones generalizadas), y también a la señal escalón unidad. Ver el libro para más detalles.
+
+---
+
+# Un ejemplo de convergencia en sentido cuadrático
+
+.figura[![](imagenes/01-07-figura-2.21.svg)]
+
+---
+
+# Un ejemplo de convergencia en sentido cuadrático
+
+El filtro paso bajo ideal no tiene convergencia uniforme, sino convergencia en sentido cuadrático, hacía la respuesta en frecuencia siguiente:
+
+`$$H_{lp} = \left\{ \begin{array}{l l}
+1, & |\omega| < \omega_c \\
+0, & \omega_c < |\omega| \le \pi
+\end{array} \right.$$`
+
+No tiene convergencia uniforme porque, como se ve en la figura anterior, el límite de la función `\(H_M\left(e^{j\omega}\right)\)` tiene una diferencia con el filtro paso bajo ideal en la frecuencia `\(\omega_c\)`, pero esta diferencia implica una diferencia de energía nula, porque solamente es una singularidad en un punto.
+
 
 ---
 
