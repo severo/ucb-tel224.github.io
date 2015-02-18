@@ -28,7 +28,33 @@ Las señales de voz que son procesadas para realizar reconocimiento automático 
 
 # Señales aleatorias en tiempo discreto
 
-Una señal aleatoria se considera como miembro de un conjunto de señales en tiempo discreto caracterizada por un conjunto de funciones de densidad de probabildiad. Dada una señal particular en un instante concreto, su amplitud en ese instante se supone determinada por un esquema de probabilidades subyacente; cada muestra individual `\(x[n]\)` de una señal particular se supone que es una realización de una variable aleatoria `\(x_n\)`. La señal completa se representa mediante un conjunto de esas variables aleatorias, una para cada muestra temporal, `\(-\infty < n < \infty\)`. Este conjunto de variables aleatorias se denomina *proceso aleatorio*  y supondremos que cada secuencia particular de...
+Una señal aleatoria se considera como miembro de un conjunto de señales en tiempo discreto caracterizada por un conjunto de funciones de densidad de probabilidad. Dada una señal particular en un instante concreto, su amplitud en ese instante se supone determinada por un esquema de probabilidades subyacente; cada muestra individual `\(x[n]\)` de una señal particular se supone que es una realización de una variable aleatoria `\(x_n\)`. La señal completa se representa mediante un conjunto de esas variables aleatorias, una para cada muestra temporal, `\(-\infty < n < \infty\)`. Este conjunto de variables aleatorias se denomina *proceso aleatorio*  y supondremos que cada secuencia particular de muestras, `\(x[n]\)` para `\(-\infty < n < \infty\)` es generado por el proceso aleatorio subyacente. Para describir completamente el proceso aleatorio necesitamos especificar las distribuciones de probabilidad individuales y conjuntas de todas las variables aleatorias.
+
+---
+
+# Señales aleatorias en tiempo discreto
+
+La clave para obtener resultados útiles mediante estos modelos de señales está en la descripción en términos de promedios que se puede calcular utilizando leyes de probabilidad asumidas o estimadas a partir de las señales concretas.
+
+Aunque las señales estocásticas no son absolutamente sumables ni de cuadrado sumable (no tiene transformada de Fourier), muchas de sus propieades se pueden expresar en términos de promedios como las secuencias de autocorrelación o autocovarianza, para las sí existe transformada de Fourier.
+
+La transformada de Fourier de la secuencia de autocovarianza tiene un interpretación útil en función de la distribución en la frecuencia de la potencia de la señal. El efecto de procesar señales estocásticas con un sistema lineal en tiempo discreto se puede describir adecuadamente en términos del efecto del sistema en la secuencia de autocovarianza.
+
+Necesita conocer conceptos básicos de procesos estocásticos: promedios, funciones de correlación, covarianza, densidad espectral de potencia.
+
+AQUI PIE PAGINA
+
+---
+
+# Señales aleatorias en tiempo discreto
+
+Nos concentraremos en señales aleatorias que son estacionarias y su tratamiento con SLIT. Por simplicidad supondremos que `\(x[n]\)` y `\(h[n}\)` toman valores reales, los resultados se pueden generalizar al caso complejo.
+
+Consideremos un SLIT, estable, cuya respuesta al impulso es `\(h[n]\)`. Sea `\(x[n]\)` una secuencia real que es una realización de un proceso aleatorio en tiempo discreto estacionario en sentido amplio. La salida del sistema lineal es también una realización de un proceso aleatorio relacionado con el proceso de entrada mediante la transformación lineal:
+
+`$$y[n] = \sum_{k=-\infty}^{\infty} h[n-k] x[k]= \sum_{k=-\infty}^{\infty} h[k] x[n-k]$$`
+
+
 
 ---
 
