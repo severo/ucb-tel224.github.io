@@ -18,7 +18,7 @@ class: center, middle
 
 # Propiedades de la simetría de la transformada de Fourier
 
-Es útil tener conociento de la forma en la que las propiedades de las secuencias se manifiestan en la transformada de Fourier y viceversa. Las propiedades de simetría resultan a menudo muy útiles para simplificar la resolución de problemas.
+Es útil tener conocimiento de la forma en la que las propiedades de las secuencias se manifiestan en la transformada de Fourier y viceversa. Las propiedades de simetría resultan a menudo muy útiles para simplificar la resolución de problemas.
 
 Una *secuencia simétrica conjugada* `\(x_e[n]\)` se define como una secuencia que cumple que `\(x_e[n] = x_{e}^{*}[-n]\)` (sí sólo es real se denomina *secuencia par*) y una *secuencia antisimétrica conjugada* `\(x_o\)` se define como una secuencia que cumple que `\(x_o[n] = -x_{o}^{*}[-n]\)` (sí sólo es real se denomina *secuencia impar*), donde `\(^{*}\)` indica conjugación compleja. Cualquier secuencia `\(x[n]\)` se puede expresar como la suma de una secuencia simétrica conjugada y una secuencia antisimétrica conjugada.
 
@@ -32,13 +32,13 @@ Donde:
 
 `$$x_e[n] = \frac{1}{2} (x[n] + x^{*}[-n]) = x_{e}^{*}[-n]$$`
 
-`$$x_o[n] = \frac{1}{2} (x[n] + x^{*}[-n]) = -x_{o}[-n]$$`
+`$$x_o[n] = \frac{1}{2} (x[n] - x^{*}[-n]) = -x_{o}^{*}[-n]$$`
 
 ---
 
 # La transformada de Fourier de una señal como suma de conjugada simétrica y antisimétrica
 
-`$$x[n] = x_e[n] + x_o[n]$$`
+Lo mismo aplica para la transformada de Fourier:
 
 `$$X(e^{j\omega}) = X_e(e^{j\omega}) + X_o(e^{j\omega})$$`
 
