@@ -45,7 +45,7 @@ Necesita conocer conceptos básicos de procesos estocásticos: promedios, funcio
 
 # Señales aleatorias en tiempo discreto
 
-AQUI PIE PAGINA
+Utilizaremos el término *estacionario* para *estacionario en sentido amplio*, es decir que: `\(E\{x[n_1] x[n_2]\}\)` para todo `\(n_1\)`, `\(n_2\)` depende sólo de la diferencia `\(n_1 - n_2\)`. De forma equivalente, la autocorrelación sólo es función de la diferencia temporal `\(n_1 - n_2\)`.
 
 ---
 
@@ -71,7 +71,7 @@ Donde `\(\varepsilon\{ \}\)` indica valor esperado. Las anteriores ecuaciones se
 
 `$$m_{x}[n] = \varepsilon\{x[n]\} \quad m_{y}[n] = \varepsilon\{y[n]\}$$`
 
-Si `\(x[n]\)` es estacionaria, entonces `\(m_x[n]\)` es independiente de n y se escribirá `\(m_x\)`. Lo mismo aplica con `\(m_y[n]\)` si `\(y[n]\)` es estacionaria.
+Si `\(x[n]\)` es estacionaria, entonces `\(m_x[n]\)` es independiente de `\(n\)` y se escribirá `\(m_x\)`. Lo mismo aplica con `\(m_y[n]\)` si `\(y[n]\)` es estacionaria.
 
 ---
 
@@ -96,7 +96,7 @@ Así se observa que la media de la salida es una constante. Es puede escribir un
 Supongamos por un momento que la salida es no estacionaria, la función de autocorrelación del proceso de salida para una entrada real será:
 
 `$$\phi_{yy}[n,n+m] = \varepsilon\{y[n]y[n+m]\}$$`
-`$$= \varepsilon\{\sum_{k=-\infty}{\infty} \sum_{r=-\infty}^{\infty} h[k]x[n-k]h[r]x[n+m-r]\}$$`
+`$$= \varepsilon\{\sum_{k=-\infty}^{\infty} \sum_{r=-\infty}^{\infty} h[k]x[n-k]h[r]x[n+m-r]\}$$`
 `$$= \sum_{k=-\infty}^{\infty}h[k]\sum_{r=-\infty}^{\infty}h[r]\varepsilon\{x[n-k] x[n+m-r]\}$$`
 
 Como se supone que `\(x[n]\)` es estacionaria, `\(\varepsilon\{x[n-k] x[n+m-r]\}\)` depende sólo de la diferencia temporal `\(m+k-r\)`, por tanto:
@@ -110,8 +110,6 @@ La secuencia de autocorrelación de salida depende sólo de la diferencia tempor
 # Sobre la función de autocorrelación
 
 Escribiendo la siguiente ecuación con: `\(l = r-k\)`
-
-`$$\phi_{yy}[n,n+m] = \sum_{l=-\infty}^{\infty}\phi_{xx}[m-l]\sum_{k=-\infty}^{\infty}h[k] h[l+k]$$`
 
 `$$\phi_{yy}[m] = \sum_{l=-\infty}^{\infty} \phi_{xx}[m-l] \sum_{k=-\infty}^{\infty} h[k]h[l+k]$$`
 
@@ -153,7 +151,7 @@ Esta ultima ecuación es la motivación del término *densidad espectral de pote
 
 # Sobre la densidad espectral de potencia
 
-`$$\varepsilon\{y^2[n]\} = \Phi_{yy}[0] = \frac{1}{2\pi}\int_{-\pi}^{\pi} |H(e^{j\omega})|^2 \Phi_{xx}(e^{j\omega}) d\omega$$`
+`$$\varepsilon\{y^2[n]\} = \phi_{yy}[0] = \frac{1}{2\pi}\int_{-\pi}^{\pi} |H(e^{j\omega})|^2 \Phi_{xx}(e^{j\omega}) d\omega$$`
 
 `$$= \text{potencia media total de la salida}$$`
 
@@ -165,7 +163,7 @@ Así también `\(|H(e^{j\omega})|^2\)` es una función par de `\(\omega\)`, por 
 
 `$$\phi_{yy}[0] = \text{potencia media de la salida}$$`
 
-`$$= \frac{1}{2\pi}\int_{-\omega_a}^{\omega_b} \Phi_{xx}(e^{j\omega}) d\omega + \frac{1}{2\pi}\int_{-\omega_b}^{\omega_a} \Phi_{xx}(e^{j\omega}) d\omega$$`
+`$$= \frac{1}{2\pi}\int_{\omega_a}^{\omega_b} \Phi_{xx}(e^{j\omega}) d\omega + \frac{1}{2\pi}\int_{-\omega_b}^{-\omega_a} \Phi_{xx}(e^{j\omega}) d\omega$$`
 
 ---
 
