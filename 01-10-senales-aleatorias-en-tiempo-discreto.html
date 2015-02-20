@@ -63,11 +63,11 @@ Si el sistema es estable, si `\(x[n]\)` está acotada, `\(y[n]\)` también lo es
 
 # Señales aleatorias en tiempo discreto
 
-La medidas de los procesos de entrada y de salida son:
+Las medidas de los procesos de entrada y de salida son:
 
 `$$m_{x_{n}} = \varepsilon\{x_n\} \quad m_{y_{n}} = \varepsilon\{y_n\}$$`
 
-Donde `\(\varepsilon\{ \}\)` indica valor esperado. En nuestra presentación no será necesario diferenciar cuidadosamente las variables aleatorias `\(x_n\)` e `\(y_n\)` y sus valores específicos `\(x[n]\)` e `\(y[n]\)`. Esto simplificará la notación matemática. Las anteriores ecuaciones se pueden escribir como:
+Donde `\(\varepsilon\{ \}\)` indica valor esperado. Las anteriores ecuaciones se pueden escribir como:
 
 `$$m_{x}[n] = \varepsilon\{x[n]\} \quad m_{y}[n] = \varepsilon\{y[n]\}$$`
 
@@ -87,7 +87,7 @@ Utilizando el hecho de que la esperanza de una suma es la suma de las esperanzas
 
 Así se observa que la media de la salida es una constante. Es puede escribir una expresión equivalente en función de la respuesta en frecuencia.
 
-`$$m_y = H(e^{j\0}) m_x$$`
+`$$m_y = H(e^{j 0}) m_x$$`
 
 ---
 
@@ -96,14 +96,14 @@ Así se observa que la media de la salida es una constante. Es puede escribir un
 Supongamos por un momento que la salida es no estacionaria, la función de autocorrelación del proceso de salida para una entrada real será:
 
 `$$\phi_{yy}[n,n+m] = \varepsilon\{y[n]y[n+m]\}$$`
-`$$= \varepsilon\{\sum_{k=-\infty}{\infty} \sum{r=-\infty}{\infty} h[k]x[n-k]h[r]x[n+m-r]\}$$`
+`$$= \varepsilon\{\sum_{k=-\infty}{\infty} \sum_{r=-\infty}^{\infty} h[k]x[n-k]h[r]x[n+m-r]\}$$`
 `$$= \sum_{k=-\infty}^{\infty}h[k]\sum_{r=-\infty}^{\infty}h[r]\varepsilon\{x[n-k] x[n+m-r]\}$$`
 
-Como se supone que `\(x[n]\)` es estacionaria, `\(\varepsilon\{x[n-k] x[n+m-r]\)` depende sólo de la diferencia temporal `\(m+k-r\)`, por tanto:
+Como se supone que `\(x[n]\)` es estacionaria, `\(\varepsilon\{x[n-k] x[n+m-r]\}\)` depende sólo de la diferencia temporal `\(m+k-r\)`, por tanto:
 
-`$$\phi_{yy}[n,n+m] = \sum_{k=-\infty}^{\infty}h[k]\sum_{r=-\infty}^{\infty}h[r] \phi_{xx}[m+k-r] = phi_{yy}[m]$$`
+`$$\phi_{yy}[n,n+m] = \sum_{k=-\infty}^{\infty}h[k]\sum_{r=-\infty}^{\infty}h[r] \phi_{xx}[m+k-r] = \phi_{yy}[m]$$`
 
-La secuencia de autocorrelación de salida también depende sólo de la diferencia temporal `\(m\)`. Es decir, dada un SLIT con una entrada en sentido amplio, su salida es también estacionaria en sentido amplio.
+La secuencia de autocorrelación de salida depende sólo de la diferencia temporal `\(m\)`. Es decir, dada un SLIT con una entrada en sentido amplio, su salida es también estacionaria en sentido amplio.
 
 ---
 
@@ -119,7 +119,7 @@ Escribiendo la siguiente ecuación con: `\(l = r-k\)`
 
 Donde:
 
-`$$c_{hh} = \sum_{k=-\infty}^{'infty} h[k]h[l+k]$$`
+`$$c_{hh} = \sum_{k=-\infty}^{\infty} h[k]h[l+k]$$`
 
 ---
 
