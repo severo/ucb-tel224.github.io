@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Curso UCB - TEL 224 - Procesamiento digital de señales - Señales y sistemas en tiempo discreto</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<link media="screen, handheld, projection, tv" href="css/estilo.css" rel="stylesheet">
+	<link media="screen, handheld, projection, tv" href="css/colors.min.css" rel="stylesheet">
+</head>
+<body>
+	<textarea id="source">
+
+class: center, middle
+
+# Procesamiento digital de señales
+# 1. Señales y sistemas en tiempo discreto
+# 1.9 Teoremas de la transformada de Fourier
+
+---
+
+# Teoremas de la transformada de Fourier
+
+A parte de las propiedades de simetría de la transformada de Fourier, también existen varios teoremas importantes.
+
+Definamos algunas notaciones que nos servirán para expresar los teoremas:
+
+`$$X\left(e^{j\omega}\right) = \mathscr{F} \left\{ x[n]\right\}$$`
+`$$ x[n] = \mathscr{F}^{-1} \left\{ X\left(e^{j\omega}\right) \right\}$$`
+`$$ x[n] \overset{\mathscr{F}}{\longleftrightarrow} X\left(e^{j\omega}\right)$$`
+
+---
+
+# Linealidad de la transformada de Fourier
+
+Si
+
+`$$ x_1[n] \overset{\mathscr{F}}{\longleftrightarrow} X_1\left(e^{j\omega}\right)$$`
+
+y
+
+`$$ x_2[n] \overset{\mathscr{F}}{\longleftrightarrow} X_2\left(e^{j\omega}\right)$$`
+
+entonces
+
+`$$ a x_1[n] + b x_2[n] \overset{\mathscr{F}}{\longleftrightarrow} a X_1\left(e^{j\omega}\right) + b X_2\left(e^{j\omega}\right)$$`
+
+---
+
+# Desplazamiento en el tiempo
+
+Si
+
+`$$ x[n] \overset{\mathscr{F}}{\longleftrightarrow} X\left(e^{j\omega}\right)$$`
+
+entonces
+
+`$$ x[n - n_d] \overset{\mathscr{F}}{\longleftrightarrow} e^{-j\omega n_d} X\left(e^{j\omega}\right), \forall n_d \in \mathbb{Z}$$`
+
+
+---
+
+# Desplazamiento en la frecuencia
+
+Si
+
+`$$ x[n] \overset{\mathscr{F}}{\longleftrightarrow} X\left(e^{j\omega}\right)$$`
+
+entonces
+
+`$$  e^{-j\omega_0 n} x[n] \overset{\mathscr{F}}{\longleftrightarrow} X\left(e^{j \left(\omega - \omega_0 \right)}\right), \forall \omega_0 \in \mathbb{R}$$`
+
+---
+
+# Inversión temporal
+
+Si
+
+`$$ x[n] \overset{\mathscr{F}}{\longleftrightarrow} X\left(e^{j\omega}\right)$$`
+
+entonces
+
+`$$  x[-n] \overset{\mathscr{F}}{\longleftrightarrow} X\left(e^{-j \omega}\right)$$`
+
+Si `\(x[n]\)` es real, el resultado es
+
+`$$  x[-n] \overset{\mathscr{F}}{\longleftrightarrow} X^*\left(e^{j \omega}\right)$$`
+
+---
+
+# Diferenciación en el dominio de la frecuencia
+
+Si
+
+`$$ x[n] \overset{\mathscr{F}}{\longleftrightarrow} X\left(e^{j\omega}\right)$$`
+
+entonces
+
+`$$  n x[n] \overset{\mathscr{F}}{\longleftrightarrow} j \frac{d X\left(e^{j \omega}\right)}{d\omega}$$`
+
+---
+
+# Teorema de Parseval
+
+Si
+
+`$$ x[n] \overset{\mathscr{F}}{\longleftrightarrow} X\left(e^{j\omega}\right)$$`
+
+entonces
+
+`$$  E = \sum_{-\infty}^{\infty} \left| x[n] \right|^2 = \frac{1}{2\pi} \int_{-\pi}^{\pi} \left| X\left(e^{j \omega}\right) \right|^2 d\omega$$`
+
+`\(E\)` es la energía total de la señal y del espectro. La función `\(\left| X\left(e^{j \omega}\right) \right|^2\)` es la *densidad espectral de energía* y determina donde se distribuye la energía según las frecuencias. La densidad espectral de energía esta definida solo para las señales de energía finita.
+
+---
+
+# Teorema de convolución
+
+Si
+
+`$$ x[n] \overset{\mathscr{F}}{\longleftrightarrow} X\left(e^{j\omega}\right)$$`
+
+y
+
+`$$ h[n] \overset{\mathscr{F}}{\longleftrightarrow} H\left(e^{j\omega}\right)$$`
+
+y si
+
+`$$ y[n] \sum_{k=-\infty}^{\infty} x[k]h[n-k]=x[n] * h[n]$$`
+
+entonces
+
+`$$  Y\left(e^{j \omega}\right) = X\left(e^{j \omega}\right) H\left(e^{j \omega}\right)$$`
+
+---
+
+# Ejemplo del teorema de convolución
+
+Sabemos que
+
+`$$ \delta[n-n_d] \overset{\mathscr{F}}{\longleftrightarrow} e^{-j\omega n_d}$$`
+
+entonces en el caso del sistema de retardo ideal, donde `\(h[n]=\delta[n-n_d]\)` y `\(H\left(e^{j \omega}\right) = e^{-j \omega n_d}\)`, la salida `\(y[n]\)` se obtiene por
+
+`$$ y[n] = x[n] * \delta\left[n-n_d\right] = x\left[n-n_d\right]$$`
+
+y su transformada de Fourier por
+
+`$$  Y\left(e^{j \omega}\right) = e^{-j \omega n_d} X\left(e^{j \omega}\right) $$`
+
+lo que demuestra el teorema de desplazamiento en el tiempo presentado anteriormente.
+
+---
+
+# Teorema de modulación o enventanado
+
+Si
+
+`$$ x[n] \overset{\mathscr{F}}{\longleftrightarrow} X\left(e^{j\omega}\right)$$`
+
+y
+
+`$$ w[n] \overset{\mathscr{F}}{\longleftrightarrow} W\left(e^{j\omega}\right)$$`
+
+y si
+
+`$$ y[n] = x[n]w[n], \forall n \in \mathbb{Z}$$`
+
+entonces
+
+`$$  Y\left(e^{j \omega}\right) = \frac{1}{2\pi} \int_{-\pi}^{\pi} X\left(e^{j \theta}\right) W\left(e^{j \left(\omega - \theta\right) }\right) d\theta$$`
+
+---
+
+# Teorema de modulación o enventanado
+
+El resultado anterior corresponde a una convolución periódica (convolución de dos funciones periódicas de mismo periodo, sobre un intervalo del tamaño del periodo), en el dominio de la frecuencia.
+
+Existe una dualidad entre tiempo y frecuencia:
+
+* una convolución en el tiempo discreto se traduce por una multiplicación en la frecuencia
+* una multiplicación en el tiempo discreto se traduce por una convolución *periódica* en la frecuencia
+
+---
+
+#Transformada de Fourier de señales típicas
+
+Impulso unidad
+
+`$$ \delta[n] \overset{\mathscr{F}}{\longleftrightarrow} 1$$`
+
+Retraso
+
+`$$ \delta[n - n_d] \overset{\mathscr{F}}{\longleftrightarrow} e^{-j \omega n_d}$$`
+
+Constante
+
+`$$ 1 \overset{\mathscr{F}}{\longleftrightarrow} 2\pi \sum_{k=-\infty}^{\infty} \delta(\omega + 2\pi k)$$`
+
+Exponencial decreciente aplicada súbitamente
+
+`$$ a^n u[n] \quad \left(|a|<1\right) \overset{\mathscr{F}}{\longleftrightarrow} \frac{1}{1-a e^{-j\omega}}$$`
+
+---
+
+#Transformada de Fourier de señales típicas
+
+Escalón unidad
+
+`$$ u[n] \overset{\mathscr{F}}{\longleftrightarrow} \frac{1}{1-a e^{-j\omega}} + \pi \sum_{k=-\infty}^{\infty} \delta(\omega + 2\pi k)$$`
+
+Sinusoide decreciente
+
+`$$ \frac{sen \left(\omega_c n\right)}{\pi n} \overset{\mathscr{F}}{\longleftrightarrow} X\left(e^{j\omega}\right) =  \left\{ \begin{array}{l l}
+1, & |\omega| < \omega_c \\
+0, & \omega_c < |\omega| \le \pi
+\end{array}\right.$$`
+
+Grada
+
+`$$ x[n] = \left\{ \begin{array}{l l}
+1, & 0 \le n \le M \\
+0, & \text{en el resto}
+\end{array}\right. \overset{\mathscr{F}}{\longleftrightarrow} \frac{sen \left[\omega (M+1)/2 \right]}{sen \left[\omega /2 \right]} e^{-j \omega M / 2}$$`
+
+Exponencial compleja
+
+`$$ e^{j \omega_0 n} \overset{\mathscr{F}}{\longleftrightarrow} 2\pi \sum_{k=-\infty}^{\infty} \delta(\omega - \omega_0 + 2\pi k)$$`
+
+---
+
+# Ejemplo - cálculo de la respuestas al impulso de una ecuación en diferencias
+
+Utilizaremos los resultados anteriores para calcular la respuesta en frecuencia, y luego la respuesta impulsional de la ecuación en diferencias siguiente:
+
+`$$y[n] - \frac{1}{2} y[n-1] = x[n] - \frac{1}{4} x[n-1] $$`
+
+La respuesta impulsional `\(h[n]\)` es por definición
+
+`$$h[n] - \frac{1}{2} h[n-1] = \delta[n] - \frac{1}{4} \delta[n-1] $$`
+
+Aplicando los resultados de linealidad y de desplazamiento en el tiempo de la transformada de Fourier, así como las transformadas de señales típicas:
+
+`$$H\left(e^{j \omega}\right) - \frac{1}{2} e^{-j \omega} H\left(e^{j \omega}\right) = 1 - \frac{1}{4} e^{-j \omega}$$`
+
+---
+
+# Ejemplo - cálculo de la respuestas al impulso de una ecuación en diferencias
+
+La respuesta en frecuencia se puede escribir entonces
+
+`$$H\left(e^{j \omega}\right) = \frac{1 - \frac{1}{4} e^{-j \omega}}{1  - \frac{1}{2} e^{-j \omega} }$$`
+
+Ahora para obtener la respuesta impulsional, primero separamos los dos términos de la suma
+
+`$$H\left(e^{j \omega}\right) = \frac{1}{1  - \frac{1}{2} e^{-j \omega} } - \frac{\frac{1}{4} e^{-j \omega}}{1  - \frac{1}{2} e^{-j \omega} }$$`
+
+Utilizando el resultado de la exponencial decreciente aplicada súbitamente, obtenemos para el primer término
+
+`$$ \left(\frac{1}{2}\right)^n u[n] \overset{\mathscr{F}}{\longleftrightarrow} \frac{1}{1-\frac{1}{2} e^{-j\omega}}$$`
+
+---
+
+# Ejemplo - cálculo de la respuestas al impulso de una ecuación en diferencias
+
+Combinando con el resultado de desplazamiento en el tiempo, obtenemos para el segundo término
+
+`$$ -\frac{1}{4} \left(\frac{1}{2}\right)^n u[n-1] \overset{\mathscr{F}}{\longleftrightarrow} - \frac{\frac{1}{4} e^{-j \omega}}{1  - \frac{1}{2} e^{-j \omega} }$$`
+
+Finalmente con al propiedad de linealidad, obtenemos la respuesta al impulso
+
+`$$ h[n] = \left(\frac{1}{2}\right)^n \left( u[n] -\frac{1}{4} u[n-1] \right), \quad \forall n \in \mathbb{Z}$$`
+
+.red[* ]Ejercicio: representar por computadora la respuesta al impulso, y módulo y fase de la respuesta en frecuencia
+
+---
+
+# Navegación
+
+Seguir con [Señales aleatorias en tiempo discreto](./01-10-senales-aleatorias-en-tiempo-discreto.html)
+
+Volver al capitulo [Señales y sistemas en tiempo discreto](./01-senales-y-sistemas-en-tiempo-discreto.html)
+
+	</textarea>
+    <script src="js/remark.min.js"></script>
+    <script src="js/MathJax/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured" type="text/javascript"></script>
+    <script type="text/javascript">
+      var slideshow = remark.create();
+      // Setup MathJax
+      MathJax.Hub.Config({
+          tex2jax: {
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+          }
+      });
+      MathJax.Hub.Queue(function() {
+          $(MathJax.Hub.getAllJax()).map(function(index, elem) {
+              return(elem.SourceElement());
+          }).parent().addClass('has-jax');
+      });
+      MathJax.Hub.Configured();
+    </script>
+</body>
+</html>
