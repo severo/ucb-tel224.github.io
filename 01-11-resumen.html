@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Curso UCB - TEL 224 - Procesamiento digital de señales - Señales y sistemas en tiempo discreto</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<link media="screen, handheld, projection, tv" href="css/estilo.css" rel="stylesheet">
+	<link media="screen, handheld, projection, tv" href="css/colors.min.css" rel="stylesheet">
+</head>
+<body>
+	<textarea id="source">
+
+class: center, middle
+
+# Procesamiento digital de señales
+# 1. Señales y sistemas en tiempo discreto
+# 1.11  Resumen
+
+---
+
+# Resumen sobre señales y sistemas en tiempo discreto
+
+* definiciones básicas sobre señales y sistemas en tiempo discreto
+* sistemas lineales invariantes con el tiempo
+* suma de convolución, estabilidad, causalidad
+* ecuación en diferencias lineal con condiciones de reposo inicial corresponde a una subclase de los sistemas SLIT
+* solución con recursividad de las ecuaciones en diferencias lineal
+* definición de los sistemas FIR e IIR
+
+---
+
+# Resumen sobre señales y sistemas en tiempo discreto
+
+* representación de señales y SLIT en frecuencia
+* respuesta de un SLIT a una exponencial compleja, y respuesta en frecuencia
+* la respuesta en frecuencia es la transformada de Fourier de la respuesta impulsional
+* propiedades y teoremas de la transformada de Fourier
+* transformada de Fourier de señales típicas
+* señales aleatorias en tiempo discreto
+
+---
+
+# Navegación
+
+Seguir con el capitulo [La transformada Z](./02-la-transformada-z.html)
+
+Volver al capitulo [Señales aleatorias en tiempo discreto](./01-10-senales-aleatorias-en-tiempo-discreto.html)
+
+	</textarea>
+    <script src="js/remark.min.js"></script>
+    <script src="js/MathJax/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured" type="text/javascript"></script>
+    <script type="text/javascript">
+      var slideshow = remark.create();
+      // Setup MathJax
+      MathJax.Hub.Config({
+          tex2jax: {
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+          }
+      });
+      MathJax.Hub.Queue(function() {
+          $(MathJax.Hub.getAllJax()).map(function(index, elem) {
+              return(elem.SourceElement());
+          }).parent().addClass('has-jax');
+      });
+      MathJax.Hub.Configured();
+    </script>
+</body>
+</html>
