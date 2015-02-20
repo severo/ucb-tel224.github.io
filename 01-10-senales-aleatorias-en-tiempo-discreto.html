@@ -125,8 +125,134 @@ Donde:
 
 La secuencia de la forma `\(c_{hh}[l]\)` se denomina *secuencia de autocorrelación determinista* o simplemente *secuencia de autocorrelación* de `\(h[n]\)`. `\(c_{hh}[l]\)` es la autocorrelación de una secuencia no periódica (es decir, de energía finita). `\(c_{hh}[l]\)` es simplemente la convolución descreta de `\(h[n]\)` con `\(h[-n]\)`. La ecuación de `\(\phi_{yy}[m]\)` puede interpretarse como que la autocorrelación de la salida de un sistema lineal es la convolución de la entrada con la autocorrelación no periódica de la respuesta al impulso del sistema.
 
-La ecuación de `\(\phi_{yy}[m]\)` sugiere que la transformada de Fourier pueden ser útiles para caracterizar la respuesta de un SLIT a una entrada estocástica. Supongamos por conveniencia que `\(m_x = 0\)`; es decir, que las secuencia de autocorrelación y de autocovarianza son idénticas. Entonces, só `\(\Phi_{xx}(e^{j\omega})\)`, `\(\Phi_{yy}(e^{j\omega})\)` y `\(C_{hh}(e^{j\omega})\)` indican respectivamente, las transformadas de Fourier de `\(\phi_{xx}[m]\)`, `\(\phi_{yy}[m]\)`y `\(c_{hh}[l]\)`. Volviendo a utilizar la ecuación de `\(\phi_{yy}[m]\)`:
+La ecuación de `\(\phi_{yy}[m]\)` sugiere que la transformada de Fourier pueden ser útiles para caracterizar la respuesta de un SLIT a una entrada estocástica. Supongamos por conveniencia que `\(m_x = 0\)`; es decir, que las secuencia de autocorrelación y de autocovarianza son idénticas. Entonces, só `\(\Phi_{xx}(e^{j\omega})\)`, `\(\Phi_{yy}(e^{j\omega})\)` y `\(C_{hh}(e^{j\omega})\)` indican respectivamente, las transformadas de Fourier de `\(\phi_{xx}[m]\)`, `\(\phi_{yy}[m]\)`y `\(c_{hh}[l]\)`.
 
+---
+
+# Sobre la densidad espectral de potencia
+
+ Volviendo a utilizar la ecuación de `\(\phi_{yy}[m]\)`:
+
+`$$\Phi_{yy}(e^{j\omega}) = C_{hh}(e^{j\omega}) \Phi_{xx}(e^{j\omega})$$`
+
+Utilizando la definción de: `\(c_{hh}\)`, se deduce:
+
+`$$C_{hh}(e^{j\omega}) = H(e^{j\omega}H^{*}(e^{j\omega})) = |H(e^{j\omega})|^2$$`
+
+Así,
+
+`$$\Phi_{yy}(e^{j\omega}) = |H(e^{j\omega})|^2 \Phi_{xx}(e^{j\omega})$$`
+
+Esta ultima ecuación es la motivación del término *densidad espectral de potencia*.
+
+---
+
+# Sobre la densidad espectral de potencia
+
+`$$\varepsion\{y^2[n]\} = \Phi_{yy}[0] = \frac{1}{2\pi}\int_{-\pi}^{\pi} |H(e^{j\omega})|^2 \Phi_{xx}(e^{j\omega}) d\omega$$`
+
+`$$= \text{potencia media total de la salida}$$`
+
+Si suponemos que `\(H(e^{j\omega})\)` es un filtro pasa banda ideal. Teniendo en cuenta que `\(\phi_{xx}[m]\)` es una secuencia real y par, su transformada de Fourier será también real y par:
+
+`$$\Phi_{xx}(e^{{j\omega})-\Phi_{xx}(e^{{-j\omega})$$`
+
+Así también `\(|H(e^{j\omega})|^2\)` es una función par de `\(\omega\)`, por lo que podemos escribir:
+
+`$$\phi_{yy}[0] = \text{potencia media de la salida}$$`
+
+`$$= \frac{1}{2\pi}\int_{-\omega_a}^{\omega_b} \Phi_{xx}(e^{j\omega}) d\omega + \frac{1}{2\pi}\int_{-\omega_b}^{\omega_a} \Phi_{xx}(e^{j\omega}) d\omega$$`
+
+---
+
+# Sobre la densidad espectral de potencia
+
+El área encerrada bajo `\(\Phi_{xx}(e^{j\omega})\)` para `\(\omega_a \le |\omega| \le \omega_b\)` puede verse como el valor cuadrático medio de la entrada en esa banda de frecuencias. La potencia media de la salida no puede tener valores negativos,
+
+`$$\lim_{(\omega_b-\omega_a) \to 0} \phi_{yy} \ge 0 $$`
+
+Este resultado junto con la ecuación integral de `\(\phi_{yy}[0]\)` y el hecho de que la banda `\(\omega_a \le \omega \le \omega_b\)` puede ser arbitrariamente pequeña implica que:
+
+`$$\Phi_{xx}(e^{j\omega}) \ge 0, \quad \forall \omega$$`
+
+Por lo tanto, la densidad espectral de potencia de una señal real es real, par y no negativa.
+
+---
+
+# Sobre el ruido blanco
+
+El concepto de ruido blanco es extremadamente útil en una amplia variedad de contexto en el diseño y análisis de sistemas de tratamiento de señales y de comunicaciones. Una señal de ruido blanco es aquella para la que `\(\phi_{xx}[m] = \sigma_{x
+}^{2} \delta[m]\)`. En este ejemplo supondremos que la señal tiene media cero. La densidad espectral de potencia de una selak de ruido blanco es uan constante.
+
+`$$\Phi_{xx}(e^{j\omega}) = \sigma_{x}^{2}, \forall \omega$$`
+
+La potencia media de una señal de ruido blanco es:
+
+`$$\phi_{xx}[0] = \frac{1}{2\pi}\int_{-\pi}^{\pi} \Phi_{xx}(e^{j\omega}) d\omega = \frac{1}{2\pi}\int_{-\pi}^{\pi} \sigma_{x}^{2} d\omega = \sigma_{x}^{2}$$`
+
+---
+
+# Sobre el ruido blanco
+
+El concepto de ruido blanco es también útil en la representación de señales aleatorias cuyo espectro de potencia no es constante con la frecuencia. Por ejemplo, una señal aleatoria `\(y[n}\)` cuya dendisad espectral de potencia es `\(\Phi_{yy}(e^{j\omega})\)` se puede ver como la salida de un SLIT cuya entrada es ruido blanco. Utilizamos la ecuación `\(\Phi_{yy}(e^{j\omega}) = |H(e^{j\omega})|^2 \Phi_{xx}(e^{j\omega})\)` para definir un sistema cuya respuesta en frecuencia `\(H(e^{j\omega})\)` satisface la ecuación:
+
+`$$\Phi_{yy}(e^{j\omega}) = |H(e^{j\omega})|^2  \sigma_x^2$$`
+
+Siendo `\(\sigma_x^2\)` la potencia media de la señal de ruido blanco asumida a la entrada.
+
+---
+
+# Sobre el ruido blanco
+
+Ajustaremos la potencia media de esta señal de entrada para obtener la potencia media correcta de `\(y[n]\)`. Supongamos que `\(h[n] = a^{n}u[n]\)`, entonces:
+
+`$$H(e^{}j\omega}) = \frac{1}{1-a e^{-j\omega}}$$`
+
+Y podemos representar todas las señales aleatorias cuya densidad espectral de potencia de la forma:
+
+`$$\Phi_{yy}(e^{j\omega}) = \left|\frac{1}{1-a e^{-j\omega}}\rigth|^2 \sigma_x^2 = \frac{\sigma_x^2}{1+a^2-2a\cos{\omega}}$$`
+
+---
+
+# Sobre la correlación cruzada
+
+Otro resultado importante tiene que ver con la correlación cruzada entre la entrada y la salida de un SLIT.
+
+`$$\phi_yxy}[m] = \varepsilon\{x[n} y[n+m]\}$$`
+
+`$$= \varepsilon\{x[n] \sum_{k=-infty}^{\infty} h[k] x[n+m-k]\}$$`
+
+`$$= \sum_{k=-infty}^{\infty} h[k] \phi_{xx}[m-k]$$`
+
+En este caso vemos que la correlación cruzada entra la entrada y la salida es la convolución de la respuesta al impulso con la secuencia de autocorrelación de la entrada.
+
+La transformada de Fourier de esta última ecuación es:
+
+`$$\Phi_{yx}(e^{j\omega}) = H(e^{j\omega})\Phi_{xx}(e^{j\omega})$$`
+
+---
+
+# Sobre la correlación cruzada y el ruido blanco
+
+`\(\Phi_{yx}(e^{j\omega}) = H(e^{j\omega})\Phi_{xx}(e^{j\omega})\)` es útil cuando la entrada es ruido blanco, es decir, cuando `\(\phi_{xx}[m]=\sigma_x^2 \delta[]m\)`.
+
+`$$\phi_{yx}[m] = \sigma_x^2 h[m]$$`
+
+Si la entrada es ruido blanco de media nula la correlación cruzada entre la entrada y la salida de uns sistema lineal es proporcional a la respuesta al impulso del sistema. Como la densidad espectral de potencia del ruido blanco es:
+
+`$$\Phi_{xx}(e^{j\omega}) = \sigma_x^2, \quad -\pi \le \omega \le \pi$$`
+
+Aplicando: `\(\Phi_{yx}(e^{j\omega}) = H(e^{j\omega})\Phi_{xx}(e^{j\omega})\)`:
+
+`$$\Phi_{yx}(e^{j\omega}) = \sigma_x^2 H(e^{j\omega})$$`
+
+---
+
+# Sobre la correlación cruzada y el ruido blanco
+
+La densidad espectral de potencia cruzada es proporcional a la respuesta en frecuencia del sistema. Las ecuaciones `\(\phi_{yx}[m] = \sigma_x^2 h[m]\)` y `\(\Phi_{xx}(e^{j\omega}) = \sigma_x^2\)` pueden servir como base para estimar la respuesta al impulso o la respuesta en frecuencia de un SLIT, siempre que sea posible observar la salida del sistema como respuesta a una entrada de ruido blanco.
+
+Un ejemplo de aplicación es la medida de la respuesta acústica al impulso de una habitación o de una sala de conciertos.
 
 ---
 # Navegación
