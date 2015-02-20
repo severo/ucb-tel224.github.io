@@ -115,10 +115,20 @@ Escribiendo la siguiente ecuación con: `\(l = r-k\)`
 
 `$$= \sum_{l=-\infty}^{\infty} \phi_{xx}[m-l] c_{hh}[l]$$`
 
+Donde:
 
+`$$c_{hh} = \sum_{k=-\infty}^{'infty} h[k]h[l+k]$$`
 
 ---
 
+# Sobre la función de autocorrelación
+
+La secuencia de la forma `\(c_{hh}[l]\)` se denomina *secuencia de autocorrelación determinista* o simplemente *secuencia de autocorrelación* de `\(h[n]\)`. `\(c_{hh}[l]\)` es la autocorrelación de una secuencia no periódica (es decir, de energía finita). `\(c_{hh}[l]\)` es simplemente la convolución descreta de `\(h[n]\)` con `\(h[-n]\)`. La ecuación de `\(\phi_{yy}[m]\)` puede interpretarse como que la autocorrelación de la salida de un sistema lineal es la convolución de la entrada con la autocorrelación no periódica de la respuesta al impulso del sistema.
+
+La ecuación de `\(\phi_{yy}[m]\)` sugiere que la transformada de Fourier pueden ser útiles para caracterizar la respuesta de un SLIT a una entrada estocástica. Supongamos por conveniencia que `\(m_x = 0\)`; es decir, que las secuencia de autocorrelación y de autocovarianza son idénticas. Entonces, só `\(\Phi_{xx}(e^{j\omega})\)`, `\(\Phi_{yy}(e^{j\omega})\)` y `\(C_{hh}(e^{j\omega})\)` indican respectivamente, las transformadas de Fourier de `\(\phi_{xx}[m]\)`, `\(\phi_{yy}[m]\)`y `\(c_{hh}[l]\)`. Volviendo a utilizar la ecuación de `\(\phi_{yy}[m]\)`:
+
+
+---
 # Navegación
 
 Seguir con [1.11 Resumen](./01-11-resumen.html)
