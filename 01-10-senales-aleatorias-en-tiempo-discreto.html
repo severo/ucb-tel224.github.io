@@ -37,11 +37,13 @@ Una señal aleatoria se considera como miembro de un conjunto de señales en tie
 
 La clave para obtener resultados útiles mediante estos modelos de señales está en la descripción en términos de promedios que se puede calcular utilizando leyes de probabilidad asumidas o estimadas a partir de las señales concretas.
 
-Aunque las señales estocásticas no son absolutamente sumables ni de cuadrado sumable (no tiene transformada de Fourier), muchas de sus propieades se pueden expresar en términos de promedios como las secuencias de autocorrelación o autocovarianza, para las sí existe transformada de Fourier.
-
-La transformada de Fourier de la secuencia de autocovarianza tiene un interpretación útil en función de la distribución en la frecuencia de la potencia de la señal. El efecto de procesar señales estocásticas con un sistema lineal en tiempo discreto se puede describir adecuadamente en términos del efecto del sistema en la secuencia de autocovarianza.
+Aunque las señales estocásticas no son absolutamente sumables ni de cuadrado sumable (no tiene transformada de Fourier), muchas de sus propiedades se pueden expresar en términos de promedios como las secuencias de autocorrelación o autocovarianza, para las sí existe transformada de Fourier.
 
 Necesita conocer conceptos básicos de procesos estocásticos: promedios, funciones de correlación, covarianza, densidad espectral de potencia.
+
+---
+
+# Señales aleatorias en tiempo discreto
 
 AQUI PIE PAGINA
 
@@ -49,13 +51,13 @@ AQUI PIE PAGINA
 
 # Señales aleatorias en tiempo discreto
 
-Nos concentraremos en señales aleatorias que son estacionarias y su tratamiento con SLIT. Por simplicidad supondremos que `\(x[n]\)` y `\(h[n}\)` toman valores reales, los resultados se pueden generalizar al caso complejo.
+Nos concentraremos en señales aleatorias que son estacionarias y su tratamiento con SLIT. Por simplicidad supondremos que `\(x[n]\)` y `\(h[n]\)` toman valores reales, los resultados se pueden generalizar al caso complejo.
 
 Consideremos un SLIT, estable, cuya respuesta al impulso es `\(h[n]\)`. Sea `\(x[n]\)` una secuencia real que es una realización de un proceso aleatorio en tiempo discreto estacionario en sentido amplio. La salida del sistema lineal es también una realización de un proceso aleatorio relacionado con el proceso de entrada mediante la transformación lineal:
 
 `$$y[n] = \sum_{k=-\infty}^{\infty} h[n-k] x[k]= \sum_{k=-\infty}^{\infty} h[k] x[n-k]$$`
 
-Si el sistema es estable, si `\(x[n]\)` está acotada, `\(y[n]\)` también lo estará. La señal de entrada se puede caracterizar por su media `\(m_x\)` y su función de autocorrelación `\(\phi_{xx}[m]\). En muchas aplicaciones, es suficiente con caracterizar tanto la entrada como la salida en términos de promedios simples como la media, la varianza y la autocorrelación, así se obtendrán las relaciones de entrada-salida para estas magnitudes.
+Si el sistema es estable, si `\(x[n]\)` está acotada, `\(y[n]\)` también lo estará. La señal de entrada se puede caracterizar por su media `\(m_x\)` y su función de autocorrelación `\(\phi_{xx}[m]\)`. En muchas aplicaciones, es suficiente con caracterizar tanto la entrada como la salida en términos de promedios simples como la media, la varianza y la autocorrelación, así se obtendrán las relaciones de entrada-salida para estas magnitudes.
 
 ---
 
