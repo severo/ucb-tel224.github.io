@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Curso UCB - TEL 224 - Procesamiento digital de señales - Señales y sistemas en tiempo discreto</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<link media="screen, handheld, projection, tv" href="css/estilo.css" rel="stylesheet">
+	<link media="screen, handheld, projection, tv" href="css/colors.min.css" rel="stylesheet">
+</head>
+<body>
+	<textarea id="source">
+
+class: center, middle
+
+# Procesamiento digital de señales
+# 2. La transformada Z
+# 2.2 Propiedades de la región de convergencia de la transformada Z
+
+---
+
+# Propiedades de la región de convergencia de la transformada Z
+
+Los ejemplos presentados en la sección anterior sugieren que las propiedades de la región de convergencia dependen de la naturaleza de la señal. Supondremos especícamente que la expresión algebraica de la transformada Z es una función racional y que `\(x[n]\)` es de amplitud finita, excepto posiblemente en `\(n = \infty\)` o `\(n = \infty\)`.
+
+---
+
+# Propiedades de la región de convergencia de la transformada Z
+
+* **Propiedad 1:** La región de convergencia en el plano z puede ser un anillo o un disco centrados en el origen. Es decir, `\(0 \le r_R < |z| < r_L \le \infty\)`.
+* **Propiedad 2:** La transformada de Fourier de `\(x[n]\)` converge si y sólo si la región de convergencia de la transformada Z de `\(x[n]\)` contiene a la circunferencia unidad.
+* **Propiedad 3:** La región de convergencia no contiene ningún polo.
+* **Propiedad 4:** Si `\(x[n]\)` es una *secuencia de duración finita* (es cero excepto en un intervalo finito `\(-\infty < N_1 \le n \le N_2 < \infty\)`), la región de convergencia es el plano `\(z\)` completo, pudiendo exceptuarse los valores `\(z = 0\)` o `\(z = \infty\)`.
+* **Propiedad 5:** Si `\(x[n]\)` es una *secuencia limitada por la izquierda*, es decir, una secuencia que es cero para `\(n < N_1 < \infty\)`, la región de convergencia se extiende hacia fuera desde el polo finito *más exterior* (el de mayor módulo) de `\(X(z)\)`  hasta (y pudiendo incluir) el valor `\(z = 0\)`.
+
+---
+
+# Propiedades de la región de convergencia de la transformada Z
+
+* **Propiedad 6:** Si `\(x[n]\)` es una *secuencia limitada por la derecha*, es decir, una secuencia que es cero para `\(n > N_2 > -\infty\)`, la región de convergencia se extiende hacia adentro desde el polo finito *más interior* (el de menor módulo) de `\(X(z)\)` hasta (y pudiendo incluir) el valor `\(z = 0\)`.
+* **Propiedad 7:** Una *secuencia bilateral* es una secuencia de duración infinita, no limitada por la izquiera ni por la derecha. Si `\(x[n]\)` es una secuencia bilateral, la región de convergencia será un anillo en el plano `\(z\)`, limitado en el interior y en el exterior por un polo y que, de acuerdo con la propiedad 3, no contendrá ningún polo.
+* **Propiedad 8:** La región de convergencia debe ser una región conexa.
+
+---
+
+# Propiedades de la región de convergencia de la transformada Z
+
+La propiedad 1 surge del hecho de que la convergencia de `\(X(z) = \sum_{n=-\infty}^{\infty} x[n]z^{-n}\)` esta dada por la ecuación:
+
+`$$\sum_{n = -\infty}^{\infty} |x[n]|r^{-n} < \infty$$`
+
+Siendo `\(r = |z|\)`. Esta ecuación demuestra que para una señal dada, la convergencia depende sólo de `\(r = |z|\)` (no depende de la fase de `\(z\)`). Note que si la transformada Z converge para `\(|z| = r_0\)`, entonces podemos disminuir `\(r\)` hasta que la transformada Z no converja. Este es el valor `\(|z| = r_R\)` tal que `\(|x[n]| r^{-n}\)` crece demasiado rápido (o decrece demasiado lento) cuando `\(n \rigtharrow \infty\)`, de forma que la serie no es absolutamente sumable. Esto define `\(r_R\)`.
+
+La transformada Z no puede converger para `\(r \le r_R\)` porque `\(r^{-n}\)` crecerá más rápido. De forma simular, el límite exterior `\(r_L\)` se puede obtener aumentando `\(r\)` desde `\(r_0\)` y considerando lo que ocurre cuando `\(n \rigtharrow -\infty\)`.
+
+---
+# Navegación
+
+Seguir con [2.3 La transformada inversa Z](./02.03-la-transformada-inversa-z.html)
+
+Volver al capitulo [La transformada Z](./02-la-transformada-z.html)
+
+	</textarea>
+    <script src="js/remark.min.js"></script>
+    <script src="js/MathJax/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured" type="text/javascript"></script>
+    <script type="text/javascript">
+      var slideshow = remark.create();
+      // Setup MathJax
+      MathJax.Hub.Config({
+          tex2jax: {
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+          }
+      });
+      MathJax.Hub.Queue(function() {
+          $(MathJax.Hub.getAllJax()).map(function(index, elem) {
+              return(elem.SourceElement());
+          }).parent().addClass('has-jax');
+      });
+      MathJax.Hub.Configured();
+    </script>
+</body>
+</html>
