@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Curso UCB - TEL 224 - Procesamiento digital de señales - Señales y sistemas en tiempo discreto</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<link media="screen, handheld, projection, tv" href="css/estilo.css" rel="stylesheet">
+	<link media="screen, handheld, projection, tv" href="css/colors.min.css" rel="stylesheet">
+</head>
+<body>
+	<textarea id="source">
+
+class: center, middle
+
+# Procesamiento digital de señales
+# 2. La transformada Z
+# 2.0 Introducción
+
+---
+
+# Introducción
+
+Desarrollaremos la representación de secuencias mediante su transformada Z.
+
+Estudiaremos cómo se relacionan las propiedades de una secuencia con las propiedades de su transformada.
+
+La transformada Z de señales de tiempo discreto es el equivalente de la transformada de Laplace para señales de tiempo continuo. Y cada una de ellas está relacionada con la transformada de Fourier.
+
+La transformada Z es una generalización de la transformada de Fourier. Es útil cuando la transformada de Fourier no converge. Es decir, amplía el uso de la transformada de Fourier.
+
+Muchas veces para la resolución de problemas analíticos la notación de la transformada Z es muchas veces más adecuada que la notación de la transformada de Fourier.
+
+---
+# Navegación
+
+Seguir con [2.1 La transformada Z](./02.01-la-transformada-z.html)
+
+Volver al capitulo [La transformada Z](./02-la-transformada-z.html)
+
+	</textarea>
+    <script src="js/remark.min.js"></script>
+    <script src="js/MathJax/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured" type="text/javascript"></script>
+    <script type="text/javascript">
+      var slideshow = remark.create();
+      // Setup MathJax
+      MathJax.Hub.Config({
+          tex2jax: {
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+          }
+      });
+      MathJax.Hub.Queue(function() {
+          $(MathJax.Hub.getAllJax()).map(function(index, elem) {
+              return(elem.SourceElement());
+          }).parent().addClass('has-jax');
+      });
+      MathJax.Hub.Configured();
+    </script>
+</body>
+</html>
