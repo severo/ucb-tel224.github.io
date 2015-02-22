@@ -52,6 +52,40 @@ Siendo `\(r = |z|\)`. Esta ecuación demuestra que para una señal dada, la conv
 La transformada Z no puede converger para `\(r \le r_R\)` porque `\(r^{-n}\)` crecerá más rápido. De forma simular, el límite exterior `\(r_L\)` se puede obtener aumentando `\(r\)` desde `\(r_0\)` y considerando lo que ocurre cuando `\(n \rigtharrow -\infty\)`.
 
 ---
+
+# Propiedades de la región de convergencia de la transformada Z
+
+La propiedad 2 es consecuencia de la ecuación `\(X(z) = \sum_{n = -\infty}^{\infty} x[n] z^{-n}\)` se reduce a la transformada de Fourier cuando `\(|z| = 1\)`.
+
+La propiedad 3 aparece si tenemos en cuenta que `\(X(z)\)` es infinita en los polos y, por definición, no converge.
+
+La propiedad 4 se basa en el hecho que la transformada Z de una secuencia de longitud finita es una suma finita de potencias de Z, es decir:
+
+`$$X(z) = \sum_{n = N_1}^{N_2} x[n] z^{-n}$$`
+
+Por tanto, `\(|X(z)| < \infty\)` para todo `\(z\)` excepto `\(z = 0\)` cuando `\(N_2 > 0\)` y/o `\(z = \infty\)` cuando `\(N_1 < 0\)`.
+
+---
+
+# Propiedades de la región de convergencia de la transformada Z
+
+Las propiedades 5 y 6 son un caso especial de la propiedad 1. Para interpretar la propiedad 5 en el caso de transformadas Z racionales, nótese que una secuencia de la forma:
+
+`$$x[n] = \sum_{k = 1}^{N} A_k(d_k)^n u[n]$$`
+
+Es un ejemplo de una secuencia limitada por la izquierda formada por exponenciales complejas de amplitudes `\(A_k\)` y factores exponenciales `\(d_k\)`. Utilizando la propiedad de linealidad , la transformada Z de esta ecuación será:
+
+`$$X(z) = \sum_{k = 1}^{N} \frac{A_k}{1-d_k z^{-1}}$$`
+
+`$$|z| > |d_k|$$`
+
+Nótese que para los valores de Z que están en todas las regiones de convergencia, `\(|z| > |d_k|\)`, se pueden combinar los términos en una única función racional con denominador común.
+
+`$$\prod_{k = 1}^{N}(1-d_kz^{-1})$$`
+
+Es decir, los polos de `\(X(z)\)` están en `\(z = d_1, ... , d_N\)`.
+
+---
 # Navegación
 
 Seguir con [2.3 La transformada inversa Z](./02.03-la-transformada-inversa-z.html)
