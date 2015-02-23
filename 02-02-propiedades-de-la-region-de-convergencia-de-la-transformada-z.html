@@ -47,9 +47,9 @@ La propiedad 1 surge del hecho de que la convergencia de `\(X(z) = \sum_{n=-\inf
 
 `$$\sum_{n = -\infty}^{\infty} |x[n]|r^{-n} < \infty$$`
 
-Siendo `\(r = |z|\)`. Esta ecuación demuestra que para una señal dada, la convergencia depende sólo de `\(r = |z|\)` (no depende de la fase de `\(z\)`). Note que si la transformada Z converge para `\(|z| = r_0\)`, entonces podemos disminuir `\(r\)` hasta que la transformada Z no converja. Este es el valor `\(|z| = r_R\)` tal que `\(|x[n]| r^{-n}\)` crece demasiado rápido (o decrece demasiado lento) cuando `\(n \rigtharrow \infty\)`, de forma que la serie no es absolutamente sumable. Esto define `\(r_R\)`.
+Siendo `\(r = |z|\)`. Esta ecuación demuestra que para una señal dada, la convergencia depende sólo de `\(r = |z|\)` (no depende de la fase de `\(z\)`). Note que si la transformada Z converge para `\(|z| = r_0\)`, entonces podemos disminuir `\(r\)` hasta que la transformada Z no converja. Este es el valor `\(|z| = r_R\)` tal que `\(|x[n]| r^{-n}\)` crece demasiado rápido (o decrece demasiado lento) cuando `\(n \rightarrow \infty\)`, de forma que la serie no es absolutamente sumable. Esto define `\(r_R\)`.
 
-La transformada Z no puede converger para `\(r \le r_R\)` porque `\(r^{-n}\)` crecerá más rápido. De forma simular, el límite exterior `\(r_L\)` se puede obtener aumentando `\(r\)` desde `\(r_0\)` y considerando lo que ocurre cuando `\(n \rigtharrow -\infty\)`.
+La transformada Z no puede converger para `\(r \le r_R\)` porque `\(r^{-n}\)` crecerá más rápido. De forma simular, el límite exterior `\(r_L\)` se puede obtener aumentando `\(r\)` desde `\(r_0\)` y considerando lo que ocurre cuando `\(n \rightarrow -\infty\)`.
 
 ---
 
@@ -129,7 +129,7 @@ Existe la posibilidad de que las regiones de convergencia correpondientes a las 
 
 Considere la siguiente secuencia:
 
-`$$x[n] = \(\frac{1}{2}\)^n u[n] - \(-\frac{1}{3}\)^n u[-n-1]$$`
+`$$x[n] = (\frac{1}{2})^n u[n] - (-\frac{1}{3})^n u[-n-1]$$`
 
 Aplicando los casos correspondientes, separadamente para cada parte llegamos a:
 
