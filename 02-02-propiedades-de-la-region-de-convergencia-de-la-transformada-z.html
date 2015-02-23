@@ -79,11 +79,97 @@ Es un ejemplo de una secuencia limitada por la izquierda formada por exponencial
 
 `$$|z| > |d_k|$$`
 
+---
+
+# Propiedades de la región de convergencia de la transformada Z
+
 Nótese que para los valores de Z que están en todas las regiones de convergencia, `\(|z| > |d_k|\)`, se pueden combinar los términos en una única función racional con denominador común.
 
 `$$\prod_{k = 1}^{N}(1-d_kz^{-1})$$`
 
-Es decir, los polos de `\(X(z)\)` están en `\(z = d_1, ... , d_N\)`.
+Es decir, los polos de `\(X(z)\)` están en `\(z = d_1, ... , d_N\)`. Supongamos que los polos están ordenados de forma que `\(d_1\)` tiene el menor módulo, y corresponde por tanto al polo más interno, y `\(d_N\)` tiene el mayor módulo, y corresponde por tanto al polo más externo. La exponencial que crece con menor rapidez cuando `\(n\)` aumenta es la correspondiente al polo más interno, `\(d_1\)`, y la que decrece más lentamente (o crece más rápidamente) es la correspondiente al polo más externoo, `\(d_N\)`, determina la frontera interna de la región de convergencia, que es la intersección de las regiones `\(|z| > |d_k|\)`.
+
+La región de convergencia de la transformada Z de una suma de secuencias exponenciales limitadas por la izquierda es:
+
+`$$|z| > |d_n| = \max_{k} |d_k| = r_R$$`
+
+La región de convergencia es hacia el exterior del polo más externo, y se extiende hasta el infinito. Si una secuencia limitada por la izquierda comienza en `\(n = N_1 < 0\)`, la región de convergencia no incluirá `\(|z| = \infty\)`.
+
+---
+
+# Propiedades de la región de convergencia de la transformada Z
+
+Para la propiedad 6, que trata de secuencias limitadas por la derecha, se puede desarrollar un argumento totalmente paralelo utilizando una suma de secuencias exponenciales limitadas por la derecha, y demostrar así que la región de convergencia estará estará definida por el polo con mínimo módulo; la región de convergencia será:
+
+`$$|z| < |d_1| = \min_{k} |d_k| = r_L$$`
+
+La región de convergencia está hacia el interior del polo más interno. Si la secuencia limitada por la derecha tiene valores distintos de cero para valores positivos de `\(n\)`, entonces la región de convergencia no incluirá al origen, `\(z = 0\)`. Como ahora `\(x[n]\)` se extiende hasta `\(-\infty\)` por el eje de `\(n\)` negativa, `\(r\)` debe restringirse de forma que para cada `\(d_k\)`, la secuencia exponencial `\((d_k r^{-1})^n\)` decrezca hacia cero cuando `\(n\)` *decrezca* hacia `\(-\infty\)`.
+
+Para el caso de secuencias limitadas por la izquierda, la región de convergencia viene impuesta por la ponderación exponencial `\(r^{-n}\)` necesaria para que todos los términos decrezcan a cero al incrementar `\(n\)`; para el caso de secuencias limitadas por la derecha, la poderación exponencial debe ser tal que todos los términos exponenciales decrezcan a cero al decrecer `\(n\)`.
+
+---
+
+# Propiedades de la región de convergencia de la transformada Z
+
+La propiedad 7 se desprende del hecho de que en el caso de secuencias bilaterales, la ponderación exponencial debe equilibrarse, ya que si decrece demasiado rápido al crecer `\(n\)`, puede ser que crezca demasiado rápido al decrecer `\(n\)` y viceversa. Concretamente en el caso de secuencias bilaterales, algunos polos contribuyen sólo para `\(n > 0\)` y el resto sólo para `\(n < 0\)`. La región de convergencia está limitada en su interior por el polo de mayor módulo que contribuya para `\(n > 0\)` y en su exterior por el polo de menor módulo que contribuya para `\(n < 0\)`.
+
+---
+
+# Propiedades de la región de convergencia de la transformada Z
+
+La propiedad 8 dice que cualquier secuencia bilateral se puede representar como una suma de una parte limitada por la izquierda (que sea cero para `\(n \ge 0\)`), y una parte limitada por la derecha que incluya todo lo que no incorpora la parte limitada por la izquierda. La parte limitada por la izquierda tendrá una región de convergencia dada por la ecuación: `\(\)`, y la parte limitada por la derecha por la ecuación: `\(\)`. La región de convergencia de la secuencia bilateral completa será la intersección de las dos regiones. Si dicha intersección existe, será siempre una región anular conexa de la forma:
+
+`$$r_R < |z| < r_L$$`
+
+Existe la posibilidad de que las regiones de convergencia correpondientes a las partes limitada por la izquierda y limitada por la derecha no se solapen. Es decir, que `\(r_L < r_R\)`. En tales casos, la transformada Z de la secuencia simplemente no existe.
+
+---
+
+# Regiones de convergencia que no solapan
+
+Considere la siguiente secuencia:
+
+`$$x[n] = \(\frac{1}{2}\)^n u[n] - \(-\frac{1}{3}\)^n u[-n-1]$$`
+
+Aplicando los casos correspondientes, separadamente para cada parte llegamos a:
+
+`$$X(z) = \frac{1}{1-\frac{1}{2}z^{-1}} + \frac{1}{1+\frac{1}{3}z^{-1}}$$`
+
+`$$|z| > \frac{1}{2} \quad |z| < \frac{1}{3}$$`
+
+Como no hay solapamiento entre `\(|z| > \frac{1}{2}\)` y `\(|z| < \frac{1}{3}\)`, podemos concluir que `\(x[n]\)` no tiene transformada Z (y por lo tanto tampoco transformada de Fourier).
+
+---
+
+La expresión algebraica o el diagrama de polo-cero no especifican completamente la transformada Z de una secuencia. Es necesario especificar también la región de convergencia. Las propiedades consideradas en esta sección limitan las posibles regiones de convergencia que se puede asociar a un determinado diagrama polo-cero. Para ilustrar esta idea, considere el diiagrama polo-cero que se meustra en la siguiente figura. Aplicando las propiedades 1, 3 y 8, sólo existen cuatro posibles alternativas para la región de convergecia, cada una esta asociada a una secuencia diferente.
+
+SUBIR FIGURA 3.8 PARTE 1
+
+---
+
+SUBIR FIGURA 3.8 PARTE 2
+
+Ejemplos de transformadas Z con los mismos diagramas polo-cero que ilustran las diferentes posibilidades de la región de convergencia. Cada región de convergencia corresponde a una secuencia diferente: (b) a una secuencia limitada por la izquierda, (c) a una secuencia limitada por la derecha, (d) a una secuencia bilateral, (e) a una secuencia bilateral. Si suponemos que la circunferencia unidad está entre el polo en `\(z = b\)` y el polo en `\(z = c\)`, el único caso en el que la transformada de Fourier convergería sería el de la Figura (c)
+
+---
+
+# Estabilidad, causalidad y región de convergencia
+
+Al representar una secuencia mediante su transformada Z, a veces es conveniente especificar implícitamente la región de convergencia mediante una propiedad apropiada de la secuencia en el dominio del tiempo.
+
+Consideremos un SLIT con respuesta al impulso `\(h[n]\)`, la transformada Z de `\(h[n]\)` se denomina *función de transferencia* del SLIT. Supongamos que `\(H(z)\)` tiene el diagrama polo-cero que se muestra en la siguiente figura.
+
+FIGURA 3.9
+
+---
+
+# Estabilidad, causalidad y región de convergencia
+
+Con este diagrama se pueden asociar tres regiones de convergencia consistentes con las propiedades 1-8, concretamente `\(|z| < \frac{1}{2}\)`, `\(\frac{1}{2} < |z| < 2\)` y `\(|z| > 2\)`. Si imponemos la condición adicional que el sistema sea estable (que es lo mismo que `\(h[n]\)` sea absolutamente sumable y por lo tanto que tenga transformada de Fourier), la región de convergencia debe incluir a la circunferencia unidad.
+
+Así la estabilidad del sistema y las propiedades 1-8 implican que la región de convergencia debe ser `\(\frac{1}{2} < |z| < 2\)`. Nótese que, como consecuencia, `\(h[n]\)` es bilateral y por lo tanto el sistema no es causal.
+
+Si imponemos la condición de que el sistema sea causal, `\(h[n]\)` debe ser limitada por la izquierda. Aplicando la propiedad 5, la región de convergencia debe ser `\(|z| > 2\)`. En este caso, el sistema no será estable. En consecuencia, dado este diagrama polo-cero, no existe una región de convergencia para la que el sistema sea a la vez estable y causal.
 
 ---
 # Navegación
