@@ -19,6 +19,64 @@ class: center, middle
 
 # La transformada Z
 
+La transformada de Fourier esta definida por:
+
+`$$X\left(e^{j\omega}\right) = \sum_{n=-\infty}^{\infty} x[n] e^{-j\omega n}$$`
+
+La transformada Z esta definida por la ecuación siguiente, con `\(z\)` una variable compleja continua:
+
+`$$X\left(z\right) = \sum_{n=-\infty}^{\infty} x[n] z^{-n}$$`
+
+Anotamos `\(\mathscr{Z}\)` el operador transformada Z:
+
+`$$x[n] \overset{\mathscr{Z}}{\longleftrightarrow} X\left(z\right)$$`
+
+---
+
+# La transformada Z unilateral
+
+La definición anterior de la transformada Z se llama también *transforma Z bilateral*, por oposición a la *transformada Z unilateral* definida por:
+
+`$$\mathscr{X}\left\{x[n]\right\} = \sum_{n=0}^{\infty} x[n] z^{-n}$$`
+
+Obviamente la transformada Z unilateral `\(\mathscr{X}\)` es igual a la transformada Z bilateral `\(\mathscr{Z}\)` para las señales que verifican `\(x[n]=0, \quad \forall n<0\)`.
+
+---
+
+# Relación entre transformada Z y transformada de Fourier
+
+Podemos escribir la variable `\(z\)` bajo su forma polar:
+
+`$$z=re^{jw}$$`
+
+Con esta notación polar, la transformada Z se puede expresar
+
+`$$X\left(r e^{j\omega}\right) = \sum_{n=-\infty}^{\infty} x[n] \left(r e^{j\omega}\right)^{-n}$$`
+
+o
+
+`$$X\left(r e^{j\omega}\right) = \sum_{n=-\infty}^{\infty}  \left(x[n] r^{-n} \right) e^{-j\omega n}$$`
+
+---
+
+# Relación entre transformada Z y transformada de Fourier
+
+Con esta notación, aparece claramente que la transformada Z es la transformada de Fourier del producto de la secuencia `\(x[n]\)` por la secuencia exponencial `\(r^{-n}\)`.
+
+Si el modulo de la variable `\(z\)` vale `\(r=|z|=1\)`, entonces la transformada Z es igual a la transformada de Fourier:
+
+`$$X\left(e^{j\omega}\right) = \sum_{n=-\infty}^{\infty}  x[n] e^{-j\omega n}$$`
+
+---
+
+# Plano complejo
+
+.pequena[.figura[![Combinación en paralelo](imagenes/02-01-figura-3.1.svg)]]
+
+Es conveniente representar la posición de `\(z\)` en el plano complejo:
+
+* la transformada Z sobre el círculo llamado *circunferencia unidad* corresponde a la transformada de Fourier, con el ángulo `\(\omega\)` entre `\(-\pi\)` y `\(\pi\)` (un periodo - corresponde a las frecuencias de la transformada de Fourier)
+
 ---
 
 # Navegación
