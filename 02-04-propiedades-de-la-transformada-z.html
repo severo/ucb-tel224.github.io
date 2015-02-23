@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Curso UCB - TEL 224 - Procesamiento digital de señales - Señales y sistemas en tiempo discreto</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<link media="screen, handheld, projection, tv" href="css/estilo.css" rel="stylesheet">
+	<link media="screen, handheld, projection, tv" href="css/colors.min.css" rel="stylesheet">
+</head>
+<body>
+	<textarea id="source">
+
+class: center, middle
+
+# Procesamiento digital de señales
+# 2. La transformada Z
+# 2.4 Propiedades de la transformada Z
+
+---
+
+# Propiedades de la transformada Z
+
+Muchas propiedades de la transformada Z son particularmente útiles en el estudio de las señales y los sistemas en tiempo discreto.
+
+A menudo estas propiedades se utilizan en conjunción con las técnicas de cálculo de la transformada Z inversa presentadas anteriormente para obtener la transformada inversa de expresiones más complicadas. Esta es la base para la trasnformación de ecuaciones en diferencias lineales de coeficientes constantes en ecuaciones algebraicas en términos de variable `\(z\)` de la transformada. La solución de la ecuación en diferencias se puede obtener entonces mediante la transformada Z inversa.
+
+---
+
+# Propiedades de la transformada Z
+
+En esta sección consideraremos algunas de las propiedades que se utilizan más frecuentemente. `\(X(z)\)` indica la transformada Z de `\(x[n]\)` y la región de convergencia (RDC) de `\(X(z)\)` se indica como `\(R_x\)`; es decir:
+
+`$$x[n] \overset{\mathscr{Z}}{\longleftrightarrow} X(z), \quad RDC = R_x$$`
+
+Como ya hemos visto, `\(R_x\)`, representa el conjunto de valores de `\(z\)` tal que `\(r_R < |z| < r_L\)`. Para el caso de propiedades que involucren dos secuencias y sus transformadas Z asociadas, las parejas de transformadas se indicarán así:
+
+`$$x_1[n] \overset{\mathscr{Z}}{\longleftrightarrow} X_1(z), \quad RDC = R_x_1$$`
+
+`$$x_2[n] \overset{\mathscr{Z}}{\longleftrightarrow} X_2(z), \quad RDC = R_x_2$$`
+
+---
+
+# Linealidad
+
+La propiedad establece que:
+
+
+
+---
+# Navegación
+
+Seguir con [2.5 Transformadas Z y sistemas lineales e invariantes](./02-05-transformada-z-y-sistemas-lineales-e-invariantes.html)
+
+Volver al capitulo [La transformada Z](./02-la-transformada-z.html)
+
+	</textarea>
+    <script src="js/remark.min.js"></script>
+    <script src="js/MathJax/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured" type="text/javascript"></script>
+    <script type="text/javascript">
+      var slideshow = remark.create();
+      // Setup MathJax
+      MathJax.Hub.Config({
+          tex2jax: {
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+          }
+      });
+      MathJax.Hub.Queue(function() {
+          $(MathJax.Hub.getAllJax()).map(function(index, elem) {
+              return(elem.SourceElement());
+          }).parent().addClass('has-jax');
+      });
+      MathJax.Hub.Configured();
+    </script>
+</body>
+</html>
