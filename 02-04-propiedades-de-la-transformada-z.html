@@ -33,9 +33,9 @@ En esta sección consideraremos algunas de las propiedades que se utilizan más 
 
 Como ya hemos visto, `\(R_x\)`, representa el conjunto de valores de `\(z\)` tal que `\(r_R < |z| < r_L\)`. Para el caso de propiedades que involucren dos secuencias y sus transformadas Z asociadas, las parejas de transformadas se indicarán así:
 
-`$$x_1[n] \overset{\mathscr{Z}}{\longleftrightarrow} X_1(z), \quad RDC = R_x_1$$`
+`$$x_1[n] \overset{\mathscr{Z}}{\longleftrightarrow} X_1(z), \quad RDC = R_{x_1}$$`
 
-`$$x_2[n] \overset{\mathscr{Z}}{\longleftrightarrow} X_2(z), \quad RDC = R_x_2$$`
+`$$x_2[n] \overset{\mathscr{Z}}{\longleftrightarrow} X_2(z), \quad RDC = R_{x_2}$$`
 
 ---
 
@@ -43,7 +43,34 @@ Como ya hemos visto, `\(R_x\)`, representa el conjunto de valores de `\(z\)` tal
 
 La propiedad establece que:
 
+`$$a x_1[n] + b x_2[n] \overset{\mathscr{Z}}{\longleftrightarrow} a X_1(z) + b X_2(z), \quad \text{La RDC contiene a } R_{x_1} R_{x_2}$$`
 
+y se deduce directamente de la definición de transformada Z:
+
+`$$\sum_{n = -\infty}^{\infty} (a x_1[n] + b x_2[n]) z^{-n} = a \sum_{n = -\infty}^{\infty} x_1[n] z^{-n} + b \sum_{n = -\infty}^{\infty} x_2[n] z^{-n}$$`
+`$$|z| \in R_{x_1} \quad |z| \in R_{x_2}$$`
+
+Para expresar la transformada Z de la suma como suma de las correspondientes transformadas `\(z\)`, `\(z\)` debe perteneceer a ambas regiones de convergencia. La región de convergencia contiene al menos a la intersección de las dos regiones de convergencia. En el caso de secuencias con transformadas Z racionales, si los polos de `\(a X_1(z) + b X_2(z)\)` suman todos los polos de `\(X_1(z)\)` y `\(X_2(z)\)` (no hay cancelaciones polo-cero), la región de convergencia será exactamente igual a la intersección de las dos regiones de convergencia.
+
+---
+
+# Linealidad
+
+Si la combinación lineal es tal que aparecen algunos ceros que cancelan polos, la región de convergencia puede ser mayor. Un ejemplo simple de este caso aparece cuando `\(x_1[n]\)` y `\(x_2[n]\)` son de duración infinita, pero la combinación lineal es de duración finita. Así la región de convergencia de la combinación lineal es el plano `\(z\)` completo, con las posibles excepciones de `\(z = 0\)` o `\(z = \infty\)`.
+
+`$$x[n] = a^{n}(u[n] - u[n-N]) = a^{n} u[n] - a^{n} u[n-N]$$`
+
+Tanto `\(a^{n} u[n]\)` como `\(a^{n} u[n-N]\)` son secuencias limitadas por la izquierda de longitud infinita, y sus transformadas Z tiene un polo en `\(z = a\)`. Por consiguiente, ambas regiones de convergencia serán `\(|z| > |a|\)`. Sin embargo, el polo en `\(z = a\)` se cancela con un cero en `\(z = a\)`, la región de convergencia abarca todo el plano `\(z\)`, con la excepción de `\(z = 0\)`.
+
+---
+
+# Desplazamiento en el tiempo
+
+La propiedad de desplazamiento en el tiempo indica que
+
+`$$x[n - n_0] \overset{\mathscr{Z}}{\longleftrightarrow} z^{-n_0} X(z), \quad RDC = R_x \text{ excepto por la posible adición o eliminación de } z = 0 \text{ o } z = \infty$$`
+
+donde 
 
 ---
 # Navegación
