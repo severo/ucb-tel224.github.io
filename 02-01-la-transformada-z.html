@@ -216,6 +216,148 @@ Como lo hemos visto en estos dos ejemplos, un resultado importante es que una en
 
 ---
 
+# Ejemplo 3 - Suma de dos secuencias exponenciales
+
+Trabajamos ahora con la señal siguiente:
+
+`$$x[n] = \left(\frac{1}{2}\right)^n u[n] + \left(-\frac{1}{3}\right)^n u[n]$$`
+
+Su transformada Z es:
+
+`$$X(z)= \sum_{0}^{\infty}\left(\frac{1}{2}z^{-1}\right)^n + \sum_{0}^{\infty}\left(-\frac{1}{3}z^{-1}\right)^n$$`
+
+Converge si tenemos a la vez los dos siguientes resultados:
+
+* `\(\left|\frac{1}{2}z^{-1}\right|<1\)` o sea `\(|z|>\frac{1}{2}\)`
+* `\(\left|\frac{1}{3}z^{-1}\right|<1\)` o sea `\(|z|>\frac{1}{3}\)`
+
+---
+
+# Ejemplo 3 - Suma de dos secuencias exponenciales
+
+Si convergen las dos sumas, entonces la transfomada Z es
+
+`$$X(z)=\frac{2z\left(z-\frac{1}{12}\right)}{\left(z-\frac{1}{2}\right)\left(z+\frac{1}{3}\right)}$$`
+
+y obtenemos los ceros y polos:
+
+* existen dos cero, `\(z=0\)` y `\(z=\frac{1}{12}\)`, que anulan el numerador `\(P(z)\)`
+* existen dos polos, `\(z=\frac{1}{2}\)` y `\(z=\frac{1}{3}\)`, que anulan el denominador `\(Q(z)\)`
+
+---
+
+Representamos los ceros, los polos y las ROC en la siguiente figura
+
+.figura[![Diagrama polo–cero y región de convergencia de cada término y de la suma de términos del Ejemplo 3.](imagenes/02-01-figura-3.5.svg)]
+
+---
+
+# Ejemplo 3 - Suma de dos secuencias exponenciales
+
+Este ejemplo permite observar que:
+
+* cuando una transformada Z es la suma de dos términos, la ROC es la intersección de las ROC de los dos términos de la suma, y contiene los valores de `\(z\)` para los que ambas sumas convergen por separado.
+
+---
+
+# Ejemplo 4 - Secuencia exponencial bilateral
+
+Ahora consideramos la suma de dos señales de "sentido" contrario
+
+`$$x[n] = \left(-\frac{1}{3}\right)^n u[n] - \left(\frac{1}{2}\right)^n u[-n-1]$$`
+
+Por los resultados anteriores y la linealidad de la transformada Z, esta se puede expresar:
+
+`$$X(z)=\frac{1}{1+\frac{1}{3}z^-1}+\frac{1}{1-\frac{1}{2}z^-1}$$`
+
+para `\(|z|>\frac{1}{3}\)` y `\(|z|<\frac{1}{2}\)`. En tal caso, la transformada Z se puede reducir a:
+
+`$$X(z)=\frac{2z\left(z-\frac{1}{12}\right)}{\left(z-\frac{1}{2}\right)\left(z+\frac{1}{3}\right)}$$`
+
+---
+
+# Ejemplo 4 - Secuencia exponencial bilateral
+
+Podemos notar que la función racional es la misma que el ejercicio anterior, pero que la ROC es diferente. La representamos en la siguiente figura:
+
+.figura[![Diagrama polo–cero y región de convergencia del Ejemplo 4.](imagenes/02-01-figura-3.6.svg)]
+
+La ROC no incluye el círculo unidad, lo que implica que la transforma de Fourier no existe para esta señal.
+
+---
+
+# Ejemplo 5 - Secuencia de longitud finita
+
+Finalmente consideramos la señal
+
+`$$x[n]=\left\{\begin{array}{ll}
+a^n,  & 0 \le n \le N-1 \\
+0,    & \text{en el resto}
+\end{array}\right.$$`
+
+Su transformada Z es:
+
+`$$X(z)=\sum_{n=0}^{N-1}a^nz^{-n}=\sum_{n=0}^{N-1}\left(az^{-1}\right)^{-n}=\frac{1-\left(az^{-1}\right)^N}{1-az^{-1}}=\frac{1}{z^{N-1}}\frac{z^N-a^N}{z-a}$$`
+
+Converge si `\(a<\infty\)` y `\(z\neq 0\)`, o sea para todo el plano complejo menos el origen.
+
+---
+
+# Ejemplo 5 - Secuencia de longitud finita
+
+La figura siguiente muestra los ceros y polos de la transformada Z
+
+.figura[![Diagrama polo–cero del Ejemplo 5 para `\(N=16\)` y `\(a\)` real.](imagenes/02-01-figura-3.7.svg)]
+
+Los ceros son definidos por
+
+`$$z_k = a e^{j\left(2\pi k / N\right)}, \quad k=0,1,\ldots,N-1$$`
+
+A notar que el polo `\(z=a\)` esta cancelado por el mismo cero (`\(k=0\)`), así que los únicos polos son el polo de orden 15 en el origen.
+
+---
+
+# Tabla de transformadas Z frecuentes
+
+| N° | Secuencia   |      Transformada      |  ROC |
+|-|----------|---------------|-------|
+| 1. | `$$\delta[n]$$` | `$$1$$` | Todo `\(z\)` |
+| 2. | `$$u[n]$$` | `$$\frac{1}{1-z^{-1}}$$` | `\( \mid z\mid \gt 0\)` |
+| 3. | `$$-u[-n-1]$$` | `$$\frac{1}{1-z^{-1}}$$` | `\(\mid z\mid \lt 0\)` |
+| 4. | `$$\delta[n-m]$$` | `$$z^{-m}$$` | Todo `\(z\)` excepto `\(0\)` si `\(m>0\)` o `\(\infty\)` si `\(m<0\)`|
+| 5. | `$$a^nu[n]$$` | `$$\frac{1}{1-az^{-1}}$$` | `\(\mid z\mid \gt \mid a\mid\)` |
+
+---
+
+# Tabla de transformadas Z frecuentes
+
+| N° | Secuencia   |      Transformada      |  ROC |
+|-|----------|---------------|-------|
+| 6. | `$$-a^nu[-n-1]$$` | `$$\frac{1}{1-az^{-1}}$$` | `\(\mid z\mid \lt \mid a\mid\)` |
+| 7. | `$$na^nu[n]$$` | `$$\frac{az^{-1}}{\left(1-az^{-1}\right)^2}$$` | `\(\mid z\mid \gt \mid a\mid\)` |
+| 8. | `$$-na^nu[-n-1]$$` | `$$\frac{az^{-1}}{\left(1-az^{-1}\right)^2}$$` | `\(\mid z\mid \lt \mid a\mid\)` |
+
+---
+
+# Tabla de transformadas Z frecuentes
+
+| N° | Secuencia   |      Transformada      |  ROC |
+|-|----------|---------------|-------|
+| 9. | `$$\cos\left(\omega_0 n\right)u[n]$$` | `$$\frac{1-\cos\left(\omega_0\right)z^{-1}}{1-2\cos\left(\omega_0\right)z^{-1} + z^{-2}}$$` | `\( \mid z\mid \gt 1\)` |
+| 10. | `$$\sin\left(\omega_0 n\right)u[n]$$` | `$$\frac{\sin\left(\omega_0\right)z^{-1}}{1-2\cos\left(\omega_0\right)z^{-1} + z^{-2}}$$` | `\( \mid z\mid \gt 1\)` 
+| 11. | `$$r^n\cos\left(\omega_0 n\right)u[n]$$` | `$$\frac{1-r\cos\left(\omega_0\right)z^{-1}}{1-2r\cos\left(\omega_0\right)z^{-1} + r^2z^{-2}}$$` | `\( \mid z\mid \gt r\)` |
+| 12. | `$$r^n\sin\left(\omega_0 n\right)u[n]$$` | `$$\frac{r\sin\left(\omega_0\right)z^{-1}}{1-2r\cos\left(\omega_0\right)z^{-1} + r^2z^{-2}}$$` | `\( \mid z\mid \gt r\)` |
+
+---
+
+# Tabla de transformadas Z frecuentes
+
+| N° | Secuencia   |      Transformada      |  ROC |
+|-|----------|---------------|-------|
+| 13. | `$$\left\{\begin{array}{ll}a^n,  & 0 \le n \le N-1 \\ 0, & \text{en el resto} \end{array}\right.$$` | ``$$\frac{1-a^Nz^{-N}}{1-az^{-1}}$$` | `\( \mid z\mid \gt 0\)` |
+
+---
+
 # Navegación
 
 Seguir con [2.2 Propiedades de la región de convergencia de la transformada Z](./02-02-propiedades-de-la-region-de-convergencia-de-la-transformada-z.html)
