@@ -75,7 +75,144 @@ Si el modulo de la variable `\(z\)` vale `\(r=|z|=1\)`, entonces la transformada
 
 Es conveniente representar la posición de `\(z\)` en el plano complejo:
 
-* la transformada Z sobre el círculo llamado *circunferencia unidad* corresponde a la transformada de Fourier, con el ángulo `\(\omega\)` entre `\(-\pi\)` y `\(\pi\)` (un periodo - corresponde a las frecuencias de la transformada de Fourier)
+* la transformada Z sobre el círculo llamado *circunferencia unidad* corresponde a la transformada de Fourier, con el ángulo `\(\omega\)` entre `\(-\pi\)` y `\(\pi\)`
+* el ángulo `\(\omega\)` corresponde a la frecuencia de la transformada de Fourier, y muestra claramente la periodicidad
+
+---
+
+# Convergencia
+
+Hemos visto que la tranformada de Fourier no converge para todas las señales posibles, sino para un subconjunto.
+
+De la misma forma, la transformada Z no converge para todas las señales y todos los valores de `\(z\)`. Para una secuencia dada, el conjunto de valores de `\(z\)` para las cuales la tranformada Z converge se llama **región de convergencia** (ROC).
+
+La transformada Z converge si
+
+`$$\left|X\left(re^{j\omega}\right)\right| \le \sum_{n=-\infty}^{\infty} \left|x[n] r^{-n}\right| < \infty$$`
+
+Tomando `\(r=1\)`, obtenemos el criterio de convergencia de la transformada de Fourier para una secuencia absolutamente sumable.
+
+---
+
+# Convergencia
+
+Un criterio de convergencia de la transformada Z es entonces el siguiente:
+
+`$$\sum_{n=-\infty}^{\infty} \left|x[n]\right|\left|z^{-n}\right| < \infty$$`
+
+Como solo depende del módulo, si la transformada Z converge para un valor `\(z_1\)`, entonces converge para todo el circulo de mismo módulo en el plano complejo `\(\left|z\right|=\left|z_1\right|\)`.
+
+.figura[![Región de convergencia](imagenes/02-01-figura-3.2.svg)]
+
+---
+
+# Convergencia
+
+Si el anillo contiene el circulo unidad, la transformada de Fourier converge también.
+ 
+La transformada Z y todas sus derivadas son funciones continuas de `\(z\)` dentro de su región de convergencia. Esto implica que si la región de convergencia incluye la circunferencia unidad, entonces la transformada de Fourier y todas sus derivadas con respecto a `\(\omega\)` son funciones continuas de `\(\omega\)`.
+
+---
+
+# Transformada Z como función racional
+
+Los cálculos son muy simplificados cuando la transformada Z se puede representar como una función racional de la forma:
+
+`$$X(z) = \frac{P(z)}{Q(z)}$$`
+
+donde `\(P(z)\)` y `\(Q(z)\)` son polinomios en `\(z\)`. Se manejan las siguientes definiciones:
+
+* cero de `\(X(z)\)`: valor de `\(z\)` para el cual `\(P(z)=0\)` (o `\(X(z)=0\)`)
+* polo de `\(X(z)\)`: valor de `\(z\)` para el cual `\(Q(z)=0\)` (o `\(X(z)\)` es infinito)
+
+La ubicación de los polos de `\(X(z)\)` en el plano `\(z\)` permite dar resultados importantes sobre la convergencia y la región de convergencia.
+
+---
+
+# Ejemplo 1 - Secuencia exponencial limitada por la izquierda
+
+Consideramos la señal
+
+`$$x[n] = a^n u[n]$$`
+
+con `\(a\)` un número complejo. La convergencia de la transformada Z exige que
+
+`$$\sum_{n=-\infty}^{\infty} \left|az^{-1}\right|^{n} < \infty$$`
+
+Converge si `\(\left|az^-1\right|<1\)` o sea `\(\left|z\right| > \left|a\right|\)`.
+---
+
+# Ejemplo 1 - Secuencia exponencial limitada por la izquierda
+
+ En el interior de la ROC, la transformada Z es:
+
+`$$X(z) = \sum_{n=-\infty}^{\infty} \left(az^{-1}\right)^{n} = \frac{1}{1-az^{-1}}=\frac{z}{z-a}$$`
+
+Esta última representación como función racional permite establecer fácilmente que:
+
+* existe un cero, `\(z=0\)`, que anula el numerador `\(P(z)=z\)`
+* existe un polo, `\(z=a\)`, que anula el denominador `\(Q(z)=z-a\)`
+
+---
+
+# Ejemplo 1 - Secuencia exponencial limitada por la izquierda
+
+Representamos el cero, el polo y la ROC en la siguiente figura
+
+.figura[![Diagrama polo–cero y región de convergencia del Ejemplo 1.](imagenes/02-01-figura-3.3.svg)]
+
+A modo de convención, representamos los ceros por un `\(\circ\)` y los polos por un `\(\times\)`. La ROC corresponde a `\(\left|z\right| > \left|a\right|\)`, lo que permite concluir que la transformada de Fourier converge si `\(\left|a\right| < 1\)`.
+
+---
+
+# Ejemplo 2 - Secuencia exponencial limitada por la derecha
+
+Ahora estudiemos la secuencia complementaria de la secuencia exponencial limitada por la izquierda, definida por:
+
+`$$x[n] = - a^n u\left[-n-1\right]= \left\{\begin{array}{ll}
+-a^n & n\le-1 \\
+0    & n\gt-1
+\end{array}\right.$$`
+
+En este caso la transformada Z es:
+
+`$$X(z) = - \sum_{n=-\infty}^{\infty} a^n u[-n-1]z^{-n} = - \sum_{n=-\infty}^{-1} a^n z^{-n} $$`
+`$$X(z) = - \sum_{n=1}^{\infty} a^{-n}z^n = 1 - \sum_{n=0}^{\infty} \left(a^{-1} z\right)^{n} $$`
+
+---
+
+# Ejemplo 2 - Secuencia exponencial limitada por la derecha
+
+La transformada Z converge si `\(\left|a^{-1}z\right|\)`, o sea `\(\left|z\right|\lt \left|a\right|\)`, y en este caso,
+
+`$$X(z) = 1 - \frac{1}{1-a^{-1}z}=\frac{1}{1-az^{-1}}=\frac{z}{z-a}$$`
+
+Esta última representación como función racional permite establecer fácilmente, de la misma manera que para el ejemplo anterior, que:
+
+* existe un cero, `\(z=0\)`, que anula el numerador `\(P(z)=z\)`
+* existe un polo, `\(z=a\)`, que anula el denominador `\(Q(z)=z-a\)`
+
+---
+
+# Ejemplo 2 - Secuencia exponencial limitada por la derecha
+
+Representamos el cero, el polo y la ROC en la siguiente figura
+
+.figura[![Diagrama polo–cero y región de convergencia del Ejemplo 2.](imagenes/02-01-figura-3.4.svg)]
+
+La ROC corresponde a `\(\left|z\right| < \left|a\right|\)`, lo que permite concluir que la transformada de Fourier converge si `\(\left|a\right| > 1\)`.
+
+---
+
+# Ejemplo 2 - Secuencia exponencial limitada por la derecha
+
+Se pueden hacer varias observaciones a partir de estos dos ejemplos:
+
+* los dos ejemplos llevan a la misma expresión de la transformada Z: `\(\frac{z}{z-a}\)`
+* sin embargo, sus ROC son diferentes: `\(\left|z\right| > \left|a\right|\)` en el primer ejemplo y `\(\left|z\right| < \left|a\right|\)` en el segundo ejemplo
+* significa que es importante, para la transformada Z, especificar tanto la **expresión algébrico** como la **región de convergencia**
+
+Como lo hemos visto en estos dos ejemplos, un resultado importante es que una entrada `\(x[n]\)` que se puede expresar como una suma ponderada de exponenciales reales o complejas, siempre llevará a una función racional `\(X(z)\)`.
 
 ---
 
