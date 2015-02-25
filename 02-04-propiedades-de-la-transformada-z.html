@@ -84,7 +84,7 @@ Realizando el cambio de variables: `\(m = n - n_0\)`:
 
 ---
 
-Secuencia exponencial desplazada
+# Secuencia exponencial desplazada
 
 Consideremos la transformada Z:
 
@@ -100,11 +100,11 @@ Y se puede escribir como:
 
 Aplicando las tablas de transformada inversa:
 
-`$$x[n] = -4\delta[n] + 4(\frac{1}{4})^n u[n}$$`
+`$$x[n] = -4\delta[n] + 4(\frac{1}{4})^n u[n]$$`
 
 ---
 
-Secuencia exponencial desplazada
+# Secuencia exponencial desplazada
 
 El anterior resultado se puede obtener de forma más directa si aplicamos la propiedad de desplazamiento en el tiempo.
 
@@ -156,6 +156,10 @@ Utilizando la propiedad de multiplicación por un exponencial, vemos que:
 
 `$$\frac{1}{2}(r e^{-j\omega_0})^n u[n] \overset{\mathscr{F}}{\longleftrightarrow} \frac{\frac{1}{2}}{1-r e^{-j\omega_0} z^{-1}}, \quad |z| > r,$$`
 
+---
+
+# Multiplicación por una exponencial
+
 Usando la propiedad de linealidad se deduce:
 
 `$$X(z) = \frac{\frac{1}{2}}{1-r e^{j\omega_0} z^{-1}} + \frac{\frac{1}{2}}{1-r e^{-j\omega_0} z^{-1}}, \quad |z| > r$$`
@@ -166,7 +170,37 @@ Usando la propiedad de linealidad se deduce:
 
 # Diferenciación de `\(X(z)\)`
 
+`$$n x[n} \overset{\mathscr{Z}}{\longleftrightarrow} -z \frac{d X(z)}{dz}, \quad RDC = R_x$$`
 
+Esta propiedad se puede verificar diferenciando la expresión de la transformada Z.
+
+Ejercicio. Demuestre la validez de esta propiedad utilizando la definición de la transformada Z.
+
+Ilustraremos la utilidad de esta propiedad con dos ejemplos.
+
+---
+
+# Inversa de la transformada Z no racional
+
+Utilizaremos la propiedad de diferenciación junto con la propiedad de desplazamiento en el tiempo para determinar Z inversa.
+
+`$$X(z) = log(1+a z^{-1}), \quad |z| > |a|$$`
+
+Diferenciando:
+
+`$$\frac{d X(z)}{dz} = \frac{-a z^{-2}}{a+ a z^{-1}}$$`
+
+Usando la propieda de diferenciación:
+
+`$$n x[n] \overset{\mathscr{Z}}{\longleftrightarrow} -z \frac{dX(z)}{dz} = \frac{a z^{-1}}{1+a z^{-1}}, \quad |z| > |a|$$`
+
+Considerando que: `\(n x[n] = a(-a)^{n-1} u[n-1]\)`, se obtiene el resultado:
+
+`$$x[n] = (-1)^{n+1} \frac{a^n}{n} u[n-1] \overset{\mathscr{Z}}{\longleftrightarrow} log(1+a z^{-1}), \quad |z| > |a|$$`
+
+---
+
+# Polo de segundo orden
 
 ---
 # Navegación
