@@ -21,7 +21,9 @@ class: center, middle
 
 Muchas propiedades de la transformada Z son particularmente útiles en el estudio de las señales y los sistemas en tiempo discreto.
 
-A menudo estas propiedades se utilizan en conjunción con las técnicas de cálculo de la transformada Z inversa presentadas anteriormente para obtener la transformada inversa de expresiones más complicadas. Esta es la base para la trasnformación de ecuaciones en diferencias lineales de coeficientes constantes en ecuaciones algebraicas en términos de variable `\(z\)` de la transformada. La solución de la ecuación en diferencias se puede obtener entonces mediante la transformada Z inversa.
+A menudo estas propiedades se utilizan en conjunción con las técnicas de cálculo de la transformada Z inversa para obtener la transformada inversa de expresiones más complicadas.
+
+Estas propiedades son la base para la transformación de ecuaciones en diferencias lineales de coeficientes constantes en ecuaciones algebraicas en términos de variable `\(z\)` de la transformada. La solución de la ecuación en diferencias se puede obtener entonces mediante la transformada Z inversa.
 
 ---
 
@@ -68,9 +70,59 @@ Tanto `\(a^{n} u[n]\)` como `\(a^{n} u[n-N]\)` son secuencias limitadas por la i
 
 La propiedad de desplazamiento en el tiempo indica que
 
-`$$x[n - n_0] \overset{\mathscr{Z}}{\longleftrightarrow} z^{-n_0} X(z), \quad RDC = R_x \text{ excepto por la posible adición o eliminación de } z = 0 \text{ o } z = \infty$$`
+`$$x[n - n_0] \overset{\mathscr{Z}}{\longleftrightarrow} z^{-n_0} X(z), \quad RDC = R_x$$`
 
-donde 
+Excepto por la posible adición o eliminación de `\(z = 0\)` o `\(z = \infty\)`, donde `\(n_0\)` es un número entero. Si `\(n_0\)` es negativo, `\(x[n]\)` se desplaza hascia la izquierda. La región de convergencia puede cambiar, ya que el factor `\(z^{-n_0}\)` puede alterar el número de polos en `\(z = 0\)` o `\(z = \infty\)`.
+
+Esta propiedad se deduce directamente de la expresión de la transformada Z. Concretamente, sí `\(y[n] = x[n - n_0]\)`, la correspondiente transformada Z es:
+
+`$$Y(z) = \sum_{n = -\infty}^{\infty} x[n - n_0] z^{-n}$$`
+
+Realizando el cambio de variables: `\(m = n - n_0\)`:
+
+`$$Y(z) = \sum_{m = -\infty}^{\infty} x[m] z^{m+n_0} = z^{-n_0} \sum_{m = -\infty}^{\infty} x[m] z^{-m}$$`
+
+---
+
+Secuencia exponencial desplazada
+
+Consideremos la transformada Z:
+
+`$$X(z) = \frac{1}{z-\frac{1}{4}}, \quad |z| > \frac{1}{4}$$`
+
+Observando la región de convergencia, podemos ver que la secuencia está limitada por la izquierda. Ahora escribimos la transformada de otra forma:
+
+`$$X(z) = \frac{z^{-1}}{1-\frac{1}{4} z^{-1}} \quad |<| > \frac{1}{4}$$`
+
+Y se puede escribir como:
+
+`$$X(z) = -4 + \frac{4}{1-\frac{1}{4} z^{-1}}$$`
+
+Aplicando las tablas de transformada inversa:
+
+`$$x[n] = -4\delta[n] + 4(\frac{1}{4})^n u[n}$$`
+
+---
+
+Secuencia exponencial desplazada
+
+El anterior resultado se puede obtener de forma más directa si aplicamos la propiedad de desplazamiento en el tiempo.
+
+`$$X(z) = z^{-1} (\frac{1}{1-\frac{1}{4} z^{-1}}), \quad |z| > \frac{1}{4}$$`
+
+Utilizando la propiedad de desplazamiento en el tiempo, vemos que el factor `\(z^{-1}\)` se puede asociar a un desplazamiento a la derecha de la secuencia `\((\frac{1}{4})^n u[n]\)`.
+
+`$$x[n] = (\frac{1}{4})^{n-1} u[n-1]$$`
+
+Ejercicio. Demostrar que estas dos transformaciones son equivalentes.
+
+---
+
+# Multiplicación por una secuencia exponencial
+
+`$$z_0^{n} x[n] \overset{\mathscr{Z}}{\longleftrightarrow} X(z/z_0), \quad RDC = |z_0| Rx$$`
+
+
 
 ---
 # Navegación
