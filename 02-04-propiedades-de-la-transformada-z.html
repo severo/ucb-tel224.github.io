@@ -21,7 +21,9 @@ class: center, middle
 
 Muchas propiedades de la transformada Z son particularmente útiles en el estudio de las señales y los sistemas en tiempo discreto.
 
-A menudo estas propiedades se utilizan en conjunción con las técnicas de cálculo de la transformada Z inversa presentadas anteriormente para obtener la transformada inversa de expresiones más complicadas. Esta es la base para la trasnformación de ecuaciones en diferencias lineales de coeficientes constantes en ecuaciones algebraicas en términos de variable `\(z\)` de la transformada. La solución de la ecuación en diferencias se puede obtener entonces mediante la transformada Z inversa.
+A menudo estas propiedades se utilizan en conjunción con las técnicas de cálculo de la transformada Z inversa para obtener la transformada inversa de expresiones más complicadas.
+
+Estas propiedades son la base para la transformación de ecuaciones en diferencias lineales de coeficientes constantes en ecuaciones algebraicas en términos de variable `\(z\)` de la transformada. La solución de la ecuación en diferencias se puede obtener entonces mediante la transformada Z inversa.
 
 ---
 
@@ -68,9 +70,103 @@ Tanto `\(a^{n} u[n]\)` como `\(a^{n} u[n-N]\)` son secuencias limitadas por la i
 
 La propiedad de desplazamiento en el tiempo indica que
 
-`$$x[n - n_0] \overset{\mathscr{Z}}{\longleftrightarrow} z^{-n_0} X(z), \quad RDC = R_x \text{ excepto por la posible adición o eliminación de } z = 0 \text{ o } z = \infty$$`
+`$$x[n - n_0] \overset{\mathscr{Z}}{\longleftrightarrow} z^{-n_0} X(z), \quad RDC = R_x$$`
 
-donde 
+Excepto por la posible adición o eliminación de `\(z = 0\)` o `\(z = \infty\)`, donde `\(n_0\)` es un número entero. Si `\(n_0\)` es negativo, `\(x[n]\)` se desplaza hascia la izquierda. La región de convergencia puede cambiar, ya que el factor `\(z^{-n_0}\)` puede alterar el número de polos en `\(z = 0\)` o `\(z = \infty\)`.
+
+Esta propiedad se deduce directamente de la expresión de la transformada Z. Concretamente, sí `\(y[n] = x[n - n_0]\)`, la correspondiente transformada Z es:
+
+`$$Y(z) = \sum_{n = -\infty}^{\infty} x[n - n_0] z^{-n}$$`
+
+Realizando el cambio de variables: `\(m = n - n_0\)`:
+
+`$$Y(z) = \sum_{m = -\infty}^{\infty} x[m] z^{m+n_0} = z^{-n_0} \sum_{m = -\infty}^{\infty} x[m] z^{-m}$$`
+
+---
+
+Secuencia exponencial desplazada
+
+Consideremos la transformada Z:
+
+`$$X(z) = \frac{1}{z-\frac{1}{4}}, \quad |z| > \frac{1}{4}$$`
+
+Observando la región de convergencia, podemos ver que la secuencia está limitada por la izquierda. Ahora escribimos la transformada de otra forma:
+
+`$$X(z) = \frac{z^{-1}}{1-\frac{1}{4} z^{-1}} \quad |<| > \frac{1}{4}$$`
+
+Y se puede escribir como:
+
+`$$X(z) = -4 + \frac{4}{1-\frac{1}{4} z^{-1}}$$`
+
+Aplicando las tablas de transformada inversa:
+
+`$$x[n] = -4\delta[n] + 4(\frac{1}{4})^n u[n}$$`
+
+---
+
+Secuencia exponencial desplazada
+
+El anterior resultado se puede obtener de forma más directa si aplicamos la propiedad de desplazamiento en el tiempo.
+
+`$$X(z) = z^{-1} (\frac{1}{1-\frac{1}{4} z^{-1}}), \quad |z| > \frac{1}{4}$$`
+
+Utilizando la propiedad de desplazamiento en el tiempo, vemos que el factor `\(z^{-1}\)` se puede asociar a un desplazamiento a la derecha de la secuencia `\((\frac{1}{4})^n u[n]\)`.
+
+`$$x[n] = (\frac{1}{4})^{n-1} u[n-1]$$`
+
+Ejercicio. Demostrar que estas dos transformaciones son equivalentes.
+
+---
+
+# Multiplicación por una secuencia exponencial
+
+`$$z_0^{n} x[n] \overset{\mathscr{Z}}{\longleftrightarrow} X(z/z_0), \quad RDC = |z_0| Rx$$`
+
+S `\(R_x\)` es el conjunto de valores de `\(z\)` tal que `\(r_R < |z| < r_l\)`, entonces `\(|z_0| R_x\)` es el conjunto de valres de `\(z\)` tal que `\(|z_0| r_R < |z| < |z_0| r_L\)`.
+
+Ejercicio. Demuestre la propiedad de multplicación por una secuencia exponencial.
+
+Como consecuencia de esta propiedad, todas las posiciones de los polos y de los ceros quedan efectadas por un factor de escala de `\(z_0\)`, ya que si `\(X(z)\)` tiene un polo (o un cero) en `\(z = z_1\)`, `\(X(z/z_0)\)` tendrá un polo (o un cero) en `\(z = z_0 z_1\)`. Si `\(z_0\)` es un número real positivo, el factor de escala se puede interpretar como una compresión o expansión del plano `\(z\)`, ya que las posiciones de los polos y los ceros cambian siguiendo líneas radiales del plano `\(z\)`.
+
+---
+
+# Multiplicación por una secuencia exponencial
+
+ Si `\(z_0\)` es un número complejo de módulo unidad, es decir, `\(z_0 = e^{j\omega_0}\)`, el escalado corresponde a una rotación de ángulo `\(\omega_0\)` en el plano `\(z\)`, ya que las localizaciones de los polos y los ceros cambian su posición siguiendo circunferencias centradas en el origen del plano `\(z\)`. Esto también se puede interpretar como una traslación de la transformada de Fourier de tiempo discreto, asociada a la modulacion en el dominio del timpo con la secuencia exponencial `\(e^{j\omega_0 n}\)`. Es decir, si existe la transformada de Fourier, esta propiedad tiene la forma:
+ 
+ `$$e^{j \omega n} x[n] \overset{\mathscr{F}}{\longleftrightarrow} X(e^{j(\omega-\omega_0)})$$` 
+
+---
+
+# Multiplicación por una exponencial
+
+Considerando
+
+`$$u[n] \overset{\mathscr{F}}{\longleftrightarrow} \frac{1}{1-z^{-1}}, \quad |z| > 1$$`
+
+Podemos utilizar la propiedad de multiplicación por una exponencial para determinar la transformada Z de la secuencia:
+
+`$$x[n] = r^{n} cos(\omega_0 n) u[n], \quad r > 0$$`
+
+`$$x[n] = \frac{1}{2}(r e^{j\omega_0})^{n} u[n] + \frac{1}{2} (r e^{-j\omega_0})^{n} u[n]$$`
+
+Utilizando la propiedad de multiplicación por un exponencial, vemos que:
+
+`$$\frac{1}{2}(r e^{j\omega_0})^n u[n] \overset{\mathscr{F}}{\longleftrightarrow} \frac{\frac{1}{2}}{1-r e^{j\omega_0} z^{-1}}, \quad |z| > r,$$`
+
+`$$\frac{1}{2}(r e^{-j\omega_0})^n u[n] \overset{\mathscr{F}}{\longleftrightarrow} \frac{\frac{1}{2}}{1-r e^{-j\omega_0} z^{-1}}, \quad |z| > r,$$`
+
+Usando la propiedad de linealidad se deduce:
+
+`$$X(z) = \frac{\frac{1}{2}}{1-r e^{j\omega_0} z^{-1}} + \frac{\frac{1}{2}}{1-r e^{-j\omega_0} z^{-1}}, \quad |z| > r$$`
+
+`$$= \frac{1-r cos(\omega_0) z^{-1}}{1-2r cos(\omage_0) z^{-1}+r^{2} z^{-2}}, \quad |z| > r$$`
+
+---
+
+# Diferenciación de `\(X(z)\)`
+
+
 
 ---
 # Navegación
