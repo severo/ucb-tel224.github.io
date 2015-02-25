@@ -164,13 +164,13 @@ Usando la propiedad de linealidad se deduce:
 
 `$$X(z) = \frac{\frac{1}{2}}{1-r e^{j\omega_0} z^{-1}} + \frac{\frac{1}{2}}{1-r e^{-j\omega_0} z^{-1}}, \quad |z| > r$$`
 
-`$$= \frac{1-r cos(\omega_0) z^{-1}}{1-2r cos(\omage_0) z^{-1}+r^{2} z^{-2}}, \quad |z| > r$$`
+`$$= \frac{1-r cos(\omega_0) z^{-1}}{1-2r cos(\omega_0) z^{-1}+r^{2} z^{-2}}, \quad |z| > r$$`
 
 ---
 
 # Diferenciación de `\(X(z)\)`
 
-`$$n x[n} \overset{\mathscr{Z}}{\longleftrightarrow} -z \frac{d X(z)}{dz}, \quad RDC = R_x$$`
+`$$n x[n] \overset{\mathscr{Z}}{\longleftrightarrow} -z \frac{d X(z)}{dz}, \quad RDC = R_x$$`
 
 Esta propiedad se puede verificar diferenciando la expresión de la transformada Z.
 
@@ -202,7 +202,60 @@ Considerando que: `\(n x[n] = a(-a)^{n-1} u[n-1]\)`, se obtiene el resultado:
 
 # Polo de segundo orden
 
+Determine la transformada de:
+
+`$$x[n] = n a^[n] u[n] = n(a^{n} u[n])$$`
+
+`$$X(z) = -z\frac{d}{dz} (\frac{1}{1-a z^{-1}}), \quad |z| > |a|$$`
+
+`$$= \frac{a z^{-1}}{(1-a z^{-1})^2}, |z| > |a|.$$`
+
+Y por lo tanto:
+
+`$$n a^{n} u[n] \overset{\mathscr{Z}}{\longleftrightarrow} \frac{a z^{-1}}{(1 - a z^{-1})^2}, \quad |z| > |a|$$`
+
 ---
+
+# Conjugación de una secuencia compleja
+
+`$$x^{*}[-n] \overset{\mathscr{Z}}{\longleftrightarrow} X^{*}(1-z^{*}), \quad RDC = \frac{1}{R_x}$$`
+
+Donde `\(RDC = 1/R_x\)`, singnifica que la región de convergencia está invertida: si `\(R_x\)` representa al conjunto de valores tales que `\(r_R < |z| < r_L\)`, la región de convergencia de `\(X^{*}(1/z^{*})\)` es el conjunto de valores tales que `\(1/r_L < |z| < 1/r_R\)`. Por tanto, si `\(z_0\)` está en la región de convergencia de la transtormada Z de `\(x[n]\)`, entonces `\(1/z_0\)` estará en la región de convergencia de la transformada Z de `\(x^{*}[-n]\)`.
+
+Si la secuencia `\(x[n]\)` es real o no conjugada la secuencia compleja, el resultado es:
+
+`$$x[-n] \overset{\mathscr{Z}}{\longleftrightarrow} X(1/z), \quad RDC = \frac{1}{R_x}$$`
+
+Ejercicio. Demuestre esta propiedad utilizando la definición de la transformada Z.
+
+---
+
+# Inversión temporal
+
+Nótese que el `\(z_0\)` es un polo (o un cero) de `\(X(z)\)`, entonces `\(1/z_0\)` será un polo  (o un cero) de `\(X(1/z)\)`. El módulo de `\(1/z_0\)` es implemente el inverso del módulo de `\(z_0\)`. Sin embargo, la fase de `\(1/z_0\)` es la de `\(z_0\)` cambiada de signo. Cuando los polos y ceros de `\(X(z)\)` son todos reales o aparecen en pares complejos conjugados (cuando `\(x[n]\)` es real), esta agrupación en pares complejos conjugados debe matenerse.
+
+---
+
+# Inversión temporal de una secuencia exponencial
+
+Considere la secuencia:
+
+`$$x[n] = a^{-n} u[-n]$$`
+
+Que es la versión invertida en el tiempo de `\(a^{n}\ u[n])`. Utilizando la inversión temporal se ebtiene:
+
+`$$X(z) = \frac{1}{1-a z} = \frac{-a^{-1}}{1-a^{-1} z^{-1}}, |z| z |a^{-1}|$$, `
+
+Nótese que la transformada Z de `\(a^{n} u[n]\)` tiene un polo en `\(z = a\)`, mientras que `\(X(z)\)` tiene un polo en `\(1/a\)`.
+
+---
+
+* Convolución de secuencias
+
+
+
+---
+
 # Navegación
 
 Seguir con [2.5 Transformadas Z y sistemas lineales e invariantes](./02-05-transformada-z-y-sistemas-lineales-e-invariantes.html)
