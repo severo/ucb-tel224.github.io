@@ -19,6 +19,38 @@ class: center, middle
 
 # La transformada Z unilateral
 
+La transformada Z definida como la sumatoria de `\(-\infty\)` a `\(\infty\)` es conocida como transformada Z bilateral. La *transformada Z unilateral* se define como:
+
+`$$\mathscr{Z}(z) = \sum_{n = 0}^{\infty} x[n] z^{-n}$$`
+
+La transforma Z unilateral se diferencia de la bilateral en que el límite inferior de la suma siempre es cero, independientemente de los valores de `\(x[n]\)` para `\(n < 0\)`. Si `\(x[n] = 0\)` para `\(n < 0\)`, las transformadas Z unilateral y bilateral son idénticas, mientras que si `\(x[n]\)` no es cero para todo `\(n<0\)`, serán diferentes.
+
+---
+
+# Transformada unilateral de un impulso
+
+`\(x_1[n] = \delta[n]\)`. A partir de la definición de la transformada unilateral resulta claro que `\(\mathscr{Z}(z) = 1\)`, identica a la transformada Z bilateral del impulso.
+
+`\(x_2[n] = \delta[n+1] = x_1[n+1]\)`. La transformada unilateral será `\(\mathscr{Z}(z) = 0\)`, mientras que la transformada bilateral sería `\(X_2(z) = z X_1(z) = z\)`.
+
+---
+
+# Transformada Z unilateral
+
+Como la transformada Z unilateral ignora cualquier parte izquierda de la señal, las propiedades de la región de convergencia de la transformada Z unilateral serán las mismas que las de la transformada Z bilateral de una secuencia limitada por la izquierda que se obtendría suponiendo que los valores de la secuencia de partida son cero para `\(n < 0\)`. La región de convergencia de todas las transformadas Z unilaterales será de la forma `\(|z| > r_R\)`, y en el caso de transformadas Z unilaterales racionales, la frontera de la región de convergencia estará definida por el polo más lejano al origen del plano `\(z\)`.
+
+---
+
+# Transformada Z unilateral
+
+En las aplicaciones de tratamiento digital de señales, las ecuaciones en diferencias se emplean generalmente con condiciones de reposo inicial. Sim embargo, en algunas situaciones, pueden aparecer condiciones distintas a las de reposo. En estos casos, las propiedades de de LINEALIDAD y DESPLAZAMIENTO EN EL TIEMPO de la transformada Z unilateral son herramientas muy útiles.
+
+La propiedad de LINEALIDAD es idéntica a la transformada Z bilateral. La propiedad de DESPLAZAMIENTO EN EL TIEMPO es diferente en el caso unilateral ya que el límite inferior en la definición de esta transformada siempre es cero.
+
+Consideremos una secuencia `\(x[n]\)` cuya transformada Z unilateral es `\(\mathscr{X}(z)\)` y sea `\(y[n] = x[n-1]\)`. Por definición:
+
+`$$\mathscr{Y}(z) = \sum_{n=0}^{\infty} x[n-1] z^{-n}$$`
+
 ---
 
 # Navegación
