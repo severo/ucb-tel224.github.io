@@ -280,7 +280,7 @@ La transformada de la convolución: `\(y[n] = x_1[n] * x_2[n]\)`.
 
 Como ambas secuencias son de longitud finita, las dos regiones de convergencia son: `\(|z| > 0\)` y, por tanto esa también es la región de convergencia de `\(Y(z)\)`, podemos concluir por simple inspección de los coeficientes del polinomio que:
 
-`$$y[n} = \dellta[n] + \delta[n-1] -\delta[n-2}-\delta[n-3]$$`
+`$$y[n} = \dellta[n] + \delta[n-1] -\delta[n-2]-\delta[n-3]$$`
 
 ---
 
@@ -289,8 +289,8 @@ Como ambas secuencias son de longitud finita, las dos regiones de convergencia s
 No | Secuencia | Transformada | RDC
 ------------- | -------------
 1 | `\(a x_1[n] + b x_2[n]\)` | `\(a X_1(z) + b X_2(z)\)` | Contiene `\(R_{x_1} R_{x_2}\)`
-2 | `\(x[n - n_0]\)` | `\(z^{-n_0} X(z)\)` | `\(R_x\)`, excepto por la posible \\ adición o eliminación del \\ origen o `\(\infty\)`
-3 | `\(z_{0}^{n} x[n]\)` | `\(X(z/z_0)\)` | `\(|z_0| R_x\)`
+2 | `\(x[n - n_0]\)` | `\(z^{-n_0} X(z)\)` | `\(R_x\)`, excepto por la posible adición o eliminación del origen o `\(\infty\)`
+3 | `\(z_{0}^{n} x[n]\)` | `\(X(z/z_0)\)` | `\(\lvert z_0\rvert R_x\)`
 4 | `\(n x[n]\)` | `\(-z \frac{dX(z)}{dz}\)` | `\(R_x\)`
 5 | `\(x^{*}[n]\)` | `\(X^{*}(z^{*})\)` | `\(R_x\)`
 6 | `\(Re\{x[n]\}\)` | `\(\frac{1}{2}[X(z)+X^{*}(z^{*})]\)` | Contiene `\(R_x\)`
