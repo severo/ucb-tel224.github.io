@@ -266,9 +266,7 @@ Donde la región de convergencia incluye a la intersección de la regiones de co
 
 # Convolución de secuencias de longitud finita
 
-`$$x_1[n] = \delta[n] + 2\delta[n-1] + \delta[n-2]$$`
-
-`$$x_2[n] = \delta[n] - \delta[n-1]$$`
+`$$x_1[n] = \delta[n] + 2\delta[n-1] + \delta[n-2] \quad x_2[n] = \delta[n] - \delta[n-1]$$`
 
 Sus transformadas son:
 
@@ -279,6 +277,16 @@ La transformada de la convolución: `\(y[n] = x_1[n] * x_2[n]\)`.
 `$$Y(z) = X_1(z) X_2(z) = (1+2 z^{-1} + z^{-2})(1 - z^{-1}) = $$`
 
 `$$= 1+z^{-1}-z^{-2}-z^{-3}$$`
+
+Como ambas secuencias son de longitud finita, las dos regiones de convergencia son: `\(|z| > 0\)` y, por tanto esa también es la región de convergencia de `\(Y(z)\)`, podemos concluir por simple inspección de los coeficientes del polinomio que:
+
+`$$y[n} = \dellta[n] + \delta[n-1] -\delta[n-2}-\delta[n-3]$$`
+
+---
+
+# Resumen de algunas propiedades de la transformda Z
+
+TABLA 3.2 PÁG 132
 
 ---
 
