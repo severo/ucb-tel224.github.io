@@ -155,12 +155,77 @@ Utilizando la tabla de transformadas y la linealidad, obtenemos la secuencia en 
 
 ---
 
-#
+# Polos de orden múltiple
+
+Si existen polos de orden múltiple y si `\(M\ge N\)`, se tiene que modificar la representación de `\(X(z)\)`. Por ejemplo si el polo `\(d_i\)` es de orden `\(s\)`
+
+`$$X(z) = \sum_{r=0}^{M-N} B_r z^{-r} + \sum_{k=1,k \neq i}^N \frac{A_k}{1 - d_k z^{-1}} + \sum_{m=1}^s \frac{C_m}{\left(1 - d_i z^{-1}\right)^m}$$`
+
+Los coeficientes `\(A_k\)` y `\(B_r\)` se obtienen como antes. Los coeficientes `\(C_m\)` se obtienen aplicando la ecuación
+
+`$$C_m = \frac{1}{\left(s-m\right)!\left(-d_i\right)^{s-m}}\left\{\frac{d^{s-m}}{dw^{s-m}}\left[\left(1-d_i w\right)^s X\left(w^{-1}\right)\right]\right\}_{w=d_i^{-1}}$$`
 
 ---
 
-# Ejemplo: inversión mediante descomposición en fracciones simples
+# Descripción del método de descomposición en fracciones simples
 
+Para obtener `\(x[n]\)`, observamos primero que la operación de transformada Z es lineal, de modo que se puede obtener la transformada inversa de cada término y sumarlas después todas para formar la señal `\(x[n]\)`.
+
+Los términos `\(B_r z^{−r}\)` corresponden a secuencias impulso desplazadas y modificadas por un factor de escala, es decir, términos de la forma `\(B_r\delta [n − r]\)`. Los términos fraccionarios corresponden a secuencias
+exponenciales. Para decidir si un término como `\(\frac{A_k}{1 − d_k z^{−1}}\)` corresponde a la secuencia `\(\left(d_k\right)^n u[n]\)` o a la secuencia `\(\left(-d_k\right)^n u[-n-1]\)`, debemos utilizar las propiedades de la región de convergencia.
+
+Si `\(X(z)\)` tiene sólo polos simples y la región de convergencia es de la forma `\(r_R \lt |z| \lt r_L\)`, un determinado polo corresponderá a:
+
+* una exponencial limitada por la izquierda, `\(\left(d_k\right)^n u[n]\)`, si `\(|d_k| \le r_R\)`
+* una exponencial limitada por la derecha, `\(\left(-d_k\right)^n u[-n-1]\)`, si `\(|d_k| \ge r_L\)`.
+
+Los polos de orden múltiple producen también contribuciones limitadas por la izquierda y por la derecha de la misma forma.
+
+---
+
+# Desarrollo en serie de potencias
+
+El método de desarrollo en serie de potencias utiliza simplemente la definición de la transformada Z
+
+`$$X\left(z\right) = \sum_{n=-\infty}^{\infty} x[n] z^{-n}$$`
+
+Obtenemos el valor de cualquier muestra de la secuencia `\(x|n]\)` calculando el coeficiente correspondiente de `\(z^{-n}\)` en `\(X(z)\)`.
+
+Este método es útil cuando existen más ceros que polos, y también para secuencias de longitud finita, en las que `\(X(z)\)` puede no tener una expresión simple en forma de polinomios en `\(z^{-1}\)`.
+
+---
+
+# Ejemplo: Secuencia de longitud finita
+
+Tomamos la transformada Z siguiente:
+
+`$$X(z) = z^2 \left(1-\frac{1}{2} z^{-1}\right) \left(1+z^{-1}\right)\left(1-z^{-1}\right)$$`
+
+Esta transformada Z tiene un polo de orden doble en el origen, y tres ceros. Si expandimos los productos, obtenemos
+
+`$$X(z) = z^2 -\frac{1}{2} z-1 +\frac{1}{2} z^{-1}$$`
+
+Aplicando la definición de la transformada Z, obtenemos directamente que:
+
+`$$x[n] = \delta[n+2] - \frac{1}{2} \delta[n+1] - \delta[n] +\frac{1}{2} [n-1]$$`
+---
+
+# Ejemplo: Transformada inversa mediante desarrollo en serie de potencias
+
+Tomamos la transformada Z
+
+`$$X(z) = \log \left(1+az^{-1}\right), \quad |z| \gt |a|$$`
+
+Utilizando el desarrollo en serie de Taylor de `\(log(1+x)\)` con `\(|x| \lt 1\)`, obtenemos
+
+`$$X(z) = \sum_{n=1}^{\infty}\frac{\left(-1\right)^{n+1}a^n z^{-n}}{n}$$`
+
+Directamente obtenemos
+
+`$$x[n] = \left\{ \begin{array}{ll}
+\frac{\left(-1\right)^{n+1}a^n }{n} & n \ge 1 \\
+0 & n \le 0
+\end{array}\right.$$`
 
 ---
 
