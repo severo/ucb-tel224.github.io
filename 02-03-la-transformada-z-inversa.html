@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Curso UCB - TEL 224 - Procesamiento digital de señales - La transformada Z</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<link media="screen, handheld, projection, tv" href="css/estilo.css" rel="stylesheet">
+	<link media="screen, handheld, projection, tv" href="css/colors.min.css" rel="stylesheet">
+</head>
+<body>
+	<textarea id="source">
+
+class: center, middle
+
+# Procesamiento digital de señales
+# 2. La transformada Z
+# 2.3 La transformada Z inversa
+
+---
+
+# La transformada Z inversa
+
+La transformada Z inversa esta definida por la siguiente integral compleja de contorno:
+
+`$$x[n] = \frac{1}{2\pi j} \oint_C X(z) z^{n-1} dz$$`
+
+con `\(C\)` un contorno cerrado dentro de la región de convergencia de la transformada Z.
+
+Sin embargo, es compleja  de calcular, y para sistemas en tiempo discreto lineales e invariantes con el tiempo, existen otros métodos de cálculo más simples, entonces preferibles.
+
+---
+
+# Método de inspección
+
+Consiste en reconocer "por simple inspección" ciertas parejas de transformadas. Por ejemplo, sabemos que
+
+`$$a^nu[n] \overset{\mathscr{Z}}{\longleftrightarrow} \frac{1}{1-az^{-1}}, \quad |z| \gt |a|$$`
+
+Así que si tenemos que obtener la transformada Z inversa de:
+
+`$$X(z) = \frac{1}{1-\frac{1}{2}z^{-1}}, \quad |z| \gt \frac{1}{2}$$`
+
+reconocemos "por inspección" que corresponde a la señal
+
+`$$x[n] = \left(\frac{1}{2}\right)^nu[n]$$`
+
+Para este método se recomienda el uso de tablas de transformadas, y descomponer la transformada Z en una suma de varios términos.
+
+---
+
+# Descomposición en fracciones simples
+
+Si la transformada Z se escribe como una función racional
+
+`$$X(z) = \frac{\sum_{k=0}^Mb_kz^{-k}}{\sum_{k=0}^Na_kz^{-k}}$$`
+
+también la podemos representar bajo la forma:
+
+`$$X(z) = \frac{z^N\sum_{k=0}^Mb_kz^{M-k}}{z^M\sum_{k=0}^Na_kz^{N-k}}$$`
+
+lo que permite ver que existe `\(M\)` ceros y `\(N\)` polos distintos del origen (si `\(a_0\)`, `\(b_0\)`, `\(a_N\)` y `\(b_M\)` son diferentes de cero), además de:
+
+* `\(M-N\)` polos en `\(z=0\)` si `\(M>N\)`, o 
+* `\(N-M\)` ceros en `\(z=0\)` si `\(N>M\)`, o 
+
+---
+
+# Descomposición en fracciones simples
+
+Para descomponer en fracciones simples, es más conveniente escribir la transformada Z como
+
+`$$X(z) = \frac{b_0\prod_{k=1}^M \left(1 - c_k z^{-1}\right)}{a_0\prod_{k=1}^N \left(1 - d_k z^{-1}\right)}$$`
+
+siendo `\(c_k\)` los ceros distintos del origen de `\(X(z)\)` y `\(d_k\)` los polos distintos del origen de `\(X(z)\)`. Si `\(M \lt N\)` y si todos los polos son de primer orden, entonces `\(X(z)\)` se puede expresar
+
+`$$X(z) = \sum_{k=1}^N \frac{A_k}{1 - d_k z^{-1}}$$`
+
+Multiplicando los dos lados de la ecuación por `\(\left(1 - d_k z^{-1}\right)\)` y particularizando para `\(z = d_k\)`, se puede calcular cada coeficiente `\(A_k\)`:
+
+`$$A_k = \left. \left(1 - d_k z^{-1}\right)X(z)\right|_{z=d_k}$$`
+
+---
+
+# Ejemplo - Transformada Z de segundo orden
+
+Buscamos la secuencia `\(x[n]\)` cuya transformada Z es
+
+`$$X(z) = \frac{1}{\left(1-\frac{1}{4}z^{-1}\right)\left(1-\frac{1}{2}z^{-1}\right)}, \quad |z|\gt \frac{1}{2}$$`
+
+La transformada Z no tiene cero y tiene dos polos de primer orden. Se puede escribir
+
+`$$X(z) = \frac{A_1}{\left(1-\frac{1}{4}z^{-1}\right)}+\frac{A_2}{\left(1-\frac{1}{2}z^{-1}\right)}$$`
+
+con
+
+`$$A_1 = \left. \left(1-\frac{1}{4}z^{-1}\right) X(z) \right|_{z=1/4} = \left. \frac{\left(1-\frac{1}{4}z^{-1}\right)}{\left(1-\frac{1}{4}z^{-1}\right)\left(1-\frac{1}{2}z^{-1}\right)} \right|_{z=1/4} = -1 $$`
+`$$A_2 = \left. \left(1-\frac{1}{2}z^{-1}\right) X(z) \right|_{z=1/2} = \left. \frac{\left(1-\frac{1}{2}z^{-1}\right)}{\left(1-\frac{1}{4}z^{-1}\right)\left(1-\frac{1}{2}z^{-1}\right)} \right|_{z=1/2} = 2 $$`
+
+---
+
+# Ejemplo - Transformada Z de segundo orden
+
+La transforma Z se escribe entonces:
+
+`$$X(z) = \frac{-1}{\left(1-\frac{1}{4}z^{-1}\right)}+\frac{2}{\left(1-\frac{1}{2}z^{-1}\right)}, \quad |z|\gt \frac{1}{2}$$`
+
+Utilizando la linealidad y la tabla de transformadas, obtenemos la secuencia
+
+`$$x[n] = 2 \left(\frac{1}{2}\right)^n u[n] - \left(\frac{1}{4}\right)^n u[n]$$`
+
+.pequena[.figura[![Diagrama polo–cero y región de convergencia](imagenes/02-03-figura-3.10.svg)]]
+
+---
+
+# Más ceros que polos
+
+Si `\(M \ge N\)`, la transformada Z se escribe
+
+`$$X(z) = \sum_{r=0}^{M-N} B_r z^{-r} + \sum_{k=1}^N \frac{A_k}{1 - d_k z^{-1}}$$`
+
+Los coeficientes `\(B_r\)` se pueden obtener dividiendo los polinomios del numerador y el denominador, finalizando el proceso de división cuando el resto sea de grado inferior al denominador. Los coeficientes `\(A_k\)` se obtienen como explicado anteriormente.
+
+---
+
+# Ejemplo: inversión mediante descomposición en fracciones simples
+
+Consideramos una secuencia `\(x[n]\)` cuya transformada Z es
+
+`$$X(z) = \frac{1 + 2z^{-1} + z^{-2}}{1-\frac{3}{2}z^{-1} +\frac{1}{2} z^{-2}} = \frac{\left(1+z^{-1}\right)^2}{\left(1-\frac{1}{2}z^{-1}\right)\left(1-z^{-1}\right)}, \quad |z|>1$$`
+
+.pequena[.figura[![Diagrama polo–cero y región de convergencia](imagenes/02-03-figura-3.11.svg)]]
+
+---
+
+# Ejemplo: inversión mediante descomposición en fracciones simples
+
+Como `\(M=N=2\)` y los dos polos son del primer orden, 
+
+`$$X(z) = B_0 + \frac{A_1}{\left(1-\frac{1}{2}z^{-1}\right)} + \frac{A_2}{\left(1-z^{-1}\right)}$$`
+
+Calculamos `\(B_0\)` dividiendo los dos polinomios, el numerador `\(1 + 2z^{-1} + z^{-2}\)` por el denominador `\(1-\frac{3}{2}z^{-1} +\frac{1}{2} z^{-2}\)`. Obtenemos `\(B_0=2\)` y el resto `\(5z^{-1}-1\)`. O sea
+
+`$$X(z) = 2 + \frac{\left(5z^{-1}-1\right)}{\left(1-\frac{1}{2}z^{-1}\right)\left(1-z^{-1}\right)}$$`
+
+Utilizando el mismo método que en el anterior ejemplo, obtenemos `\(A_1=-9\)` y `\(A_2=8\)`
+
+`$$X(z) = 2 - \frac{9}{\left(1-\frac{1}{2}z^{-1}\right)} + \frac{8}{\left(1-z^{-1}\right)}$$`
+
+---
+
+# Ejemplo: inversión mediante descomposición en fracciones simples
+
+Utilizando la tabla de transformadas y la linealidad, obtenemos la secuencia en tiempo discreto
+
+`$$x[n] = 2\delta[n] - 9 \left(\frac{1}{2}\right)^n u[n] +8 u[n]$$`
+
+---
+
+#
+
+---
+
+# Ejemplo: inversión mediante descomposición en fracciones simples
+
+
+---
+
+# Navegación
+
+Seguir con [2.4 Propiedades de la transformada Z](./02-04-propiedades-de-la-transformada-z.html)
+
+Volver al capitulo [La transformada Z](./02-la-transformada-z.html)
+
+	</textarea>
+    <script src="js/remark.min.js"></script>
+    <script src="js/MathJax/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured" type="text/javascript"></script>
+    <script type="text/javascript">
+      var slideshow = remark.create();
+
+      // Setup MathJax
+      MathJax.Hub.Config({
+          tex2jax: {
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+          }
+      });
+      MathJax.Hub.Queue(function() {
+          $(MathJax.Hub.getAllJax()).map(function(index, elem) {
+              return(elem.SourceElement());
+          }).parent().addClass('has-jax');
+      });
+
+      MathJax.Hub.Configured();
+    </script>
+</body>
+</html>
