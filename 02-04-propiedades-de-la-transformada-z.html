@@ -122,6 +122,50 @@ Ejercicio. Demostrar que estas dos transformaciones son equivalentes.
 
 `$$z_0^{n} x[n] \overset{\mathscr{Z}}{\longleftrightarrow} X(z/z_0), \quad RDC = |z_0| Rx$$`
 
+S `\(R_x\)` es el conjunto de valores de `\(z\)` tal que `\(r_R < |z| < r_l\)`, entonces `\(|z_0| R_x\)` es el conjunto de valres de `\(z\)` tal que `\(|z_0| r_R < |z| < |z_0| r_L\)`.
+
+Ejercicio. Demuestre la propiedad de multplicación por una secuencia exponencial.
+
+Como consecuencia de esta propiedad, todas las posiciones de los polos y de los ceros quedan efectadas por un factor de escala de `\(z_0\)`, ya que si `\(X(z)\)` tiene un polo (o un cero) en `\(z = z_1\)`, `\(X(z/z_0)\)` tendrá un polo (o un cero) en `\(z = z_0 z_1\)`. Si `\(z_0\)` es un número real positivo, el factor de escala se puede interpretar como una compresión o expansión del plano `\(z\)`, ya que las posiciones de los polos y los ceros cambian siguiendo líneas radiales del plano `\(z\)`.
+
+---
+
+# Multiplicación por una secuencia exponencial
+
+ Si `\(z_0\)` es un número complejo de módulo unidad, es decir, `\(z_0 = e^{j\omega_0}\)`, el escalado corresponde a una rotación de ángulo `\(\omega_0\)` en el plano `\(z\)`, ya que las localizaciones de los polos y los ceros cambian su posición siguiendo circunferencias centradas en el origen del plano `\(z\)`. Esto también se puede interpretar como una traslación de la transformada de Fourier de tiempo discreto, asociada a la modulacion en el dominio del timpo con la secuencia exponencial `\(e^{j\omega_0 n}\)`. Es decir, si existe la transformada de Fourier, esta propiedad tiene la forma:
+ 
+ `$$e^{j \omega n} x[n] \overset{\mathscr{F}}{\longleftrightarrow} X(e^{j(\omega-\omega_0)})$$` 
+
+---
+
+# Multiplicación por una exponencial
+
+Considerando
+
+`$$u[n] \overset{\mathscr{F}}{\longleftrightarrow} \frac{1}{1-z^{-1}}, \quad |z| > 1$$`
+
+Podemos utilizar la propiedad de multiplicación por una exponencial para determinar la transformada Z de la secuencia:
+
+`$$x[n] = r^{n} cos(\omega_0 n) u[n], \quad r > 0$$`
+
+`$$x[n] = \frac{1}{2}(r e^{j\omega_0})^{n} u[n] + \frac{1}{2} (r e^{-j\omega_0})^{n} u[n]$$`
+
+Utilizando la propiedad de multiplicación por un exponencial, vemos que:
+
+`$$\frac{1}{2}(r e^{j\omega_0})^n u[n] \overset{\mathscr{F}}{\longleftrightarrow} \frac{\frac{1}{2}}{1-r e^{j\omega_0} z^{-1}}, \quad |z| > r,$$`
+
+`$$\frac{1}{2}(r e^{-j\omega_0})^n u[n] \overset{\mathscr{F}}{\longleftrightarrow} \frac{\frac{1}{2}}{1-r e^{-j\omega_0} z^{-1}}, \quad |z| > r,$$`
+
+Usando la propiedad de linealidad se deduce:
+
+`$$X(z) = \frac{\frac{1}{2}}{1-r e^{j\omega_0} z^{-1}} + \frac{\frac{1}{2}}{1-r e^{-j\omega_0} z^{-1}}, \quad |z| > r$$`
+
+`$$= \frac{1-r cos(\omega_0) z^{-1}}{1-2r cos(\omage_0) z^{-1}+r^{2} z^{-2}}, \quad |z| > r$$`
+
+---
+
+# Diferenciación de `\(X(z)\)`
+
 
 
 ---
