@@ -266,7 +266,19 @@ Donde la región de convergencia incluye a la intersección de la regiones de co
 
 # Convolución de secuencias de longitud finita
 
-...
+`$$x_1[n] = \delta[n] + 2\delta[n-1] + \delta[n-2]$$`
+
+`$$x_2[n] = \delta[n] - \delta[n-1]$$`
+
+Sus transformadas son:
+
+`$$X_1(z) = 1+2 z^{-1} + z^{-2} \quad X_2(z) = 1 - z^{-1}$$`
+
+La transformada de la convolución: `\(y[n] = x_1[n] * x_2[n]\)`.
+
+`$$Y(z) = X_1(z) X_2(z) = (1+2 z^{-1} + z^{-2})(1 - z^{-1}) = $$`
+
+`$$= 1+z^{-1}-z^{-2}-z^{-3}$$`
 
 ---
 
