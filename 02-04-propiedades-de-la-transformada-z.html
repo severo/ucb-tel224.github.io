@@ -220,7 +220,7 @@ Y por lo tanto:
 
 `$$x^{*}[-n] \overset{\mathscr{Z}}{\longleftrightarrow} X^{*}(1-z^{*}), \quad RDC = \frac{1}{R_x}$$`
 
-Donde `\(RDC = 1/R_x\)`, singnifica que la región de convergencia está invertida: si `\(R_x\)` representa al conjunto de valores tales que `\(r_R < |z| < r_L\)`, la región de convergencia de `\(X^{*}(1/z^{*})\)` es el conjunto de valores tales que `\(1/r_L < |z| < 1/r_R\)`. Por tanto, si `\(z_0\)` está en la región de convergencia de la transtormada Z de `\(x[n]\)`, entonces `\(1/z_0\)` estará en la región de convergencia de la transformada Z de `\(x^{*}[-n]\)`.
+Donde `\(RDC = 1/R_x\)`, singnifica que la región de convergencia está invertida: si `\(R_x\)` representa al conjunto de valores tales que `\(r_R \lt |z| \lt r_L\)`, la región de convergencia de `\(X^{*}(1/z^{*})\)` es el conjunto de valores tales que `\(1/r_L \lt |z| \lt 1/r_R\)`. Por tanto, si `\(z_0\)` está en la región de convergencia de la transtormada Z de `\(x[n]\)`, entonces `\(1/z_0\)` estará en la región de convergencia de la transformada Z de `\(x^{*}[-n]\)`.
 
 Si la secuencia `\(x[n]\)` es real o no conjugada la secuencia compleja, el resultado es:
 
@@ -242,9 +242,9 @@ Considere la secuencia:
 
 `$$x[n] = a^{-n} u[-n]$$`
 
-Que es la versión invertida en el tiempo de `\(a^{n}\ u[n])`. Utilizando la inversión temporal se ebtiene:
+Que es la versión invertida en el tiempo de `\(a^{n}\ u[n]\)`. Utilizando la inversión temporal se obtiene:
 
-`$$X(z) = \frac{1}{1-a z} = \frac{-a^{-1}}{1-a^{-1} z^{-1}}, |z| z |a^{-1}|$$, `
+`$$X(z) = \frac{1}{1-a z} = \frac{-a^{-1}}{1-a^{-1} z^{-1}}, |z| \lt |a^{-1}|$$`
 
 Nótese que la transformada Z de `\(a^{n} u[n]\)` tiene un polo en `\(z = a\)`, mientras que `\(X(z)\)` tiene un polo en `\(1/a\)`.
 
@@ -252,7 +252,7 @@ Nótese que la transformada Z de `\(a^{n} u[n]\)` tiene un polo en `\(z = a\)`, 
 
 # Convolución de secuencias
 
-`$$x_1[n] * x_2[n] = \overset{\mathscr{Z}}{\longleftrightarrow} X_1(z) X_2(z), \quad RDC depende de R_{x_1} R_{x_2}$$`
+`$$x_1[n] * x_2[n] = \overset{\mathscr{Z}}{\longleftrightarrow} X_1(z) X_2(z), \quad \text{RDC depende de } R_{x_1} R_{x_2}$$`
 
 Ejercicio. Demuestre esta propiedad.
 
@@ -280,7 +280,7 @@ La transformada de la convolución: `\(y[n] = x_1[n] * x_2[n]\)`.
 
 Como ambas secuencias son de longitud finita, las dos regiones de convergencia son: `\(|z| > 0\)` y, por tanto esa también es la región de convergencia de `\(Y(z)\)`, podemos concluir por simple inspección de los coeficientes del polinomio que:
 
-`$$y[n} = \dellta[n] + \delta[n-1] -\delta[n-2]-\delta[n-3]$$`
+`$$y[n] = \delta[n] + \delta[n-1] -\delta[n-2]-\delta[n-3]$$`
 
 ---
 
