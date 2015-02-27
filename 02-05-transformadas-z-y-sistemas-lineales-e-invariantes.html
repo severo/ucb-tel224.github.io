@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Curso UCB - TEL 224 - Procesamiento digital de señales - La transformada Z</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<link media="screen, handheld, projection, tv" href="css/estilo.css" rel="stylesheet">
+	<link media="screen, handheld, projection, tv" href="css/colors.min.css" rel="stylesheet">
+</head>
+<body>
+	<textarea id="source">
+
+class: center, middle
+
+# Procesamiento digital de señales
+# 2. La transformada Z
+# 2.5 Transformadas Z y sistemas lineales e invariantes
+
+---
+
+# Transformadas Z y sistemas lineales e invariantes
+
+Recordamos que un sistema lineal e invariante se puede representar como una convolución:
+
+`$$y[n] = x[n] * h[n]$$`
+
+Utilizando la propiedad de convolución de la transformada Z, obtenemos
+
+`$$Y(z) = H(z) X(z)$$`
+
+La función `\(H(z)\)` se llama *función de transferencia*.
+---
+
+# Ejemplo - Convolución de secuencias de longitud infinita
+
+Sean `\(h[n]=a^n u[n]\)` y `\(x[n]=A u[n]\)`. Calcularemos `\(y[n]\)`, por convolución de `\(h[n]\)` con `\(x[n]\)`, mediante el cálculo intermediario de la transformada Z:
+
+`$$H(z) = \frac{1}{1-az^{-1}}, \quad |z| \gt |a|$$`
+
+`$$X(z) = \frac{A}{1-z^{-1}}, \quad |z| \gt |1|$$`
+
+Permite calcular, suponiendo que `\(|z| \gt |1|\)`,
+
+`$$Y(z) = \frac{A}{\left(1-z^{-1}\right)\left(1-az^{-1}\right)} = \frac{z^2}{(z-1)(z-a)}, \quad |z| \gt |1|$$`
+
+---
+
+# Ejemplo - Convolución de secuencias de longitud infinita
+
+Para obtener la salida del sistema `\(y[n]\)`, falta aplicar la transformada Z inversa. Utilizaremos el método de descomposición en fracciones simples.
+
+`$$Y(z) = \frac{A_1}{\left(1-z^{-1}\right)} + \frac{A_2}{\left(1-az^{-1}\right)}, \quad |z| \gt |1|$$`
+
+`$$A_1 = \left. Y(z) \left(1-z^{-1}\right) \right|_{z=1} = \left. \frac{A \left(1-z^{-1}\right)}{\left(1-z^{-1}\right)\left(1-az^{-1}\right)} \right|_{z=1} = \frac{A}{1-a}$$`
+
+`$$A_2 = \left. Y(z) \left(1-az^{-1}\right) \right|_{z=a} = \left. \frac{A \left(1-az^{-1}\right)}{\left(1-z^{-1}\right)\left(1-az^{-1}\right)} \right|_{z=a} = \frac{A}{1-a^{-1}} $$`
+
+---
+
+# Ejemplo - Convolución de secuencias de longitud infinita
+
+Entonces obtenemos
+
+`$$Y(z) = \frac{A}{1-a}\left(\frac{1}{\left(1-z^{-1}\right)} - \frac{a}{\left(1-az^{-1}\right)}\right), \quad |z| \gt |1|$$`
+
+y la señal de salida es
+
+`$$y[n] = \frac{A}{1-a}\left(1-a^{n+1}\right) u[n]$$`
+
+---
+
+# Ecuaciones en diferencias
+
+La transformada Z es útil para el análisis de SLIT definidos por ecuaciones en diferencias.
+
+`$$y[n] = -\sum_{k=1}^{N} \left(\frac{a_k}{a_0}\right) y[n-k] + \sum_{k=0}^{M} \left(\frac{b_k}{a_0}\right) x[n-k]$$`
+
+Aplicando las propiedades de linealidad y desplazamiento en el tiempo, obtenemos
+
+`$$Y(z) = -\sum_{k=1}^{N} \left(\frac{a_k}{a_0}\right) z^{-k} Y(z) + \sum_{k=0}^{M} \left(\frac{b_k}{a_0}\right) z^{-k} X(z)$$`
+
+que podemos escribir
+
+`$$Y(z) = \frac{\sum_{k=0}^{M} b_k z^{-k}}{\sum_{k=0}^{N} a_k z^{-k}} X(z)$$`
+
+---
+
+# Ecuaciones en diferencias
+
+En este caso la función de transferencia es
+
+`$$H(z) = \frac{\sum_{k=0}^{M} b_k z^{-k}}{\sum_{k=0}^{N} a_k z^{-k}}$$`
+
+A partir de la función de transferencia, se puede:
+
+* calcular la respuesta impulsional: como `\(H(z)\)` es una función racional, la podemos descomponer en fracciones simples
+* encontrar propiedades del sistema: según la posición de los polos y la región de convergencia, podemos deducir que
+ * el sistema es causal o no: la ROC esta en el exterior del mayor polo
+ * el sistema es estable o no: la ROC contiene el circulo unidad
+
+
+---
+
+# Navegación
+
+Seguir con [2.6 La transformada Z unilateral](./02-06-la-transformada-z-unilateral.html)
+
+Volver al capitulo [La transformada Z](./02-la-transformada-z.html)
+
+	</textarea>
+    <script src="js/remark.min.js"></script>
+    <script src="js/MathJax/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured" type="text/javascript"></script>
+    <script type="text/javascript">
+      var slideshow = remark.create();
+
+      // Setup MathJax
+      MathJax.Hub.Config({
+          tex2jax: {
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+          }
+      });
+      MathJax.Hub.Queue(function() {
+          $(MathJax.Hub.getAllJax()).map(function(index, elem) {
+              return(elem.SourceElement());
+          }).parent().addClass('has-jax');
+      });
+
+      MathJax.Hub.Configured();
+    </script>
+</body>
+</html>
