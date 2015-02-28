@@ -53,6 +53,87 @@ Consideremos una secuencia `\(x[n]\)` cuya transformada Z unilateral es `\(\math
 
 ---
 
+# Transformada Z unilateral
+
+Realizando el cambio de variable `\(m = n - 1\)`, `\(\mathscr{Y}(z)\)` se puede expresar como:
+
+`$$\mathscr{Y}(z) = \sum_{n=-1}^{\infty} x[m] z^{m+1} = x[-1] + z^{-1} \dum_{m=0}^{\infty} x[m] z^{-m}$$`
+
+`$$\mathscr{Y}(z) = x[-1] + z^{-1} \mathscr{Y}(z)$$`
+
+Para determinar la transformada Z unilateral de una secuencia retardada, hay que proporcionar los valores de dicha secuencia que fueron ignorados al calcular `\(\mathscr{Y}(z)\)`.
+
+---
+
+# Transformada Z unilateral
+
+Un análisis similar permite demostrar que si `\(y[n] = x[n-k]\)`, siendo `\(k > 0\)`, entonces:
+
+`$$\mathscr{Y}(z) = x[-k] + x[-k+1] z^{-1} + ... + x[-1] z^{-k+1} + z^{-k} \mathscr{Y}(z)$$`
+
+`$$= \sum_{m=1}^{k} x[m-k-1] z^{-m+1} + z^{-k} \mathscr{Y}(z)$$`
+
+Se utiliza la transformada Z unilateral para obtener la salida de una ecuación de diferencias con condiciones distintas a las del reposo inicial.
+
+---
+
+# Ejemplo del efecto de condiciones iniciales distintas de cero
+
+Consideremos un sistema descrito por la ecuación en diferencias lineal con coeficientes constantes:
+
+`$$y[n] - a y[n-1] = x[n]$$`
+
+Supongamos que `\(x[n] = 0 para `\(n < 0\)`\)` y que la condición inicial en `\(n = -1\)` se denomina `\(y[-1]\)`. Aplicando la transformada unilateral Z tenemos:
+
+`$$\mathscr{Y}(z) - a y[-1] - a z^{-1} \mathscr{Y}(z) = \mathscr{X}(z))$$`
+
+`$$\mathscr{Y}(z) = \frac{a y[-1]}{1-a z^{-1}} + \frac{1}{1-a z^{-1}} \mathscr{X}(z)$$`
+
+Observe que si `\(y[-1] = 0\)` el primer término desaparece y el resultado es `\(\mathscr{Y}(z) = H(z) \mathscr{X}(z)\)`, siendo:
+
+`$$H(z) = \frac{1}{1-a z^{-1}}, \quad |z| > |a|$$`
+
+Las condiciones de reposo inicial son necesarias para que la ecuación en diferencias represente a un SLIT.
+
+---
+
+# Ejemplo del efecto de condiciones iniciales distintas de cero
+
+Nótese que sí `\(x[n] = 0\)` para todo `\(n\)`, la salida será igual a:
+
+`$$y[n] = y[-1] a^{n+1}, \quad n \ge -1$$`
+
+Esto demuestra que si `\(y[-1] \neq 0\)`, el sistema no se comporta linealmente, ya qye la propiedad de cambio de escala de los sistemas lineales `\(\)` obliga a que cuando la entrada es cero papra todo `\(n\)`, la salida sea cero para todo `\(n\)`.
+
+---
+
+# Ejemplo del efecto de condiciones iniciales distintas de cero
+
+Continuando con el ejemplo, supongamos que `\(x[n] = A u[n]\)`. Podemos determinar la ecuación `\(y[n]\)` para `\(n \ge -1\)` si tenemos en cuenta que la transformada Z unilateral de `\(x[n] = A u[n]\)` es:
+
+`$$\mathscr{X}(z) = \frac{A}{1 - z^{-1}}, \quad |z| > 1, \text{así:}$$`
+
+`$$\mathscr{Y}(z) = \frac{a y[-1]}{1-a z^{-1}} + \frac{A}{(1-a z^{-1})(1-z^{-1})} \mathscr{X}(z)$$`
+
+`$$\mathscr{Y}(z) = \frac{a y[-1]}{1-a z^{-1}} + \frac{A/(1-a)}{1-z^{-1}} + \frac{-a A/(1-a)}{1-a z^{-1}} \mathscr{X}(z)$$`
+
+---
+
+# Ejemplo del efecto de condiciones iniciales distintas de cero
+
+De donde se deduce que la solución completa es:
+
+`$$y[n] = \left\{ \begin{array}{l l}
+y[-1], & n = -1 \\
+y[-1]a^{n+1}+\frac{A}{1-a}(1-a^{n+1}), & n \ge 0
+\end{array} \right.$$`
+
+Esta solución indica que la respuesta del sistema está formada por dos partes. La respuesta cero al impulso (RCI) `\(y[-1]a^{n+1}\)` es la respuesta cuuando la entrada es cero (en caso cuando A = 0). La respuesta a condiciones iniciales cero (RCIC) `\(\frac{A}{1-a}(1-a^{n+1})\)` es la parte directamente proporcional a la entrada (requirido por la linealidad).. Esta parte se conserva cuando `\(y[-1] = 0\)`.
+
+Se puede demostrar que esta descomposición en componentes RCI y RCIC se conserva para cualquier ecuación en diferencias.
+
+---
+
 # Navegación
 
 Seguir con [2.7 Resumen](./02-07-resumen.html)
