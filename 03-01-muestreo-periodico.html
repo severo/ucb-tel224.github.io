@@ -13,27 +13,30 @@ class: center, middle
 
 # Procesamiento digital de señales
 # 3. Muestreo de señales en tiempo continuo
-# 3.0 Introducción
+# 3.1 Muestreo periódico
 
 ---
 
-# Introducción
+# Definición del muestreo periódico
 
-Generalmente las señales en discretas con consecuencia del muestro de señales en tiempo continuo.
+A partir de una señal continua `\(x_c(t)\)`, el muestreo periódico permite obtener la señal de muestras en tiempo discreto `\(x[n]\)` mediante la relación:
 
-Estudiaremos el fenómeno de solapamiento.
+`$$x[n] = x_c(nT), \quad -\infty \lt n \lt \infty$$`
 
-Estudiaremos cómo procesar:
-* Señales continuas mediante un proceso de muestreo.
-* Un tratamiento de las señales muestreadas en tiempo discreto.
-* Reconstrucción.
+Se define:
 
-Presentaremos también el tratamiento de señales multitasa, la conversión A/D y el uso de sobremuestreo en la conversión A/D.
+* `\(T\)` el periodo de muestreo, en segundos
+* `\(f_s = \frac{1}{T}\)` la frecuencia de muestreo, en Hertz, o muestras por segundo
+* `\(\Omega_s = \frac{2\pi}{T}\)` la pulsación de muestreo, en rad/s
+
+Se representa la operación de muestro por el diagrama siguiente:
+
+.mediana[.figura[![Diagrama de bloques de un conversor ideal de tiempo continuo a tiempo discreto (C/D)](imagenes/03-01-figura-4.1.svg)]]
 
 ---
 # Navegación
 
-Seguir con [3.1 Muestreo periódico](./03-01-muestreo-periodico.html)
+Seguir con [3.2 Representación del muestreo en el dominio de la frecuencia](./03-02-representacion-del-muestreo-en-el-dominio-de-la-frecuencia.html)
 
 Volver al capitulo [Muestreo de señales en tiempo continuo](./03-muestreo-de-senales-en-tiempo-continuo.html)
 
