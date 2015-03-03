@@ -69,6 +69,24 @@ Se deduce que si `\(H_r(j\Omega)\)` es un filtro pasa bajo ideal de ganancia `\(
 
 ---
 
+# Representación del muestreo en el dominio de la frecuencia
+
+Si `\(\Omega_s \leq 2\Omega_N\)` no se cumple, las copias de `\(X_c(j\Omega)\)` se solapan, de modo que cuando se sumen todas, ya no será posible recuperar `\(X_c(j\Omega)\)` mediante un filtrado pasa bajo. En este caso, la salida reconstruida `\(x_r(t)\)` es una versión distorsionada de la señal original en tiempo continuo. Esta distorsión se denomina *distorsión de solapamiento*, o simplemente *solapamiento*.
+
+La siguiente figura ilustra el solapamiento en el dominio de la frecuencia para el caso simple de una señal coseno de la forma: `\(x_c(t) = cos(\Omega_0 t)\)`, cuya transformada de Fourier es:
+
+`$$X_c(j\Omega) = \pi \delta(\Omega - \Omega_0) + \pi \delta(\Omega + \Omega_0)$$`
+
+SUBIR FIGURA 4.5
+
+---
+
+# Representación del muestreo en el dominio de la frecuencia
+
+Nótese que el impulso en `\(-\Omega_0\)` se representa con línea discontinua...
+
+---
+
 # Navegación
 
 Seguir con [3.3 Reconstrucción de señales de banda limitada a partir de sus muestras](./03-03-reconstruccion-de-senales-de-banda-limitada-a-partir-de-sus-muestras.html)
