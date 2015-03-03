@@ -29,9 +29,9 @@ La transforma Z unilateral se diferencia de la bilateral en que el límite infer
 
 # Transformada unilateral de un impulso
 
-`\(x_1[n] = \delta[n]\)`. A partir de la definición de la transformada unilateral resulta claro que `\(\mathscr{Z}(z) = 1\)`, identica a la transformada Z bilateral del impulso.
+`\(x_1[n] = \delta[n]\)`. A partir de la definición de la transformada unilateral resulta claro que `\(\mathscr{X}_1(z) = 1\)`, identica a la transformada Z bilateral del impulso.
 
-`\(x_2[n] = \delta[n+1] = x_1[n+1]\)`. La transformada unilateral será `\(\mathscr{Z}(z) = 0\)`, mientras que la transformada bilateral sería `\(X_2(z) = z X_1(z) = z\)`.
+`\(x_2[n] = \delta[n+1] = x_1[n+1]\)`. La transformada unilateral será `\(\mathscr{X}_2(z) = 0\)`, mientras que la transformada bilateral sería `\(X_2(z) = z X_1(z) = z\)`.
 
 ---
 
@@ -43,7 +43,7 @@ Como la transformada Z unilateral ignora cualquier parte izquierda de la señal,
 
 # Transformada Z unilateral
 
-En las aplicaciones de tratamiento digital de señales, las ecuaciones en diferencias se emplean generalmente con condiciones de reposo inicial. Sim embargo, en algunas situaciones, pueden aparecer condiciones distintas a las de reposo. En estos casos, las propiedades de de LINEALIDAD y DESPLAZAMIENTO EN EL TIEMPO de la transformada Z unilateral son herramientas muy útiles.
+En las aplicaciones de tratamiento digital de señales, las ecuaciones en diferencias se emplean generalmente con condiciones de reposo inicial. Sin embargo, en algunas situaciones, pueden aparecer condiciones distintas a las de reposo. En estos casos, las propiedades de de LINEALIDAD y DESPLAZAMIENTO EN EL TIEMPO de la transformada Z unilateral son herramientas muy útiles.
 
 La propiedad de LINEALIDAD es idéntica a la transformada Z bilateral. La propiedad de DESPLAZAMIENTO EN EL TIEMPO es diferente en el caso unilateral ya que el límite inferior en la definición de esta transformada siempre es cero.
 
@@ -57,7 +57,7 @@ Consideremos una secuencia `\(x[n]\)` cuya transformada Z unilateral es `\(\math
 
 Realizando el cambio de variable `\(m = n - 1\)`, `\(\mathscr{Y}(z)\)` se puede expresar como:
 
-`$$\mathscr{Y}(z) = \sum_{n=-1}^{\infty} x[m] z^{m+1} = x[-1] + z^{-1} \dum_{m=0}^{\infty} x[m] z^{-m}$$`
+`$$\mathscr{Y}(z) = \sum_{n=-1}^{\infty} x[m] z^{m+1} = x[-1] + z^{-1} \sum_{m=0}^{\infty} x[m] z^{-m}$$`
 
 `$$\mathscr{Y}(z) = x[-1] + z^{-1} \mathscr{Y}(z)$$`
 
@@ -83,9 +83,9 @@ Consideremos un sistema descrito por la ecuación en diferencias lineal con coef
 
 `$$y[n] - a y[n-1] = x[n]$$`
 
-Supongamos que `\(x[n] = 0 para `\(n < 0\)`\)` y que la condición inicial en `\(n = -1\)` se denomina `\(y[-1]\)`. Aplicando la transformada unilateral Z tenemos:
+Supongamos que `\(x[n] = 0\)` para `\(n < 0\)` y que la condición inicial en `\(n = -1\)` se denomina `\(y[-1]\)`. Aplicando la transformada unilateral Z tenemos:
 
-`$$\mathscr{Y}(z) - a y[-1] - a z^{-1} \mathscr{Y}(z) = \mathscr{X}(z))$$`
+`$$\mathscr{Y}(z) - a y[-1] - a z^{-1} \mathscr{Y}(z) = \mathscr{X}(z)$$`
 
 `$$\mathscr{Y}(z) = \frac{a y[-1]}{1-a z^{-1}} + \frac{1}{1-a z^{-1}} \mathscr{X}(z)$$`
 
@@ -103,7 +103,7 @@ Nótese que sí `\(x[n] = 0\)` para todo `\(n\)`, la salida será igual a:
 
 `$$y[n] = y[-1] a^{n+1}, \quad n \ge -1$$`
 
-Esto demuestra que si `\(y[-1] \neq 0\)`, el sistema no se comporta linealmente, ya qye la propiedad de cambio de escala de los sistemas lineales `\(\)` obliga a que cuando la entrada es cero papra todo `\(n\)`, la salida sea cero para todo `\(n\)`.
+Esto demuestra que si `\(y[-1] \neq 0\)`, el sistema no se comporta linealmente, ya que la propiedad de cambio de escala de los sistemas lineales `\(T\{a x[n]\} = a T\{x[n]\} = a y[n]\)` obliga a que cuando la entrada es cero para todo `\(n\)`, la salida sea cero para todo `\(n\)`.
 
 ---
 
@@ -113,9 +113,9 @@ Continuando con el ejemplo, supongamos que `\(x[n] = A u[n]\)`. Podemos determin
 
 `$$\mathscr{X}(z) = \frac{A}{1 - z^{-1}}, \quad |z| > 1, \text{así:}$$`
 
-`$$\mathscr{Y}(z) = \frac{a y[-1]}{1-a z^{-1}} + \frac{A}{(1-a z^{-1})(1-z^{-1})} \mathscr{X}(z)$$`
+`$$\mathscr{Y}(z) = \frac{a y[-1]}{1-a z^{-1}} + \frac{A}{(1-a z^{-1})(1-z^{-1})}$$`
 
-`$$\mathscr{Y}(z) = \frac{a y[-1]}{1-a z^{-1}} + \frac{A/(1-a)}{1-z^{-1}} + \frac{-a A/(1-a)}{1-a z^{-1}} \mathscr{X}(z)$$`
+`$$\mathscr{Y}(z) = \frac{a y[-1]}{1-a z^{-1}} + \frac{A/(1-a)}{1-z^{-1}} + \frac{-a A/(1-a)}{1-a z^{-1}}$$`
 
 ---
 
@@ -128,7 +128,7 @@ y[-1], & n = -1 \\
 y[-1]a^{n+1}+\frac{A}{1-a}(1-a^{n+1}), & n \ge 0
 \end{array} \right.$$`
 
-Esta solución indica que la respuesta del sistema está formada por dos partes. La respuesta cero al impulso (RCI) `\(y[-1]a^{n+1}\)` es la respuesta cuuando la entrada es cero (en caso cuando A = 0). La respuesta a condiciones iniciales cero (RCIC) `\(\frac{A}{1-a}(1-a^{n+1})\)` es la parte directamente proporcional a la entrada (requirido por la linealidad).. Esta parte se conserva cuando `\(y[-1] = 0\)`.
+Esta solución indica que la respuesta del sistema está formada por dos partes. La respuesta cero al impulso (RCI) `\(y[-1]a^{n+1}\)` es la respuesta cuando la entrada es cero (en caso cuando `\(A = 0\)`). La respuesta a condiciones iniciales cero (RCIC) `\(\frac{A}{1-a}(1-a^{n+1})\)` es la parte directamente proporcional a la entrada (requirido por la linealidad). Esta parte se conserva cuando `\(y[-1] = 0\)`.
 
 Se puede demostrar que esta descomposición en componentes RCI y RCIC se conserva para cualquier ecuación en diferencias.
 
