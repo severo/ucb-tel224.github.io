@@ -39,7 +39,7 @@ Así que si tenemos que obtener la transformada Z inversa de:
 
 `$$X(z) = \frac{1}{1-\frac{1}{2}z^{-1}}, \quad |z| \gt \frac{1}{2}$$`
 
-reconocemos "por inspección" que corresponde a la señal
+reconocemos "por inspección" que corresponde a la señal:
 
 `$$x[n] = \left(\frac{1}{2}\right)^nu[n]$$`
 
@@ -60,7 +60,7 @@ también la podemos representar bajo la forma:
 lo que permite ver que existe `\(M\)` ceros y `\(N\)` polos distintos del origen (si `\(a_0\)`, `\(b_0\)`, `\(a_N\)` y `\(b_M\)` son diferentes de cero), además de:
 
 * `\(M-N\)` polos en `\(z=0\)` si `\(M>N\)`, o 
-* `\(N-M\)` ceros en `\(z=0\)` si `\(N>M\)`, o 
+* `\(N-M\)` ceros en `\(z=0\)` si `\(N>M\)`.
 
 ---
 
@@ -117,13 +117,13 @@ Si `\(M \ge N\)`, la transformada Z se escribe
 
 `$$X(z) = \sum_{r=0}^{M-N} B_r z^{-r} + \sum_{k=1}^N \frac{A_k}{1 - d_k z^{-1}}$$`
 
-Los coeficientes `\(B_r\)` se pueden obtener dividiendo los polinomios del numerador y el denominador, finalizando el proceso de división cuando el resto sea de grado inferior al denominador. Los coeficientes `\(A_k\)` se obtienen como explicado anteriormente.
+Los coeficientes `\(B_r\)` se pueden obtener dividiendo los polinomios del numerador y el denominador, finalizando el proceso de división cuando el resto sea de grado inferior al denominador. Los coeficientes `\(A_k\)` se obtienen como se ha explicado anteriormente.
 
 ---
 
 # Ejemplo: inversión mediante descomposición en fracciones simples
 
-Consideramos una secuencia `\(x[n]\)` cuya transformada Z es
+Consideramos una secuencia `\(x[n]\)` cuya transformada Z es:
 
 `$$X(z) = \frac{1 + 2z^{-1} + z^{-2}}{1-\frac{3}{2}z^{-1} +\frac{1}{2} z^{-2}} = \frac{\left(1+z^{-1}\right)^2}{\left(1-\frac{1}{2}z^{-1}\right)\left(1-z^{-1}\right)}, \quad |z|>1$$`
 
@@ -137,11 +137,11 @@ Como `\(M=N=2\)` y los dos polos son del primer orden,
 
 `$$X(z) = B_0 + \frac{A_1}{\left(1-\frac{1}{2}z^{-1}\right)} + \frac{A_2}{\left(1-z^{-1}\right)}$$`
 
-Calculamos `\(B_0\)` dividiendo los dos polinomios, el numerador `\(1 + 2z^{-1} + z^{-2}\)` por el denominador `\(1-\frac{3}{2}z^{-1} +\frac{1}{2} z^{-2}\)`. Obtenemos `\(B_0=2\)` y el resto `\(5z^{-1}-1\)`. O sea
+Calculamos `\(B_0\)` dividiendo los dos polinomios, el numerador `\(1 + 2z^{-1} + z^{-2}\)` por el denominador `\(1-\frac{3}{2}z^{-1} +\frac{1}{2} z^{-2}\)`. Obtenemos `\(B_0=2\)` y el resto `\(5z^{-1}-1\)`. O sea:
 
 `$$X(z) = 2 + \frac{\left(5z^{-1}-1\right)}{\left(1-\frac{1}{2}z^{-1}\right)\left(1-z^{-1}\right)}$$`
 
-Utilizando el mismo método que en el anterior ejemplo, obtenemos `\(A_1=-9\)` y `\(A_2=8\)`
+Utilizando el mismo método del anterior ejemplo, `\(A_1=-9\)` y `\(A_2=8\)`
 
 `$$X(z) = 2 - \frac{9}{\left(1-\frac{1}{2}z^{-1}\right)} + \frac{8}{\left(1-z^{-1}\right)}$$`
 
@@ -169,10 +169,15 @@ Los coeficientes `\(A_k\)` y `\(B_r\)` se obtienen como antes. Los coeficientes 
 
 # Descripción del método de descomposición en fracciones simples
 
-Para obtener `\(x[n]\)`, observamos primero que la operación de transformada Z es lineal, de modo que se puede obtener la transformada inversa de cada término y sumarlas después todas para formar la señal `\(x[n]\)`.
+Para obtener `\(x[n]\)`, observamos primero que la operación de transformada Z es lineal, de modo que se puede obtener la transformada inversa de cada término y sumarlas después para formar la señal `\(x[n]\)`.
 
-Los términos `\(B_r z^{−r}\)` corresponden a secuencias impulso desplazadas y modificadas por un factor de escala, es decir, términos de la forma `\(B_r\delta [n − r]\)`. Los términos fraccionarios corresponden a secuencias
-exponenciales. Para decidir si un término como `\(\frac{A_k}{1 − d_k z^{−1}}\)` corresponde a la secuencia `\(\left(d_k\right)^n u[n]\)` o a la secuencia `\(\left(-d_k\right)^n u[-n-1]\)`, debemos utilizar las propiedades de la región de convergencia.
+Los términos `\(B_r z^{−r}\)` corresponden a secuencias impulso desplazadas y modificadas por un factor de escala, es decir, términos de la forma `\(B_r\delta [n − r]\)`.
+
+Los términos fraccionarios corresponden a secuencias exponenciales. Para decidir si un término como `\(\frac{A_k}{1 − d_k z^{−1}}\)` corresponde a la secuencia `\(\left(d_k\right)^n u[n]\)` o a la secuencia `\(\left(-d_k\right)^n u[-n-1]\)`, debemos utilizar las propiedades de la región de convergencia.
+
+---
+
+# Descripción del método de descomposición en fracciones simples
 
 Si `\(X(z)\)` tiene sólo polos simples y la región de convergencia es de la forma `\(r_R \lt |z| \lt r_L\)`, un determinado polo corresponderá a:
 
@@ -207,7 +212,7 @@ Esta transformada Z tiene un polo de orden doble en el origen, y tres ceros. Si 
 
 Aplicando la definición de la transformada Z, obtenemos directamente que:
 
-`$$x[n] = \delta[n+2] - \frac{1}{2} \delta[n+1] - \delta[n] +\frac{1}{2} [n-1]$$`
+`$$x[n] = \delta[n+2] - \frac{1}{2} \delta[n+1] - \delta[n] +\frac{1}{2} \delta[n-1]$$`
 ---
 
 # Ejemplo: Transformada inversa mediante desarrollo en serie de potencias
