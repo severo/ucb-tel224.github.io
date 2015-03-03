@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Curso UCB - TEL 224 - Procesamiento digital de señales - La transformada Z</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<link media="screen, handheld, projection, tv" href="css/estilo.css" rel="stylesheet">
+	<link media="screen, handheld, projection, tv" href="css/colors.min.css" rel="stylesheet">
+</head>
+<body>
+	<textarea id="source">
+
+class: center, middle
+
+# Procesamiento digital de señales
+# 3. Muestreo de señales en tiempo continuo
+# 3.2 Representación del muestreo en el dominio de la frecuencia
+
+---
+
+# Representación del muestreo en el dominio de la frecuencia
+
+Para obtener la relación entra la entrada y la salida de un conversor C/D ideal en el dominio de la frecuencia, consideremos la transformada de Fourier de `\(x_s(t)\)` que es el producto de `\(x_c(t)\)` y `\(s(t)\)`. Por tanto la transformada de Fourier de `\(x_s(t)\)` será la convolución de las transformadas de Fourier de `\(X_c(j\Omega)\)` y `\(S(j\Omega)\)` multiplicada por el factor `\(\frac{1}{2\pi}\)`.
+
+La transformada de Fourier de un tren de impulsos es otro tren de impulsos:
+
+`$$X(j\Omega) = \frac{2\pi}{T} \sum_{k=-\infty}^{\infty} \delta(\Omega - k\Omega_s)$$`
+
+Siendo `\(\Omega_s = 2\pi/T\)` la frecuencia de muestreo en radianes. Así:
+
+`$$X_s(j\omega) = \frac{1}{2\pi} X_c(j\Omega) * S(j\Omega)$$`
+
+`$$X_s(j\Omega) = \frac{1}{T} \sum_{k=-\infty}^{\infty} X_c(j(\Omega-k\Omega_s))$$`
+
+---
+
+# Representación del muestreo en el dominio de la frecuencia
+
+Que se traduce en que la transformada de Fourier de `\(x_s(t)\)` consiste en copias repetidas periódicamente de la transformada de Fourier de `\(x_c(t)\)`. Las copias de `\(X_c(j\Omega)\)` están desplazadas múltiplos enteros de la frecuencia de muestreo. Para que el muestreo funcione transformada de Forurier de la señal a muestrear debe tener banda limitada (`\(X_c(j\Omega)=0\)`, para `\(|\Omega| \ge \Omega_N\)`). Para que las replicas no se superpongan debe suceder que:
+
+`$$\Omega_s - \Omega_N \ge \Omega_N \quad \Omega_s \ge 2 \Omega_N$$`
+
+SUBIR FIGURA 4.3
+
+---
+
+# Representación del muestreo en el dominio de la frecuencia
+
+Como se pudo observar en la figura anterior, las réplicas de `\(X_c(j\Omega)\)` no se solaparán, y por lo tanto, quedará una réplica exacta de `\(X_c(j\Omega)\)` en cada múltiplo entero de `\(\\Omega_s\)` (excepto por un factor de escala de `\(1/T\)`).
+
+`\(x_c(t)\)` se podrá recuperar a partir de `\(x_s(t)\)` con un filtro pasa bajo ideal.
+
+SUBIR FIGURA 4.4
+
+---
+
+# Representación del muestreo en el dominio de la frecuencia
+
+En la figura se muestra el sistema de muestreo seguido por un sistema SLIT con repuesta en frecuencia `\(H_r(j\Omega)\)`. Dado `\(X_c(j\Omega)\)` y `\(X_s(j\Omega)\)` donde se supone que `\(\Omega_s \ge 2 \Omega_N\)`:
+
+`$$X_r(j\Omega) = H_r(j\Omega) X_s(j\Omega)$$`
+
+Se deduce que si `\(H_r(j\Omega)\)` es un filtro pasa bajo ideal de ganancia `\(T\)` y frecuencia de corte `\(\Omega_c\)` tal que:
+
+`$$\Omega_N \le \Omega_c \le (\Omega_s - \Omega_N), \text{ Así sucederá que:}$$`
+
+`$$X_r(j\Omega) = X_c(j\Omega), \text{ y por tanto:}$$`
+
+`$$x_r(t) = x_c(t)$$`
+
+---
+
+# Navegación
+
+Seguir con [3.3 Reconstrucción de señales de banda limitada a partir de sus muestras](./03-03-reconstruccion-de-senales-de-banda-limitada-a-partir-de-sus-muestras.html)
+
+Volver al capitulo [Muestreo de señales en tiempo continuo](./03-muestreo-de-senales-en-tiempo-continuo.html)
+
+	</textarea>
+    <script src="js/remark.min.js"></script>
+    <script src="js/MathJax/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured" type="text/javascript"></script>
+    <script type="text/javascript">
+      var slideshow = remark.create();
+      // Setup MathJax
+      MathJax.Hub.Config({
+          tex2jax: {
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+          }
+      });
+      MathJax.Hub.Queue(function() {
+          $(MathJax.Hub.getAllJax()).map(function(index, elem) {
+              return(elem.SourceElement());
+          }).parent().addClass('has-jax');
+      });
+      MathJax.Hub.Configured();
+    </script>
+</body>
+</html>
