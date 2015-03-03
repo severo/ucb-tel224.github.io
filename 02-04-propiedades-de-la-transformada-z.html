@@ -52,7 +52,7 @@ y se deduce directamente de la definición de transformada Z:
 `$$\sum_{n = -\infty}^{\infty} (a x_1[n] + b x_2[n]) z^{-n} = a \sum_{n = -\infty}^{\infty} x_1[n] z^{-n} + b \sum_{n = -\infty}^{\infty} x_2[n] z^{-n}$$`
 `$$|z| \in R_{x_1} \quad |z| \in R_{x_2}$$`
 
-Para expresar la transformada Z de la suma como suma de las correspondientes transformadas `\(z\)`, `\(z\)` debe perteneceer a ambas regiones de convergencia. La región de convergencia contiene al menos a la intersección de las dos regiones de convergencia. En el caso de secuencias con transformadas Z racionales, si los polos de `\(a X_1(z) + b X_2(z)\)` suman todos los polos de `\(X_1(z)\)` y `\(X_2(z)\)` (no hay cancelaciones polo-cero), la región de convergencia será exactamente igual a la intersección de las dos regiones de convergencia.
+Para expresar la transformada Z de la suma como suma de las correspondientes transformadas `\(z\)`, `\(z\)` debe pertenecer a ambas regiones de convergencia. La región de convergencia contiene al menos a la intersección de las dos regiones de convergencia. En el caso de secuencias con transformadas Z racionales, si los polos de `\(a X_1(z) + b X_2(z)\)` suman todos los polos de `\(X_1(z)\)` y `\(X_2(z)\)` (no hay cancelaciones polo-cero), la región de convergencia será exactamente igual a la intersección de las dos regiones de convergencia.
 
 ---
 
@@ -92,7 +92,7 @@ Consideremos la transformada Z:
 
 Observando la región de convergencia, podemos ver que la secuencia está limitada por la izquierda. Ahora escribimos la transformada de otra forma:
 
-`$$X(z) = \frac{z^{-1}}{1-\frac{1}{4} z^{-1}} \quad |<| > \frac{1}{4}$$`
+`$$X(z) = \frac{z^{-1}}{1-\frac{1}{4} z^{-1}} \quad |z| > \frac{1}{4}$$`
 
 Y se puede escribir como:
 
@@ -100,7 +100,7 @@ Y se puede escribir como:
 
 Aplicando las tablas de transformada inversa:
 
-`$$x[n] = -4\delta[n] + 4(\frac{1}{4})^n u[n]$$`
+`$$x[n] = -4\delta[n] + 4\left(\frac{1}{4}\right)^n u[n]$$`
 
 ---
 
@@ -108,11 +108,11 @@ Aplicando las tablas de transformada inversa:
 
 El anterior resultado se puede obtener de forma más directa si aplicamos la propiedad de desplazamiento en el tiempo.
 
-`$$X(z) = z^{-1} (\frac{1}{1-\frac{1}{4} z^{-1}}), \quad |z| > \frac{1}{4}$$`
+`$$X(z) = z^{-1} \left(\frac{1}{1-\frac{1}{4} z^{-1}}\right), \quad |z| > \frac{1}{4}$$`
 
 Utilizando la propiedad de desplazamiento en el tiempo, vemos que el factor `\(z^{-1}\)` se puede asociar a un desplazamiento a la derecha de la secuencia `\((\frac{1}{4})^n u[n]\)`.
 
-`$$x[n] = (\frac{1}{4})^{n-1} u[n-1]$$`
+`$$x[n] = \left(\frac{1}{4}\right)^{n-1} u[n-1]$$`
 
 Ejercicio. Demostrar que estas dos transformaciones son equivalentes.
 
@@ -122,7 +122,7 @@ Ejercicio. Demostrar que estas dos transformaciones son equivalentes.
 
 `$$z_0^{n} x[n] \overset{\mathscr{Z}}{\longleftrightarrow} X(z/z_0), \quad RDC = |z_0| Rx$$`
 
-S `\(R_x\)` es el conjunto de valores de `\(z\)` tal que `\(r_R < |z| < r_l\)`, entonces `\(|z_0| R_x\)` es el conjunto de valres de `\(z\)` tal que `\(|z_0| r_R < |z| < |z_0| r_L\)`.
+Si `\(R_x\)` es el conjunto de valores de `\(z\)` tal que `\(r_R < |z| < r_L\)`, entonces `\(|z_0| R_x\)` es el conjunto de valres de `\(z\)` tal que `\(|z_0| r_R < |z| < |z_0| r_L\)`.
 
 Ejercicio. Demuestre la propiedad de multplicación por una secuencia exponencial.
 
@@ -132,7 +132,7 @@ Como consecuencia de esta propiedad, todas las posiciones de los polos y de los 
 
 # Multiplicación por una secuencia exponencial
 
- Si `\(z_0\)` es un número complejo de módulo unidad, es decir, `\(z_0 = e^{j\omega_0}\)`, el escalado corresponde a una rotación de ángulo `\(\omega_0\)` en el plano `\(z\)`, ya que las localizaciones de los polos y los ceros cambian su posición siguiendo circunferencias centradas en el origen del plano `\(z\)`. Esto también se puede interpretar como una traslación de la transformada de Fourier de tiempo discreto, asociada a la modulacion en el dominio del timpo con la secuencia exponencial `\(e^{j\omega_0 n}\)`. Es decir, si existe la transformada de Fourier, esta propiedad tiene la forma:
+ Si `\(z_0\)` es un número complejo de módulo unidad, es decir, `\(z_0 = e^{j\omega_0}\)`, el escalado corresponde a una rotación de ángulo `\(\omega_0\)` en el plano `\(z\)`, ya que las localizaciones de los polos y los ceros cambian su posición siguiendo circunferencias centradas en el origen del plano `\(z\)`. Esto también se puede interpretar como una traslación de la transformada de Fourier de tiempo discreto, asociada a la modulacion en el dominio del tiempo con la secuencia exponencial `\(e^{j\omega_0 n}\)`. Es decir, si existe la transformada de Fourier, esta propiedad tiene la forma:
  
  `$$e^{j \omega n} x[n] \overset{\mathscr{F}}{\longleftrightarrow} X(e^{j(\omega-\omega_0)})$$` 
 
@@ -140,7 +140,7 @@ Como consecuencia de esta propiedad, todas las posiciones de los polos y de los 
 
 # Multiplicación por una exponencial
 
-Considerando
+Considerando:
 
 `$$u[n] \overset{\mathscr{F}}{\longleftrightarrow} \frac{1}{1-z^{-1}}, \quad |z| > 1$$`
 
@@ -204,7 +204,7 @@ Considerando que: `\(n x[n] = a(-a)^{n-1} u[n-1]\)`, se obtiene el resultado:
 
 Determine la transformada de:
 
-`$$x[n] = n a^[n] u[n] = n(a^{n} u[n])$$`
+`$$x[n] = n a^{n} u[n] = n(a^{n} u[n])$$`
 
 `$$X(z) = -z\frac{d}{dz} (\frac{1}{1-a z^{-1}}), \quad |z| > |a|$$`
 
@@ -220,7 +220,7 @@ Y por lo tanto:
 
 `$$x^{*}[-n] \overset{\mathscr{Z}}{\longleftrightarrow} X^{*}(1-z^{*}), \quad RDC = \frac{1}{R_x}$$`
 
-Donde `\(RDC = 1/R_x\)`, singnifica que la región de convergencia está invertida: si `\(R_x\)` representa al conjunto de valores tales que `\(r_R \lt |z| \lt r_L\)`, la región de convergencia de `\(X^{*}(1/z^{*})\)` es el conjunto de valores tales que `\(1/r_L \lt |z| \lt 1/r_R\)`. Por tanto, si `\(z_0\)` está en la región de convergencia de la transtormada Z de `\(x[n]\)`, entonces `\(1/z_0\)` estará en la región de convergencia de la transformada Z de `\(x^{*}[-n]\)`.
+Donde `\(RDC = 1/R_x\)`, significa que la región de convergencia está invertida: si `\(R_x\)` representa al conjunto de valores tales que `\(r_R \lt |z| \lt r_L\)`, la región de convergencia de `\(X^{*}(1/z^{*})\)` es el conjunto de valores tales que `\(1/r_L \lt |z| \lt 1/r_R\)`. Por tanto, si `\(z_0\)` está en la región de convergencia de la transtormada Z de `\(x[n]\)`, entonces `\(1/z_0\)` estará en la región de convergencia de la transformada Z de `\(x^{*}[-n]\)`.
 
 Si la secuencia `\(x[n]\)` es real o no conjugada la secuencia compleja, el resultado es:
 
@@ -260,7 +260,7 @@ De forma simplificada:
 
 `$$Y(z) = X_1(z) X_2(z)$$`
 
-Donde la región de convergencia incluye a la intersección de la regiones de convergencia de `\(X_1(z)\)` y `\(X_2(z)\)`. Si un polo en la frontera de la región de convergencia de una de las transforamdas Z se cancela con un cero de la otra transformada, la región de convergencia de `\(Y(z)\)` puede ser mayor.
+Donde la región de convergencia incluye a la intersección de la regiones de convergencia de `\(X_1(z)\)` y `\(X_2(z)\)`. Si un polo en la frontera de la región de convergencia de una de las transformadas Z se cancela con un cero de la otra transformada, la región de convergencia de `\(Y(z)\)` puede ser mayor.
 
 ---
 
