@@ -29,11 +29,96 @@ Se define:
 * `\(f_s = \frac{1}{T}\)` la frecuencia de muestreo, en Hertz, o muestras por segundo
 * `\(\Omega_s = \frac{2\pi}{T}\)` la pulsación de muestreo, en rad/s
 
-Se representa la operación de muestro por el diagrama siguiente:
+Se representa la operación de muestro (conversor ideal de
+tiempo continuo a tiempo discreto--C/D--) por el diagrama siguiente:
 
 .mediana[.figura[![Diagrama de bloques de un conversor ideal de tiempo continuo a tiempo discreto (C/D)](imagenes/03-01-figura-4.1.svg)]]
 
 ---
+
+# Ejemplo de muestreo
+
+La figura siguiente representa una señal de voz en tiempo continuo y su correspondiente secuencia de muestras:
+
+.figura[![señal de voz en tiempo continuo y la correspondiente secuencia de muestras](imagenes/03-01-figura-2.2.svg)]
+
+---
+
+# Conversor real contra conversor ideal
+
+En la realidad, es imposible implementar un conversor ideal de tiempo continuo a tiempo discreto. En particular, un conversor analógico/digital (A/D) real tiene dos principales restricciones:
+
+* cuantificación de las muestras de salida: la amplitud `\(x[n]\)` esta redondeada, y no vale exactamente `\(x_c(nT)\)`,
+* limitación en la velocidad de muestreo: el dispositivo A/D esta limitado por su material y no puede realizar muestro a una frecuencia más alta que su frecuencia de muestreo máxima.
+
+---
+
+# Inversión del muestreo
+
+De manera general, existe una infinidad de señales `\(x(t)\)` que puede producir la misma secuencia de muestreo `\(x[n]\)`, y por ende, no existe una operación de muestreo inversa, que haga corresponder una única señal en tiempo continuo a la señal en tiempo discreto.
+
+Sin embargo, haciendo una hipótesis sobre el contenido en frecuencia de la señal en tiempo continuo, sí se puede obtener una equivalencia exacta entre las dos señales. Básicamente, para entrar en este marco, se aplica un filtro pasa-bajo sobre la señal en tiempo continuo, para eliminar todas las frecuencias altas.
+
+---
+
+# Representación matemática
+
+Es conveniente representar matemáticamente el proceso de muestreo dividiéndolo en:
+
+1. modulador con un tren de impulsos
+2. conversión del tren de impulsos en una secuencia.
+
+Si anotamos el tren de impulsos en tiempo continuo, con `\(\delta(t)\)` el impulso o delta de Dirac,
+
+`$$s(t) = \sum_{n=-\infty}^{\infty} \delta(t-nT)$$`
+
+el producto del tren de impulsos por la señal `\(x_c(t)\)` se escribe:
+
+`\begin{align*}x_s(t) &= x_c(t) s(t) \\
+&=x_c(t) \sum_{n=-\infty}^{\infty} \delta(t-nT) \\
+&= \sum_{n=-\infty}^{\infty} x_c(t) \delta(t-nT)
+\end{align*}`
+
+---
+
+# Representación matemática
+
+Utilizando la propiedad `\(x(t)\delta(t) = x(0)\delta(t)\)`, obtenemos:
+
+`$$x_s(t) = \sum_{n=-\infty}^{\infty} x_c(nT) \delta(t-nT)$$`
+
+Es la representación matemática del muestreo, y corresponde a un tren de impulsos modulado por el valor de la señal `\(x_c(t)\)` en cada impulso.
+
+---
+
+# Muestreo como tren de impulsos modulado
+
+La representación del muestreo como un tren de impulsos modulado se puede describir como:
+
+.figura[![Sistema completo.](imagenes/03-01-figura-4.2a.svg)]
+
+Tomar en cuenta que este diagrama es la representación de un conversor ideal C/D, no es un esquema de operaciones físicas y aproximadas de un conversor A/D.
+
+---
+
+# Muestreo como tren de impulsos modulado
+
+La primera operación, la modulación del tren de impulsos, se puede representar de la siguiente forma, para una misma señal en tiempo continuo, y dos frecuencias de muestreo:
+
+.figura[![x_s(t) para dos frecuencias de muestreo.](imagenes/03-01-figura-4.2b.svg)]
+
+---
+
+# Muestreo como tren de impulsos modulado
+
+La segunda operación, la conversión de tren de impulsos a secuencia en tiempo discreto, conduce a las dos siguientes secuencias, para las dos frecuencias de muestreo anteriores:
+
+.figura[![La secuencia de salida para las dos frecuencias de muestreo.](imagenes/03-01-figura-4.2c.svg)]
+
+La gran diferencia entre el tren de impulsos modulado `\(x_s(t)\)` y la secuencia de salida `\(x[n]\)` es que la primera contiene la referencia temporal de cada impulso, mientras que la secuencia en tiempo discreto solo esta definida por sus índices, sin relación directa con el tiempo real, y es necesario tener el dato de la frecuencia de muestro para poder ubicar las muestras en el tiempo.
+
+---
+
 # Navegación
 
 Seguir con [3.2 Representación del muestreo en el dominio de la frecuencia](./03-02-representacion-del-muestreo-en-el-dominio-de-la-frecuencia.html)
