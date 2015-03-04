@@ -73,6 +73,10 @@ Se deduce que si `\(H_r(j\Omega)\)` es un filtro pasa bajo ideal de ganancia `\(
 
 Si `\(\Omega_s \leq 2\Omega_N\)` no se cumple, las copias de `\(X_c(j\Omega)\)` se solapan, de modo que cuando se sumen todas, ya no será posible recuperar `\(X_c(j\Omega)\)` mediante un filtrado pasa bajo. En este caso, la salida reconstruida `\(x_r(t)\)` es una versión distorsionada de la señal original en tiempo continuo. Esta distorsión se denomina *distorsión de solapamiento*, o simplemente *solapamiento*.
 
+---
+
+# Representación del muestreo en el dominio de la frecuencia
+
 La siguiente figura ilustra el solapamiento en el dominio de la frecuencia para el caso simple de una señal coseno de la forma: `\(x_c(t) = cos(\Omega_0 t)\)`, cuya transformada de Fourier es:
 
 `$$X_c(j\Omega) = \pi \delta(\Omega - \Omega_0) + \pi \delta(\Omega + \Omega_0)$$`
@@ -83,7 +87,123 @@ SUBIR FIGURA 4.5
 
 # Representación del muestreo en el dominio de la frecuencia
 
-Nótese que el impulso en `\(-\Omega_0\)` se representa con línea discontinua...
+Nótese que el impulso en `\(-\Omega_0\)` se representa con línea discontinua.
+
+Si no hay solapamiento, la salida reconstruida es:
+
+`$$x_r(t) = cos(\Omega_0 t)$$`
+
+Cuando hay solapamiento, la salida reconstruida es:
+
+`$$x_r(t) = cos((\Omega_s -\Omega_0)t)$$`
+
+Como consecuencia del proceso de muestreo y reconstrucción, la señal de alta frecuencia `\(cos(\Omega_o t)\)` ha tomado la identidad (alias) de la señal de baja frecuencia `\(cos((\Omega_s -\Omega_0)t)\)`.
+
+---
+
+# Teorema de muestreo de Nyquist-Shannon
+
+Sea `\(x_c(t)\)` una señal de banda limitada que cumple que:
+
+`$$X_c(j\Omega) = 0, \text{ para } |\Omega| \ge \Omega_N$$`
+
+Entonces `\(x_c(t)\)` estará determinada de forma única por sus muestras `\(x[n] = x_c(n T), n = 0, \pm 1, \pm 2, ...,  \)` si se cumple que:
+
+`$$\Omega_s = \frac{2\pi}{T} \ge 2\Omega_N$$`
+
+La frecuencia `\(2\Omega_N\)`, que debe ser menor que la frecuencia de muestreo, se denomina *frecuencia de Nyquist*.
+
+---
+
+Hasta el momento sólo hemos considerado el tren de impulsos modulador. Ahora expresaremos la transformada de Fourier en tiempo discreto de la secuencia `\(x[n]\)`, en función de `\(X_s(j\Omega)\)` y de `\(X_c(j\Omega)\)`.
+
+Consideremos una expresión alternativa de `\(X_s(j\Omega)\)`. Aplicando la transformada de Fourier en tiempo continuo a: `\(x_s(t) = \sum_{n = -\infty}^{\infty} x_c(n T) \delta(t-n T)\)` obtenemos:
+
+`$$X_s(j\Omega) = \sum_{n=-\infty}^{\infty} x_c(n T) e^{-j\Omega T n}$$`
+
+`$$x[n] = x_c(n T) \quad X(e^{j\omega}) = \sum_{n = -\infty}^{\infty} x[n] e^{-j\omega n}$$`
+
+Se deduce que:
+
+`$$X_s(j\Omega) = X(e^{j\omega})|_{\omega = \Omega T} = X(e^{j\Omega T})$$`
+
+---
+
+Considerando las ecuaciones `\(X_s(j\Omega) = \frac{1}{T} \sum_{k=-\infty}^{\infty} X_c(j(\Omega-k\Omega_s))\)` y `\(X_s(j\Omega) = X(e^{j\Omega T})\)` se obtiene:
+
+`$$X(e^{j\Omega T}) = \frac{1}{T} \sum_{k = -\infty}^{\infty} X_c(j(\Omega - k\Omega_s))$$`
+
+`$$X(e^{j\omega}) = \frac{1}{T} \sum_{k=-\infty}^{\infty} X_c \left[ j\left(\frac{1}{T} - \frac{2\pi k}{T}\right)\right]$$`
+
+Podemos ver que `\(X(e^{j\omega})\)` es una versión escalada en frecuencia de `\(X_s(j\Omega)\)`. El factor de escala en frecuencia está definido por `\(\omega = \Omega T\)`. Este escalado se puede ver alternativamente como una normalización del eje de frecuencias, de forma que la frecuencia `\(\Omega = \Omega_s\)` en `\(X_s(j\Omega)\)` se convierte en la frecuencia `\(\omega = 2\pi\)` en `\(X(e^{j\omega})\)`.
+
+---
+
+El hecho de que existe un escalado o normalización en frecuencia en la trasformación de `\(X_s(j\omega)\)` en `\(X(e^{j\omega})\)` se puede asociar directamente con el hecho de que existe una normalización en el tiempo en la transformación de `\(x_s(t)\)` en `\(x[n]\)`.
+
+`\(x_s(t)\)` conserva un espacio entre las muestras igual al periodo de muestreo `\(T\)`. Por el contrario, el "espaciado" entre los valores de la secuencia `\(x[n]\)` es siempre la unidad. El eje temporal ha sido normalizado por un factor de `\(T\)`. En el dominio de la frecuencia el eje de frecuencias resulta normalizado por un factor de `\(f_s = 1/T\)`
+
+---
+
+# Muestreo y reconstrucción de una señal sinusoidal
+
+Si muestreamos la señal continua: `\(x_c(t) = cos(4000\pi t)\)` con periodo de muestreo `\(T = 1/6000\)`, obtenemos la señal `\(x[n] = x_c(n T) = cos(4000\pi T n) = cos(\omega_0 n)\)`, siendo `\(\omega_0 = 4000\pi T = 2\pi/3\)`. En este caso, `\(\Omega_s = 2\pi/T = 12000\pi\)`, y la frecuencia más alta de la señal es `\(\Omega = 4000\pi\)`, con lo que se satisfacen las condiciones del teorema de Nyquist y no hay solapamiento.
+
+La transformada de Fourier de `\(x_c(t)\)` para `\(\Omega_s = 12000\pi\)`  es:
+
+`$$X_c(j\Omega) = \pi \delta(\Omega - 4000\pi) + \pi \delta(\Omega + 4000\pi)$$`
+
+`$$X_s(j\Omega) = \frac{1}{T} \sum_{k=-\infty}^{\infty} X_c[j(\Omega-k\Omega_s)]$$`
+
+---
+
+# Muestreo y reconstrucción de una señal sinusoidal
+
+SUBIR FIGURA 4.6
+
+---
+
+# Muestreo y reconstrucción de una señal sinusoidal
+
+`\(X_c(j\Omega)\)` es una pareja de impulsos situados en `\(\Omega = \pm 4000\pi\)`, y que aparecen copias de esta transformada de Fourier centradas en `\(\pm \Omega_s, \pm 2\Omega_s, ...\)`. En la Figura se muestra que `\(X(e^{j\omega}) = X_s(j\omega/T)\)` en función ded la frecuencia normalizada `\(\omega = \Omega T\)`.
+
+Se ha utilizado el hecho de que al escalar la variable independiente de una función impulso su área queda afectada por el mismo factor de escala. Es decir, `\(\delta(\omega/T) = T\delta(\omega)\)`.
+
+Nótese también que la frecuencia original `\(\Omega_0 = 4000\pi\)` corresponde a la frecuencia normalizada `\(\omega_0=4000\pi T=2\pi/3\)`, que satisface la relación `\(\omega_0 < \pi\)`, equivalente a la relación `\(\Omega_0 = 4000\pi < \pi/T = 6000\pi\)`.
+
+La Figura también muestra la respuesta en frecuencia del filtro de reconstrucción ideal `\(H_r(j\Omega)\)` para la frecuencia de muestreo dada `\(\Omega_s = 12000\pi\)`. Se observa que la señal reconstruida tendría una frecuencia de `\(\Omega_0 = 4000\pi\)`, que es la frecuencia de la señal original `\(x_c(t)\)`.
+
+---
+
+# Solapamiento en la reconstrucción de una señal sinusoidal
+
+`\(x_c(t) = cos(16000\pi t)\)`, pero que el periodo de muestreo sigue siendo `\(T = 1/6000\)`. Este periodo de muestreo no satisface el criterio de Nyquist `\(\Omega_s=2\pi/T=12000\pi<2\Omega_0=32000\pi\)` por tanto se va a producir solapamiento.
+
+La transformada de Fourier `\(X_s(j\Omega)\)` es idéntica a la que aparece en la primera parte de la anterior Figura. Sin embargo ahora el impulso localizado en `\(\Omega = -4000\pi\)` procede del término `\(X_c[j(\Omega-\Omega_s)]\)` de `\(s(t) = \sum_{n=-\infty}^{\infty} \delta(t-n T)\)` en lugar de proceder de `\(X_c(j\Omega)\)` y el impulso en `\(\Omega=4000\pi\)` procede de `\(X_c[j(\Omega + \Omega_s)]\)`. Es decir las frecuencias `\(\pm 4000\pi\)` están solapadas.
+
+Si dibujamos `\(X(e^{j\omega}) = X_s(j\omega/T)\)` en función de `\(\omega\)` obtenemos la misma gráfica de la segunda parte de la Figura, ya que estamos normalizando por el mismo periodo de muestreo.
+
+---
+
+# Solapamiento en la reconstrucción de una señal sinusoidal
+
+La razón fundamental de este resultado es que la secuencia de muestras es la misma en los dos casos:
+
+`$$cos(16000\pi n/6000) = cos(2\pi n + 4000 \pi n/6000) = cos(2\pi n/3)$$`
+
+Recuerde que podemos añadir cualquier múltiplo entero de `\(2\pi\)` al argumento del coseno sin modificar su valor. Por tanto, hemos obtenido la misma secuencia de muestras, `\(x[n] = cos(2\pi n/3)\)`, muestreando con la misma frecuencia de muestreo dos señales en tiempo continuo diferentes.
+
+La Figura muestra la respuesta en frecuencia del filtro de reconstrucción ideal `\(H_r(j\Omega)\)` para la frecuencia de muestreo dada `\(\Omega_s = 12000\pi\)`.
+
+La señal reconstruida con frecuencia `\(\Omega_0 = 4000\pi\)`, que es la frecuencia solapada de la original con respecto a la frecuencia de muestreo `\(\Omega_s = 12000\pi\)`.
+
+---
+
+Los anteriores ejemplos utilizan señales sinusoidales para ilustrar algunas ambigüedades inherentes a la operación de muestreo.
+
+En el primer ejemplo se verigica que si se cumplen las condiciones del teorema de muestreo, se puede reconstruir la señal original a partir de la muestras. En el segundo ejemplo se ilustra que si la frecuencia de muestreo viola el teorema de muestreo, no es posible reconstruir la señal original mediante un filtro pasa bajo ideal de reconstrucción con frecuencia de corte igual a la mitad de la frecuencia de muestreo. La señal reconstruida en este caso es uan de las frecuencias solapadas de la señal original con respecto a la frecuencia de muestreo utilizada al muestrear la señal original en tiempo continuo.
+
+En ambos ejemplos, la secuencia de muestreas es: `\(x[n] = cos(2\pi n/3)\)`, pero la señal original en tiempo continuo es diferente. Como sugieren los dos ejemplos, hay infinitas formas de obtener este mismo conjunto de muestras mediante el muestreo periódico de una señal sinusoidal en tiempo continuoo. Toda ambiguedad desaparece si elegimos: `\(\Omega_s > 2\Omega_0\)`.
 
 ---
 
