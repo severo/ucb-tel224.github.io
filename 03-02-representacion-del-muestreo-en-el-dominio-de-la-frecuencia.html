@@ -27,15 +27,13 @@ La transformada de Fourier de un tren de impulsos es otro tren de impulsos:
 
 Siendo `\(\Omega_s = 2\pi/T\)` la frecuencia de muestreo en radianes. Así:
 
-`$$X_s(j\omega) = \frac{1}{2\pi} X_c(j\Omega) * S(j\Omega)$$`
-
-`$$X_s(j\Omega) = \frac{1}{T} \sum_{k=-\infty}^{\infty} X_c(j(\Omega-k\Omega_s))$$`
+`$$X_s(j\omega) = \frac{1}{2\pi} X_c(j\Omega) * S(j\Omega) = \frac{1}{T} \sum_{k=-\infty}^{\infty} X_c(j(\Omega-k\Omega_s))$$`
 
 ---
 
 # Representación del muestreo en el dominio de la frecuencia
 
-Que se traduce en que la transformada de Fourier de `\(x_s(t)\)` consiste en copias repetidas periódicamente de la transformada de Fourier de `\(x_c(t)\)`. Las copias de `\(X_c(j\Omega)\)` están desplazadas múltiplos enteros de la frecuencia de muestreo. Para que el muestreo funcione transformada de Forurier de la señal a muestrear debe tener banda limitada (`\(X_c(j\Omega)=0\)`, para `\(|\Omega| \ge \Omega_N\)`). Para que las replicas no se superpongan debe suceder que:
+Que se traduce en que la transformada de Fourier de `\(x_s(t)\)`, que consiste en copias repetidas periódicamente de la transformada de Fourier de `\(x_c(t)\)`. Las copias de `\(X_c(j\Omega)\)` están desplazadas múltiplos enteros de la frecuencia de muestreo. Para que el muestreo funcione la transformada de Fourier de la señal a muestrear debe tener banda limitada (`\(X_c(j\Omega)=0\)`, para `\(|\Omega| \ge \Omega_N\)`). Para que las replicas no se superpongan debe suceder que:
 
 `$$\Omega_s - \Omega_N \ge \Omega_N \quad \Omega_s \ge 2 \Omega_N$$`
 
@@ -45,7 +43,7 @@ SUBIR FIGURA 4.3
 
 # Representación del muestreo en el dominio de la frecuencia
 
-Como se pudo observar en la figura anterior, las réplicas de `\(X_c(j\Omega)\)` no se solaparán, y por lo tanto, quedará una réplica exacta de `\(X_c(j\Omega)\)` en cada múltiplo entero de `\(\\Omega_s\)` (excepto por un factor de escala de `\(1/T\)`).
+Como se pudo observar en la Figura anterior, las réplicas de `\(X_c(j\Omega)\)` no se solaparán, y por lo tanto, quedará una réplica exacta de `\(X_c(j\Omega)\)` en cada múltiplo entero de `\(\Omega_s\)` (excepto por un factor de escala de `\(1/T\)`).
 
 `\(x_c(t)\)` se podrá recuperar a partir de `\(x_s(t)\)` con un filtro pasa bajo ideal.
 
@@ -55,7 +53,7 @@ SUBIR FIGURA 4.4
 
 # Representación del muestreo en el dominio de la frecuencia
 
-En la figura se muestra el sistema de muestreo seguido por un sistema SLIT con repuesta en frecuencia `\(H_r(j\Omega)\)`. Dado `\(X_c(j\Omega)\)` y `\(X_s(j\Omega)\)` donde se supone que `\(\Omega_s \ge 2 \Omega_N\)`:
+En la Figura se muestra el sistema de muestreo seguido por un sistema SLIT con repuesta en frecuencia `\(H_r(j\Omega)\)`. Dado `\(X_c(j\Omega)\)` y `\(X_s(j\Omega)\)` donde se supone que `\(\Omega_s \ge 2 \Omega_N\)`:
 
 `$$X_r(j\Omega) = H_r(j\Omega) X_s(j\Omega)$$`
 
@@ -121,7 +119,7 @@ Consideremos una expresión alternativa de `\(X_s(j\Omega)\)`. Aplicando la tran
 
 `$$X_s(j\Omega) = \sum_{n=-\infty}^{\infty} x_c(n T) e^{-j\Omega T n}$$`
 
-`$$x[n] = x_c(n T) \quad X(e^{j\omega}) = \sum_{n = -\infty}^{\infty} x[n] e^{-j\omega n}$$`
+`$$x[n] = x_c(n T), \quad X(e^{j\omega}) = \sum_{n = -\infty}^{\infty} x[n] e^{-j\omega n}$$`
 
 Se deduce que:
 
@@ -133,7 +131,7 @@ Considerando las ecuaciones `\(X_s(j\Omega) = \frac{1}{T} \sum_{k=-\infty}^{\inf
 
 `$$X(e^{j\Omega T}) = \frac{1}{T} \sum_{k = -\infty}^{\infty} X_c(j(\Omega - k\Omega_s))$$`
 
-`$$X(e^{j\omega}) = \frac{1}{T} \sum_{k=-\infty}^{\infty} X_c \left[ j\left(\frac{1}{T} - \frac{2\pi k}{T}\right)\right]$$`
+`$$X(e^{j\omega}) = \frac{1}{T} \sum_{k=-\infty}^{\infty} X_c \left[ j\left(\frac{\omega}{T} - \frac{2\pi k}{T}\right)\right]$$`
 
 Podemos ver que `\(X(e^{j\omega})\)` es una versión escalada en frecuencia de `\(X_s(j\Omega)\)`. El factor de escala en frecuencia está definido por `\(\omega = \Omega T\)`. Este escalado se puede ver alternativamente como una normalización del eje de frecuencias, de forma que la frecuencia `\(\Omega = \Omega_s\)` en `\(X_s(j\Omega)\)` se convierte en la frecuencia `\(\omega = 2\pi\)` en `\(X(e^{j\omega})\)`.
 
@@ -165,7 +163,7 @@ SUBIR FIGURA 4.6
 
 # Muestreo y reconstrucción de una señal sinusoidal
 
-`\(X_c(j\Omega)\)` es una pareja de impulsos situados en `\(\Omega = \pm 4000\pi\)`, y que aparecen copias de esta transformada de Fourier centradas en `\(\pm \Omega_s, \pm 2\Omega_s, ...\)`. En la Figura se muestra que `\(X(e^{j\omega}) = X_s(j\omega/T)\)` en función ded la frecuencia normalizada `\(\omega = \Omega T\)`.
+`\(X_c(j\Omega)\)` es una pareja de impulsos situados en `\(\Omega = \pm 4000\pi\)`, y que aparecen copias de esta transformada de Fourier centradas en `\(\pm \Omega_s, \pm 2\Omega_s, ...\)`. En la Figura se muestra que `\(X(e^{j\omega}) = X_s(j\omega/T)\)` en función de la frecuencia normalizada `\(\omega = \Omega T\)`.
 
 Se ha utilizado el hecho de que al escalar la variable independiente de una función impulso su área queda afectada por el mismo factor de escala. Es decir, `\(\delta(\omega/T) = T\delta(\omega)\)`.
 
@@ -201,9 +199,11 @@ La señal reconstruida con frecuencia `\(\Omega_0 = 4000\pi\)`, que es la frecue
 
 Los anteriores ejemplos utilizan señales sinusoidales para ilustrar algunas ambigüedades inherentes a la operación de muestreo.
 
-En el primer ejemplo se verigica que si se cumplen las condiciones del teorema de muestreo, se puede reconstruir la señal original a partir de la muestras. En el segundo ejemplo se ilustra que si la frecuencia de muestreo viola el teorema de muestreo, no es posible reconstruir la señal original mediante un filtro pasa bajo ideal de reconstrucción con frecuencia de corte igual a la mitad de la frecuencia de muestreo. La señal reconstruida en este caso es uan de las frecuencias solapadas de la señal original con respecto a la frecuencia de muestreo utilizada al muestrear la señal original en tiempo continuo.
+En el primer ejemplo se verigica que si se cumplen las condiciones del teorema de muestreo, se puede reconstruir la señal original a partir de las muestras.
 
-En ambos ejemplos, la secuencia de muestreas es: `\(x[n] = cos(2\pi n/3)\)`, pero la señal original en tiempo continuo es diferente. Como sugieren los dos ejemplos, hay infinitas formas de obtener este mismo conjunto de muestras mediante el muestreo periódico de una señal sinusoidal en tiempo continuoo. Toda ambiguedad desaparece si elegimos: `\(\Omega_s > 2\Omega_0\)`.
+En el segundo ejemplo se ilustra que si la frecuencia de muestreo viola el teorema de muestreo, no es posible reconstruir la señal original mediante un filtro pasa bajo ideal de reconstrucción con frecuencia de corte igual a la mitad de la frecuencia de muestreo. La señal reconstruida en este caso es una de las frecuencias solapadas de la señal original con respecto a la frecuencia de muestreo utilizada al muestrear la señal original en tiempo continuo.
+
+En ambos ejemplos, la secuencia de muestreas es: `\(x[n] = cos(2\pi n/3)\)`, pero la señal original en tiempo continuo es diferente. Como sugieren los dos ejemplos, hay infinitas formas de obtener este mismo conjunto de muestras mediante el muestreo periódico de una señal sinusoidal en tiempo continuo. Toda ambiguedad desaparece si elegimos: `\(\Omega_s > 2\Omega_0\)`.
 
 ---
 
