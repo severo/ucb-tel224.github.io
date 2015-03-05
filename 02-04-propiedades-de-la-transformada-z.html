@@ -33,7 +33,7 @@ En esta sección consideraremos algunas de las propiedades que se utilizan más 
 
 `$$x[n] \overset{\mathscr{Z}}{\longleftrightarrow} X(z), \quad RDC = R_x$$`
 
-Como ya hemos visto, `\(R_x\)`, representa el conjunto de valores de `\(z\)` tal que `\(r_R < |z| < r_L\)`. Para el caso de propiedades que involucren dos secuencias y sus transformadas Z asociadas, las parejas de transformadas se indicarán así:
+Como ya hemos visto, `\(R_x\)`, representa el conjunto de valores de `\(z\)` tal que `\(r_R \lt |z| \lt r_L\)`. Para el caso de propiedades que involucren dos secuencias y sus transformadas Z asociadas, las parejas de transformadas se indicarán así:
 
 `$$x_1[n] \overset{\mathscr{Z}}{\longleftrightarrow} X_1(z), \quad RDC = R_{x_1}$$`
 
@@ -52,7 +52,7 @@ y se deduce directamente de la definición de transformada Z:
 `$$\sum_{n = -\infty}^{\infty} (a x_1[n] + b x_2[n]) z^{-n} = a \sum_{n = -\infty}^{\infty} x_1[n] z^{-n} + b \sum_{n = -\infty}^{\infty} x_2[n] z^{-n}$$`
 `$$|z| \in R_{x_1} \quad |z| \in R_{x_2}$$`
 
-Para expresar la transformada Z de la suma como suma de las correspondientes transformadas `\(z\)`, `\(z\)` debe pertenecer a ambas regiones de convergencia. La región de convergencia contiene al menos a la intersección de las dos regiones de convergencia. En el caso de secuencias con transformadas Z racionales, si los polos de `\(a X_1(z) + b X_2(z)\)` suman todos los polos de `\(X_1(z)\)` y `\(X_2(z)\)` (no hay cancelaciones polo-cero), la región de convergencia será exactamente igual a la intersección de las dos regiones de convergencia.
+Para expresar la transformada Z de la suma como suma de las correspondientes transformadas Z, `\(z\)` debe pertenecer a ambas regiones de convergencia. La región de convergencia contiene al menos a la intersección de las dos regiones de convergencia. En el caso de secuencias con transformadas Z racionales, si los polos de `\(a X_1(z) + b X_2(z)\)` suman todos los polos de `\(X_1(z)\)` y `\(X_2(z)\)` (no hay cancelaciones polo-cero), la región de convergencia será exactamente igual a la intersección de las dos regiones de convergencia.
 
 ---
 
@@ -80,7 +80,7 @@ Esta propiedad se deduce directamente de la expresión de la transformada Z. Con
 
 Realizando el cambio de variables: `\(m = n - n_0\)`:
 
-`$$Y(z) = \sum_{m = -\infty}^{\infty} x[m] z^{m+n_0} = z^{-n_0} \sum_{m = -\infty}^{\infty} x[m] z^{-m}$$`
+`$$Y(z) = \sum_{m = -\infty}^{\infty} x[m] z^{-m-n_0} = z^{-n_0} \sum_{m = -\infty}^{\infty} x[m] z^{-m}$$`
 
 ---
 
@@ -122,9 +122,9 @@ Ejercicio. Demostrar que estas dos transformaciones son equivalentes.
 
 `$$z_0^{n} x[n] \overset{\mathscr{Z}}{\longleftrightarrow} X(z/z_0), \quad RDC = |z_0| Rx$$`
 
-Si `\(R_x\)` es el conjunto de valores de `\(z\)` tal que `\(r_R < |z| < r_L\)`, entonces `\(|z_0| R_x\)` es el conjunto de valres de `\(z\)` tal que `\(|z_0| r_R < |z| < |z_0| r_L\)`.
+Si `\(R_x\)` es el conjunto de valores de `\(z\)` tal que `\(r_R \lt |z| \lt r_L\)`, entonces `\(|z_0| R_x\)` es el conjunto de valores de `\(z\)` tal que `\(|z_0| r_R \lt |z| \lt |z_0| r_L\)`.
 
-Ejercicio. Demuestre la propiedad de multplicación por una secuencia exponencial.
+Ejercicio. Demuestre la propiedad de multiplicación por una secuencia exponencial.
 
 Como consecuencia de esta propiedad, todas las posiciones de los polos y de los ceros quedan efectadas por un factor de escala de `\(z_0\)`, ya que si `\(X(z)\)` tiene un polo (o un cero) en `\(z = z_1\)`, `\(X(z/z_0)\)` tendrá un polo (o un cero) en `\(z = z_0 z_1\)`. Si `\(z_0\)` es un número real positivo, el factor de escala se puede interpretar como una compresión o expansión del plano `\(z\)`, ya que las posiciones de los polos y los ceros cambian siguiendo líneas radiales del plano `\(z\)`.
 
@@ -142,7 +142,7 @@ Como consecuencia de esta propiedad, todas las posiciones de los polos y de los 
 
 Considerando:
 
-`$$u[n] \overset{\mathscr{F}}{\longleftrightarrow} \frac{1}{1-z^{-1}}, \quad |z| > 1$$`
+`$$u[n] \overset{\mathscr{Z}}{\longleftrightarrow} \frac{1}{1-z^{-1}}, \quad |z| > 1$$`
 
 Podemos utilizar la propiedad de multiplicación por una exponencial para determinar la transformada Z de la secuencia:
 
@@ -152,9 +152,9 @@ Podemos utilizar la propiedad de multiplicación por una exponencial para determ
 
 Utilizando la propiedad de multiplicación por un exponencial, vemos que:
 
-`$$\frac{1}{2}(r e^{j\omega_0})^n u[n] \overset{\mathscr{F}}{\longleftrightarrow} \frac{\frac{1}{2}}{1-r e^{j\omega_0} z^{-1}}, \quad |z| > r,$$`
+`$$\frac{1}{2}(r e^{j\omega_0})^n u[n] \overset{\mathscr{Z}}{\longleftrightarrow} \frac{\frac{1}{2}}{1-r e^{j\omega_0} z^{-1}}, \quad |z| > r,$$`
 
-`$$\frac{1}{2}(r e^{-j\omega_0})^n u[n] \overset{\mathscr{F}}{\longleftrightarrow} \frac{\frac{1}{2}}{1-r e^{-j\omega_0} z^{-1}}, \quad |z| > r,$$`
+`$$\frac{1}{2}(r e^{-j\omega_0})^n u[n] \overset{\mathscr{Z}}{\longleftrightarrow} \frac{\frac{1}{2}}{1-r e^{-j\omega_0} z^{-1}}, \quad |z| > r,$$`
 
 ---
 
@@ -184,7 +184,7 @@ Ilustraremos la utilidad de esta propiedad con dos ejemplos.
 
 Utilizaremos la propiedad de diferenciación junto con la propiedad de desplazamiento en el tiempo para determinar Z inversa.
 
-`$$X(z) = log(1+a z^{-1}), \quad |z| > |a|$$`
+`$$X(z) = \log(1+a z^{-1}), \quad |z| > |a|$$`
 
 Diferenciando:
 
@@ -196,7 +196,7 @@ Usando la propieda de diferenciación:
 
 Considerando que: `\(n x[n] = a(-a)^{n-1} u[n-1]\)`, se obtiene el resultado:
 
-`$$x[n] = (-1)^{n+1} \frac{a^n}{n} u[n-1] \overset{\mathscr{Z}}{\longleftrightarrow} log(1+a z^{-1}), \quad |z| > |a|$$`
+`$$x[n] = (-1)^{n+1} \frac{a^n}{n} u[n-1] \overset{\mathscr{Z}}{\longleftrightarrow} \log(1+a z^{-1}), \quad |z| > |a|$$`
 
 ---
 
@@ -206,7 +206,7 @@ Determine la transformada de:
 
 `$$x[n] = n a^{n} u[n] = n(a^{n} u[n])$$`
 
-`$$X(z) = -z\frac{d}{dz} (\frac{1}{1-a z^{-1}}), \quad |z| > |a|$$`
+`$$X(z) = -z\frac{d}{dz} \left(\frac{1}{1-a z^{-1}}\right), \quad |z| > |a|$$`
 
 `$$= \frac{a z^{-1}}{(1-a z^{-1})^2}, |z| > |a|.$$`
 
@@ -218,9 +218,9 @@ Y por lo tanto:
 
 # Conjugación de una secuencia compleja
 
-`$$x^{*}[-n] \overset{\mathscr{Z}}{\longleftrightarrow} X^{*}(1-z^{*}), \quad RDC = \frac{1}{R_x}$$`
+`$$x^{*}[-n] \overset{\mathscr{Z}}{\longleftrightarrow} X^{*}(1/z^{*}), \quad RDC = \frac{1}{R_x}$$`
 
-Donde `\(RDC = 1/R_x\)`, significa que la región de convergencia está invertida: si `\(R_x\)` representa al conjunto de valores tales que `\(r_R \lt |z| \lt r_L\)`, la región de convergencia de `\(X^{*}(1/z^{*})\)` es el conjunto de valores tales que `\(1/r_L \lt |z| \lt 1/r_R\)`. Por tanto, si `\(z_0\)` está en la región de convergencia de la transtormada Z de `\(x[n]\)`, entonces `\(1/z_0\)` estará en la región de convergencia de la transformada Z de `\(x^{*}[-n]\)`.
+Donde `\(RDC = 1/R_x\)`, significa que la región de convergencia está invertida: si `\(R_x\)` representa al conjunto de valores tales que `\(r_R \lt |z| \lt r_L\)`, la región de convergencia de `\(X^{*}(1/z^{*})\)` es el conjunto de valores tales que `\(1/r_L \lt |z| \lt 1/r_R\)`. Por tanto, si `\(z_0\)` está en la región de convergencia de la transformada Z de `\(x[n]\)`, entonces `\(1/z_0\)` estará en la región de convergencia de la transformada Z de `\(x^{*}[-n]\)`.
 
 Si la secuencia `\(x[n]\)` es real o no conjugada la secuencia compleja, el resultado es:
 
@@ -232,7 +232,7 @@ Ejercicio. Demuestre esta propiedad utilizando la definición de la transformada
 
 # Inversión temporal
 
-Nótese que el `\(z_0\)` es un polo (o un cero) de `\(X(z)\)`, entonces `\(1/z_0\)` será un polo  (o un cero) de `\(X(1/z)\)`. El módulo de `\(1/z_0\)` es implemente el inverso del módulo de `\(z_0\)`. Sin embargo, la fase de `\(1/z_0\)` es la de `\(z_0\)` cambiada de signo. Cuando los polos y ceros de `\(X(z)\)` son todos reales o aparecen en pares complejos conjugados (cuando `\(x[n]\)` es real), esta agrupación en pares complejos conjugados debe matenerse.
+Nótese que el `\(z_0\)` es un polo (o un cero) de `\(X(z)\)`, entonces `\(1/z_0\)` será un polo  (o un cero) de `\(X(1/z)\)`. El módulo de `\(1/z_0\)` es simplemente el inverso del módulo de `\(z_0\)`. Sin embargo, la fase de `\(1/z_0\)` es la de `\(z_0\)` cambiada de signo. Cuando los polos y ceros de `\(X(z)\)` son todos reales o aparecen en pares complejos conjugados (cuando `\(x[n]\)` es real), esta agrupación en pares complejos conjugados debe mantenerse.
 
 ---
 
@@ -252,7 +252,7 @@ Nótese que la transformada Z de `\(a^{n} u[n]\)` tiene un polo en `\(z = a\)`, 
 
 # Convolución de secuencias
 
-`$$x_1[n] * x_2[n] = \overset{\mathscr{Z}}{\longleftrightarrow} X_1(z) X_2(z), \quad \text{RDC depende de } R_{x_1} R_{x_2}$$`
+`$$x_1[n] * x_2[n] \overset{\mathscr{Z}}{\longleftrightarrow} X_1(z) X_2(z), \quad \text{RDC contiene } R_{x_1} R_{x_2}$$`
 
 Ejercicio. Demuestre esta propiedad.
 
@@ -274,9 +274,8 @@ Sus transformadas son:
 
 La transformada de la convolución: `\(y[n] = x_1[n] * x_2[n]\)`.
 
-`$$Y(z) = X_1(z) X_2(z) = (1+2 z^{-1} + z^{-2})(1 - z^{-1}) = $$`
-
-`$$= 1+z^{-1}-z^{-2}-z^{-3}$$`
+`\begin{align*}Y(z) &= X_1(z) X_2(z) = (1+2 z^{-1} + z^{-2})(1 - z^{-1}) \\
+&= 1+z^{-1}-z^{-2}-z^{-3}\end{align*}`
 
 Como ambas secuencias son de longitud finita, las dos regiones de convergencia son: `\(|z| > 0\)` y, por tanto esa también es la región de convergencia de `\(Y(z)\)`, podemos concluir por simple inspección de los coeficientes del polinomio que:
 

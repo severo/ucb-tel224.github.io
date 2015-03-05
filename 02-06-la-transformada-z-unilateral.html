@@ -21,7 +21,7 @@ class: center, middle
 
 La transformada Z definida como la sumatoria de `\(-\infty\)` a `\(\infty\)` es conocida como transformada Z bilateral. La *transformada Z unilateral* se define como:
 
-`$$\mathscr{Z}(z) = \sum_{n = 0}^{\infty} x[n] z^{-n}$$`
+`$$\mathscr{X}(z) = \sum_{n = 0}^{\infty} x[n] z^{-n}$$`
 
 La transforma Z unilateral se diferencia de la bilateral en que el límite inferior de la suma siempre es cero, independientemente de los valores de `\(x[n]\)` para `\(n < 0\)`. Si `\(x[n] = 0\)` para `\(n < 0\)`, las transformadas Z unilateral y bilateral son idénticas, mientras que si `\(x[n]\)` no es cero para todo `\(n<0\)`, serán diferentes.
 
@@ -57,11 +57,11 @@ Consideremos una secuencia `\(x[n]\)` cuya transformada Z unilateral es `\(\math
 
 Realizando el cambio de variable `\(m = n - 1\)`, `\(\mathscr{Y}(z)\)` se puede expresar como:
 
-`$$\mathscr{Y}(z) = \sum_{n=-1}^{\infty} x[m] z^{m+1} = x[-1] + z^{-1} \sum_{m=0}^{\infty} x[m] z^{-m}$$`
+`$$\mathscr{Y}(z) = \sum_{m=-1}^{\infty} x[m] z^{-m-1} = x[-1] + z^{-1} \sum_{m=0}^{\infty} x[m] z^{-m}$$`
 
-`$$\mathscr{Y}(z) = x[-1] + z^{-1} \mathscr{Y}(z)$$`
+`$$\mathscr{Y}(z) = x[-1] + z^{-1} \mathscr{X}(z)$$`
 
-Para determinar la transformada Z unilateral de una secuencia retardada, hay que proporcionar los valores de dicha secuencia que fueron ignorados al calcular `\(\mathscr{Y}(z)\)`.
+Para determinar la transformada Z unilateral de una secuencia retardada, hay que proporcionar los valores de dicha secuencia que fueron ignorados al calcular `\(\mathscr{X}(z)\)`.
 
 ---
 
@@ -69,9 +69,9 @@ Para determinar la transformada Z unilateral de una secuencia retardada, hay que
 
 Un análisis similar permite demostrar que si `\(y[n] = x[n-k]\)`, siendo `\(k > 0\)`, entonces:
 
-`$$\mathscr{Y}(z) = x[-k] + x[-k+1] z^{-1} + ... + x[-1] z^{-k+1} + z^{-k} \mathscr{Y}(z)$$`
+`$$\mathscr{Y}(z) = x[-k] + x[-k+1] z^{-1} + ... + x[-1] z^{-k+1} + z^{-k} \mathscr{X}(z)$$`
 
-`$$= \sum_{m=1}^{k} x[m-k-1] z^{-m+1} + z^{-k} \mathscr{Y}(z)$$`
+`$$= \sum_{m=1}^{k} x[m-k-1] z^{-m+1} + z^{-k} \mathscr{X}(z)$$`
 
 Se utiliza la transformada Z unilateral para obtener la salida de una ecuación de diferencias con condiciones distintas a las del reposo inicial.
 
@@ -83,11 +83,15 @@ Consideremos un sistema descrito por la ecuación en diferencias lineal con coef
 
 `$$y[n] - a y[n-1] = x[n]$$`
 
-Supongamos que `\(x[n] = 0\)` para `\(n < 0\)` y que la condición inicial en `\(n = -1\)` se denomina `\(y[-1]\)`. Aplicando la transformada unilateral Z tenemos:
+Supongamos que `\(x[n] = 0\)` para `\(n \lt 0\)` y que la condición inicial en `\(n = -1\)` se denomina `\(y[-1]\)`. Aplicando la transformada unilateral Z tenemos:
 
 `$$\mathscr{Y}(z) - a y[-1] - a z^{-1} \mathscr{Y}(z) = \mathscr{X}(z)$$`
 
 `$$\mathscr{Y}(z) = \frac{a y[-1]}{1-a z^{-1}} + \frac{1}{1-a z^{-1}} \mathscr{X}(z)$$`
+
+---
+
+# Ejemplo del efecto de condiciones iniciales distintas de cero
 
 Observe que si `\(y[-1] = 0\)` el primer término desaparece y el resultado es `\(\mathscr{Y}(z) = H(z) \mathscr{X}(z)\)`, siendo:
 
