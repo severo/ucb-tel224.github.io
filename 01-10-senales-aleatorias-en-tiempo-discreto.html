@@ -65,11 +65,11 @@ Si el sistema es estable, si `\(x[n]\)` está acotada, `\(y[n]\)` también lo es
 
 Las medidas de los procesos de entrada y de salida son:
 
-`$$m_{x_{n}} = \varepsilon\{x_n\} \quad m_{y_{n}} = \varepsilon\{y_n\}$$`
+`$$m_{x_{n}} = \varepsilon\{x_n\}, \quad m_{y_{n}} = \varepsilon\{y_n\}$$`
 
 Donde `\(\varepsilon\{ \}\)` indica valor esperado. Las anteriores ecuaciones se pueden escribir como:
 
-`$$m_{x}[n] = \varepsilon\{x[n]\} \quad m_{y}[n] = \varepsilon\{y[n]\}$$`
+`$$m_{x}[n] = \varepsilon\{x[n]\}, \quad m_{y}[n] = \varepsilon\{y[n]\}$$`
 
 Si `\(x[n]\)` es estacionaria, entonces `\(m_x[n]\)` es independiente de `\(n\)` y se escribirá `\(m_x\)`. Lo mismo aplica con `\(m_y[n]\)` si `\(y[n]\)` es estacionaria.
 
@@ -85,7 +85,7 @@ Utilizando el hecho de que la esperanza de una suma es la suma de las esperanzas
 
 `$$m_y[n] = m_x \sum_{k=-\infty}^{\infty} h[k]$$`
 
-Así se observa que la media de la salida es una constante. Es puede escribir una expresión equivalente en función de la respuesta en frecuencia.
+Así se observa que la media de la salida es una constante. Se puede escribir una expresión equivalente en función de la respuesta en frecuencia.
 
 `$$m_y = H(e^{j 0}) m_x$$`
 
@@ -103,7 +103,7 @@ Como se supone que `\(x[n]\)` es estacionaria, `\(\varepsilon\{x[n-k] x[n+m-r]\}
 
 `$$\phi_{yy}[n,n+m] = \sum_{k=-\infty}^{\infty}h[k]\sum_{r=-\infty}^{\infty}h[r] \phi_{xx}[m+k-r] = \phi_{yy}[m]$$`
 
-La secuencia de autocorrelación de salida depende sólo de la diferencia temporal `\(m\)`. Es decir, dada un SLIT con una entrada en sentido amplio, su salida es también estacionaria en sentido amplio.
+La secuencia de autocorrelación de salida depende sólo de la diferencia temporal `\(m\)`. Es decir, dado un SLIT con una entrada en sentido amplio, su salida es también estacionaria en sentido amplio.
 
 ---
 
@@ -123,9 +123,9 @@ Donde:
 
 # Sobre la función de autocorrelación
 
-La secuencia de la forma `\(c_{hh}[l]\)` se denomina *secuencia de autocorrelación determinista* o simplemente *secuencia de autocorrelación* de `\(h[n]\)`. `\(c_{hh}[l]\)` es la autocorrelación de una secuencia no periódica (es decir, de energía finita). `\(c_{hh}[l]\)` es simplemente la convolución descreta de `\(h[n]\)` con `\(h[-n]\)`. La ecuación de `\(\phi_{yy}[m]\)` puede interpretarse como que la autocorrelación de la salida de un sistema lineal es la convolución de la entrada con la autocorrelación no periódica de la respuesta al impulso del sistema.
+La secuencia de la forma `\(c_{hh}[l]\)` se denomina *secuencia de autocorrelación determinista* o simplemente *secuencia de autocorrelación* de `\(h[n]\)`. `\(c_{hh}[l]\)` es la autocorrelación de una secuencia no periódica (es decir, de energía finita). `\(c_{hh}[l]\)` es simplemente la convolución discreta de `\(h[n]\)` con `\(h[-n]\)`. La ecuación de `\(\phi_{yy}[m]\)` puede interpretarse como que la autocorrelación de la salida de un sistema lineal es la convolución de la entrada con la autocorrelación no periódica de la respuesta al impulso del sistema.
 
-La ecuación de `\(\phi_{yy}[m]\)` sugiere que la transformada de Fourier pueden ser útiles para caracterizar la respuesta de un SLIT a una entrada estocástica.
+La ecuación de `\(\phi_{yy}[m]\)` sugiere que la transformada de Fourier puede ser útil para caracterizar la respuesta de un SLIT a una entrada estocástica.
 
 ---
 
@@ -228,7 +228,7 @@ Otro resultado importante tiene que ver con la correlación cruzada entre la ent
 
 `$$= \sum_{k=-\infty}^{\infty} h[k] \phi_{xx}[m-k]$$`
 
-En este caso vemos que la correlación cruzada entra la entrada y la salida es la convolución de la respuesta al impulso con la secuencia de autocorrelación de la entrada.
+En este caso vemos que la correlación cruzada entre la entrada y la salida es la convolución de la respuesta al impulso con la secuencia de autocorrelación de la entrada.
 
 La transformada de Fourier de esta última ecuación es:
 
