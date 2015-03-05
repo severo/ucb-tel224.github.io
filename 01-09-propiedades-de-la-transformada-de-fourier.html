@@ -124,7 +124,7 @@ y
 
 y si
 
-`$$ y[n] \sum_{k=-\infty}^{\infty} x[k]h[n-k]=x[n] * h[n]$$`
+`$$ y[n] = \sum_{k=-\infty}^{\infty} x[k]h[n-k]=x[n] * h[n]$$`
 
 entonces
 
@@ -205,7 +205,7 @@ Exponencial decreciente aplicada súbitamente
 
 Escalón unidad
 
-`$$ u[n] \overset{\mathscr{F}}{\longleftrightarrow} \frac{1}{1-a e^{-j\omega}} + \pi \sum_{k=-\infty}^{\infty} \delta(\omega + 2\pi k)$$`
+`$$ u[n] \overset{\mathscr{F}}{\longleftrightarrow} \frac{1}{1-e^{-j\omega}} + \pi \sum_{k=-\infty}^{\infty} \delta(\omega + 2\pi k)$$`
 
 Sinusoide decreciente
 
@@ -263,7 +263,7 @@ Utilizando el resultado de la exponencial decreciente aplicada súbitamente, obt
 
 Combinando con el resultado de desplazamiento en el tiempo, obtenemos para el segundo término
 
-`$$ -\frac{1}{4} \left(\frac{1}{2}\right)^n u[n-1] \overset{\mathscr{F}}{\longleftrightarrow} - \frac{\frac{1}{4} e^{-j \omega}}{1  - \frac{1}{2} e^{-j \omega} }$$`
+`$$ -\frac{1}{4} \left(\frac{1}{2}\right)^{n-1} u[n-1] \overset{\mathscr{F}}{\longleftrightarrow} - \frac{\frac{1}{4} e^{-j \omega}}{1  - \frac{1}{2} e^{-j \omega} }$$`
 
 Finalmente con al propiedad de linealidad, obtenemos la respuesta al impulso
 
