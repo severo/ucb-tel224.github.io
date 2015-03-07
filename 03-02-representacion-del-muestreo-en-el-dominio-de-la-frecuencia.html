@@ -93,27 +93,34 @@ Si `\(\Omega_s \leq 2\Omega_N\)` no se cumple, las copias de `\(X_c(j\Omega)\)` 
 
 # Representación del muestreo en el dominio de la frecuencia
 
-La siguiente figura ilustra el solapamiento en el dominio de la frecuencia para el caso simple de una señal coseno de la forma: `\(x_c(t) = cos(\Omega_0 t)\)`, cuya transformada de Fourier es:
+La siguiente figura ilustra el solapamiento en el dominio de la frecuencia para el caso simple de una señal coseno de la forma: `\(x_c(t) = \cos(\Omega_0 t)\)`, cuya transformada de Fourier es:
 
 `$$X_c(j\Omega) = \pi \delta(\Omega - \Omega_0) + \pi \delta(\Omega + \Omega_0)$$`
 
-SUBIR FIGURA 4.5
+.mediana[.figura[![Efecto del solapamiento en el muestreo de una señal coseno.](imagenes/03-02-figura-4.5a.svg)]]
 
 ---
 
 # Representación del muestreo en el dominio de la frecuencia
 
-Nótese que el impulso en `\(-\Omega_0\)` se representa con línea discontinua.
+Nótese que el impulso en `\(-\Omega_0\)` se representa con línea discontinua. Es útil tener esto en cuenta al observar las figuras posteriores. Si no hay solapamiento, la salida reconstruida es: `\(x_r(t) = \cos(\Omega_0 t)\)`
 
-Si no hay solapamiento, la salida reconstruida es:
+.mediana[.figura[![Efecto del solapamiento en el muestreo de una señal coseno.](imagenes/03-02-figura-4.5b.svg)]]
 
-`$$x_r(t) = cos(\Omega_0 t)$$`
+.mediana[.figura[![Efecto del solapamiento en el muestreo de una señal coseno.](imagenes/03-02-figura-4.5d.svg)]]
 
-Cuando hay solapamiento, la salida reconstruida es:
+---
 
-`$$x_r(t) = cos((\Omega_s -\Omega_0)t)$$`
+# Representación del muestreo en el dominio de la frecuencia
 
-Como consecuencia del proceso de muestreo y reconstrucción, la señal de alta frecuencia `\(cos(\Omega_o t)\)` ha tomado la identidad (alias) de la señal de baja frecuencia `\(cos((\Omega_s -\Omega_0)t)\)`.
+Cuando hay solapamiento, la salida reconstruida es `\(x_r(t) = \cos((\Omega_s -\Omega_0)t)\)`
+
+.mediana[.figura[![Efecto del solapamiento en el muestreo de una señal coseno.](imagenes/03-02-figura-4.5c.svg)]]
+
+.mediana[.figura[![Efecto del solapamiento en el muestreo de una señal coseno.](imagenes/03-02-figura-4.5e.svg)]]
+
+
+Como consecuencia del proceso de muestreo y reconstrucción, la señal de alta frecuencia `\(\cos(\Omega_o t)\)` ha tomado la identidad (alias) de la señal de baja frecuencia `\(\cos((\Omega_s -\Omega_0)t)\)`.
 
 ---
 
