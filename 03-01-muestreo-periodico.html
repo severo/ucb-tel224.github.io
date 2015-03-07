@@ -49,7 +49,7 @@ La figura siguiente representa una señal de voz en tiempo continuo y su corresp
 En la realidad, es imposible implementar un conversor ideal de tiempo continuo a tiempo discreto. En particular, un conversor analógico/digital (A/D) real tiene dos principales restricciones:
 
 * cuantificación de las muestras de salida: la amplitud `\(x[n]\)` esta redondeada, y no vale exactamente `\(x_c(nT)\)`,
-* limitación en la velocidad de muestreo: el dispositivo A/D esta limitado por su material y no puede realizar muestro a una frecuencia más alta que su frecuencia de muestreo máxima.
+* limitación en la velocidad de muestreo: el dispositivo A/D esta limitado por su material y no puede realizar muestreo a una frecuencia más alta que su frecuencia de muestreo máxima.
 
 ---
 
@@ -57,7 +57,7 @@ En la realidad, es imposible implementar un conversor ideal de tiempo continuo a
 
 De manera general, existe una infinidad de señales `\(x(t)\)` que puede producir la misma secuencia de muestreo `\(x[n]\)`, y por ende, no existe una operación de muestreo inversa, que haga corresponder una única señal en tiempo continuo a la señal en tiempo discreto.
 
-Sin embargo, haciendo una hipótesis sobre el contenido en frecuencia de la señal en tiempo continuo, sí se puede obtener una equivalencia exacta entre las dos señales. Básicamente, para entrar en este marco, se aplica un filtro pasa-bajo sobre la señal en tiempo continuo, para eliminar todas las frecuencias altas.
+Sin embargo, haciendo una hipótesis sobre el contenido en frecuencia de la señal en tiempo continuo, sí se puede obtener una equivalencia exacta entre las dos señales. Básicamente, para ponerse en esta situación, se aplica un filtro pasa-bajo sobre la señal en tiempo continuo antes del muestreo, para eliminar todas las frecuencias altas.
 
 ---
 
@@ -68,7 +68,7 @@ Es conveniente representar matemáticamente el proceso de muestreo dividiéndolo
 1. modulador con un tren de impulsos
 2. conversión del tren de impulsos en una secuencia.
 
-Si anotamos el tren de impulsos en tiempo continuo, con `\(\delta(t)\)` el impulso o delta de Dirac,
+Si anotamos `\(\delta(t)\)` el impulso o delta de Dirac y `\(s(t)\)` el tren de impulsos en tiempo continuo:
 
 `$$s(t) = \sum_{n=-\infty}^{\infty} \delta(t-nT)$$`
 
@@ -97,7 +97,7 @@ La representación del muestreo como un tren de impulsos modulado se puede descr
 
 .figura[![Sistema completo.](imagenes/03-01-figura-4.2a.svg)]
 
-Tomar en cuenta que este diagrama es la representación de un conversor ideal C/D, no es un esquema de operaciones físicas y aproximadas de un conversor A/D.
+Tomar en cuenta que este diagrama es la representación de un conversor ideal C/D, no es un esquema de operaciones físicas, entonces necesariamente aproximadas, de un conversor A/D.
 
 ---
 

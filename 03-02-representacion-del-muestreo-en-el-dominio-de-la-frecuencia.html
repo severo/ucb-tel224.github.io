@@ -23,9 +23,9 @@ Para obtener la relación entra la entrada y la salida de un conversor C/D ideal
 
 La transformada de Fourier de un tren de impulsos es otro tren de impulsos:
 
-`$$X(j\Omega) = \frac{2\pi}{T} \sum_{k=-\infty}^{\infty} \delta(\Omega - k\Omega_s)$$`
+`$$S(j\Omega) = \frac{2\pi}{T} \sum_{k=-\infty}^{\infty} \delta(\Omega - k\Omega_s)$$`
 
-Siendo `\(\Omega_s = 2\pi/T\)` la frecuencia de muestreo en radianes. Así:
+Siendo `\(\Omega_s = 2\pi/T\)` la frecuencia de muestreo en radianes por segundo. Así:
 
 `$$X_s(j\omega) = \frac{1}{2\pi} X_c(j\Omega) * S(j\Omega) = \frac{1}{T} \sum_{k=-\infty}^{\infty} X_c(j(\Omega-k\Omega_s))$$`
 
@@ -33,27 +33,37 @@ Siendo `\(\Omega_s = 2\pi/T\)` la frecuencia de muestreo en radianes. Así:
 
 # Representación del muestreo en el dominio de la frecuencia
 
-Que se traduce en que la transformada de Fourier de `\(x_s(t)\)`, que consiste en copias repetidas periódicamente de la transformada de Fourier de `\(x_c(t)\)`. Las copias de `\(X_c(j\Omega)\)` están desplazadas múltiplos enteros de la frecuencia de muestreo. Para que el muestreo funcione la transformada de Fourier de la señal a muestrear debe tener banda limitada (`\(X_c(j\Omega)=0\)`, para `\(|\Omega| \ge \Omega_N\)`). Para que las replicas no se superpongan debe suceder que:
+Se traduce en que la transformada de Fourier de `\(x_s(t)\)` consiste en copias repetidas periódicamente de la transformada de Fourier de `\(x_c(t)\)`. Las copias de `\(X_c(j\Omega)\)` están desplazadas múltiplos enteros de la frecuencia de muestreo. Para que el muestreo funcione la transformada de Fourier de la señal a muestrear debe tener banda limitada (`\(X_c(j\Omega)=0\)`, para `\(|\Omega| \ge \Omega_N\)`). Para que las replicas no se superpongan debe suceder que:
 
 `$$\Omega_s - \Omega_N \ge \Omega_N \quad \Omega_s \ge 2 \Omega_N$$`
 
-SUBIR FIGURA 4.3
+---
+
+# Representación del muestreo en el dominio de la frecuencia
+
+.figura[![Representación en el dominio de la frecuencia del muestreo en el dominio del tiempo.](imagenes/03-02-figura-4.3a.svg)]
 
 ---
 
-# Representación del muestreo en el dominio de la frecuencia
+# Representación del muestreo en el dominio de la frecuencia
 
-Como se pudo observar en la Figura anterior, las réplicas de `\(X_c(j\Omega)\)` no se solaparán, y por lo tanto, quedará una réplica exacta de `\(X_c(j\Omega)\)` en cada múltiplo entero de `\(\Omega_s\)` (excepto por un factor de escala de `\(1/T\)`).
+Como se puede observar en esta figura, las réplicas de `\(X_c(j\Omega)\)` no se solaparán, y por lo tanto, quedará una réplica exacta de `\(X_c(j\Omega)\)` en cada múltiplo entero de `\(\Omega_s\)` (excepto por un factor de escala de `\(1/T\)`).
+
+.figura[![Representación en el dominio de la frecuencia del muestreo en el dominio del tiempo.](imagenes/03-02-figura-4.3b.svg)]
+
+---
+
+# Reconstrucción de la señal muestreada
 
 `\(x_c(t)\)` se podrá recuperar a partir de `\(x_s(t)\)` con un filtro pasa bajo ideal.
 
-SUBIR FIGURA 4.4
+.mediana[.figura[![Recuperación exacta de una señal en tiempo continuo a partir de sus muestras utilizando un filtro paso bajo ideal.](imagenes/03-02-figura-4.4a.svg)]]
 
 ---
 
 # Representación del muestreo en el dominio de la frecuencia
 
-En la Figura se muestra el sistema de muestreo seguido por un sistema SLIT con repuesta en frecuencia `\(H_r(j\Omega)\)`. Dado `\(X_c(j\Omega)\)` y `\(X_s(j\Omega)\)` donde se supone que `\(\Omega_s \ge 2 \Omega_N\)`:
+En la figura anterior se muestra el sistema de muestreo seguido por un sistema SLIT con respuesta en frecuencia `\(H_r(j\Omega)\)`. Dado `\(X_c(j\Omega)\)` y `\(X_s(j\Omega)\)` donde se supone que `\(\Omega_s \ge 2 \Omega_N\)`:
 
 `$$X_r(j\Omega) = H_r(j\Omega) X_s(j\Omega)$$`
 
@@ -67,9 +77,17 @@ Se deduce que si `\(H_r(j\Omega)\)` es un filtro pasa bajo ideal de ganancia `\(
 
 ---
 
+# Reconstrucción de la señal muestreada
+
+.mediana[.figura[![Recuperación exacta de una señal en tiempo continuo a partir de sus muestras utilizando un filtro paso bajo ideal.](imagenes/03-02-figura-4.4b.svg)]]
+
+---
+
 # Representación del muestreo en el dominio de la frecuencia
 
 Si `\(\Omega_s \leq 2\Omega_N\)` no se cumple, las copias de `\(X_c(j\Omega)\)` se solapan, de modo que cuando se sumen todas, ya no será posible recuperar `\(X_c(j\Omega)\)` mediante un filtrado pasa bajo. En este caso, la salida reconstruida `\(x_r(t)\)` es una versión distorsionada de la señal original en tiempo continuo. Esta distorsión se denomina *distorsión de solapamiento*, o simplemente *solapamiento*.
+
+.figura[![Representación en el dominio de la frecuencia del muestreo en el dominio del tiempo.](imagenes/03-02-figura-4.3c.svg)]
 
 ---
 
