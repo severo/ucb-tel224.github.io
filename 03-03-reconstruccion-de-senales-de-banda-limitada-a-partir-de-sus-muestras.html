@@ -17,6 +17,147 @@ class: center, middle
 
 ---
 
+# Reconstrucción de señales de banda limitada a partir de sus muestras
+
+El teorema de muestreo de Nyquist-Shannon establece que las muestras de una señal de banda limitada en tiempo continuo son suficientes para representar exactamente a la señal si dichas muestras se toman con la suficiente frecuencia.
+
+Si se cumplen las condiciones del teorema de muestreo y el tren de impulsos modulados se filtra utilizando el *filtro paso bajo* apropiado, la salida de dicho filtro será igual a la señal continua de entrada `\(x_c(t)\)`.
+
+Para estudiar este filtro, primero definamos la señal `\(x_s(t)\)` como el tren de impulsos en el que cada impulso tiene un área igual al valor de la correspondiente muestra `\(x[n]\)`, con `\(T\)` el periodo de muestreo:
+
+`$$
+x_s(t) = \sum_{n=-\infty}^{\infty} x[n] \delta (t-nT)
+$$`
+
+---
+
+# Filtro de reconstrucción ideal
+
+Si pasamos la señal `\(x_s(t)\)` por un filtro pasa bajo *en tiempo continuo* cuya respuesta al impulso es `\(h_r(t)\)`, la salida del filtro será:
+
+`$$
+x_r(t) = \sum_{n=-\infty}^{\infty} x[n] h_r(t-nT)
+$$`
+
+El proceso de reconstrucción con un filtro pasa bajo continuo ideal esta representado en la siguiente figura (a). La figura (b) es una representación compacta equivalente como un conversor D/C ideal:
+
+.grande[.figura[![(a) Reconstrucción ideal de una señal de banda limitada. (b) Representación equivalente como un conversor D/C ideal.](imagenes/03-03-figura-4.9.svg)]]
+
+---
+
+# Filtro de reconstrucción ideal
+
+Características del filtro pasa bajo de reconstrucción ideal:
+
+* ganancia de `\(T\)`: para compensar el factor `\(\frac{1}{T}\)` en las ecuaciones de la transformada de Fourier en tiempo discreto de la secuencia x[n]
+* frecuencia de corte `\(\Omega_c \in [\Omega_N, \Omega_s - \Omega_N]\)`. Lo más frecuente es elegir `\(\Omega_c = \frac{\Omega_s}{2} = \frac{\pi}{T} \)`.
+
+La figura siguiente representa la respuesta en frecuencia del filtro pasa bajo de reconstrucción ideal, con `\(\Omega_c = \frac{\pi}{T} \)`
+
+.grande[.figura[![Respuesta en frecuencia de un filtro de reconstrucción ideal.](imagenes/03-03-figura-4.7b.svg)]]
+
+---
+
+# Filtro de reconstrucción ideal
+
+La respuesta al impulso (continuo) al filtro de reconstrucción ideal es la siguiente:
+
+`$$
+h_r(t) = \frac{\sin(\pi t / T)}{\pi t / T}
+$$`
+
+Demostración:
+
+`$$
+\begin{array}{ll}
+h_r(t) &= \frac{1}{2\pi} \int_{-\infty}^{\infty} H_r(j\Omega) e^{j\Omega t} d\Omega\\
+&= \frac{1}{2\pi} \int_{-\pi/T}^{\pi/T} T e^{j\Omega t} d\Omega \\
+&= \frac{T}{2\pi} \left[\frac{e^{j\Omega t}}{jt}\right]_{-\pi/T}^{\pi/T} \\
+&= \frac{1}{\frac{\pi t}{T}} \left( \frac{e^{j \frac{\pi t}{T}} - e^{-j \frac{\pi t}{T}}}{2j} \right) \\
+&= \frac{\sin\left(\frac{\pi t}{T}\right)}{\frac{\pi t}{T}}
+\end{array}
+$$`
+
+---
+
+# Filtro de reconstrucción ideal
+
+La respuesta al impulso del filtro de reconstrucción ideal esta representada en la figura siguiente:
+
+.grande[.figura[![Respuesta al impulso de un filtro de reconstrucción ideal.](imagenes/03-03-figura-4.7c.svg)]]
+
+Notaremos los siguientes resultados que nos servirán más adelante:
+`$$
+\begin{array}{ll}
+h_r(0) &= 1\\
+h_r(nT) &= 0, \quad \forall n \in \mathbb{Z}
+\end{array}
+$$`
+
+---
+
+# Filtro de reconstrucción ideal
+
+La señal reconstruida es la siguiente:
+
+`$$
+x_r(t) = \sum_{n=-\infty}^{\infty} x[n] h_r(t-nT) = \sum_{n=-\infty}^{\infty} x[n] \frac{\sin[\pi (t-nT) / T]}{\pi (t-nT) / T}
+$$`
+
+Se puede interpretar como la combinación lineal de las funciones de la base `\(h_r(t-nT) = \frac{\sin[\pi (t-nT) / T]}{\pi (t-nT) / T}\)`, con los coeficientes `\(x[n]\)`. Con los resultados anteriores sobre `\(h_r(nT)\)`, la primera expresión de `\(x_r(t)\)` y la definición `\(x[n] = x_c(nT)\)`, obtenemos
+
+`$$
+x_r(mT) = \sum_{n=-\infty}^{\infty} x_c(nT) h_r(mT-nT) = x_c(mT)
+$$`
+
+lo que significa que la señal reconstruida es igual a la señal original en los instantes de muestra. Entre estos instantes, el filtro de reconstrucción realiza una *interpolación*. En el caso de una señal de entrada `\(x_c\)` de banda limitada (`\(\Omega_N \lt \Omega_s/2 = \pi/T\)`), vimos en el análisis en frecuencia que las transformadas de Fourier de `\(x_c(t)\)` y `\(x_s(t)\)` son iguales, lo que implica que las dos señales son iguales en cada instante `\(t\)`, no solamente en los instantes de muestra.
+
+---
+
+# Filtro de reconstrucción ideal
+
+La figura siguiente representa la reconstrucción ideal de la señal a partir de las muestras y de las funciones  `\(h_r(t-nT) = \frac{\sin[\pi (t-nT) / T]}{\pi (t-nT) / T}\)`:
+
+.mediana[.figura[![Interpolación ideal de banda limitada.](imagenes/03-03-figura-4.8.svg)]]
+
+---
+
+# Transformada de Fourier
+
+Si calculamos la transformada de Fourier `\(X_r(j\Omega)\)` a partir de la siguiente formula:
+
+`$$
+x_r(t) = \sum_{n=-\infty}^{\infty} x[n] h_r(t-nT)
+$$`
+
+con la propiedad de desplazamiento en el tiempo, y luego la definición de la transformada de Fourier en tiempo discreto, obtenemos:
+
+`$$
+\begin{array}{ll}
+X_r(j\Omega) &= \sum_{n=-\infty}^{\infty} x[n] H_r(j\Omega) e^{-j\Omega T n} \\
+&= H_r(j\Omega) X(e^{j\Omega T})
+\end{array}
+$$`
+
+Recordemos las notaciones:
+
+* `\(X_r(j\Omega)\)`: transformada de Fourier de la señal en tiempo continuo `\(x_r(t)\)`
+* `\(H_r(j\Omega)\)`: transformada de Fourier de la señal en tiempo continuo `\(h_r(t)\)`
+* `\(X\left(e^{j\Omega T}\right)\)`: transformada de Fourier de la señal en tiempo discreto `\(x[n]\)`
+
+---
+
+# Transformada de Fourier
+
+Utilizando la formula siguiente
+
+`$$
+X_r(j\Omega) = H_r(j\Omega) X(e^{j\Omega T})
+$$`
+
+queda claro que la señal reconstruida es siempre de banda limitada con frecuencia máxima la frecuencia de corte del conversor ideal D/C.
+
+Además, como lo vimos antes, si la señal de entrada es de banda limitada con frecuencia máxima inferior a la frecuencia de corte del conversor ideal D/C, entonces todas las frecuencias son preservadas y la señal de reconstrucción es igual a la señal de entrada.
 
 ---
 
