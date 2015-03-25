@@ -112,17 +112,68 @@ Esta fig. proporciona la interpretación de cómo se obtiene esta respuesta efec
 (c) muestra la transformada de Fourier en tiempo discreto de la secuencia de muestras y la respuesta en frecuencia del sistema en tiempo discreto en función de la variable de frecuencia normalizada en tiempo discreto `\(\omega\)`.
 (d) muestra `\(Y(e^{j\omega}) = H(e^{j\omega}) X(e^{j\omega})\)`, la transformada de Fourier de la salida del sistema en tiempo discreto.
 (e) ilustra la transformada de Fourier de la salida del sistema en tiempo discreto en función de la variable de frecuencia en tiempo continuo `\(\Omega\)`, junto con la respuesta en frecuencia del filtro de reconstrucción ideal del conversor D/C, `\(H_r(j\Omega)\)`. 
-(f) finalmente muestra la transformada de Fourier resultante a la salida del conversor D/C.
-
-Comparando las salidas (a) y (f) vemos que el sistema se comporta como un SLIT.
+(f) finalmente muestra la transformada de Fourier resultante a la salida del conversor D/C. Comparando las salidas (a) y (f) vemos que el sistema se comporta como un SLIT.
 
 ---
 
 # Procesado en TD de señales en TC
 
-El ejemplo anterior...
+El ejemplo anterior permite ilustrar varios puntos importantes. PRIMERO, Nótese que el filtro pasa bajo ideal en tiempo discreto cuya frecuencia de corte es `\(\omega_c\)` tiene el efecto de un filtro pasa bajo ideal de crecuencia de corte `\(\Omega_c = \omega_c/T\)` cuando se utiliza en la configuración C/D->SIS->D/C esta frecuencia de corte depende de `\(\omega_c\)` y de `\(T\)`. SEGUNDO, En particular, si se utiliza un filtro pasa bajo fijo en tiempo discreto pero se varía el perido de muestreo `\(T\)`, se consigue un filtro equivalente en tiempo continuo cuya frecuencia de corte es variable. Por ejemplo, si `\(T\)` se escoge de forma que cumpla `\(\Omega_N T < \omega_c\)`, la salida del sistema C/D->SIS->D/C sería `\(\y_r(t) = x_r(t)\)`.
 
 ---
+
+# Procesado en TD de señales en TC
+
+TERCERO, La ecuación:
+
+`$$H_{eff}(j\Omega)= \left\{\begin{array}{ll}
+1,    & |\Omega T| < \omega_c ó |\Omega| < \omega_c/T \\
+0,    & |\Omega T| \ge \omega_c ó |\Omega| \ge \omega_c/T
+\end{array}\right.$$`
+
+Sigue siendo válida incluso cuando existe algo de solapamiento, siempre que las componentes distorcionadas (solapadas) sean eliminadas por el filtro. Vemos que para que la salida esté libre de solapamiento es necesario que:
+
+`$$(2\pi-\Omega_N T) \ge \omega_c$$`
+
+que podemos comparar con la condición de Nyquist:
+
+`$$(2\pi-\Omega_N T) \ge \Omega_N T$$`.
+
+---
+
+# Ejemplo Realización en tiempo discreto de un diferenciador ideal para señales en tiempo continuo de banda limitada
+
+El sistema diferenciador ideal en tiempo continuo se define así:
+
+`$$y_c(t) = \'frac{d}{dt} [x_c(t)]$$`
+
+Y su correspondiente respuesta en frecuencia es:
+
+`$$H_c(j\Omega) = j\Omega$$`
+
+Como estamos considerando una realización con la estructura C/D->SIS->D/C, las entradas deben ser de banda limitada. Para procesar señales de banda limitada, es suficiente que:
+
+`$$H_{eff}(j\Omega)= \left\{\begin{array}{ll}
+j\Omega,    & |\Omega| < \pi/T \\
+0,    & |\Omega| \ge \pi/T
+\end{array}\right.$$`
+
+---
+
+# Ejemplo Realización en tiempo discreto de un diferenciador ideal para señales en tiempo continuo de banda limitada
+
+FIGURA 4.13
+
+---
+
+# Ejemplo Realización en tiempo discreto de un diferenciador ideal para señales en tiempo continuo de banda limitada
+
+El correspondiente sistema en tiempo discreto tiene como respuesta en frecuencia:
+
+`$$$$`
+
+---
+
 
 # Navegación
 
