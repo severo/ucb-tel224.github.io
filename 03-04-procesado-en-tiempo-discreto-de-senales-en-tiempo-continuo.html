@@ -118,7 +118,7 @@ Esta fig. proporciona la interpretación de cómo se obtiene esta respuesta efec
 
 # Procesado en TD de señales en TC
 
-El ejemplo anterior permite ilustrar varios puntos importantes. PRIMERO, Nótese que el filtro pasa bajo ideal en tiempo discreto cuya frecuencia de corte es `\(\omega_c\)` tiene el efecto de un filtro pasa bajo ideal de crecuencia de corte `\(\Omega_c = \omega_c/T\)` cuando se utiliza en la configuración C/D->SIS->D/C esta frecuencia de corte depende de `\(\omega_c\)` y de `\(T\)`. SEGUNDO, En particular, si se utiliza un filtro pasa bajo fijo en tiempo discreto pero se varía el perido de muestreo `\(T\)`, se consigue un filtro equivalente en tiempo continuo cuya frecuencia de corte es variable. Por ejemplo, si `\(T\)` se escoge de forma que cumpla `\(\Omega_N T < \omega_c\)`, la salida del sistema C/D->SIS->D/C sería `\(\y_r(t) = x_r(t)\)`.
+El ejemplo anterior permite ilustrar varios puntos importantes. PRIMERO, Nótese que el filtro pasa bajo ideal en tiempo discreto cuya frecuencia de corte es `\(\omega_c\)` tiene el efecto de un filtro pasa bajo ideal de crecuencia de corte `\(\Omega_c = \omega_c/T\)` cuando se utiliza en la configuración C/D->SIS->D/C esta frecuencia de corte depende de `\(\omega_c\)` y de `\(T\)`. SEGUNDO, En particular, si se utiliza un filtro pasa bajo fijo en tiempo discreto pero se varía el perido de muestreo `\(T\)`, se consigue un filtro equivalente en tiempo continuo cuya frecuencia de corte es variable. Por ejemplo, si `\(T\)` se escoge de forma que cumpla `\(\Omega_N T < \omega_c\)`, la salida del sistema C/D->SIS->D/C sería `\(y_r(t) = x_r(t)\)`.
 
 ---
 
@@ -145,7 +145,7 @@ que podemos comparar con la condición de Nyquist:
 
 El sistema diferenciador ideal en tiempo continuo se define así:
 
-`$$y_c(t) = \'frac{d}{dt} [x_c(t)]$$`
+`$$y_c(t) = \frac{d}{dt} [x_c(t)]$$`
 
 Y su correspondiente respuesta en frecuencia es:
 
@@ -170,10 +170,32 @@ FIGURA 4.13
 
 El correspondiente sistema en tiempo discreto tiene como respuesta en frecuencia:
 
-`$$$$`
+`$$H(e^{j\omega}) = \frac{j\omega}{T}, \quad |\omega| < \pi$$`
+
+Que es periódica de periodo `\(2\pi\)`.
+
+Se puede demostrar que la correspodiente respuesta al impulso de esta últiam ecuación es:
+
+`$$h[n] = \frac{1}{2\pi} \int_{-\pi}^{\pi} \left(\frac{j\omega}{T}\right)e^{j\omega n} d\omega=\frac{\pi n cos(\pi n) - sen(\pi m)}{\pi n^2 T}, \quad -\infty < n < \infty$$`.
+
+`$$h[n] = \left\{\begin{array}{ll}
+0,    & n=0 \\
+\frac{cos(\pi n)}{n T},    & n \neq 0
+\end{array}\right.$$`
 
 ---
 
+# Ejemplo Realización en tiempo discreto de un diferenciador ideal para señales en tiempo continuo de banda limitada
+
+Por tanto, si se utiliza un sistema con esta respuesta al impulso en la configuración C/D->SIS->D/C, la salida para cualquier entrada de banda limitada será la derivada de la entrada.
+
+---
+
+# Invarianza al impulso
+
+Hemos demostrado
+
+---
 
 # Navegación
 
