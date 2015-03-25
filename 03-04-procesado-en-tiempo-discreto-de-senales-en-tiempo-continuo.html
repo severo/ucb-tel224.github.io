@@ -48,6 +48,21 @@ Siendo `\(y[n]\)` la secuencia de salida del sistema en tiempo discreto cuando s
 
 ---
 
+Aplicando la Ecuación (4.28) podemos ver que `\(Y_r(j\Omega)\)` (la transforma de Fourier en tiempo continuo de `\(y_r(t)\)`) y `\(Y(e^{j\omega})\)` (la transformada de Fourier en tiempo discreto de `\(y[n]\)`) están relacionadas como:
+
+`$$H_{eff}(j\Omega)= \left\{\begin{array}{ll}
+H(e^{j\Omega T}), & |\Omega| < \pi/T \\
+0    & |\Omega| \ge \pi/T
+\end{array}\right.$$`
+
+El sistema en tiempo cotinuo completo es equivalente a un sistema lineal e invariante con el tiempo cuya respuesta en frecuencia efectiva está dada por la última ecuación.
+
+Que el sistema de la anterior Fig. sea LIT depende de dos factores:
+
+* 
+
+---
+
 # Navegación
 
 Seguir con [3.5 Procesado en tiempo continuo de señales en tiempo discreto](./03-05-procesado-en-tiempo-continuo-de-senales-en-tiempo-discreto.html)
