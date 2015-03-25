@@ -72,6 +72,56 @@ En general si el sistema discreto de la Fig. es LIT, y la frecuencia de muestreo
 
 # Ejemplo Filtro pasa bajo ideal en tiempo continuo utilizando un filtro pasa bajo en tiempo discreto
 
+Consideremos la Fig. del inicio de esta presentación en la que el sistema en tiempo discreto es LIT, y su respuesta en frecuencia es:
+
+`$$H(e^{j\omega})= \left\{\begin{array}{ll}
+1, & |\omega| < \omega_c \\
+0,    & \omega_c < |\omega| \le \pi
+\end{array}\right.$$`
+
+Esta respuesta en frecuencia es, por supuesto, periódica de periodo `\(2\pi\)`, como se muestra en la siguiente Fig.
+
+FIGURA 4.11
+
+---
+
+# Ejemplo Filtro pasa bajo ideal en tiempo continuo utilizando un filtro pasa bajo en tiempo discreto
+
+Para señales de banda limitada muestreadas por encima de la frecuencia Nyquist, se deduce de la ec. (4.38) que el sistema completo (C/D->SIS->D/C) se comporta como un sistema en TC LIT con respuesta en frecuencia:
+
+`$$H_{eff}(j\Omega)= \left\{\begin{array}{ll}
+1,    & |\Omega T| < \omega_c ó |\Omega| < \omega_c/T \\
+0,    & |\Omega T| \ge \omega_c ó |\Omega| \ge \omega_c/T
+\end{array}\right.$$`
+
+Esta respuesta en frecuencia efectiva es la de un filtro paso bajo ideal de frecuencia de corte `\(\Omega_c = \omega_c/T\)`, como se muestra en la última figura.
+
+---
+
+# Ejemplo Filtro pasa bajo ideal en tiempo continuo utilizando un filtro pasa bajo en tiempo discreto
+
+FIGURA 4.12
+
+---
+
+# Ejemplo Filtro pasa bajo ideal en tiempo continuo utilizando un filtro pasa bajo en tiempo discreto
+
+Esta fig. proporciona la interpretación de cómo se obtiene esta respuesta efectiva.
+(a) muestra la transformada de Fourier de una señal de banda limitada.
+(b) muestra la transformada de Fourier del tren de impulsos modulados intermedio, que coincide con `\(X(e^{j\Omega T})\)`, la transformada de Fourier en tiempo discreto de la secuencia de muestras evaluada en `\(\omega = \Omega T\)`.
+(c) muestra la transformada de Fourier en tiempo discreto de la secuencia de muestras y la respuesta en frecuencia del sistema en tiempo discreto en función de la variable de frecuencia normalizada en tiempo discreto `\(\omega\)`.
+(d) muestra `\(Y(e^{j\omega}) = H(e^{j\omega}) X(e^{j\omega})\)`, la transformada de Fourier de la salida del sistema en tiempo discreto.
+(e) ilustra la transformada de Fourier de la salida del sistema en tiempo discreto en función de la variable de frecuencia en tiempo continuo `\(\Omega\)`, junto con la respuesta en frecuencia del filtro de reconstrucción ideal del conversor D/C, `\(H_r(j\Omega)\)`. 
+(f) finalmente muestra la transformada de Fourier resultante a la salida del conversor D/C.
+
+Comparando las salidas (a) y (f) vemos que el sistema se comporta como un SLIT.
+
+---
+
+# Procesado en TD de señales en TC
+
+El ejemplo anterior...
+
 ---
 
 # Navegación
