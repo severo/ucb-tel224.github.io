@@ -38,11 +38,11 @@ El conversor C/D produce una señal en tiempo discreto:
 
 La transformada de Fourier en tiempo discreto de esta secuencia está relacionada con la transformada de Fourier en tiempo continuo de la señal de entrada en tiempo continuo,
 
-`$$X(e^{j\omega}) = \frac{1}{T}\sum_{k=-\infty}^{\infty} X_c\left[j\left(\frac{\omega}{T}-\frac{2\pi k}{T}\right)\rigth]$$`
+`$$X(e^{j\omega}) = \frac{1}{T}\sum_{k=-\infty}^{\infty} X_c\left[j\left(\frac{\omega}{T}-\frac{2\pi k}{T}\right)\right]$$`
 
 El conversor D/C crea una señal de salida en tiempo continuo de la forma:
 
-`$$y_r(t) = \sum_{n=\-infty}^{\infty} y[n] \frac{sen[\pi(t-n T)/T]}{\pi(t-n T)/T}$$`
+`$$y_r(t) = \sum_{n=-\infty}^{\infty} y[n] \frac{sen[\pi(t-n T)/T]}{\pi(t-n T)/T}$$`
 
 Siendo `\(y[n]\)` la secuencia de salida del sistema en tiempo discreto cuando su entrada es `\(x[n]\)`.
 
