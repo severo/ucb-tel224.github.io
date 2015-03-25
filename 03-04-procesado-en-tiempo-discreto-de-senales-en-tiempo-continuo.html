@@ -52,14 +52,25 @@ Aplicando la Ecuación (4.28) podemos ver que `\(Y_r(j\Omega)\)` (la transforma 
 
 `$$H_{eff}(j\Omega)= \left\{\begin{array}{ll}
 H(e^{j\Omega T}), & |\Omega| < \pi/T \\
-0    & |\Omega| \ge \pi/T
+0,    & |\Omega| \ge \pi/T
 \end{array}\right.$$`
 
 El sistema en tiempo cotinuo completo es equivalente a un sistema lineal e invariante con el tiempo cuya respuesta en frecuencia efectiva está dada por la última ecuación.
 
 Que el sistema de la anterior Fig. sea LIT depende de dos factores:
 
-* 
+* El sistema en tiempo discreto debe ser SLIT.
+* La señal de entrada debe ser de banda limitada, y la frecuencia de muestreo debe ser lo suficientemente alta como para que réplicas de solapamiento sean eliminadas por el sistema en tiempo discreto.
+
+---
+
+Como un ejemplo de la violación de la segunda condición, consideremos el caso en el que `\(x_c(t)\)` es un único pulso de amplitud unidad de duración menor que el periodo de muestreo. Si el pulso vale la unidad en `\(t=0\)`, entonces `\(x[n] = \delta[n]\)`. Sin embargo, claramente es posible desplazar el pulso de forma que no esté alineado con los instantes de muestreo. En ese caso, `\(x[n]=0,\forall n\)`. Obviamente el pulso, señal limitada en el tiempo, no es de banda limitada, por lo que no es posible cumplir las condiciones del teorema de muestreo. Incluso aunque el sistema en tiempo discreto sea el sistema identidad, con `\(y[n] = x[n]\)`, si se produce solapamiento al muestrear la entrada, el sistema completo no es invariante con el tiempo.
+
+En general si el sistema discreto de la Fig. es LIT, y la frecuencia de muestreo es o está por encima de la frecuencia de Nyquist asociada con el ancho de banda de la entrada `\(x_c(t)\)`, el sistema completo será equivalente a un sistema en tiempo continuo LIT cuya respuesta en frecuencia efectiva vandrá dada por esta última ecuación. Es más, esta ecuación es válida aunque se produzca algo de solapamiento en el conversor C/D , siempre que `\(H(e^{j\omega})\)` elimine las componentes solapadas.
+
+---
+
+# Ejemplo Filtro pasa bajo ideal en tiempo continuo utilizando un filtro pasa bajo en tiempo discreto
 
 ---
 
