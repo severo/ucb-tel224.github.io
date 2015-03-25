@@ -178,6 +178,10 @@ Se puede demostrar que la correspodiente respuesta al impulso de esta últiam ec
 
 `$$h[n] = \frac{1}{2\pi} \int_{-\pi}^{\pi} \left(\frac{j\omega}{T}\right)e^{j\omega n} d\omega=\frac{\pi n cos(\pi n) - sen(\pi m)}{\pi n^2 T}, \quad -\infty < n < \infty$$`.
 
+---
+
+# Ejemplo Realización en tiempo discreto de un diferenciador ideal para señales en tiempo continuo de banda limitada
+
 `$$h[n] = \left\{\begin{array}{ll}
 0,    & n=0 \\
 \frac{cos(\pi n)}{n T},    & n \neq 0
@@ -193,7 +197,56 @@ Por tanto, si se utiliza un sistema con esta respuesta al impulso en la configur
 
 # Invarianza al impulso
 
-Hemos demostrado
+Hemos demostrado que el sistema en cascada C/D->SIS->D/C puede ser equivalente a un SLIT para entradas de banda limitada. Supongamos ahora que, como se muestra en la siguiente fig., se desea realizar un sistema en tiempo continuo utilizando la misma estructura.
+
+FIGURA 4.14
+
+---
+
+# Invarianza al impulso
+
+ Si `\(H_c(j\Omega)\)` es de banda limitada, se debe escoger `\(H(e^{j\omega})\)` para que se cumpla que `\(H_{eff}(j\Omega) = H_c(j\Omega)\)`. Concretamente:
+ 
+`$$H(e^{j\omega}) = H_c(j\omega/T), \quad |\omega| < \pi$$`
+
+Con el requerimiento adicional de que `\(T\)` debe elegirse de forma que se cumpla:
+
+`$$H_c(j\Omega) = 0, \quad |\Omega| \ge \pi/T$$`
+
+Bajo las restricciones de las anteriores dos ecuaciones, existe también una relación directa y útil entre la respuesta al impulso en tiempo continuo `\(h_c(t)\)` y la respuesta al impulso en tiempo discreto `\(h[n]\)`. Se puede verificar:
+
+`$$h[n] = T h_c(n T)$$`
+
+---
+
+# Invarianza al impulso
+
+La respuesta al impulso del sistema en tiempo discreto es una versión escalada y muestreada de `\(h_c(t)\)`. Cuando `\(h[n]\)` y `\(h_c(t)\)` se relacionan mediante `\(h[n] = h_c(n T)\)`, se dice que el sistema en tiempo discreto es una versión *invariante al impulso* del sistema en tiempo continuo.
+
+La ecuación `\(h[n] = T h_c(n T)\)` es una consecuencia directa de las ideas presentadas en la sección 3.2. Concretamente, la ecuación:
+
+`$$X(e^{j\omega}) = \frac{1}{T}\sum_{k=-\infty}^{\infty} X_c\left[j\left(\frac{\omega}{T}-\frac{2\pi k}{T}\right)\right]$$`
+
+sustituyendo `\(x[n]\)` y `\(x_c(t)\)` por `\(h[n]\)` y `\(h_c(t)\)` se convierte en:
+
+`$$H(e^{j\omega}) = \frac{1}{T} \sum_{k=-\infty}^{\infty} H_c\left[j\left(\frac{\omega}{T}-\frac{2\pi k}{T}\right)\right]$$`
+
+---
+
+# Invarianza al impulso
+
+Si se cumple la ecuación `\(H_c(j\Omega) = 0, \quad |\Omega| \ge \pi/T\)` tendremos:
+
+`$$H(e^{j\omega}) = \frac{1}{T} H_c\left(j\frac{\omega}{T}\right), \quad |\omega| < \pi$$`
+
+Así obtendremos que:
+
+`$$h[n] = T h_c(n T)$$`
+
+`$$H(e^{j\omega}) = \H_c\left(j\frac{\omega}{T}\right), \quad |\omega| < \pi$$`
+
+Revise los dos ejemplos de la págica 172, para ver la utilidad de este concepto.
+
 
 ---
 
